@@ -1,0 +1,42 @@
+/* pages/community/person/autograph/autograph.wxss */
+.body {
+  font-size: 34rpx;
+  position:relative;
+  height:90rpx;
+}
+
+.body .topTitle {
+
+  background: #fff;
+
+  font-size: 35rpx;
+    height:90rpx;
+    line-height:90rpx;
+}
+.topTitle text{
+    display:inline-block;
+   position: absolute;
+   width:180rpx;
+   left:50%;
+   margin-left:-90rpx;
+
+}
+button{
+    width:100rpx;height:70rpx;padding:0;font-size:30rpx;
+    position:absolute;
+    right:10rpx;
+    top:50%;
+    margin-top:-35rpx;
+    background:#F6B35A;
+    color:#fff;
+}
+.body textarea {
+  padding: 25rpx 25rpx;
+  border-bottom: solid 1rpx #ccc;
+  border-top: solid 1rpx #ccc;
+  width: 100%;
+}
+
+.body .textarea-placeholder {
+  color: #aaa;
+}

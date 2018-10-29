@@ -1,0 +1,33 @@
+<template name="menu">
+    <!--单页显示  -->
+    <block wx:if='{{item.style.showtype == 0 }}'>
+        <view class='fui_nav_group' style='width: 100%; background: {{item.style.background}}; padding: 20rpx 0;'>
+            <navigator wx:for='{{item.data}}' wx:for-item="val" wx:key='' class='fui_nav num-{{item.style.rownum}} shape-{{item.style.navstyle}}' url='{{val.linkurl}}'>
+                <image wx:if="{{val.imgurl != ''}}" src='http://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{val.imgurl}}'></image>
+                <view wx:else class="icon {{val.iconclass}}" style="color:{{val.color?val.color:'#d81e06'}}"></view>
+                <text style='color:{{val.color}}'>{{val.text}}</text>
+            </navigator>
+        </view>
+    </block>
+
+    <!-- 分页滑动  -->
+    <block wx:else>
+        <view class="jui-menu">
+            <swiper indicator-dots='true' style='height:400rpx;'>
+                <block wx:for="{{item.data}}" wx:key="" wx:for-item="">
+                    <swiper-item>
+                        <view class='fui_nav_group' style='width:100%'>
+                            <view wx:for='{{item.page_data}}' wx:for-item="val" wx:key='' style='width:25%'>
+                                <navigator class='fui_nav' url='{{val.linkurl}}' style='width:100%'>
+                                    <image src='http://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{val.imgurl}}' style='width:2.2rem; height: 2.2rem;'></image>
+                                    <text style='font-size: 30rpx;color:{{val.color}}'>{{val.text}}</text>
+                                </navigator>
+                            </view>
+                        </view>
+                    </swiper-item>
+
+                </block>
+            </swiper>
+        </view>
+    </block>
+</template>

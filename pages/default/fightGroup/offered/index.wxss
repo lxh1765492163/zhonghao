@@ -1,0 +1,190 @@
+/* pages/default/fightGroup/offered/index.wxss */
+.header{
+  width:100%;
+  height:220rpx;
+  /* background:red; */
+  border-bottom:1px solid #ccc;
+}
+.header image{
+  width:170rpx;
+  height:170rpx;
+  margin-top:20rpx;
+  margin-left:10rpx;
+  float:left;
+}
+.header .headerLeft{
+  width:70%;
+  height:100%;
+  /* background:blueviolet; */
+  float:left;
+  margin-left:10rpx;
+}
+.header .headerLeft .headerTitle{
+  font-size:36rpx;
+  font-weight: 600;
+  font-family: 宋体;
+  width:100%;
+  overflow: hidden;
+  height:40rpx;
+}
+.detail{
+  font-size:30rpx;
+  margin-top:100rpx;
+  color:#333;
+}
+.detail .price{
+  color:#f00;
+}
+.detail .ple{
+  float:right;
+  color:#ccc;
+}
+.order{
+  width:100%;
+  height:200rpx;
+  background:#fff;
+  font-size:30rpx;
+}
+.order .groups{
+  width:97%;
+  height:30rpx;
+  margin:0 auto;
+  font-size:26rpx;
+  margin-top:10rpx;
+  padding-top:20rpx;
+}
+.order .tuan{
+  width:300rpx;
+  height:60rpx;
+  background:blue;
+  float:left;
+  border:1px solid #ccc;
+  margin-top:20rpx;
+  text-align: center;
+  line-height:60rpx;
+  border-radius: 10rpx;
+}
+.order .my{
+  background:#fff;
+  font-size:32rpx;
+  margin-left:40rpx;
+}
+.order .two {
+  margin-left:40rpx;
+  color:#fff;
+  background:#FD5454;
+}
+.play{
+  width:100%;
+  height:200rpx;
+  margin-top:20rpx;
+  background:#fff;
+  font-size:30rpx;
+}
+.play .head{
+  height:50rpx;
+  /* background:red; */
+  width:100%;
+  line-height:50rpx;
+  
+}
+.play .head .block{
+  display:inline-block;
+  width:15rpx;
+  height:40rpx;
+  background:#FD5454;
+   float:left;
+   margin-left:20rpx;
+   margin-top:4rpx;
+}
+.play .head .fa{
+ margin-left:10rpx;
+  float:left;
+}
+.play .head .details{
+  float:right;
+  margin-right:20rpx;
+}
+.play .trol{
+  width:180rpx;
+  height:100rpx;
+  /* background:#f00; */
+  margin-top:20rpx;
+  float:left;
+  font-size:28rpx;
+  margin-left:5rpx;
+}
+.play .trol .bu{
+  display:block;
+  width:50rpx;
+  height:50rpx;
+  /* background:blue; */
+  border-radius: 50rpx;
+  text-align: center;
+  line-height:60rpx;
+  border: 1px dashed #ccc;
+  float:left;
+  margin-top:20rpx;
+}
+.trol .choice{
+  display:block;
+  width:120rpx;
+  height:40rpx;
+  float:left;
+}
+.more{
+  width:100%;
+  height:100rpx;
+  font-size:32rpx;
+  font-weight: 600;
+  text-align: center;
+  line-height: 100rpx;
+}
+.groom{
+  width:100%;
+  margin-bottom:70rpx;
+}
+.groom .goods{
+  width:48.5%;
+  height:550rpx;
+  /* background:red; */
+  float:left;
+}
+.goods image{
+  width:94%;
+  height:380rpx;
+  margin-left:16rpx;
+}
+.goods .goodstitle{
+  font-size:34rpx;
+  font-weight: 600;
+  width:100%;
+  height:100rpx;
+  /* background:blue; */
+  overflow: hidden;
+ 
+}
+.goods .goodsprice{
+  width:100%;
+  height:40rpx;
+  font-size:30rpx;
+  margin-left:20rpx;
+}
+.goods .goodsprice .rmb{
+  color:#f00;
+}
+.goods .goodsprice .price{
+  color:#f00;
+  font-size:34rpx;
+}
+.goods .goodsprice .cost{
+  font-size:28rpx;
+  color:#ccc;
+  text-decoration:line-through;
+}
+.goods .goodsprice .people{
+  font-size:28rpx;
+  color:#ccc;
+  float:right;
+  margin-right:50rpx;
+}

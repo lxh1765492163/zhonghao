@@ -1,0 +1,30 @@
+<template name="detail_shop">
+  <view class="fui-cell-group fui-shop-group" style='background: {{item.style.background}}; margin-top:{{item.style.margintop}}px; margin-bottom: {{item.style.marginbottom}}px'>
+    <view class="fui-list">
+      <view class="fui-list-media {{item.params.logostyle}}">
+        <image src="{{goods.detail_logo!='' ? 'https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/'+goods.detail_logo : store.logo}}" mode="widthFix"></image>
+      </view>
+      <view class="fui-list-inner">
+        <view class="title" style="color:{{item.style.shopnamecolor}};">{{goods.detail_shopname!='' ? goods.detail_shopname : store.name}}</view>
+        <view class="subtitle" style="color:{{item.style.shopdesccolor}};">{{goods.detail_totaltitle!='' ? goods.detail_totaltitle : store.description}}</view>
+      </view>
+    </view>
+    <view wx:if="{{item.params.hidenum!=1}}" class="fui-cell">
+      <view class="fui-cell-text center" style="color:{{item.style.goodsnumcolor}};">{{store.goodssum}}
+        <view style="color:{{item.style.goodstextcolor}};">全部</view>
+      </view>
+      <view class="fui-cell-text center" style="color:{{item.style.goodsnumcolor}};">{{store.goodsnew}}
+        <view style="color:{{item.style.goodstextcolor}};">新品</view>
+      </view>
+      <view class="fui-cell-text center" style="color:{{item.style.goodsnumcolor}};">{{store.goodsdiscount}}
+        <view style="color:{{item.style.goodstextcolor}};">促销</view>
+      </view>
+    </view>
+    <view class="fui-cell btns">
+      <view class="fui-cell-text center">
+        <navigator url="{{goods.detail_btnurl1!=''?goods.detail_btnurl1:goods.merchid==0?'../list/list':'/pages/default/merch/index/index?merchid='+goods.merchid}}" class="btn btn-default-o external" style="border-color:{{item.style.leftnavcolor}};color:{{item.style.leftnavcolor}};">{{goods.detail_btntext1=='' ? item.params.leftnavtext : goods.detail_btntext1}}</navigator>
+        <navigator url="{{goods.detail_btnurl2!=''?goods.detail_btnurl2:goods.merchid==0?'../../index/index':'/pages/default/merch/index/index?merchid='+goods.merchid}}" class="btn btn-default-o external" style="border-color:{{item.style.rightnavcolor}};color:{{item.style.rightnavcolor}};">{{goods.detail_btntext2=='' ?item.params.rightnavtext : goods.detail_btntext2}}</navigator>
+      </view>
+    </view>
+  </view>
+</template>

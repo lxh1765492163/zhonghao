@@ -1,0 +1,157 @@
+/* pages/default/bespoke/order/index.wxss */
+.header{
+  position: relative;
+  width:100%;
+  height:180rpx;
+}
+.address{
+  width:100%;
+  height:180rpx;
+  background:#a8b1c1;
+}
+.address .left{
+  float:left;
+}
+.address .name{
+  /* width:80%; */
+  font-size:30rpx;
+  color:#fff;
+  padding:40rpx 0 10rpx 40rpx; 
+
+}
+.add_ren{
+  width:300rpx;
+  height:80rpx;
+  background:#fe6672;
+  border-radius: 8rpx;
+  font-size:30rpx;
+  color:#fff;
+  text-align: center;
+  line-height: 80rpx;
+  margin-top:40rpx;
+  position: absolute;
+  left:50%;
+  margin-left:-150rpx;
+}
+.address .right{
+  width:10%;
+  float:right;
+  margin-top:60rpx;
+  color:#fff;
+}
+.address .name text:nth-child(2){
+  margin-left:30rpx; 
+}
+.add_detail{
+  font-size:30rpx;
+  color:#fff;
+  padding-left:40rpx;
+}
+.shi{
+  width:100%;
+  height:100rpx;
+  background:#fff;
+}
+.shi text:first-child{
+  display:inline-block;
+  width:50%;
+  font-size:38rpx;
+  height:100rpx;
+  line-height: 100rpx;
+  margin-left:40rpx;
+}
+.shi text:nth-child(2){
+  font-size:30rpx;
+  color:#acacac;
+}
+.shi text:nth-child(3){
+  margin-left:50rpx;
+  color:#ccc;
+}
+.content {
+  margin-top:30rpx;
+  background:#fff;
+}
+.content .xm{
+  color:#666;
+  font-size:34rpx;
+  padding-left:40rpx;
+  padding-bottom:20rpx;
+}
+.contents{
+  width:100%;
+  height:200rpx;
+  background:#fff;
+  border-bottom: 1px solid #ccc;
+}
+.content image{
+  width:200rpx;
+  height:150rpx;
+  border-radius: 10rpx;
+  margin-left:20rpx;
+  padding-top:25rpx;
+  float:left;
+}
+.content_title{
+   float:left;
+  width:70%;
+  height:160rpx;
+  /* background:blue; */
+  margin-top:20rpx;
+}
+.content_title .title{
+  font-size:34rpx;
+  padding-left:30rpx;
+  padding-bottom:30rpx;
+}
+.content_title .stor{
+  font-size:30rpx;
+  color:#acacac;
+  padding-left:30rpx;
+}
+.content_title .price{
+  font-size:40rpx;
+  color:#fe6672;
+  width:300rpx;
+  float:left;
+}
+.form {
+  width:90%;
+  margin:0 auto;
+  height:auto;
+  margin-top:20rpx;
+}
+.form .all{
+ height:100rpx;
+ border-top:1px solid #ccc;
+ font-size:36rpx;
+ line-height:100rpx;
+ position:relative;
+}
+
+.form .all text:first-child{
+  display: inline-block;
+  width:30%;
+}
+.form .all text:nth-child(2){
+
+  /* right:6rpx; */
+  color:#fe6771;
+}
+.form .all text:nth-child(3){
+  position: absolute;
+  right:6rpx;
+  /* color:#fe6771; */
+}
+.footer {
+  margin-top:50rpx;
+}
+.footer .butt{
+  background:#fe6771;
+}
+.section{
+  width:100%;
+  font-size:36rpx;
+   height:10rpx;
+  border-top:1px solid #ccc;
+}

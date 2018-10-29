@@ -1,0 +1,632 @@
+
+.jui-page{
+	width: 100%;
+	height: auto;
+	-ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    display: block;
+    font-size: 30rpx;
+}
+
+.jui-container{
+	width: 100%;
+	display: block;
+}
+
+.jui-banner{
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.jui-fixedsearch{
+	width: 100%;
+	height: 100rpx;	
+}
+
+.jui-fixedsearch .fixedsearch{
+	width: 96%;
+	height: 70rpx;
+	line-height: 70rpx;
+	padding: 15rpx 2%;
+	position: fixed;
+	top: 0;
+	z-index: 9999;
+	overflow: hidden;
+}
+
+.jui-fixedsearch .fixedsearch .icons-left{
+	width: 23%;
+	float: left;
+	height: 100%;
+	display: flex;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	box-direction: normal;
+	align-items: center;
+	font-size: 30rpx;
+	color: #fff;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+
+.jui-fixedsearch .fixedsearch .icons-left image{
+	width: 50rpx;
+	height: 50rpx;
+	display: block;
+}
+
+.jui-fixedsearch .fixedsearch .icons-left .myaddress{
+	display: block;
+	margin-left: 5rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #000;
+}
+
+.jui-fixedsearch .fixedsearch .searchinput{
+	float: left;
+	box-sizing: border-box;
+	width: 70%;
+	height: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding: 0 10rpx;
+}
+
+.jui-fixedsearch .fixedsearch .searchinput .inputfull{
+	width: 95%;
+	padding-left: 5%;
+	height: 60rpx;
+	line-height: 60rpx;
+	margin-top: 5rpx;
+	font-size: 30rpx;
+}
+
+.jui-fixedsearch .fixedsearch .searchinput .round{
+	border-radius: 15rpx;
+}
+
+.jui-fixedsearch .fixedsearch .searchinput .circle{
+	border-radius: 30rpx;
+}
+
+.jui-fixedsearch .fixedsearch .icons-right{
+	width: 7%;
+	float: right;
+	height: 100%;
+	overflow: hidden;
+	text-align: right;
+}
+
+.jui-fixedsearch .fixedsearch .icons-right image{
+	width: 50rpx;
+	height: 50rpx;
+	display: block;
+	margin-top: 10rpx;
+}
+
+
+
+.jui-search{
+
+	height: 78rpx;
+	line-height: 78rpx;
+	overflow: hidden;
+/*	box-sizing: border-box;*/
+}
+
+.jui-search navigator.radius{
+	border-radius: 10rpx;
+}
+
+.jui-search navigator.round{
+	border-radius: 40rpx;
+}
+
+.jui-search navigator .search-icon{
+	height: 100%;
+	line-height: 80rpx;
+	float: left;
+	text-align: center;
+	padding-left: 20rpx;
+}
+
+.jui-search navigator .searchinput{
+	width: 80%;
+	height: 100%;
+	float: left;
+	padding-left: 20rpx;
+}
+
+.jui-goods-group{
+	width: 100%;
+	height: auto;
+	box-sizing: border-box;
+	padding: 20rpx 5rpx;
+	overflow: hidden;
+}
+
+
+.jui-goods-item{
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	padding: 20rpx 0;
+	border-bottom: 1px solid #eee;
+	background: #FFFFFF;
+}
+
+
+.jui-goods-item .logo{
+	float: left;
+	width: 37%;
+	height: 250rpx;
+	position: relative;
+	word-wrap: break
+}
+
+.jui-goods-item .logo image{
+	width: 250rpx;
+	height: 100%;
+	display: block;
+}
+
+.jui-goods-item .logo .goods-icon{
+	position: absolute;
+	width: 250rpx;
+	height: 100%;
+	overflow: hidden;
+	display: block;
+	z-index: 100;
+	top: 0;
+	left: 0;
+}
+
+.jui-goods-item .logo .goods-icon image{
+	display: block;
+	width: 40rpx;
+	height: 40rpx;
+	position: absolute;
+}
+
+.jui-goods-item .logo .goods-icon image.left{
+	left: 0;
+}
+
+.jui-goods-item .logo .goods-icon image.top{
+	top: 0;
+}
+
+.jui-goods-item .logo .goods-icon image.right{
+	right: 0;
+}
+
+.jui-goods-item .logo .goods-icon image.bottom{
+	bottom: 0;
+}
+
+.jui-goods-item .details{
+	float: left;
+	width: 62%;
+	font-size: 32rpx;
+	color: #000000;
+	font-weight: bold;
+}
+
+.jui-goods-item .details .goodsname{
+	padding-top: 10rpx;
+	height: 96rpx;
+	line-height: 48rpx;
+	overflow: hidden;
+}
+
+.jui-goods-item .details .goodsitems{
+	width: 100%;
+	height: 110rpx;
+	margin-top: 40rpx;
+	overflow: hidden;
+	position: relative;
+}
+
+.jui-goods-item .details .goodsitems .price{
+	width: 100%;
+
+	overflow: hidden;
+}
+
+.jui-goods-item .details .goodsitems .price .sales{
+	font-size: 28rpx;
+	margin-top: 10rpx;
+}
+
+.jui-goods-item .details .goodsitems .price .s-originalprice{
+	font-size: 28rpx;
+	overflow: hidden;
+	margin-top: 10rpx;
+}
+
+.jui-goods-item .details .goodsitems .price .s-originalprice text{
+	display: block;
+	float: left;
+}
+
+
+.jui-goods-item .details .goodsitems .price .s-originalprice text.word{
+	margin-left: 5rpx;
+}
+
+.jui-goods-item .details .goodsitems .price .s-originalprice text.pricenum{
+	width: auto;
+	position: relative;
+	overflow: hidden;
+	text-overflow: hidden;
+	white-space: nowrap;
+}
+
+.jui-goods-item .details .goodsitems .price .s-originalprice text.pricenum text.deleteline{
+	display: inline-block;
+	position: absolute;
+	width: 120%;
+	height: 1px;
+	top: 50%;
+	left: -10%;
+	background: #777;
+}
+
+.jui-goods-item .details .goodsitems .price .priceitems{
+	font-size: 28rpx;
+	overflow: hidden;
+	font-weight: normal;
+	
+}
+
+.jui-goods-item .details .goodsitems .price .priceitems .presentprice{
+	font-size: 38rpx;
+	float: left;
+	font-weight: bold;
+}
+
+.jui-goods-item .details .goodsitems .price .priceitems .originalprice{
+	float: left;
+	margin-top: 12rpx;
+	margin-left: 15rpx;
+	font-weight: normal;
+}
+
+.jui-goods-item .details .goodsitems .price .priceitems .originalprice text .deleteline{
+	display: inline-block;
+	position: absolute;
+	width: 120%;
+	height: 1px;
+	top: 50%;
+	left: -10%;
+	background: #777;
+}
+
+.jui-goods-item .details .goodsitems .btns{
+	position: absolute;
+	top: 55%;
+	right: 0;
+	margin-top: -25rpx;
+}
+
+.jui-goods-item .details .goodsitems .btns .buy{
+	display: block;
+	color: #FFFFFF;
+	width: 50rpx;
+	height: 50rpx;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 50rpx;
+}
+
+.jui-goods-item .details .goodsitems .btns .buy.buybtn-3{
+	width: auto;
+	padding: 0 10rpx;
+	border-radius: 10rpx;
+}
+
+.jui-goods-item .details .goodsitems .btns .buy .icon{
+	display: block;
+	margin: auto;
+}
+
+
+.block{
+	width: 48%;
+	box-sizing: border-box;
+	/* margin: 0 1% 15rpx; */
+    margin-left:14rpx;
+	float: left;
+	padding: 0;
+	
+}
+
+.block .logo{
+	width: 173px;
+	height: 174px;
+	float: none;
+}
+
+.block .logo image{
+	width: 100%;
+	/* height: 360rpx; */
+}
+
+.block .logo .goods-icon{
+	width: 100%;
+	height: 100%;
+}
+
+
+.block view.details{
+	float: none;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 2%;
+}
+
+.block view.details .goodsname{
+	margin-top: 10rpx;
+	width: 100%;
+}
+
+.block view.details .goodsitems{
+	width: 100%;
+	height: auto;
+	margin-top: 20rpx;
+	padding-bottom: 20rpx;
+}
+
+.block view.details .goodsitems .price{
+	width: 100%;
+}
+
+.block view.details .goodsitems .price .priceitems{
+	margin: 0;
+	height: 48rpx;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.block view.details .goodsitems .price .priceitems .presentprice{
+	width: auto;
+	font-size: 35rpx;
+	display: inline-block;
+	float: none;
+	word-break: normal;
+}
+
+.block view.details .goodsitems .price .priceitems .originalprice{
+	margin-left: 10rpx;
+	margin-top: 0;
+	display: inline-block;
+	float: none;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 26rpx;
+}
+
+.block view.details .goodsitems .btns{
+	bottom: 10rpx;
+}
+
+.one{
+	width: 100%;
+	margin: 0;
+	margin-bottom: 20rpx;
+}
+
+
+.one .logo{
+	width: 100%;
+	height: 700rpx;
+	float: none;
+}
+
+.one .logo image{
+	width: 100%;
+	height: 100%;
+}
+
+.one .logo .goods-icon{
+	width: 100%;
+	height: 100%;
+}
+
+
+.one view.details{
+	float: none;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 2%;
+}
+
+.one view.details .goodsname{
+	margin-top: 10rpx;
+	width: 100%;
+}
+
+.one view.details .goodsitems{
+	width: 100%;
+	height: auto;
+	margin-top: 20rpx;
+	padding-bottom: 30rpx;
+}
+
+.one view.details .goodsitems .price{
+	width: 100%;
+}
+
+.one view.details .goodsitems .price .sales{
+	margin-top: 10rpx;
+}
+
+.one view.details .goodsitems .price .priceitems{
+	margin: 0;
+	height: 48rpx;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.one view.details .goodsitems .price .priceitems .presentprice{
+	width: auto;
+	font-size: 35rpx;
+	display: inline-block;
+	float: none;
+	word-break: normal;
+}
+
+.one view.details .goodsitems .price .priceitems .originalprice{
+	margin-left: 10rpx;
+	margin-top: 0;
+	display: inline-block;
+	float: none;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 26rpx;
+}
+
+.one view.details .goodsitems .btns{
+	bottom: 25rpx;
+}
+
+.jui-icongroup{
+	width: 100%;
+	height: auto;
+	padding: 20rpx 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+	flex-wrap: wrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.jui-icongroup .row-item{
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.jui-icongroup .row-item view.icon{
+	font-size: 45rpx;
+}
+
+.jui-icongroup .row-item view.icon text.icon{
+	font-size: 45rpx;
+}
+
+.jui-icongroup .border-r:not(:last-child){
+	border-right: 1px solid #eee;
+}
+
+.jui-row-3 .row-item{
+	width: 33.33%;
+}
+
+.jui-row-4 .row-item{
+	width: 25%;
+}
+
+.jui-row-5 .row-item{
+	width: 20%;
+}
+
+
+.jui-notice{
+	width: 100%;
+	height: 60rpx;
+	padding: 20rpx 0;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.jui-notice .logo{
+	width: 12%;
+	height: 100%;
+	text-align: center;
+	border-right: 1px solid #eee;
+}
+
+.jui-notice .logo image{
+	width: 50rpx;
+	height: 50rpx;
+	display: block;
+	margin: 5rpx auto 0;
+}
+
+.jui-notice .icons{
+	width: 8%;
+	height: 100%;
+	line-height: 60rpx;
+	text-align: center;
+	overflow: hidden;
+}
+
+.jui-notice .icons text.icon{
+	margin-top: 2rpx;
+	display: block;
+}
+
+.jui-notice .notice-wrap{
+	width: 75%;
+	height: 100%;
+	line-height: 60rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.jui-notice .notice-wrap .text{
+	width: 100%;
+	height: 100%;
+	line-height: 60rpx;
+}
+
+
+.jui-menu{
+	width: 100%;
+	padding: 10rpx 0;
+    background:#fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+

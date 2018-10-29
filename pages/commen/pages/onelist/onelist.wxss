@@ -1,0 +1,30 @@
+/**index.wxss**/ 
+page{
+  height: 100%;
+  background-color: #EFEFF4;
+}
+.onlist1{
+  margin-top: 20rpx;
+  border-top: solid #D7D7DB 1rpx;
+  border-bottom: solid #D7D7DB 1rpx;
+}
+.onlist2{
+  border-top: solid #D7D7DB 1rpx;
+  border-bottom: solid #D7D7DB 1rpx;
+}
+.weui-cells_after-title{
+  margin-top: 10rpx;
+}
+.weui-cells_after-title::after{
+  border: none;
+}
+.weui-cells_after-title::before{
+  border: none;
+}
+.onlist{
+  font-size: 30rpx;
+  color: #333;
+}
+
+
+

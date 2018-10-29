@@ -1,0 +1,26 @@
+<import src="../../../component/menu/menu.wxml" />
+<import src="../../../component/notice/notice.wxml" />
+<import src="../../../component/goods/goods.wxml" />
+<import src="../../../component/fixedsearch/fixedsearch.wxml" />
+<import src="../../../component/search/search.wxml" />
+<import src="../../../component/title/title.wxml" />
+<import src="../../../component/line/line.wxml" />
+<import src="../../../component/blank/blank.wxml" />
+<import src="../../../component/picture/picture.wxml" />
+<import src="../../../component/banner/banner.wxml" />
+<import src="../../../component/picturew/picturew.wxml" />
+<import src="../../../component/pictures/pictures.wxml" />
+<import src="../../../component/icongroup/icongroup.wxml" />
+<import src="../../../component/listmenu/listmenu.wxml" />
+<import src="../../../component/video/video.wxml" />
+<import src="../../../component/copy/copy.wxml" />
+<import src="../../../component/merchgroup/merchgroup.wxml" />
+
+<view class="fui-page fui-page-current">
+  <view class="fui-content">
+    <!--加载组件-->
+    <block wx:for="{{modules}}" wx:for-item="item" wx:key="">
+      <template wx:if="{{item.id}}" is="{{item.id}}" data="{{item}}" />
+    </block>
+  </view>
+</view>

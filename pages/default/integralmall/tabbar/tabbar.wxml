@@ -1,0 +1,9 @@
+<!--pages/integralmall/tabbar/tabbar.wxml-->
+ <template name='tabbar'>
+ <view class='tabbar' >
+      <view class="tab" wx:for='{{tabbar}}' wx:key="" bindtap='tabbar' data-id='{{item.id}}' style="color: {{item.id==id?'red':''}}" >
+            <view class='icon {{item.pagePath}}' style='margin-bottom:-16rpx;'></view>
+            <text>{{item.text}}</text>
+      </view>
+      </view>
+</template> 

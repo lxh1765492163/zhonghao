@@ -1,0 +1,13 @@
+<template name="blockgroup">
+   <view class="fui-block-group " style="margin-top:0;overflow:hidden;background-color:{{item.style.background}};">
+        <block wx:for="{{item.data}}" wx:for-item="val" wx:key="">
+            <navigator url="{{val.linkurl}}" class="fui-block-child col-{{item.params.rownum}}" style="background-color:{{item.style.background}}">
+                <view class="icon" style="color:{{val.iconcolor}};"><text class="icon {{val.iconclass}}"></text></view>
+                <view class="title" style="color:{{val.textcolor}};line-height:1rem;font-size:12px;flex:1;margin-top:34rpx;">{{val.text}}
+           
+                    <text wx:if="{{val.tiptext != ''}}" style="color:{{item.style.tipcolor}};">{{val.tipnum}}</text> {{val.tiptext}}
+                </view>
+            </navigator>
+        </block>
+    </view>
+</template>

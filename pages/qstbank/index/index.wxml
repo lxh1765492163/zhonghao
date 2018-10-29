@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="example">
+  <view class='search'>
+    <icon type='search' size='15'></icon>
+    <input type='text' placeholder='搜索'></input>
+  </view>
+  <view class='category_list'>
+    <block wx:for="{{list}}" wx:key="">
+      <view class='category' bindtap='getchild' data-id="{{item.id}}" data-superior_name="{{item.name}}" >
+        <image src='{{item.image}}'></image>
+        <view>{{item.name}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<scroll-view animation="{{animationData}}" class='child_category' scroll-y style='height:{{windowHeight}}px;'>
+  <view class='header'>
+    <text class='back' bindtap='goback' style='color:#409AFF'>返回</text>
+    <view class='search'>
+      <icon type='search' size='15'></icon>
+      <input type='text' placeholder='搜索'></input>
+    </view>
+  </view>
+
+  <view class='category'>{{superior_name}}</view>
+
+  <view class='list_menu'>
+    <block wx:for="{{child_list}}" wx:key="">
+      <view class='menu' bindtap='getchild' data-id="{{item.id}}" data-title="{{item.name}}" data-superior_name="{{item.name}}">
+        <view>{{item.name}}</view>
+        <view class='icon'></view>
+      </view>
+    </block>
+  </view>
+</scroll-view>

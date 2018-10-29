@@ -1,0 +1,13 @@
+<template name="merch_search">
+<view class="fui-searchbar bar" style="z-index:0;">
+  <view class="searchbar">
+    <view>
+      <button class="searchbar-cancel searchbtn" type="text" style="top:0;right:0;">搜索</button>
+      <view class="search-input">
+        <text class="icon icon-search"></text>
+        <input type="text" class="search" catchblur="searchSubmit" placeholder="输入关键字..." />
+      </view>
+    </view>
+  </view>
+</view>
+</template>

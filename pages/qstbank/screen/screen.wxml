@@ -1,0 +1,34 @@
+<!--pages/screen/screen.wxml-->
+<view class='screen'>
+  <view class='icon icon-home' bindtap='goindex'>首页</view>
+  <!-- <view class='title'>试题分类</view>
+  <view class='row'>
+    <block wx:for="{{category}}" wx:key="">
+      <view data-cid="{{item.cid}}" style="color:{{cid==item.cid?'white':''}};background:{{cid==item.cid?'#409AFF':''}}" bindtap='changeid'>{{item.text}}</view>
+    </block>
+  </view> -->
+
+  <view class='title'>题目类型</view>
+  <view class='row'>
+     <view data-tid="-1" style="color:{{tid==''?'white':''}};background:{{tid==''?'#409AFF':''}}" bindtap='changeid'>全部 ({{total}})</view>
+    <block wx:for="{{style}}" wx:key="">
+      <view data-tid="{{item.type}}" style="color:{{item.sel?'white':''}};background:{{item.sel?'#409AFF':''}}" bindtap='changeid'>{{item.type==1?'多选题':item.type==2?'单选题':item.type==3?'判断题':item.type==4?'问答题':item.type==5?'配伍题':'其他'}} ({{item.type_total}})</view>
+    </block>
+  </view>
+  <view class='title'>做题数量</view>
+  <view class='row'>
+    <block wx:for="{{num}}" wx:key="">
+      <view data-pagesize="{{item}}" style="color:{{pagesize==item?'white':''}};background:{{pagesize==item?'#409AFF':''}}" bindtap='changeid'>{{item}}</view>
+    </block>
+  </view>
+</view>
+<view class='select'>
+  <view bindtap='gotest' data-mode="0">
+    <text class='icon icon-text1'></text>
+    <text>练习模式</text>
+  </view>
+  <view bindtap='gotest' data-mode="1">
+    <text class='icon icon-office'></text>
+    <text>考试模式</text>
+  </view>
+</view>

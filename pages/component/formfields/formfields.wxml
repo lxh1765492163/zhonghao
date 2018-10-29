@@ -1,0 +1,23 @@
+<template name="formfields">
+    <view class="fui-cell-group diyform-container">
+        <block wx:for="{{fields}}" wx:for-index="idx" wx:for-item="v1" wx:key="">
+            <view class="fui-cell {{v1.tp_must == 1 ? 'must' : ''}}">
+                <view class="fui-cell-label" style="width:auto;padding-right:15px;">
+                    {{v1.tp_name}}
+                    <view wx:if="{{v1.data_type == 10}}">{{v1.tp_name2}}</view>
+                </view>
+                <view class="fui-cell-info">
+                    <block wx:if="{{v1.data_type == 0}}">
+                      <input type="text" class="fui-input" name="{{idx}}" placeholder="{{v1.placeholder != '' ? v1.placeholder : '请输入' + v1.tp_name}}" value="{{v1.tp_default}}" />
+                    </block>
+                    <block wx:elif="{{v1.data_type == 1}}">
+                      <textarea name="{{idx}}" placeholder="{{v1.placeholder != '' ? v1.placeholder : '请输入' + v1.tp_name}}" value="{{v1.tp_default}}" style="height:42px;" />
+                    </block>
+                    <block wx:elif="{{v1.data_type == 2}}">
+                      <picker range="{{v1.tp_text}}" value="{{index ? index : 0}}">请选择{{v1.tp_text[index]}}</picker>
+                    </block>
+                </view>
+            </view>
+        </block>
+    </view>
+</template>

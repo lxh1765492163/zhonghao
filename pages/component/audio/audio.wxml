@@ -1,0 +1,13 @@
+
+<template name="audio">
+    <view class="audio" style="background:{{item.style.background}};">
+        <blcok wx:if="{{item.params.loopplay == '0'}}">
+             <audio style="border:{{item.style.bordercolor}};padding-left:{{item.style.paddingleft}}rpx;padding-top:{{item.style.paddingtop}}rpx;color:{{item.style.textcolor}};" author="{{item.params.subtitle}}" name="{{item.params.title}}" src="{{item.params.audiourl}}" id="myAudio" controls></audio>
+        </blcok>
+        <block wx:else>
+             <audio  author="{{item.params.subtitle}}" name="{{item.params.title}}" src="{{item.params.audiourl}}" id="myAudio" controls loop></audio>
+            
+        </block>
+        
+    </view>
+</template>

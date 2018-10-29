@@ -1,0 +1,93 @@
+<view class="fui-page order-express-page">
+    <view class="fui-content">
+        <block wx:if="{{items.sendtype > 0}}">
+            <view class="fui-list-group">
+                <view class="fui-list-group-title" style="font-size:0.6rem;">包裹{{items.bundle}}内商品</view>
+            </view>
+            <block wx:for="{{items.goods}}" wx:for-item="item" wx:key="">
+                <navigator url="/pages/default/goods/detail/detail?id={{item.goodsid}}">
+                    <view class="fui-list" style="padding:0.2rem 0.5rem;">
+                        <view class="fui-list-media back">
+                            <image src="{{item.thumb}}" mode="widthFix"></image>
+                        </view>
+                        <view class="fui-list-inner" style="font-size:0.6rem;max-height:1.6rem;overflow: hidden;line-height: 0.8rem;">
+                            {{item.title}}
+                        </view>
+                    </view>
+                </navigator>
+            </block>
+        </block>
+        <block wx:if="{{items.bundlelist.length > 0}}">
+            <block wx:for="{{items.bundlelist}}" wx:for-index="idx" wx:for-item="b" wx:key="">
+                <view class="fui-list-group info-list">
+                    <view class="fui-list-group-title">
+                        <view class="fui-list" style="padding:0;border-bottom:1px solid #dcdcdc;">
+                            <view class="fui-list-inner">包裹{{b.chr}}</view>
+                            <navigator url="/pages/default/order/express/express?id={{b.orderid}}&sendtype={{b.sendtype}}&bundle={{b.chr}}" class="fui-list-media" style="float:right;font-size:.6rem;color:#666;margin:0;">点击查看物流 <text class="angle" style="font-size:1.2rem;"></text></navigator>
+                        </view>
+                    </view>
+                    <block wx:for="{{b.goods}}" wx:for-item="bg" wx:key="">
+                        <navigator url="/pages/default/order/express/express?id={{b.orderid}}&sendtype={{b.sendtype}}&bundle={{b.chr}}">
+                            <view class="fui-list">
+                                <view class="fui-list-media back">
+                                    <image src="{{bg.thumb}}" mode="widthFix"></image>
+                                    <view class="title">{{bg.total}}件商品</view>
+                                </view>
+                                <view class="fui-list-inner" style="font-size:.7rem;">{{bg.title}}</view>
+                            </view>
+                        </navigator>
+                    </block>
+                </view>
+            </block>
+        </block>
+        <block wx:else>
+            <view class="fui-list-group info-list">
+                <view class="fui-list">
+                    <navigator open-type="navigateBack" class="fui-list-media back">
+                        <image src="{{items.goods[0].thumb}}" mode="widthFix"></image>
+                        <view class="title">{{items.goods.length}}件商品</view>
+                    </navigator>
+                    <view class="fui-list-inner">
+                        <view class="title state">
+                            物流状态
+                            <block wx:if="{{items.expresslist.length > 0}}">
+                                <block wx:if="{{items.is_get}}">
+                                    <text class="text-danger">已签收</text>
+                                </block>
+                                <block wx:elif="{{items.expresslist.length <= 2}}">
+                                    <text class="text-primary">备货中</text>
+                                </block>
+                                <block wx:else>
+                                    <text class="text-success">配送中</text>
+                                </block>
+                            </block>
+                        </view>
+                        <view class="text expcom">
+                            <view>快递公司: {{items.order.expresscom}}</view>
+                            <view>快递单号: {{items.order.expresssn}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+
+        <block wx:if="{{items.expresslist.length == 0 && items.bundlelist.length == 0}}">
+            <view class="content-empty">
+                <view><text class="icon icon-deliver1"></text></view>
+                <view class="text">暂时没有物流信息</view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="fui-list-group express-list" style="margin-top:.5rem;">
+                <block wx:for="{{items.expresslist}}" wx:for-index="k" wx:for-item="ex" wx:key="">
+                    <view class="fui-list {{k == 0 ? 'current' : ''}}">
+                        <view class="fui-list-inner">
+                            <view class="text step">{{ex.step}}</view>
+                            <view class="text time">{{ex.time}}</view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </block>
+    </view>
+</view>

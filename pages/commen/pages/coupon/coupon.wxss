@@ -1,0 +1,310 @@
+/* zh_jd/pages/coupon/coupon.wxss */
+
+.rel {
+  position: relative;
+}
+
+.ab {
+  position: absolute;
+}
+
+.ud {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.lr {
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.udlr {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.fon {
+  font-family: 微软雅黑;
+}
+
+.center {
+  text-align: center;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.margin_auto {
+  margin: 0 auto;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+}
+
+.gobyndmulit {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/*单行文本超出隐藏*/
+
+.gobyndsingle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.zi {
+  z-index: 99;
+}
+
+.iinlin_block {
+  display: inline-block;
+}
+
+.border1 {
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+.border2 {
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}
+.im{
+  width: 60%;
+  height: 60%;
+}
+.op{
+  opacity: .3;
+}
+  
+page{
+  background: #e5e5e5;
+  height: 100%;
+}
+.users{
+  width: 85%;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-indent: 50rpx;
+  font-size: 30rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin: 30rpx auto 0;
+}
+.effective,already,overdue{
+  color: #F9882B
+}
+.default{
+  color: #000;
+}
+.show{
+  display: block;
+}
+.hidden{
+  display: none;
+}
+.container{
+  width: 100%;
+  height: 100%;
+}
+.header{
+  width: 100%;
+  height: 100rpx;
+  margin: 0 auto;
+}
+.background{
+  width: 100%;
+  height: 60%;
+  top: 0;
+  background: #F9882B;
+  z-index: 1;
+}
+.option{
+  width: 95%;
+  height: 100%;
+  background: #fff;
+  border-radius: 10rpx;
+  margin: 0 auto;
+  z-index: 100;
+}
+.option_son{
+  width: 100%;
+  height: 30rpx;
+  display: flex;
+}
+.option_son>view{
+  flex:3;
+  border-right: 1rpx solid #000;
+  text-align: center;
+  line-height: 30rpx;
+  font-size: 28rpx;
+}
+.option_son>view:nth-child(3){
+  border: none;
+}
+.body{
+  width: 95%;
+  height: auto;
+  /* background: #fff; */
+  margin: 20rpx auto;
+  padding-top:20rpx;
+  padding-bottom: 20rpx;
+}
+.coupons{
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+}
+.coupons_son{
+  width: 100%;
+  height: 150rpx;
+  border-radius: 8rpx; 
+  margin-bottom: 10rpx;
+  color: #333;
+  background: #fff;
+  /* background: linear-gradient(to right, #F9882B , #5C38F7); */
+  overflow: hidden;
+}
+.butt{
+  width: 150rpx;
+  height: 60rpx;
+  background: orange;
+  right: -50rpx;
+  top: 80rpx;
+}
+ .son_right button{
+   width: 160rpx; 
+   height: 50rpx; 
+  right: -400rpx;
+  top: 50rpx;
+  position: absolute;
+  background: red;
+} 
+.none_coupon{
+  width: 100%;
+  height: 350rpx;
+  border-radius: 8rpx; 
+}
+.none_coupon>view{
+  width: 400rpx;
+  height: 250rpx;
+}
+.none_coupon>view view{
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #666;
+  bottom: 0;
+}
+.none_coupon image{
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 auto;
+}
+.son_left{
+  width: 150rpx;
+  height: 150rpx;
+  box-sizing: border-box;
+  display: inline-block;
+  background: #F9882B;
+   border-right: 2rpx dotted #fff; 
+}
+.son_left>view:nth-child(1){
+  width: 36rpx;
+  height: 18rpx;
+   background: #fff; 
+  top: 0;
+  border-radius: 0 0 18rpx 18rpx;
+  right: -18rpx;
+}
+.son_left>view:nth-child(2){
+  width: 36rpx;
+  height: 18rpx;
+   background: #fff; 
+  bottom: 0;
+  border-radius: 18rpx 18rpx 0 0;
+  right: -18rpx;
+}
+.son_left>view:nth-child(3){
+  width: 100%;
+  height: 100%;
+  top: 0;
+  text-align: center;
+  line-height: 150rpx;
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #fff;
+}
+
+.son_right{
+  height: 100%;
+  width: auto;
+  background: #fff;
+  display: inline-block;
+}
+.son_right>view{
+ width: 400rpx;
+  line-height: 75rpx;
+  color: #333;
+  text-indent: 50rpx;
+}
+.son_right>view:nth-child(1){
+  top: 0;
+  font-size: 35rpx;
+}
+.son_right>view:nth-child(2){
+  top: 50%;
+  font-size: 24rpx;
+}
+.not_user{
+  right: -50rpx;
+  top:20rpx;
+  color: #fff;
+  background: #F9882B;
+  width: 200rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 24rpx;
+  transform:rotate(45deg);
+}
+
+.not_user view{
+  width: 100%;
+  height: 100%;
+}
+.color{
+  width: 95%;
+  height: 40rpx;
+  display: flex;
+  margin: 20rpx auto;
+}
+.color>view{
+  flex:5;
+  text-align: center;
+  position: relative;
+}
+.color>view view{
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+}

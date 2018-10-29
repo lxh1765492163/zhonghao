@@ -1,0 +1,27 @@
+/* pages/default/merch/merchgroup/merchgroup.wxss */
+@import "banner/index.wxss";
+@import "dropdown/index.wxss";
+@import "position/index.wxss";
+@import "swiper/index.wxss";
+@import "merchant/index.wxss";
+@import '../../../component/float/menu.wxss';
+
+page {
+    width: 100%;
+    font-size: 30rpx;
+    background: #f5f5f5;
+}
+
+.empty{
+	width: 100%;
+	text-align: center;
+	font-size: 34rpx;
+	color: #777;
+}
+
+.empty image{
+	width: 120rpx;
+	height: 120rpx;
+	display: block;
+	margin: 50rpx auto 30rpx;
+}

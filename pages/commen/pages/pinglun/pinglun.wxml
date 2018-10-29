@@ -1,0 +1,23 @@
+<!--pinglun.wxml-->
+<view class="pinglun_ban1 font">
+  <view class="pinglun_banner" wx:for="{{assesslist}}">
+    <view>
+       <image class="pinglun_img" src="{{item.img}}"></image> 
+    </view>
+    <view class="pinglun_yan">
+      <view class="pinglun_flex">
+        <view class="pinglun_time1">
+          <view class="pinglun_name">{{item.name}}</view>
+          <view class="pinglun_score" style='color:#EB5E18'>{{item.score}}分</view>
+        </view>
+        <view class="pinglun_time">{{item.cerated_time}}</view>
+      </view>
+      <view class="pinglun_con">{{item.content}}</view>
+      <view class="pinglun_img2" wx:if="{{item.img!=''}}">
+        <!-- <image class="pinglun_img" src="{{item.img}}"></image> -->
+      </view>
+      <view wx:if="{{item.reply!=''}}" class="pinglun_seller">商家回复：{{item.reply}}</view>
+    </view>
+    
+  </view>
+</view>

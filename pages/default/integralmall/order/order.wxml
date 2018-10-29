@@ -1,0 +1,52 @@
+<!--pages/default/integralmall/order/order.wxml-->
+<view class='create_order'>
+      <view class='address'>
+            <text style='flex: 1'>收货地址</text>
+            <navigator open-type='navigate' url='../../member/select/select?type=2' style='width:75%; text-align:right; color: #999'>
+                  <text>{{address.province}}{{address.city}}{{address.area}} {{address.address}}</text>
+                  <text wx:if="{{!address}}">请选择收货地址</text>
+                  <text class='icon icon-right' style='font-size:25rpx'></text>
+            </navigator>
+      </view>
+      <view class='shop'>
+            <text class='icon icon-shop'></text>
+            <text>{{data.stores.name}}</text>
+      </view>
+      <view class='sale'>
+            <image src='{{data.goods.thumb}}' style='width:100rpx; height:100rpx;border-radius: 10rpx;'></image>
+            <view style='flex:1; padding: 0 25rpx;'>
+                  <view>{{data.goods.title}}</view>
+                  <view style='color:#999'>{{data.option?'规格 '+data.option.title:''}}</view>
+            </view>
+            <view class='price'>
+                  <view>{{data.option?data.option.credit:data.goods.credit}}积分</view>
+                  <view wx:if="{{data.goods.money!=0||data.option&&data.option.money!=0}}">¥{{data.option?data.option.money:data.goods.money}}</view>
+                  <view>x 1</view>
+            </view>
+      </view>
+      <view class='statistics'>
+            <view class='cost'>
+                  <view>商品小计</view>
+                  <view style='flex: 1'></view>
+                  <view>
+                        <text>{{data.option?data.option.credit:data.goods.credit}}积分</text>
+                        <text wx:if="{{data.goods.money!=0||data.option&&data.option.money!=0}}"> + ¥{{data.option?data.option.money:data.goods.money}}</text>
+                  </view>
+            </view>
+            <view class='postage'>
+                  <text>运费</text>
+                  <view style='flex: 1'></view>
+                  <text>{{data.goods.dispatch!=0?'¥'+data.goods.dispatch:'包邮'}}</text>
+            </view>
+      </view>
+      <view class='pay'>
+            <view>需付: </view>
+            <view style='color: #fd5555'>
+                  <text>{{data.option?data.option.credit:data.goods.credit}}积分</text>
+                  <text wx:if="{{data.goods.money!=0||data.option&&data.option.money!=0}}"> + ¥{{data.option?data.option.money:data.goods.money}}</text>
+                  <text wx:if="{{data.goods.dispatch!=0}}"> + {{data.goods.dispatch}}邮费</text>
+            </view>
+            <view style='flex:1'></view>
+            <view bindtap='pay' style='color: white; background:#fd5555; padding: 25rpx 25rpx;'>立即支付</view>
+      </view>
+</view>

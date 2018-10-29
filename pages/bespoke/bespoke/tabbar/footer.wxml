@@ -1,0 +1,16 @@
+<template name="footer">
+    <view class="footer">
+        <navigator over-class="none" url="/pages/default/bespoke/index/index"  data-fid="0" open-type='redirect' class="index">
+            <image src="/assets/images/tabBar/icon-home.png"></image>
+            <view class="font {{fid == 0 ? 'red' : ''}}">首页</view>
+        </navigator>
+        <navigator over-class="none" url="/pages/default/bespoke/myorder/order" data-fid="1" open-type='redirect' class="index">
+            <image src="/assets/images/tabBar/icon-list.png"></image>
+            <view class="font {{fid == 1 ? 'red' : ''}}">我的订单</view>
+        </navigator>
+        <navigator hover-class="none" url="/pages/default/bespoke/percenter/percenter" data-fid="2" open-type='redirect' class="index">
+            <image src="/assets/images/tabBar/icon-person2.png"></image>
+            <view class="font {{fid == 2 ? 'red' : ''}}">个人中心</view>
+        </navigator>
+    </view>
+</template>

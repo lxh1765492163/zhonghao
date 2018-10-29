@@ -1,0 +1,80 @@
+/* pages/default/bargain/list/list.wxss */
+
+.bargain {
+  padding: 20rpx 20rpx 120rpx;
+  font-size: 28rpx;
+}
+
+.bargain .search {
+  border: solid 1rpx #ddd;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  padding: 10rpx 20rpx;
+  background: white;
+}
+
+.bargain .search icon {
+  width: 5%;
+  padding-right: 20rpx;
+}
+
+.bargain .search input {
+  width: 95%;
+}
+
+.bargain .list {
+  margin-top: 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bargain .list navigator {
+  width: 50%;
+}
+
+.bargain .list .goods {
+  background: white;
+  width: 320rpx;
+  margin: 10rpx auto;
+}
+
+.bargain .list .goods image {
+  width: 320rpx;
+  height: 320rpx;
+}
+
+.bargain .list .goods .oneline {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0 8rpx;
+}
+
+.bargain .list .goods .title {
+  font-size: 35rpx;
+  margin: 10rpx 0;
+}
+
+.tabbar {
+  height: 110rpx;
+  width: 100%;
+  background: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  z-index: 9999;
+}
+.tabbar .child{
+  width:  25%;
+  font-size: 25rpx;
+  text-align: center;
+  line-height: normal;
+}
+
+.tabbar .child .icon{
+  font-size: 40rpx;  
+}

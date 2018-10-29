@@ -1,0 +1,46 @@
+page{
+  font-size:30rpx;
+}
+.recommend .section {
+  display: flex;
+  margin: 0 20rpx;
+  padding: 20rpx 0;
+  justify-content: flex-start;
+  border-bottom: solid 1rpx #ddd;
+}
+
+.section image {
+  height: 100rpx;
+  width: 130rpx;
+  border-radius: 16rpx;
+  margin: auto 0;
+}
+
+.section .newsletter {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #999;
+}
+
+.newsletter .title {
+  font-size: 38rpx;
+  color: #000;
+  margin-bottom: 10rpx;
+}
+
+.newsletter .topic .sign {
+  color: red;
+  font-size: 28rpx;
+}
+
+.section .space {
+  flex: 1;
+}
+
+.section .more {
+  height: 40rpx;
+  width: 40rpx; 
+  margin-top: 10rpx;
+}

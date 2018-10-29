@@ -1,0 +1,42 @@
+<!--pages/default/agent/apply/apply.wxml-->
+<view wx:if="{{status==0}}" class='apply-agent' style='font-size:35rpx'>
+  <view>
+    <image src='{{img}}' mode='widthFix' style='width:100%'></image>
+  </view>
+  <view class='form'>
+    <form bindsubmit='submitApply'>
+      <view class='title'>欢迎加入<text class='sign'> {{name}} </text>,请填写申请信息</view>
+      <view class='info'>
+        <view class='name'>
+          <view>邀请码</view>        
+          <view>姓名<text class='sign'>*</text></view>
+          <view>手机号<text class='sign'>*</text></view>
+          <view>微信号</view>
+          <view>代理层级</view>
+        </view>
+        <view class='val'>
+          <view><input type='number' name='upmid' disabled="{{agenttype==1}}" ></input></view>
+          <view><input type='text' name='realname'></input></view>
+          <view><input type='number' maxlength='11' name='mobile'></input></view>
+          <view><input type='text' placeholder='请填写微信号' name='weixin'></input></view>
+          <view>
+            <radio-group class="radio-group" name='aagenttype' bindchange="radioChange">
+              <radio value="1" checked />一级
+              <radio value="2" />二级
+              <radio value="3" />三级
+            </radio-group>
+          </view>
+        </view>
+      </view>
+      <view class='apply'><button formType='submit' size='default'>申请成为</button></view>
+    </form>
+  </view>
+  <view class='explain'>
+    <view class='op'>特权
+      <view></view>
+    </view>
+    <view class='op'>坐享分红
+      <view>成为后，您可以享受您代理的区域营业额的分红收益</view>
+    </view>
+  </view>
+</view>

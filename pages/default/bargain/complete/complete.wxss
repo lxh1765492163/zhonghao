@@ -1,0 +1,64 @@
+/* pages/default/bargain/complete/complete.wxss */
+
+.list {
+  background: white;
+  font-size: 35rpx;
+}
+
+.list .goods {
+  height: 190rpx;
+  padding: 20rpx;
+  border-bottom: solid 1rpx #ddd;
+}
+
+.list .goods image {
+  float: left;
+  height: 150rpx;
+  width: 150rpx;
+  margin-right: 20rpx;
+}
+
+.list .goods .text .title {
+  width: 500rpx;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  height: 100rpx;
+  margin: 10rpx 0 0;
+}
+
+.list .goods .text .markprice {
+  float: right;
+  margin-right: 20rpx;
+  padding: 2rpx 30rpx;
+  border-radius: 15rpx;
+  color: white;
+  background: #0290be
+}
+
+.tabbar {
+  height: 110rpx;
+  width: 100%;
+  background: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  z-index: 9999;
+}
+
+.tabbar .child {
+  width: 25%;
+  font-size: 25rpx;
+  text-align: center;
+  line-height: normal;
+}
+
+.tabbar .child .icon {
+  font-size: 40rpx;
+}

@@ -1,0 +1,25 @@
+/* pages/community/menu/menu.wxss */
+
+.menu {
+  z-index:999;
+  position: fixed;
+  width: 55rpx;
+  padding: 10rpx;
+  bottom: 100rpx;
+  right: 0;
+  background: #6A5ACD;
+  opacity: 0.9;
+}
+
+.menu navigator {
+ display: block;
+}
+
+.menu navigator image{
+  
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  margin: 30rpx auto;
+}
+

@@ -1,0 +1,122 @@
+<template name="detail_sale">
+  <view class="detail-sale" style="margin-top:{{item.style.margintop}}px;margin-bottom:{{item.style.marginbottom}}px; background:{{item.style.background}};border-top:solid 1rpx #ddd;">
+    <block wx:for="{{item.data}}" wx:for-item="val" wx:key="">
+      <!-- <block wx:if="{{val.type == 'yushou'}}">
+                <view wx:if="{{goods.ispresell == 1 && (goods.preselltimeend > nowTime || goods.preselltimeend == 0)}}" class="fui-cell-group fui-cell-click fui-sale-group" style="margin-top:0;">
+                    <view class="fui-list">
+                        <view class="fui-list-media">
+                            <view class="fui-cell-text">
+                                <text class="fui-label fui-label-safety">预售</text>
+                            </view>
+                        </view>
+                        <view class="fui-list-inner" style="font-size:.65rem;color:{{item.style.textcolor}};">
+                            <block wx:if="{{goods.preselltimeend > 0}}">
+                                结束时间：{{goods.preselltimeend}}
+                            </block>
+                            预计发货：<block wx:if="{{goods.presellsendtype > 0}}">购买后<text class="text-danger" style="color:{{item.style.textcolorhigh}};">{{goods.presellsendtime}}</text>天发货</block><block wx:else><text class="text-danger" style="color:{{item.style.textcolorhigh}};">{{goods.presellsendstatrttime}}</text></block>
+                        </view>
+                    </view>
+                </view>
+            </block>
+ 
+            <block wx:elif="{{val.type == 'huiyuan' && !goods_other.seckillinfo}}">
+                <block wx:if="{{goods.isdiscount == 0 || (goods.isdiscount > 0 && goods.isdiscount_time < nowTime)}}">
+                    <view class="fui-cell-group fui-sale-group" style="margin-top:0;background:{{item.style.background}};">
+                        <view class="fui-cell">
+                            <view class="fui-cell-text" style="white-space:normal;color:{{item.style.textcolor}};">您的会员等级是 <text class="text-danger" style="color:{{item.style.textcolorhigh}};">{{level.levelname}}</text> 可享受 <text class="text-danger" style="color:{{item.style.textcolorhigh}};">￥{{memberprice}}</text> 的价格</view>
+                        </view>
+                    </view>
+                </block>
+            </block>
+            <block wx:elif="{{val.type == 'jifen'}}">
+                <view wx:if="{{(goods.deduct != '' && goods.deduct != '0.00') || goods.credit != ''}}" class="fui-cell-group fui-sale-group" style="margin-top:0;background:{{item.style.background}};">
+                    <view class="fui-cell">
+                        <view class="fui-cell-text" style="color:{{item.style.textcolor}};">{{goods_other.credittext}} <block wx:if="{{goods.deduct != '' && goods.deduct != '0.00'}}">最高抵扣 <text class="text-danger" style="color:{{item.style.textcolorhigh}};">{{goods.deduct}}</text> 元</block> <block wx:if="{{goods.credit != ''}}">购买赠送 <text class="text-danger" style="color:{{item.style.textcolorhigh}};">{{goods.credit}}</text> {{goods_other.credittext}}</block></view>
+                    </view>
+                </view>
+            </block>
+           
+            <block wx:elif="{{val.type == 'youhui' && !goods_other.seckillinfo}}">
+                <view wx:if="{{hasSales}}" class="fui-cell-group fui-cell-click fui-sale-group" style="margin-top:0;background:{{item.style.background}};">
+                    <view class="fui-cell">
+                        <view class="fui-cell-text" style="color:{{item.style.textcolor}};">优惠
+                            <block wx:if="{{goods_other.enoughfree && goods_other.enoughfree == '-1'}}">全场包邮</block>
+                            <block wx:else>
+                                <block wx:if="{{goods.ednum > 0}}">单品满 <text class="text-danger" style="color:{{item.style.textcolorhigh}};">{{goods.ednum}}</text> {{goods.unit == '' ? '件' : goods.unit}}包邮</block>
+                                <block wx:if="{{goods.edmoney > 0}}">单品满 <text class="text-danger" style="color:{{item.style.textcolorhigh}};">￥{{goods.edmoney}}</text> 包邮</block>
+                                <block wx:if="{{goods_other.enoughfree}}">全场满 <text class="text-danger" style="color:{{item.style.textcolorhigh}};">￥{{goods_other.enoughfree}}</text> 包邮</block>
+                            </block>
+                            <block wx:if="{{goods_other.enoughs && goods_other.enoughs.length > 0}}">
+                                全场满 <text class="text-danger" style="color:{{item.style.textcolorhigh}};">￥{{goods_other.enoughs[0].enough}}</text> 立减 <text class="text-danger" style="color:{{item.style.textcolorhigh}};">￥{{goods_other.enoughs[0].money}}</text>
+                            </block>
+                        </view>
+                        <view class="fui-cell-remark"></view>
+                    </view>
+                </view>
+            </block>
+            <block wx:elif="{{val.type == 'biaoqian'}}">
+                <view wx:if="{{goods.hasServices || goods.labelname != null}}" class="fui-cell-group fui-option-group" style="margin-top:0;">
+                    <view class="fui-cell">
+                        <view class="fui-cell-text" style="background:{{item.style.background}};">
+                            <view wx:if="{{goods.cash == 2}}" class="label label-danger" style="border-radius:3px;"><text></text>货到付款</view>
+                            <view wx:if="{{goods.quality > 0}}" class="label label-danger" style="border-radius:3px;"><text></text>正品保证</view>
+                            <view wx:if="{{goods.repair > 0}}" class="label label-danger" style="border-radius:3px;"><text></text>保修</view>
+                            <view wx:if="{{goods.invoice > 0}}" class="label label-danger" style="border-radius:3px;"><text></text>发票</view>
+                            <view wx:if="{{goods.seven > 0}}" class="label label-danger" style="border-radius:3px;"><text></text>7天退换</view>
+                            <block wx:if="{{goods_other.labelname != null}}">
+                                <block wx:for="{{goods_other.labelname}}" wx:for-item="val" wx:key="">
+                                    <view class="label label-danger" style="border-radius:5px;"><text></text>{{val}}</view>
+                                </block>
+                            </block>
+                            <view style="clear:both;"></view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:elif="{{val.type == 'coupon'}}">
+            </block>
+            <block wx:elif="{{val.type == 'fullback'}}">
+            </block> -->
+      <!-- <block wx:elif="{{val.type == 'bupeisong'}}">
+        <view wx:if="{{goods_other.has_city > 0}}" class="fui-cell-group fui-cell-click fui-sale-group" style="margin-top:0;background:{{item.style.background}};">
+          <view class="fui-cell">
+            <view class="fui-cell-text" style="color:{{item.style.textcolor}};">不配送区域:
+              <block wx:for="{{goods_toher.citys}}" wx:for-item="ct" wx:key="">{{ct}}</block>
+            </view>
+            <view class="fui-cell-remark"></view>
+          </view>
+        </view>
+      </block> -->
+      <block wx:if="{{val.type == 'erci'}}">
+        <view wx:if="{{goods.buyagain > 0 && !goods_other.seckillinfo}}" class="fui-cell-group fui-sale-group" style="margin-top:0;background:{{item.style.background}};">
+          <view class="fui-cell">
+            <view class="fui-cell-text" style="white-space:normal;color:{{item.style.textcolor}};">
+              此商品二次购买 可享受
+              <text class="text-danger" style="color:{{item.style.textcolorhigh}};">{{goods.buyagain}}</text> 折优惠
+              <view wx:if="{{goods.buyagain_sale == 0}}">二次购买的时候 不与其他优惠共享</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{val.type == 'zengpin'&&gifts!=''}}">
+        <view class='gift' bindtap='getgift' style='font-size:35rpx;padding:10rpx 20rpx;display:flex;border-bottom:solid 1rpx #ddd;'>
+          <view>{{val.name}}：</view>
+          <view style='overflow:hidden;white-space:nowrap; text-overflow: ellipsis;width:400rpx;'>{{gifttitle?gifttitle:'请选择赠品'}}</view>
+          <view class='icon icon-right' style='flex:1;text-align:right;font-size:35rpx;'></view>
+        </view>
+      </block>
+    </block>
+    <block wx:if="{{goods.goodlink!=null&&goods.goodlink!=''}}">
+      <view bindtap='clip' style='font-size:35rpx;padding:10rpx 20rpx;display:flex;border-bottom:solid 1rpx #ddd;'>
+        <block wx:if="{{goods.coupon!=''&&goods.coupon!=null}}">
+          <image src='https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{goods.coupon}}' mode='widthFix' style='width:98%;padding:0 1%;'></image>
+        </block>
+        <block wx:else>
+          <view>淘宝券：</view>
+          <view>领取淘宝券</view>
+          <view style='flex:1;text-align:right;font-size:30rpx'></view>
+        </block>
+      </view>
+    </block>
+  </view>
+</template>

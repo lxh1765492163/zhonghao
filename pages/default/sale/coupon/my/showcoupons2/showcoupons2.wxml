@@ -1,0 +1,7 @@
+<!--showcoupons2.wxml-->
+ <view>
+ <text>
+ 领取成功！
+ </text>
+<navigator url='/pages/default/goods/list/list'>ssss</navigator>
+ </view>

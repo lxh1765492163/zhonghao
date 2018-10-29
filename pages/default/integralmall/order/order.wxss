@@ -1,0 +1,63 @@
+/* pages/default/integralmall/order/order.wxss */
+
+.create_order {
+      font-size: 35rpx;
+}
+
+.create_order .address {
+      padding: 15rpx 15rpx;
+      border-bottom: solid 1rpx #ddd;
+      border-top: solid 1rpx #ddd;
+      display: flex;
+      align-items: center;
+}
+
+.create_order .shop {
+      padding: 15rpx 15rpx;
+      margin-top: 10rpx;
+      border-top: solid 1rpx #ddd;
+}
+
+.create_order .sale {
+      display: flex;
+      align-items: stretch;
+      padding: 15rpx 15rpx;
+      background: #eee;
+      border-top: solid 1rpx #ddd;
+      font-size: 26rpx;
+}
+
+.create_order .sale .price {
+      text-align: right;
+      color: #999;
+      font-size: 30rpx;
+}
+
+.create_order .statistics {
+      padding: 15rpx 15rpx;
+      border-bottom: solid 1rpx #ddd;
+      border-top: solid 1rpx #ddd;
+}
+
+.create_order .cost {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+}
+
+.create_order .postage {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20rpx;
+}
+
+.create_order .pay {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+}

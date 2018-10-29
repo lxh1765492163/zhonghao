@@ -1,0 +1,18 @@
+<template name="dropdown">
+    <view class="dropdown">
+        <view class="dropdownmenu">
+            <view class="item" bindtap="openList" data-drop="drop">
+                <text class="current">当前分类</text>
+                <text class='title' style="color: {{drop == 'drop' ? '#d81e06' : '#333'}}">{{title}}</text>
+                <image wx:if="{{drop == 'drop'}}" src="/assets/images/arrowdown.png"/>
+                <image wx:else src="/assets/images/arrow_down.png"/>
+            </view>
+        </view>
+
+        <view class="dropdownlist" wx:if="{{drop == 'drop'}}">
+           <block wx:for="{{data}}" wx:for-item="data" wx:key="">
+            <text bindtap="openjump" data-cateid="{{data.id}}" data-title="{{data.catename}}">{{data.catename}}</text>
+           </block>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,23 @@
+<!--pages/default/agent/detail/detail.wxml-->
+<view class='abonus-detail'>
+  <view class='list-title'>
+    {{tid==''?'累计分红':tid==2?'待结算分红':tid==1?'已结算分红':''}}
+    <text style='float:right'>{{detailed.totalsum}}</text>
+  </view>
+  <view class='list-menu'>
+    <view data-tid='' bindtap='changetid' style="color:{{tid==''?'#FF9326':''}};border-bottom:{{tid==''?'solid 3rpx #FF9326':'solid 1rpx #D0D0D0'}}">全部</view>
+    <view data-tid='2' bindtap='changetid' style="color:{{tid==2?'#FF9326':''}};border-bottom:{{tid==2?'solid 3rpx #FF9326':'solid 1rpx #D0D0D0'}}">待结算</view>
+    <view data-tid='1' bindtap='changetid' style="color:{{tid==1?'#FF9326':''}};border-bottom:{{tid==1?'solid 3rpx #FF9326':'solid 1rpx #D0D0D0'}}">已结算</view>
+  </view>
+  <view class='list-group' wx:if="{{detailed.list!=''}}">
+    <block wx:for="{{detailed.list}}" wx:key="">
+      <view class='option'>
+        <view>{{item.payno}}
+          <text>({{detailed.nameab[item.abonus_is]}})</text>
+          <text style='float:right;'>+{{item.paymoney}}</text>
+        </view>
+        <view>{{item.paytime}}<text style='float:right;'>{{item.statusstr}}</text></view>
+      </view>
+    </block>
+  </view>
+</view>

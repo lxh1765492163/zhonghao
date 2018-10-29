@@ -1,0 +1,279 @@
+<view class="container fon">
+    <view class="header rel">
+        <view class="header_img ab">
+            <view class="swiper-container">
+                <swiper autoplay="auto" interval="5000" indicator-dots="true" indicator-color="#e5e5e5" indicator-active-color="#fff" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
+                    <block wx:for="{{slide}}" wx:for-item="slide" wx:key="">
+                        <swiper-item>
+                            <image mode="aspectFill" src="http://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/}{{slide.logo}}" class="img"></image>
+
+                        </swiper-item>
+                    </block>
+                </swiper>
+                <!-- <view class="dots">
+          <block wx:for="{{slide}}" wx:key="unique">
+            <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+          </block>
+        </view> -->
+            </view>
+        </view>
+        <view class="header_name ab">{{arr[3]}}</view>
+    </view>
+    <view class="address rel" wx:for="{{mop}}" wx:for-item="item" wx:key="">
+        <text class="lianxi3">{{item.url}}</text>
+        <view class="lianxi">联系方式：
+            <text class="lianxi2" catchtap="call_phone">{{item.phone}}</text>
+        </view>
+        <image bindtap="dizhi" class="address_icon ab ud" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/dizhi@2x.png"></image>
+    </view>
+    <view class="total">
+        <view class="toatal_head">
+            <view class="{{selected?'selsect':'default'}}" bindtap="selected">
+                酒店详情
+                <view class="toatal_text1" hidden="{{hidden}}"></view>
+            </view>
+            <view class="{{selected1?'selsect':'default'}}" bindtap="selected1">
+                住客评价
+                <view class="toatal_text1" hidden="{{toastHidden}}"></view>
+            </view>
+
+        </view>
+        <view class="{{selected1?'show':'hide'}}">
+            <view class="zhuke">
+                <view class="zhuke_fen">
+                    <image mode='widthFix' style='width:100rpx;height:100rpx;border-radius:50%;margin-right:20rpx;' src='{{assesslist.img}}'></image>
+                </view>
+                <view class="zhuke_fen zhuke_fen5" wx:if="{{ass!=''}}">
+                    <text class="zhuke_fen6">{{assesslist.name}}</text>
+                    <view class="zhuke_fen7 gobyndmulit">{{assesslist.content}}</view>
+                </view>
+                <view  style="width:100%;" class="zhuke_fen zhuke_fen5" wx:if="{{ass==''}}">
+                    <view class="zhuke_fen8" style="text-align:center">酒店暂无评价</view>
+                </view>
+                <view class="score">
+                    <view wx:if="{{len > 0}}">综合评分:
+                        <text style='color:#EB5E18'>{{score}}</text>
+                    </view>
+                    <view>
+                        <view class='score_img' wx:for="{{star1}}" wx:for-item="item" wx:key="" wx:if='{{score==1}}' style='flex:{{score}}'>
+                            <image class='img' mode='widthFix' src='{{item.num}}'></image>
+                        </view>
+                        <view class='score_img' wx:for="{{star2}}" wx:key="" wx:if='{{score==2}}' style='flex:{{score}}'>
+                            <image class='img' mode='widthFix' src='{{item.num}}'></image>
+                        </view>
+                        <view class='score_img' wx:for="{{star3}}" wx:key="" wx:if='{{score==3}}' style='flex:{{score}}'>
+                            <image class='img' mode='widthFix' src='{{item.num}}'></image>
+                        </view>
+                        <view class='score_img' wx:for="{{star4}}" wx:key="" wx:if='{{score==4}}' style='flex:{{score}}'>
+                            <image class='img' mode='widthFix' src='{{item.num}}'></image>
+                        </view>
+                        <view class='score_img' wx:for="{{star5}}" wx:key="" wx:if='{{score==5}}' style='flex:{{score}}'>
+                            <image class='img' mode='widthFix' src='{{item.num}}'></image>
+                        </view>
+                    </view>
+                </view>
+                <navigator  wx:if="{{len > 0}}" class="xiangqing6" url="../pinglun/pinglun?seller_id={{seller.id}}">
+
+                    <view class="xiangqing5_icon">
+                        <image src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/Path1@2x.png"></image>
+                    </view>
+                    <view class="xiangqing5_text">查看{{len}}条住客评价</view>
+                </navigator>
+            </view>
+        </view>
+        <view class="{{selected?'show':'hide'}}">
+            <view class="xiangqing">
+                <!-- <view class="xiangqing1 fl" style='color:#333;font-weight:bold' wx:if="{{seller.open_time!=''}}">{{seller.name}}</view> -->
+                <!-- <view class="xiangqing1 fr" style='font-size:24rpx;color:#EB5E18;font-weight:normal' bindtap='info'>查看页面详细信息</view> -->
+                <view class="xiangqing2" bindtap='hotel_info'>
+
+                    <view class="xingqing3" wx:if="{{seller.wake==1}}">
+                        <view class="xiangqing4">
+                            <image class="img" mode="widthFix" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/naozhong@2x.png"></image>
+                        </view>
+                        <view class="xiangqing1-1">叫醒服务</view>
+                    </view>
+
+                    <view class="xingqing3" wx:if="{{seller.unionPay==1}}">
+                        <view class="xiangqing4">
+                            <image class="img" mode="widthFix" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/yinlian@2x.png"></image>
+                        </view>
+                        <view class="xiangqing1-1">银联</view>
+                    </view>
+
+                    <view class="xingqing3" wx:if="{{seller.park==1}}">
+                        <view class="xiangqing4">
+                            <image class="img" mode="widthFix" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/tingche@2x.png"></image>
+                        </view>
+                        <view class="xiangqing1-1">停车</view>
+                    </view>
+
+                    <view class="xingqing3" wx:if="{{seller.wifi==1}}">
+                        <view class="xiangqing4">
+                            <image class="img" mode="widthFix" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/wifi@2x.png"></image>
+                        </view>
+                        <view class="xiangqing1-1">wifi</view>
+                    </view>
+
+                    <view class="xingqing3" wx:if="{{seller.breakfast==1}}">
+                        <view class="xiangqing4">
+                            <image class="img" mode="widthFix" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/foor.png"></image>
+                        </view>
+                        <view class="xiangqing1-1">早餐</view>
+                    </view>
+
+                    <view class="xingqing3" wx:if="{{seller.gym==1}}">
+                        <view class="xiangqing4">
+                            <image class="img" mode="widthFix" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/jianshengf@2x.png"></image>
+                        </view>
+                        <view class="xiangqing1-1">健身房</view>
+                    </view>
+
+                    <view class="xingqing3" wx:if="{{seller.boardroom==1}}">
+                        <view class="xiangqing4">
+                            <image class="img" mode="widthFix" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/huiyishi@2x.png"></image>
+                        </view>
+                        <view class="xiangqing1-1">会议室</view>
+                    </view>
+
+                    <view class="xingqing3" wx:if="{{seller.water==1}}">
+                        <view class="xiangqing4">
+                            <image class="img" mode="widthFix" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/warter.png"></image>
+                        </view>
+                        <view class="xiangqing1-1">24小时...</view>
+                    </view>
+
+                </view>
+                <view class="xiangqing5 rel">
+                    <view class='fl details1 rel'>
+                        <image class='ab udlr' style='width:30rpx;' mode='widthFix' src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/ditu.png"></image>
+                    </view>
+                    <view class='fl details2' bindtap='dizhi'>
+                        <view>{{seller.address}}</view>
+                        <view>距离我:{{s}}千米</view>
+                    </view>
+                    <view class='fr details3 rel' bindtap='phone'>
+                        <view class='ab udlr'>
+                            <image mode='widthFix' src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/tel.png'></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="page__bd ">
+                <view class="kind-list">
+                    <block wx:for="{{room}}" wx:key="id">
+                        <view class="kind-list__item liebiao3_8">
+                            <view class="weui-flex kind-list__item-hd">
+                                <view class="libiao2 {{item.openr ? 'kind-list__item-bd_show1' : ''}}" id="{{item.id}}" bindtap='kindToggle1'>
+                                    <image src="http://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{item.logo}}"></image>
+                                </view>
+                                <!--弹框部分开始  -->
+                                <view class="eject_none {{item.openr ? 'kind-list__item-bd_show1' : ''}}" bindtap='ejectblock'>
+                                    <view class="eject">
+                                        <view class='eject_box'>
+                                            <!--轮播开始  -->
+                                            <view class='eject_swiper'>
+                                                <swiper autoplay="auto" interval="5000" indicator-dots="true" duration="500" current="{{swiperCurrent1}}" bindchange="swiperChange1" class="swiper">
+                                                    <block wx:for="{{item.img}}" wx:key="" data-item="{{img}}">
+                                                        <swiper-item>
+                                                            <image mode="aspectFill" src="http://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{item}}" class="img"></image>
+                                                        </swiper-item>
+                                                    </block>
+                                                </swiper>
+                                            </view>
+                                            <!--轮播结束 -->
+                                            <!--房间类型  -->
+                                            <view class='eject_room'>
+                                                <view class='eject_type'>{{item.name}}</view>
+                                                <view class='eject_have'>
+                                                    <view class='eject_big'>大床{{item.size}}米</view>
+                                                    <view class='eject_window'>有窗户</view>
+                                                </view>
+                                            </view>
+                                            <!-- 楼层 -->
+                                            <view class='eject_room eject_floor'>
+                                                <view class='eject_can'>
+                                                    <view>楼层：{{item.floor}}楼</view>
+                                                    <view style='margin-left:250rpx;'>可住人数:{{item.people}}人</view>
+                                                </view>
+                                                <view wx:if="{{item.bed==0&&item.total_num>0}}">加床：不可加床</view>
+                                                <view wx:if="{{item.bed==1&&item.total_num>0}}">加床：可加床</view>
+                                                <view wx:if="{{item.breakfast==1&&item.total_num>0}}">早餐：有早餐</view>
+                                                <view wx:if="{{item.breakfast==0&&item.total_num>0}}">早餐：无早餐</view>
+                                            </view>
+                                            <!--房间设施  -->
+                                            <view class='eject_room' style='border:none;'>
+                                                <view class='eject_type'>房间设施</view>
+                                                <view class='eject_font' wx:if="{{item.facilities!=''}}">{{item.facilities}}</view>
+                                                <view class='eject_font' wx:if="{{item.facilities==''}}">暂无</view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <!--弹框部分结束  -->
+                                <view class="kind-list__img">
+                                    <view class="liebiao3_1 {{item.open ? 'kind-list__item-hd_show' : ''}}" id="{{item.id}}" bindtap="kindToggle">
+                                        <view>
+                                            <view>{{item.name}}</view>
+                                            <view class="liebiao2_3">
+                                                <text wx:if="{{item.size!=''}}" class="liebiao2_4">大床{{item.size}}米</text>
+                                                <text class="liebiao2_4" wx:if="{{item.windows==1&&item.total_num>0}}">有窗</text>
+                                                <text class="liebiao2_4" wx:if="{{item.breakfast==1&&item.total_num>0}}">有早餐</text>
+                                                <!-- <text class="liebiao2_4" wx:if="{{item.bed==1&&item.total_num>0}}">提供加床服务</text> -->
+                                            </view>
+                                        </view>
+                                        <view class="liebiao">
+                                            <text class="liebiao1">¥</text>
+                                            <text class="liebiao1_1">{{item.original_price}}</text>
+                                            <text class="liebiao1">起</text>
+                                            <image class="liebiao1_2" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/Path-2@2x.png"></image>
+                                        </view>
+                                    </view>
+                                </view>
+
+                            </view>
+                            <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
+                                <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
+                                    <view class="weui-cell weui-cell_access">
+                                        <view class="weui-cell__bd liebiao3_7" wx:if="{{item.total_num>0}}">到店付</view>
+                                        <view class="weui-cell__bd liebiao3_7" wx:if="{{item.total_num<=0}}">房间已经住满</view>
+                                        <view class="libiao3_5">
+                                            <text>¥</text>
+                                            <text class="libiao3_6">{{item.shop_price}}</text>
+                                            <view class="liebiao3_9" bindtap='book' wx:if="{{item.total_num>0}}" id="{{item.id}}" data-oid="1">
+                                                <image class="lieviao3_4" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/daodianfu.png"></image>
+                                            </view>
+                                            <view class="liebiao3_9" wx:if="{{item.total_num<=0}}" id="{{item.id}}" data-oid="1">
+                                                <image class="lieviao3_4" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/daodianfu.png"></image>
+                                            </view>
+                                        </view>
+                                    </view>
+                                    <view class="weui-cell weui-cell_access">
+                                        <view class="weui-cell__bd liebiao3_7" wx:if="{{item.total_num>0}}">在线付</view>
+                                        <view class="weui-cell__bd liebiao3_7" wx:if="{{item.total_num<=0}}">房间已经住满</view>
+                                        <view class="libiao3_5">
+                                            <text>¥</text>
+                                            <text class="libiao3_6">{{item.online_price}}</text>
+                                            <view class="liebiao3_9" bindtap='book' wx:if="{{item.total_num>0}}" id="{{item.id}}" data-oid="2">
+                                                <image class="lieviao3_4" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/zaixianfu.png"></image>
+                                            </view>
+                                            <view class="liebiao3_9" wx:if="{{item.total_num<=0}}" id="{{item.id}}" data-oid="2">
+                                                <image class="lieviao3_4" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/zaixianfu.png"></image>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                    <view class="footer">没有更多房型了</view>
+                </view>
+
+
+            </view>
+        </view>
+
+
+    </view>
+
+</view>

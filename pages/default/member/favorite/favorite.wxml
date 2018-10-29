@@ -1,0 +1,15 @@
+<import src="../../../component/nodata/nodata.wxml" />
+<import src="../../../component/member_favorite_list/member_favorite_list.wxml" />
+<import src="../../../component/copy/copy.wxml" />
+
+
+<view class="fui-page fui-page-current member-cart-page">
+    <view class="fui-content">
+        <block wx:if="{{list.length > 0}}">
+            <template is="member_favorite_list" data="{{list}}" />
+        </block>
+        <block wx:else>
+            <template is="nodata" />
+        </block>
+    </view>
+</view>

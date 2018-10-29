@@ -1,0 +1,54 @@
+<!--pages/form/assess/index.wxml-->
+<view class='box'>
+   <form bindsubmit="bindFormSubmit">
+    <view class="menu">
+         <button form-type="submit" style="line-height:60rpx"> 提交 </button>
+    </view>
+    <view class='header' wx:for="{{goods}}" wx:for-item="goods" wx:key="">
+        <image src='{{goods.thumb}}'></image>
+        <text style="">{{goods.title}}</text>
+        <text>¥{{goods.price*goods.total}}</text>
+        <text>X{{goods.total}}</text>
+    </view>
+
+    <view class='wrap'>
+        <view class='wrapList'>
+            <view class='content'>
+                <view class='goods'>
+                    <view class='goods-title'>评分</view>
+                    <view class='goods-feel'>
+                        <block wx:for="{{stars}}" wx:for-item="i" wx:key="">
+                            <image src='/assets/images/start6.png' wx:if="{{i == 1}}"></image>
+                            <image src='/assets/images/start.png' wx:if="{{i == 0.2}}"></image>
+                            <image src='/assets/images/start2.png' wx:if="{{i == 0.3}}"></image>
+                            <image src='/assets/images/start3.png' wx:if="{{i == 0.5}}"></image>
+                            <image src='/assets/images/start4.png' wx:if="{{i == 0.7}}"></image>
+                            <image src='/assets/images/start5.png' wx:if="{{i == 0.8}}"></image>
+                            <image src='/assets/images/gary.png' wx:if="{{i == -1}}" style='width: 38rpx;height: 38rpx;'></image>
+                        </block>
+                        <view style='width:220rpx; position: absolute;top: -9rpx;opacity: 0'>
+                            <slider max='50' step='1' show-value='true' bindchange='getStars' style='width: 235rpx;margin: 10rpx 0 0 10rpx'></slider>
+                        </view>
+                    </view>
+                </view>
+                <view class='textarea'>
+                    <textarea placeholder='宝贝满足您的期望吗?' placeholder-style='color: #b8b8b8; line-height: 50rpx;' auto-height='true' name="textarea"></textarea>
+                </view>
+            </view>
+            <view class='title'>
+                <view>晒图</view>
+                <image bindtap="openimage" src="/assets/images/add.png"></image>
+
+            </view>
+            <view class="openimg">
+                <block wx:for="{{tempFilePaths}}" wx:for-item="img" wx:key="">
+       
+                    <image src="{{img}}"></image>
+                </block>
+            </view>
+        </view>
+
+
+    </view>
+    </form>
+</view>

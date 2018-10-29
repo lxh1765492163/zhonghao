@@ -1,0 +1,33 @@
+/* pages/default/package/list/list.wxss */
+.packages_list {
+
+}
+.packages_list .packgagegoods{
+  padding: 25rpx;
+  display: flex;
+  background: white;
+  border-bottom: solid 1rpx #ddd;
+  font-size: 35rpx;
+}
+
+.packages_list .packgagegoods .img {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 40rpx 0 0;
+}
+
+.packages_list .packgagegoods .img image{
+  width: 100%;
+  height: 100%;
+}
+
+.packages_list .packgagegoods .text view {
+  padding: 10rpx;
+  width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.packages_list .packgagegoods .text .price{
+  color: red;
+}

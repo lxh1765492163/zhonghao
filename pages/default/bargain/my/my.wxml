@@ -1,0 +1,44 @@
+<!--pages/default/bargain/my/my.wxml-->
+<view class='list'>
+  <block wx:for="{{list.goods}}" wx:key=''>
+    <navigator class='goods' url='../bargain/bargain?id={{item[0].actor_id}}'>
+      <image src='{{item[0].images}}'></image>
+      <view class='text'>
+        <view class='title'>{{item[0].title}}</view>
+        <view>
+          <text style='color:#ed2822'>当前价￥{{item[0].now_price}}</text>
+          <block wx:if="{{nowtime>item[0].end_time}}">
+            <text class='laber' style='background:#ef4f4f'>已结束</text>
+          </block>
+          <block wx:elif="{{item[0].time_limit==1}}">
+            <text class='laber' style='background:#ff9326'>已超时</text>
+          </block>
+          <block wx:elif="{{item[0].now_price==item[0].end_price}}">
+          <text class='laber' style='background:#02AB24;'>已到底价</text>
+          </block>
+           <block wx:else>
+          <text class='laber' style="text-decoration-line:{{item[0].type==1?'':'line-through'}};border:solid 1rpx {{item[0].type==1?'orangered':'#bbb'}};color:{{item[0].type==1?'orangered':'#bbb'}};">{{item[0].type==1?'底价￥'+item[0].end_price:'原价￥'+item[0].start_price}}</text>
+          </block>
+        </view>
+      </view>
+    </navigator>
+  </block>
+</view>
+<view class='tabbar'>
+  <navigator open-type='reLaunch' class='child' url='/pages/default/index/index'>
+    <view class='icon icon-home'></view>
+    <view>商城首页</view>
+  </navigator>
+  <navigator open-type='reLaunch' class='child' url='/pages/default/bargain/list/list'>
+    <view class='icon icon-all'></view>
+    <view>全部砍价</view>
+  </navigator>
+  <navigator open-type='reLaunch' class='child' url='/pages/default/bargain/my/my' style='color:red'>
+    <view class='icon icon-all1'></view>
+    <view>砍价中</view>
+  </navigator>
+  <navigator open-type='reLaunch' class='child' url='/pages/default/bargain/complete/complete'>
+    <view class='icon icon-money'></view>
+    <view>已购买</view>
+  </navigator>
+</view>

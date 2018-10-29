@@ -1,0 +1,30 @@
+<template name="merch_goods">
+  <view wx:if="{{indexrecommands != ''}}" class="fui-line" style="background:#f4f4f4;">
+    <view class="text text-danger"><text class="icon icon-likefill"></text> 为您推荐</view>
+  </view>
+  <view class="fui-goods-group {{!goodsstyle ? 'block' : ''}} border">
+    <block wx:for="{{indexrecommands}}" wx:for-item="item" wx:key="">
+      <view class="fui-goods-item">
+        <navigator url="/pages/default/goods/detail/detail?id={{item.id}}&frommyshop=1">
+          <view class="image" style="background-image:url({{item.thumb}});">
+            <view wx:if="{{item.total <= 0}}" class="salez" style="background:url({{shopset.shop.saleout}});"></view>
+          </view>
+        </navigator>
+        <view class="detail">
+          <navigator url="/pages/default/goods/detail/detail?id={{item.id}}">
+            <view class="name">
+              <text wx:if="{{item.ispresell == 1}}" class="fui-tag fui-tag-danger">预售</text>
+              {{item.title}}
+            </view>
+          </navigator>
+          <view class="price">
+            <text class="text">￥{{item.minprice}}</text>
+            <text class="buy">
+              <text class="icon icon-cart"></text>
+            </text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</template>

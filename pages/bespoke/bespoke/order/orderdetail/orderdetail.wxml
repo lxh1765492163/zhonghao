@@ -1,0 +1,93 @@
+<!--pages/default/bespoke/order/index.wxml-->
+<view class="header">
+
+  <view class="address"  bindtap="selectAddress">
+    <view class="left">
+      <view class="name">
+        <text>{{address.name}}</text>
+        <text>{{address.phone}}</text>
+      </view>
+      <view class="add_detail">
+        <text>地址:{{address.province}}{{address.city}}{{address.district}} {{address.address}}</text>
+        <text></text>
+      </view>
+    </view>
+    <view class="right"></view>
+  </view>
+</view>
+
+<view class="content">
+  <view class="xm">已购买项目</view>
+  <block wx:for="{{goods}}" wx:for-item="item" wx:key>
+
+    <view class="contents">
+      <image src="http://xcx.xcwll.cn/attachment/{{item.goods.photo}}"></image>
+      <view class="content_title">
+        <view class="title">{{item.goods.title}}</view>
+        <view class="stor">
+          <text>数量:{{item.buy_num}} </text>
+          <text> {{item.goods.shijian*item.buy_num}}分钟 </text>
+          <text wx:if="{{item.daojia == 1}}"> 上门服务</text>
+          <text wx:else> 到店服务</text>
+        </view>
+        <view class="price">￥{{item.price}} <text style="font-size:30rpx;color:#acacac;">{{item.price}}X{{item.buy_num}}</text></view>
+
+      </view>
+    </view>
+
+  </block>
+  <view class="form">
+   <view class="all">
+      <text>美容师:</text>
+      <text style="color:#333">{{staff.staff_name}}(工号：{{staff.staff_work_no}})</text>
+    </view>
+    <view class="all">
+      <text>门店地址:</text>
+      <text>{{get_store}}</text>
+      
+    </view>
+    <view class="all">
+      <text>实付金额:</text>
+      <text>￥{{allprice}}</text>
+    </view>
+   
+     <view class="all">
+      <text>预约时间:</text>
+      <text>{{order.yuyue_time}}</text>
+    </view>
+    <view class="all">
+      <text>合计:</text>
+      <text style="color:#fe6771">￥{{order.price}}(上门费:{{order.daojia_fee}})</text>
+    </view>
+    <view class="all">
+      <text>备注:</text>
+      <text >{{order.memo}}</text>
+      
+    </view>
+    <view class="all">
+      <text>订单编号:</text>
+      <text>{{order.order_sn}}</text>
+    </view>
+    <view class="all">
+      <text>订单创建时间:</text>
+      <text>{{order.create_time}}</text>
+    </view>
+    <view class="all">
+      <text>订单状态:</text>
+      <text wx:if="{{order.status==0}}">未确定,未付款,未开始
+      </text>
+      <text wx:elif="{{order.status==5}}">已取消,未付款,未开始
+      </text>
+      <text wx:elif="{{order.status==2}}">已完成,已付款，服务完成
+      </text>
+    </view>   
+  </view>
+</view>
+<block wx:if="{{order.status == 0}}">
+  <view class="footer">
+    <button bindtap="removeorder" style="background:#fff;color:#fe6771;" size="" type="default">取消订单</button>
+  </view>
+  <view class="footer">
+    <navigator url="/pages/default/bespoke/order/detail/detail?orderid={{order.order_sn}}&uid={{order.uid}}" class="butt" size="" type="warn">立即付款 </navigator>
+  </view>
+</block>

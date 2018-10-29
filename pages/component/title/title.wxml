@@ -1,0 +1,14 @@
+<template name="title">
+  <view class="fui-title" style="background:{{item.style.background}};color:{{item.style.color}};font-size:{{item.style.fontsize}}px;text-align:{{item.style.textalign}};padding:{{item.style.paddingtop}}px {{item.style.paddingleft}}px;margin:0;">
+    <block wx:if="{{!item.params.link}}">
+      <text wx:if="{{item.params.icon}}" class="icon {{item.params.icon}}"></text>
+      {{item.params.title}}
+    </block>
+    <block wx:else>
+    <navigator url="{{item.params.link}}" style="color:{{item.style.color}};">
+      <text wx:if="{{item.params.icon}}" class="icon {{item.params.icon}}"></text>
+      {{item.params.title}}
+    </navigator>
+    </block>
+  </view>
+</template>

@@ -1,0 +1,66 @@
+/* pages/community/details/details.wxss */
+
+page{
+  font-size: 35rpx;
+}
+
+
+ .ThemeGroup {
+  background: #eee;
+  padding-top: 15rpx;
+}
+
+.ThemeGroup .theme {
+  background: white;
+  margin-bottom: 15rpx;
+}
+
+.theme .themeAuthor {
+  padding: 20rpx 20rpx;
+}
+
+.themeAuthor image {
+  float: left;
+  height: 80rpx;
+  width: 80rpx;
+  margin: 10rpx 20rpx 0 0;
+  border-radius: 50%;
+}
+
+.themeAuthor text {
+  display: block;
+  margin: 0rpx 20rpx 10rpx;
+}
+
+.theme .themeTitle text {
+  margin: 10rpx 10rpx 10rpx 20rpx;
+}
+
+.theme .themeContent {
+  padding: 10rpx 20rpx 0;
+  border-bottom: solid 1rpx #eee;
+}
+
+.theme .interaction {
+  padding: 20rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.interaction .icon {
+  height: 40rpx;
+  width: 40rpx;
+  display:inline-block;
+}
+
+.body .newBuild {
+  height: 50rpx;
+  width: 50rpx;
+  padding: 25rpx 25rpx;
+  background: #009acd;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 50rpx;
+  right: 50rpx;
+}

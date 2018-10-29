@@ -1,0 +1,80 @@
+<view class="fui-page fui-page-current page-commission-order">
+  <view class="fui-content navbar">
+    <view class="fui-cell-group" style="margin-top:0px;">
+      <view class="fui-cell">
+        <view class="fui-cell-label" style="width:auto;">{{items.thisset.texts.commission_total}}</view>
+        <view class="fui-cell-info"></view>
+        <view class="fui-cell-remark noremark">{{items.member.commission_total}}{{items.thisset.texts.yuan}}</view>
+      </view>
+    </view>
+    <view class="fui-tab fui-tab-warning">
+      <view class="a {{status == 'all' ? 'active' : ''}}" data-tab="all" catchtap="switchTab">所有</view>
+      <view class="a {{status == 0 ? 'active' : ''}}" data-tab="0" catchtap="switchTab">待付款</view>
+      <view class="a {{status == 1 ? 'active' : ''}}" data-tab="1" catchtap="switchTab">已付款</view>
+      <view class="a {{status == 3 ? 'active' : ''}}" data-tab="3" catchtap="switchTab">已完成</view>
+    </view>
+    <block wx:if="{{list.length > 0||over}}">
+      <view class="fui-according-group">
+        <block wx:for="{{list}}" wx:for-item="val" wx:key="">
+          <view class="fui-according">
+            <view class="fui-according-header">
+              <view class="left">{{val.ordersn}}({{val.level}})
+                <view>{{val.createtime}}</view>
+              </view>
+              <view class="right">+{{val.commission}}
+                <view>{{val.status}}</view>
+              </view>
+              <view wx:if="{{items.thisset.openorderdetail > 0 || items.thisset.openorderbuyer > 0}}" class="remark"></view>
+            </view>
+            <block wx:if="{{items.thisset.openorderdetail > 0 || items.thisset.openorderbuyer > 0}}">
+              <view class="fui-according-content">
+                <view class="content-block">
+                  <block wx:if="{{items.thisset.openorderbuyer > 0}}">
+                    <view class="fui-list">
+                      <view class="fui-list-media">
+                        <image class="round" src="{{val.buyer.avatar}}" mode="widthFix" style="width:2rem;height:2rem;"></image>
+                      </view>
+                      <view class="fui-list-inner">
+                        <view class="row">
+                          <view class="row-text" style="font-size:15px;">{{val.buyer.nickname}}</view>
+                        </view>
+                        <view class="subtitle" style="font-size:15px;">微信号: {{val.buyer.weixin}}</view>
+                      </view>
+                    </view>
+                  </block>
+                  <block wx:if="{{items.thisset.openorderdetail > 0}}">
+                    <block wx:for="{{val.order_goods}}" wx:for-item="g" wx:key="">
+                      <view class="fui-list">
+                        <view class="fui-list-media">
+                          <image src="{{g.thumb}}" class="round" style="width:2rem;height:2rem;" mode="widthFix"></image>
+                        </view>
+                      </view>
+                      <view class="fui-list-inner">
+                        <view class="row">
+                          <view class="row-text" style="font-size:14px;">{{g.title}}</view>
+                        </view>
+                        <view class="subtitle" style="font-size:14px;">{{g.optionname}}x{{g.total}}</view>
+                      </view>
+                      <view class="row-remark">
+                        <view>预计</view>
+                        <view>+{{g.commission}}</view>
+                      </view>
+                    </block>
+                  </block>
+                </view>
+              </view>
+            </block>
+          </view>
+        </block>
+      </view>
+      <block wx:if="{{over==true}}">
+        <import src="../../../component/nodata/nodata.wxml" />
+        <template is="nodata" />
+      </block>
+    </block>
+    <block wx:else>
+      <import src="../../../component/nodata/nodata.wxml" />
+      <template is="nodata" />
+    </block>
+  </view>
+</view>

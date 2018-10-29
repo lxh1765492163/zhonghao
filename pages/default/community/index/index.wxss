@@ -1,0 +1,115 @@
+/* pages/community/community.wxss */
+@import '../../../component/float/menu.wxss';
+
+@import "../tabbar/tabbar.wxss";
+
+.community {
+  font-size: 30rpx;
+  background: #fffafa;
+  margin-bottom: 150rpx;
+}
+
+.community .navGroup {
+  padding: 20rpx 0;
+  width: 100%;
+  background: white;
+}
+
+.navGroup .nav {
+  display: inline-flex;
+  flex-direction: column;
+  margin: 15rpx 0;
+  width: 25%;
+}
+
+.nav image {
+  margin: 0 auto 10rpx;
+  height: 90rpx;
+  width: 90rpx;
+  border-radius: 50%;
+}
+
+.nav text {
+  text-align: center;
+  color: #999;
+  font-size: 26rpx;
+}
+
+.recommend {
+  margin-top: 20rpx;
+  background: white;
+}
+
+.recommend .titleBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 34rpx;
+  padding: 20rpx 20rpx;
+  border-top: solid 1rpx #ddd;
+  border-bottom: solid 1rpx #ddd;
+}
+
+.titleBar .all {
+  color: #999;
+  display: flex;
+  align-items: center;
+}
+
+.all image {
+  height: 40rpx;
+  width: 40rpx;
+  margin-left: 10rpx;
+}
+
+.recommend .section {
+  display: flex;
+  margin: 0 20rpx;
+  padding: 20rpx 0;
+  justify-content: flex-start;
+  border-bottom: solid 1rpx #ddd;
+}
+
+.section image {
+  height: 100rpx;
+  width: 130rpx;
+  border-radius: 16rpx;
+  margin: auto 0;
+}
+
+.section .newsletter {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #999;
+}
+
+.newsletter .title {
+  font-size: 38rpx;
+  color: #000;
+  margin-bottom: 10rpx;
+}
+
+.newsletter .topic .sign {
+  color: red;
+  font-size: 28rpx;
+}
+
+.section .space {
+  flex: 1;
+}
+
+.section .more {
+  height: 40rpx;
+  width: 40rpx; 
+  margin-top: 10rpx;
+}
+
+.community .logo {
+  background: white;
+  padding: 20rpx 0;
+  text-align: center;
+  font-size: 24rpx;
+  margin-bottom: 150rpx;
+}

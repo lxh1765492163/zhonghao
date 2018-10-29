@@ -1,0 +1,48 @@
+<import src="../../component/float/menu.wxml" />
+<template is="floatmenu" data="{{height,open}}" />
+
+
+<!--分类  -->
+<view class="menus">
+    <scroll-view scroll-x="true" style="" bindtap="tabFun">
+        <view class="list {{id == '' ? 'active' : '' }}" data-id="">
+            全部 |
+        </view>
+        <view wx:for="{{topList}}" wx:for-item="item" wx:key="" class="list {{}}" style="color:{{item.id == id ? 'red' : ''}}" data-id="{{item.id}}">
+
+            {{item.category_name}} |
+        </view>
+    </scroll-view>
+</view>
+<!--轮播图  -->
+<!-- <view class="swiper" wx:if="{{imgs != ''}}">
+    <swiper indicator-dots="true" indicator-color="rgba(0, 0, 0, .3)">
+        <block wx:for="{{imgs}}" wx:for-item="item" wx:key="">
+            <swiper-item bindtap="navTo" data-click="{{item.id}}" wx:if="{{item.resp_img!='http://xcx.xcwll.cn/attachment/'}}">
+                <image src="{{item.resp_img}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+</view> -->
+<!--列表详情  -->
+<view class="detail" style=" background-image:url('L2Fzc2V0cy9pbWFnZXMvYmcucG5n') no-repeat">
+    <view class="detailList">
+        <view class="oneList">
+            <block wx:for="{{items}}" wx:for-item="item" wx:key="">
+
+                <view class="allList">
+                    <view bindtap="navTo" style="position:relative" data-click="{{item.id}}" hover-class="none">
+
+                        <view wx:if="{{item.resp_img == 'http://xcx.xcwll.cn/attachment/'}}" style="height:100rpx;width:70%;float:left;" class="title">{{item.article_title}}</view>
+                        <view wx:else style="height:100rpx;width:70%;float:left;" class="title">{{item.article_title}}</view>
+
+                        <image class="{{item.resp_img == ''? 'active': 'img'}}" src="{{item.resp_img}}"></image>
+                        <view style="color:gray; width:100%;height:40rpx; font-size:32rpx;position:absolute;top:110rpx;">发布时间：{{item.article_date}}</view>
+                    </view>
+                </view>
+
+            </block>
+            <view wx:if="{{items==''}}">没有数据~~~</view>
+        </view>
+    </view>
+</view>

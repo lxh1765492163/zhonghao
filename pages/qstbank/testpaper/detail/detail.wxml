@@ -1,0 +1,36 @@
+<!--pages/testpaper/detail/detail.wxml-->
+<view class='paper_detail'>
+  <view class='title'>{{title}}</view>
+  <view class='info'>
+    <view class='child'>
+      <view>试卷总分 {{info.total_score==0?'':info.total_score+'分'}}</view>
+      <view>所需费用 {{info.price=='0.00'||pay==0?'免费':info.price+'元'}}</view>
+      <view>试卷年份 {{info.paper_year}}</view>
+    </view>
+    <view class='child'>
+      <view>试卷类型 {{info.name_type}}</view>
+      <view>作答时间 {{info.time==0?'':info.time+'分钟'}}</view>
+      <view>提供机构 {{info.provider}}</view>
+    </view>
+  </view>
+  <view class='select'>
+    <view bindtap='gotest' data-mode="0">
+      <text class='icon icon-text1'></text>
+      <text>练习模式</text>
+    </view>
+    <view bindtap='gotest' data-mode="1">
+      <text class='icon icon-office'></text>
+      <text>考试模式</text>
+    </view>
+  </view>
+  <!-- <view class='present'>
+    <view><text class='icon' style='background:#409aff'></text><text>练习模式：圣诞快乐肯定是快乐开始的法律速度，殍沙河对岸几十块大，if阿金房间就爱。</text></view>
+    <view><text class='icon' style='background:#feb856'></text><text>考试模式：of破功多哦大水泊发票多皮肤开始频繁商品都，欧迪芬搜救飞机上飞机搜房，地费时间放假时间！</text></view>
+  </view>
+  <view class='detail'>
+    <view>试卷详情</view>
+    <view>
+      的方式来付电费收费是否按时东风破苏东坡佛山贷款放，我哦啊ofo撒搜破阿卡！撒大声地喀什。
+    </view>
+  </view> -->
+</view>

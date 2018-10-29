@@ -1,0 +1,31 @@
+.swiper{
+    background: #ffffff;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 30rpx;
+}
+
+.swiper .wrap{
+    float: left;
+    width: 25%;
+    height: 160rpx;
+    margin-top: 20rpx;
+    text-align: center;
+}
+
+.swiper .wrap image{
+    display: block;
+    width: 90rpx;
+    height: 90rpx;
+    margin: 20rpx auto 0;
+}
+
+.swiper .wrap text{
+    display: block;
+    margin-top: 15rpx;
+    font-size: 26rpx;
+    color: #333;
+}

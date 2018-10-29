@@ -1,0 +1,28 @@
+<template name="footer">
+  <view class="bottom">
+    <navigator open-type="redirect" url="/pages/default/fightGroup/index">
+      <view class="home" data-click="1" >
+        <image src="/assets/images/tabBar/icon-home.png"></image>
+        <text class="{{tabArr=='1' ? 'active' : ''}}"  >拼团首页</text>
+      </view>
+    </navigator>
+    <navigator open-type="redirect" url="/pages/default/fightGroup/list/list">
+      <view  bindtap="click" class="home" data-id="" data-click="2">
+        <image   src="/assets/images/tabBar/icon-list.png "></image>
+        <text class="{{tabArr=='2' ? 'active' : ''}}">活动列表</text>
+      </view>
+  </navigator>
+     <navigator open-type="redirect" url= "/pages/default/fightGroup/myOrder/index">
+      <view class="home"  data-click="3"  >
+        <image src="/assets/images/tabBar/icon-cart.png"></image>
+        <text class="{{tabArr=='3' ? 'active' : ''}}">我的订单</text>
+      </view>
+    </navigator>
+     <navigator open-type="redirect" url= "/pages/default/fightGroup/myteam/index">
+        <view class="home" data-click="4"  >
+          <image src="/assets/images/tabBar/icon-person2.png"></image>
+          <text class="{{tabArr=='4' ? 'active' : ''}}">我的团</text>
+        </view>
+      </navigator>
+  </view>
+</template>

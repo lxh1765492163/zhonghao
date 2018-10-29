@@ -1,0 +1,155 @@
+/* pages/default/fightGroup/details/detail.wxss */
+@import '../../../../vendor/wxParse/wxParse.wxss';
+swiper{
+  height:520rpx;
+  width:100%;
+}
+.wxParse{
+    margin:0;
+}
+wxParse-img{
+    display:block;
+}
+
+swiper wiper-item .img{
+  width:100%;
+  height:320px;
+}
+.content{
+  width:100%;
+  height:170rpx;
+  background:#fff;
+  font-size:30rpx;
+}
+.content .title :first-child{
+  display:block;
+  background:#FD5454;
+  color:#fff;
+  font-size:34rpx;
+  padding:5rpx 5rpx;
+  margin-left:10rpx;
+  margin-top:18rpx;
+  float:left;
+}
+.content .title .desc{
+  font-size:36rpx;
+  font-weight: 600;
+  margin-left:10rpx;
+  font-family: 宋体;
+  height:100rpx;
+  display:block;
+  overflow: hidden;
+  float:right;
+  margin-top:5rpx;
+  width:77%;
+}
+.goods {
+  width:100%;
+}
+.goods .goodsLeft{ 
+  float:left;
+  margin-top:20rpx;
+  margin-left:10rpx;
+}
+.goods .goodsLeft .nowPrice{
+  font-size:36rpx;
+  color:#FD5454;
+  font-weight: 600;
+}
+.goods .goodsLeft .cost{
+  color:#959595;
+  text-decoration:line-through;
+}
+.goods .goodsRight{
+  float:right;
+  margin-top:20rpx;
+  margin-right:10rpx;
+  color:#959595;
+}
+.goods .goodsRight .font{
+  color:#333;
+  font-weight: 700;
+}
+.intro{
+  font-size:30rpx;
+  width:100%;
+  height:100rpx;
+  background:#fff;
+  margin-top:20rpx;
+  line-height:100rpx;
+  padding-left:10rpx;
+  color:#959595;
+}
+.intro .tio{
+  color:#333;
+  text-decoration: underline;
+}
+.detail{
+  width:100%;
+  background:#fff;
+  margin-top:20rpx;
+  margin-bottom:120rpx;
+}
+.detail .text{
+  font-size:36rpx;
+  font-weight: 600;
+
+}
+.detail .text text{
+  display:inline-block;
+  width:146rpx;
+  border-bottom:1px solid #FD5454;
+  margin-left:30rpx;
+  margin-top:20rpx;
+  margin-bottom:30rpx;
+}
+.picture{
+  width:100%;
+
+}
+.picture text{
+ font-size:30rpx;
+ width:95%;
+ margin-left:2%;
+}
+.last{
+  width:100%;
+  height:120rpx;
+   background:#fff; 
+  position:fixed;
+  bottom:0;
+}
+.last .last_left {
+  width:26%;
+  height:100%;
+  background:#fff;
+  float:left;
+}
+.last .last_left image{
+  width:80rpx;
+  height:80rpx;
+  margin-left:30%;
+  margin-top:15rpx;
+
+}
+.last .last_right{
+  width:37%;
+  height:100%;
+  background:red;
+  float:left;
+}
+.last .last_right text{
+  font-size:34rpx;
+  color:#fff;
+  display:block;
+  width:270rpx;
+  height:40rpx;
+ text-align: center;
+
+}
+.last .active{
+  background:#FF8080;
+}
+.last .mod{
+  background:#FD5454;
+}

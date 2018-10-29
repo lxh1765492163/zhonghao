@@ -1,0 +1,19 @@
+<!--pages/default/package/list/list.wxml-->
+<!-- <block wx:if="{{packages!=''&&packages!=null}}"> -->
+  <view class='packages_list' wx:for="{{packages}}" wx:key="">
+    <navigator class='packgagegoods' url='../index?pid={{item.id}}'>
+      <view class='img'>
+        <image src="{{item.thumb}}"></image>
+      </view>
+      <view class='text'>
+        <view>{{item.title}}</view>
+        <view>商品总价：<text class='price'>￥{{item.goodsprice}}</text> </view>
+        <view>套餐价格：<text class='price'>￥{{item.price}}</text></view>
+      </view>
+    </navigator>
+  </view>
+<!-- </block> -->
+
+<!-- <block wx:else>
+  <view>该商品暂时没有套餐</view>
+</block> -->

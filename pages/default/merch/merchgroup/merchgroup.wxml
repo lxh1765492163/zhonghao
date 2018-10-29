@@ -1,0 +1,25 @@
+<import src="banner/index.wxml" />
+<import src="dropdown/index.wxml" />
+<import src="merchant/index.wxml" />
+<import src="position/index.wxml" />
+<import src="../../../component/float/menu.wxml"/>
+
+
+
+
+<template is="position" data="{{location, isSelected}}"/>
+<view style="width: 100%;height: 90rpx;"></view>
+<template is="floatmenu"  data="{{scrolltop}}"/>
+<template is="banner" data="{{imgs}}" />
+<template is="dropdown" data="{{drop, data, title}}" wx:if="{{loadingSuccess}}"/>
+
+<template is="merchant" data="{{list}}" />
+<view style="width: 100%;height: 70rpx;text-align: center;line-height: 70rpx;font-size: 30rpx;color: #999" wx:if="{{showloading}}">
+	{{loading ? '正在加载...' : '已加载全部'}}
+</view>
+
+
+<view class="empty" wx:if="{{empty}}">
+    <image src="/assets/images/empty-img.png" />
+    <view>抱歉！暂无数据</view>   
+</view>

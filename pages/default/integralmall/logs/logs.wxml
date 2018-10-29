@@ -1,0 +1,22 @@
+<!--pages/default/integralmall/logs/logs.wxml-->
+<view class='titlebar'>
+      <text class='icon icon-jifen'></text>
+      <text> 我的积分: {{credit}}</text>
+</view>
+<navigator class='join' url='../person/person'>
+      <view class='logs' wx:for='{{list}}' wx:key=''>
+            <view style='position: relative'>
+                  <image src='{{item.thumb}}' style='width:130rpx; height:130rpx;background:red; display: block;'></image>
+                  <view style='text-align: center; width:100%; background: rgba(255, 153, 0,0.8); position: absolute; bottom:0; left: 0; color:white; font-size:30rpx; '>兑换</view>
+            </view>
+            <view class='info' style='flex:1'>
+                  <view class='title'>{{item.title}}</view>
+                  <view style='color: #666'>{{item.createtime}}</view>
+            </view>
+            <view style='text-align:right; color: #f20'>
+                  <view>-{{item.optioned!=0&&item.ocredit!=null?item.ocredit:item.credit}}积分</view>
+                   <view wx:if="{{item.omoney!=null||item.money!=0}}">¥{{item.optionid!=0&&item.omoney!=null?item.omoney:item.money}}</view>
+                  <view style='color:#666;'>已兑换</view>
+            </view>
+      </view>
+</navigator>

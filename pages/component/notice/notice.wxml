@@ -1,0 +1,20 @@
+<template name="notice">
+  <view class="jui-notice" style="background:{{item.style.background}}">
+    <view class="logo">
+      <image src="https://xcx.xcwll.cn/attachment/{{item.params.iconurl}}"></image>
+    </view>
+    <view class="icons"><text class="icon icon-notification1" style="font-size:40rpx;color:{{item.style.iconcolor}};"></text></view>
+    <view class="notice-wrap" style="color:{{item.style.color}}">
+      <!-- <view class="text" style="color:{{item.style.color}}">
+        <view wx:for="{{item.data}}" wx:key="" wx:for-item="val">{{val.title}}</view>
+      </view> -->
+      <swiper class="text" circular="true" autoplay="true" interval="2000" duration="{{item.params.speed}}*1000" vertical="true" style="height: 60rpx;line-height: 60rpx;">
+      <block wx:for="{{item.data}}" wx:key="item"  wx:for-item="val">
+        <swiper-item style="height: 60rpx;line-height: 60rpx;font-size: 28rpx;">
+          {{val.title}}
+        </swiper-item>
+      </block>
+    </swiper>
+    </view>
+  </view>
+</template>

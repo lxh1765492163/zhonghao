@@ -1,0 +1,106 @@
+/* dingevaluate.wxss */
+page{
+  width: 100%;
+  overflow-x: hidden;
+}
+.dingevaluate1{
+  background-color: #F0EFF5;
+  height: 100%;
+  padding-top: 1px;
+}
+.dingevaluate{
+  height: 85rpx;
+  background-color: white;
+  padding-top: 25rpx;
+  padding-left: 30rpx;
+  margin: 20rpx 0rpx;
+  border-bottom: 1px solid #DCDBE0;
+  display: flex;
+  align-items: center;
+}
+.dingimg{
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+}
+.dingtext{
+  float: left;
+  color: #666666;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  text-indent: 1em;
+  margin-right: 30rpx;
+}
+.dingxing{
+  float: left;
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 10rpx;
+  margin-left: 40rpx;
+}
+.dingtext1{
+  color: #999999;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  text-indent: 2em;
+  margin-left:200rpx; 
+}
+.dingyi{
+  background-color: white;
+  padding: 30rpx;
+}
+.dingtext2{
+  width: 100%;
+  font-size: 24rpx;
+  color: #999999;
+}
+.dingyi1{
+  width: 120rpx;
+  height: 120rpx;
+  border: 1px dashed #999999;
+}
+.dingyi_icon{
+  width: 40rpx;
+  height: 30rpx;
+  margin-left: 40rpx;
+  margin-top: 15px;
+}
+.dingyi3{
+  font-size: 24rpx;
+  color: #999999;
+  text-align: center;
+}
+.ding_fabu{
+  background-color: #EB5E18;
+  color: white;
+  margin:100rpx 33rpx 0rpx 33rpx;
+}
+.getimg{
+  display: flex;
+}
+.image{
+  width: 120rpx;
+  height: 120rpx;
+}
+.image image{
+  width: 120rpx;
+  height: 120rpx;
+}
+.image_width{
+  margin: 10rpx;
+}
+.star-image{
+  position: absolute;
+  top: 70rpx;
+  margin-left: 280rpx;
+  width: 30rpx;
+  height: 30rpx;
+  src: "../../images/no-star.png";
+}
+.item{
+  position: absolute;
+  top: -2rpx;
+  width: 100%;
+  height:100%;
+}
+

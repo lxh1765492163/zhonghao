@@ -1,0 +1,47 @@
+<template name="merchgroup">
+    <view class="merchgroup">
+        <view  class="merchtype_1">
+            <navigator wx:if="{{item.params.merchdata ==  0}}"  url="/pages/default/merch/merchgroup/merchgroup" class="total">
+                <text>全部商家</text>
+                <image src="/assets/images/arrow_down.png" />
+            </navigator>
+            <navigator wx:else url="/pages/default/merch/merchgroup/merchgroup" class="total">
+                <text>{{item.params.catename}}</text>
+                <image src="/assets/images/arrow_down.png" />
+            </navigator>
+            <block wx:for="{{item.data}}" wx:for-item="val" wx:key="">
+                <view class="merchant">
+                    <navigator  url="/pages/default/merch/index/index?merchid={{val.merchid ? val.merchid : val.id}}" class="item-logo">
+                        <image src="https://xcx.xcwll.cn/attachment/{{val.thumb}}" />
+                    </navigator>
+                    <view class="item-list">
+                        <navigator class="fui-list-media" url="/pages/default/merch/index/index?merchid={{val.merchid ? val.merchid : val.id}}">
+                            <view class="item-list-title">
+                                <text class="title" style="color:{{item.style.titlecolor}};">{{val.name}}</text>  
+                                <text class="distance" wx:if="{{item.params.openlocation == '1'}}" style="color:{{item.style.rangecolor}};"> {{val.distance}}km</text>
+                                <text class="mark">推荐</text>
+                            </view>
+                        </navigator>
+                        <view wx:if="{{val.desc != ''}}" style="color:{{item.style.titlecolor}};" class="item-list-group desc">
+                            {{val.desc}}
+                        </view>
+
+                        <view class="item-list-group info" wx:if="{{item.params.merchdata ==  0}}">
+                            <navigator class="item-info" url="/pages/default/merch/map/map?id={{val.merchid ? val.merchid : val.id}}" >
+                                <image src="/assets/images/tabBar/address.png" />
+                                <text>{{val.address}}</text>
+                                <text hover-class='none' class="openmap">打开地图</text>
+                            </navigator>
+                            <view class="item-info">
+                                <image src="/assets/images/callphone.png" />
+                                <text>{{val.tel}}</text>
+                                <text  data-tel="{{val.tel}}"  bindtap="telPhone" class="openmap">联系商家</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+
+    </view>
+</template>

@@ -1,0 +1,45 @@
+
+<!--index.wxml-->
+<view class="box font">
+    <view class='bacc'>
+        <image wx:if="{{platform.img==''}}" src='http://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/images/background.png'></image>
+        <image wx:if="{{platform.img!=''}}" class='img' mode='aspectFill' src='http://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{platform.img}}'></image>
+    </view>
+    <view class="text1" style='color:{{platform.big_color}}' wx:if="{{platform.big_title!=''}}">{{platform.big_title}}</view>
+    <view class="text1" style='color:#fff' wx:if="{{platform.big_title==''}}">连接有温度的旅行体验</view>
+    <view class="text2" style='color:{{platform.lit_color}}' wx:if="{{platform.lit_title!=''}}">{{platform.lit_title}}</view>
+    <view class="text2" style='color:orange' wx:if="{{platform.lit_title==''}}">来自8千万会员的信赖</view>
+    <view class="main">
+        <view class="main1" catchtap="tomap">
+            <image src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/xiangqingdizhi@2x.png" mode="aspectFit"></image>
+            <text class="main_text">{{city}}</text>
+        </view>
+        <view class="main2">
+            <view class="main2_box" style="font-size: 24rpx; color:#999999;">
+                <view class="main2_box_t">入住</view>
+                <view class="main2_box_t">共{{time}}晚</view>
+                <view class="main2_box_t">离店</view>
+            </view>
+            <view class="banner">
+                <view bindtap="bindViewTap" class="userinfo">
+                    <view class='banner1' style='border-right:1rpx solid #E5E5E5;'>{{date}}</view>
+                    <view class='banner1'>{{tomorrow}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="main3">
+            <view class="mainbutton" bindtap='hotel'>订酒店</view>
+        </view>
+    </view>
+
+</view>
+<view class="footer">
+    <navigator url="/pages/commen/pages/shouye/shouye" class="footer1">
+        <image class="image" src="/assets/images/tabBar/icon-home.png"></image>
+        <text>首页</text>
+    </navigator>
+    <navigator url="/pages/commen/pages/logs/logs" class="footer1">
+        <image class="image" src="/assets/images/tabBar/icon-person2.png"></image>
+        <text>我的</text>
+    </navigator>
+</view>

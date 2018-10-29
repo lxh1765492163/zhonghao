@@ -1,0 +1,15 @@
+<template name="authorize">
+    <view animation="{{animationData}}" class='frame' style='width:{{width}};'>
+        <view class='mark' style=''>
+        </view>
+        <view class="{{display == true ? 'content1' : 'content'}} " style='' >
+            <view class='prompt' style=''>
+                <view style='color:#999'>未授权，是否授权？</view>
+            </view>
+            <view class='frame_btn' style=''>
+                <button bindtap='hidmark' style='border-radius:0 0 0 15rpx;border-right: solid 1rpx #ddd;'>取消</button>
+                <button open-type="getUserInfo" bindtap='hidmark' bindgetuserinfo='getUserInfo' style='border-radius:0 0 15rpx 0;color:#66CD00'>去授权</button>
+            </view>
+        </view>
+    </view>
+</template>

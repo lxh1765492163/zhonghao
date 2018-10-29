@@ -1,0 +1,77 @@
+/* pages/integralmall/index/index.wxss */
+@import "../tabbar/tabbar.wxss";
+@import '../../../component/float/menu.wxss';
+
+.integralmall {
+      background: #fff;
+      font-size: 35rpx;
+      padding-bottom: 110rpx;
+}
+
+.integralmall .integralrecord {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      text-align: center;
+      font-size: 30rpx;
+}
+
+.integralmall .integralrecord .child {
+      flex: 1;
+      padding: 20rpx 0 1rpx;
+      border-bottom: solid 1rpx #ddd;
+}
+
+.integralmall .integral_goods_group {
+      margin: 20rpx 0;
+}
+
+.integralmall .integral_goods_group .titlebar {
+      padding: 10rpx 10rpx;
+      border-top: solid 1rpx #ddd;
+      border-bottom: solid 1rpx #ddd;
+      font-size: 34rpx;
+}
+
+.integralmall .integral_goods_group .integral_goods {
+      width: 50%;
+      display: inline-block;
+}
+
+.integralmall .integral_goods_group .integral_goods image {
+      width: 350rpx;
+      height: 350rpx;
+      margin: 0 auto;
+      display: block;
+}
+
+.integralmall .integral_goods_group .integral_goods .text {
+      padding: 10rpx 15rpx;
+}
+
+.integralmall .integral_goods_group .integral_goods .text .title {
+      font-size: 30rpx;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+}
+
+.integralmall .integral_goods_group .integral_goods .text .subtitle {
+      font-size: 24rpx;
+      height: 24rpx;
+      line-height: 24rpx;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+}
+
+.integralmall .integral_goods_group .integral_goods .text .exchange {
+      float: right;
+      margin-right: 10rpx;
+      background: #fb4a20;
+      color: white;
+      font-size: 24rpx;
+      padding: 0rpx 10rpx;
+      border-radius: 10rpx;
+      margin-top:6rpx;
+}

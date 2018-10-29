@@ -1,0 +1,11 @@
+<template name="banner" >
+	<view class="banner" wx:if="{{imgs != ''}}">
+		<swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" duration="500" circular="true" style="padding: 0;">
+		  <block wx:for="{{imgs}}" wx:for-item="item" wx:key="">
+		    <swiper-item>
+		      <image src="{{item.thumb}}" style="width: 100%;height:100%"/>
+            </swiper-item>
+		  </block>
+		</swiper>
+	</view>
+</template>

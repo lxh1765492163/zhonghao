@@ -1,0 +1,18 @@
+<template name="banner">
+      <view class="jui-banner">
+            <swiper indicator-dots="true" autoplay="true" indicator-color="rgba(255,255, 255, {{item.style.opacity}})" indicator-active-color="rgba(0, 0, 0, {{item.style.opacity}})" circular="true" style="height:{{item.style.height ? item.style.height : '211'}}px;">
+                  <block wx:for="{{item.data}}" wx:for-item="val" wx:key="">
+                        <swiper-item>
+                              <block wx:if="{{val.linkurl != ''}}">
+                                    <navigator url="{{val.linkurl}}">
+                                          <image src="https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{val.imgurl}}" style="display:block;width:100%;height:{{item.style.height ? item.style.height : '211'}}px;" mode=''></image>
+                                    </navigator>
+                              </block>
+                              <block wx:else>
+                                    <image src="https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{val.imgurl}}" style="display:block;width:100%;height:{{item.style.height ? item.style.height : '211'}}px;"></image>
+                              </block>
+                        </swiper-item>
+                  </block>
+            </swiper>
+      </view>
+</template>

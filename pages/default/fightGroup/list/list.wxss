@@ -1,0 +1,101 @@
+/* pages/default/fightGroup/list/list.wxss */
+@import '../component/footer.wxss';
+.container {
+  width: 100%;
+  height: 250rpx;
+  background: #fff;
+   margin-top:20rpx; 
+}
+.container .imgLeft {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  margin-left: 30rpx;
+  float: left;
+}
+.container .imgLeft image {
+  margin-top: 25rpx;
+  width: 100%;
+  height: 100%;
+}
+
+.detail {
+  width: 65%;
+  height: 100%;
+  /* background:red; */
+  float: left;
+}
+
+.detail .title {
+  font-size: 38rpx;
+  font-weight: 700;
+  margin-left: 10rpx;
+  height: 100rpx;
+  overflow:hidden;
+}
+
+.detail .price {
+  font-size: 30rpx;
+  color: #ff8080;
+  text-decoration: line-through;
+  margin-left: 10rpx;
+  margin-top: 50rpx;
+}
+
+.detail .pin {
+  width: 100%;
+  height: 60rpx;
+  background: #ff8080;
+  border-radius: 30rpx;
+  margin-left: 10rpx;
+  font-family: 微软雅黑;
+}
+
+.pin text {
+  display: inline-block;
+  font-size: 30rpx;
+  color: #fff;
+  height: 60rpx;
+  line-height: 60rpx;
+  float: left;
+  margin-top: 5rpx;
+}
+
+.pin .people {
+  margin-left: 60rpx;
+}
+
+.pin .pinPrice {
+  font-size: 26rpx;
+  font-weight: 600;
+  margin-left: 10rpx;
+}
+
+.pin .goGroup {
+  width: 118rpx;
+  height: 59rpx;
+  background: red;
+  float: right;
+  border-top-right-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
+  margin-top: 0rpx;
+}
+.search{
+  width:100%;
+  height:80rpx;
+  background:#ccc;
+}
+
+ .search_cen{
+  width:94%;
+  margin-left:3%;
+  background:#fff;
+  font-size:30rpx;
+  height:70rpx;
+ border-radius: 10rpx;
+} 
+ .search_cen image{
+   width:70rpx;
+   height:60rpx;
+   float:left;
+ }

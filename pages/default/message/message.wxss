@@ -1,0 +1,74 @@
+/* pages/default/message/message.wxss */
+
+.message {
+  font-size: 35rpx;
+  background: white;
+  width: 100%;
+  padding-bottom: 30rpx;
+}
+
+.message .msg { 
+  border-bottom: solid 2rpx #76d4c0;
+  width: 94%;
+  padding: 20rpx 3% 30rpx;
+}
+
+.message .msg .cul {
+  display: flex;
+  align-items: flex-start;
+}
+
+.message .msg .cul .text {
+  /* color: #76d4c0; */
+  color: #fff;
+  /* overflow: hidden; */
+  word-wrap: break-word;
+  word-break: normal;
+  padding: 10rpx;
+  border: solid 1rpx #ddd;
+  margin:0 20rpx 60rpx;
+  border-radius: 10rpx;
+  background: #76d4c0;
+  position: relative;
+}
+
+.message .msg .cul .time {
+  position: absolute;
+  bottom: -60rpx;
+  color: #000;
+  text-align: center;
+  margin: 10rpx auto;
+  font-size: 30rpx;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.message .msg .cul .pre {
+  white-space: nowrap;
+  z-index:111;
+}
+.message .msg .ask {
+  padding: 10rpx 0;
+  justify-content: flex-start;
+}
+
+.message .msg .ask .text{
+  margin-right: 200rpx;
+}
+
+.message .msg .ask .text .time {
+  left:0;
+}
+.message .msg .answer {
+  padding: 10rpx 0;
+  justify-content: flex-end;
+}
+.message .msg .answer .text .time {
+  right:0;
+}
+.message .msg .answer .text{
+  margin-left: 200rpx;
+}
+.checkmsg {
+  display: none;
+}

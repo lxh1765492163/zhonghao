@@ -1,0 +1,158 @@
+/* pages/integralmall/goods/detail/detail.wxss */
+@import "../../../../../vendor/wxParse/wxParse.wxss";
+
+.integeal_goods_detail {
+  font-size: 35rpx;
+  padding-bottom: 90rpx;
+}
+
+.integeal_goods_detail .goodsimg {
+  position: relative;
+}
+
+.integeal_goods_detail .time {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  width: 100%;
+  padding: 15rpx 25rpx;
+}
+
+.integeal_goods_detail .goods_info {
+  padding: 10rpx 10rpx;
+}
+
+.integeal_goods_detail .goods_info .goods_title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.integeal_goods_detail .goods_info .goods_title .lable {
+  background: #fe5455;
+  color: white;
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+}
+
+.integeal_goods_detail .goods_sale {
+  padding: 10rpx 10rpx;
+  border-bottom: solid 1rpx #ddd;
+  color: #999;
+}
+
+.integeal_goods_detail .credit {
+  padding: 10rpx 10rpx;
+  border-bottom: solid 1rpx #ddd;
+}
+
+.integeal_goods_detail .content {
+  border-bottom: solid 1rpx #ddd;
+}
+
+.integeal_goods_detail .content .titletab {
+  text-align: center;
+  border-top: solid 1rpx #ddd;
+  padding: 10rpx 0;
+}
+
+.integeal_goods_detail .recommend .titletab {
+  padding: 10rpx 20rpx;
+  font-weight: bold;
+}
+
+.integeal_goods_detail .recommend .goods_group .goods .text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 10rpx;
+}
+
+.exchange {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 18rpx 0;
+  background: #999;
+  z-index: 99;
+  color: white;
+  font-size: 35rpx;
+}
+
+.modal {
+  position: fixed;
+  bottom: -370px;
+  left: 0;
+  width: 100%;
+  height: 320px;
+  background: #eee;
+  z-index: 999;
+  display: flex;
+}
+
+.modal .content {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.modal .content image {
+  width: 200rpx;
+  height: 200rpx;
+  margin: -80rpx 20rpx 0 20rpx;
+  border: solid 8rpx white;
+  border-radius: 5rpx;
+  float: left;
+}
+
+.modal .content .info {
+  font-size: 28rpx;
+  display: flex;
+  align-items: flex-start;
+  height: 70px;
+  margin-top: 10rpx;
+}
+
+.modal .content .info .base {
+  flex: 1;
+}
+
+.modal .content .info .num {
+  border: solid 1rpx #ccc;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  margin-right: 20rpx;
+}
+
+.modal .content .info .num .icon {
+  padding: 0 6rpx;
+}
+
+.modal .content .info .num input {
+  width: 40rpx;
+  text-align: center;
+}
+
+.modal .content .spec {
+  height: 200px;
+  border-top: solid 1rpx #ddd;
+}
+
+.modal .content .nav {
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 35rpx;
+  color: white;
+  background: #fd5555;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

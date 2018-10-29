@@ -1,0 +1,127 @@
+/* pages/test/test.wxss */
+
+.test_centre {
+  font-size: 30rpx;
+}
+
+.test_centre swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.test_centre .content {
+  /* width: 92%;
+  padding: 0 2%; */
+}
+
+.content .style {
+  background: #eee;
+  padding: 20rpx;
+  color: #999;
+}
+
+.style .collection {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  color: #409aff;
+}
+
+.content .question {
+  padding: 30rpx 20rpx;
+  border-bottom: solid 1rpx #ddd;
+  border-top: solid 1rpx #ddd;
+  line-height: 50rpx;
+}
+
+.content image {
+  width: 60%;
+  display: block;
+  margin: 20rpx 40rpx;
+}
+
+.content .answer {
+  color: #777;
+  padding: 20rpx 30rpx;
+}
+
+radio {
+  transform: scale(0.8);
+}
+
+checkbox {
+  transform: scale(0.8);
+}
+
+input {
+  border: solid 1rpx #eee;
+  border-radius: 20rpx;
+  padding: 30rpx 20rpx;
+  width: 100%;
+}
+
+.answer .option {
+  display: flex;
+  align-items: center;
+}
+
+.option .text {
+  padding: 25rpx 0;
+  border-bottom: solid 1rpx #eee;
+  margin-left: 30rpx;
+  flex: 1;
+}
+
+.content .explanation {
+  padding: 15rpx 50rpx;
+  padding-right: 0;
+}
+
+.explanation view {
+  padding: 10rpx;
+}
+
+.explanation view:nth-child(1) {
+  font-size: 40rpx;
+}
+
+.test_centre .navbar {
+  height: 50px;
+  border-top: solid 1rpx #ddd;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 0 40rpx;
+}
+
+.navbar .left {
+  width: 25rpx;
+  height: 25rpx;
+  border-right: solid 5rpx #ddd;
+  border-top: solid 5rpx #ddd;
+  transform: rotate(-135deg);
+  margin: 15px auto;
+}
+
+.navbar .right {
+  width: 25rpx;
+  height: 25rpx;
+  border-right: solid 5rpx #ddd;
+  border-top: solid 5rpx #ddd;
+  transform: rotate(45deg);
+  margin: 15px auto;
+}
+
+.navbar .centre {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.centre .item {
+  flex: 1;
+}

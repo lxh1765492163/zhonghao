@@ -1,0 +1,7 @@
+<template name="video">
+    <view class="fui-video" style="background:{{item.style.background}};margin:{{item.style.paddingtop}}px {{item.style.paddingleft}}px;">
+        <view class="video-wrap">
+            <video src="{{item.params.videourl}}" poster="{{item.params.headurl != '' ? item.params.headurl : ''}}" style="width:100%;height:{{item.style.height}}px;" autoplay="{{item.params.auto == 1 ? true : false}}"></video>
+        </view>
+    </view>
+</template>

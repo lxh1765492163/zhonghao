@@ -1,0 +1,21 @@
+.page-commission-index .detail {
+  width: 100%;
+}
+
+.page-commission-index .headinfo {
+  padding-top: 0;
+}
+
+.fui-list-inner .title,
+.fui-list-inner .subtitle {
+  color: #fff;
+}
+
+.page-commission-index .detail .btn {
+  border-color: #fff;
+  color: #fff;
+  padding: 0 .4rem;
+  height: auto;
+  line-height: 1.3rem;
+  border-radius: .8rem;
+}

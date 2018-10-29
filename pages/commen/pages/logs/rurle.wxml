@@ -1,0 +1,2 @@
+<!--zh_jd/pages/logs/rurle.wxml-->
+<rich-text nodes="{{rurle}}"/>

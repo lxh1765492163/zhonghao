@@ -1,0 +1,58 @@
+<import src="../../../../vendor/wxParse/wxParse.wxml" />
+<import src="../../../component/float/menu.wxml" />
+<template is="floatmenu" data="{{height,open}}" />
+<view class="fui-page fui-page-current article-index-page">
+    <view class="fui-content">
+        <view class="fui-article-page">
+            <view class="fui-article-title">{{article.article_title}}</view>
+            <view class="fui-article-subtitle">
+                <block wx:if="{{article.article_mp != ''}}">{{article.article_mp}} </block>发布时间：{{article.article_date_v}}
+                <block wx:if="{{article.article_author != ''}}"> 作者：{{article.article_author}}</block>
+            </view>
+            <view class="fui-article-content">
+                <block wx:if="{{article.article_areas != ''}}">
+                    <view class="fui-article-notread">
+                        <view>此文章内容仅限指定区域内用户查看</view>
+                        <view>请允许获取位置信息</view>
+                    </view>
+                </block>
+                <block wx:else>
+                    <rich-text style="font-size:22rpx;" nodes="{{article.article_content}}"></rich-text>
+                    <block wx:if="{{article.vodie != ''}}"  wx:for="{{article.vodie}}" wx:for-item="videos" wx:key="">
+                        <video style="width:100%;" src="{{videos}}"></video>
+                    </block>
+                </block>
+            </view>
+            <view class="fui-article-subtitle">
+                <view class="nav">
+                    <text class="icon icon-person2"></text> {{article.readnum}} </view>
+                <view class="nav padding" catchtap="putLike">
+                    <text class="icon {{article.state != '' && article.state.like != '' ? 'icon-likefill text-danger' : 'icon-like'}}"></text> {{article.likenum}}</view>
+                <!-- 投诉 -->
+                <button wx:if="{{article.article_report == 1}}" class="nav right">投诉</button>
+            </view>
+        </view>
+        <block wx:if="{{article.product_advs_type != 0 && article.advs}}">
+            <view wx:if="{{article.product_advs_title != ''}}" class="fui-line title">
+                <view class="text">{{article.product_advs_title}}</view>
+            </view>
+            <view wx:if="{{article.advs.length > 0}}" class="swipe">
+                <view class="inner">
+                    <view class="fui-swipe">
+                        <view class="fui-swipe-wrapper">
+                            <block wx:for="{{article.advs}}" wx:for-item="ad" wx:key="">
+                                <navigator wx:if="{{ad.img != ''}}" url="{{ad.link}}" class="fui-swipe-item external">
+                                    <image src="{{ad.img}}" mode="widthFix"></image>
+                                </navigator>
+                            </block>
+                        </view>
+                        <view class="fui-swipe-page"></view>
+                    </view>
+                </view>
+            </view>
+            <view wx:if="{{article.product_advs_more != ''}}" class="fui-line subtitle link">
+                <navigator url="{{article.product_advs_link}}" class="text external">{{article.product_advs_more}}</navigator>
+            </view>
+        </block>
+    </view>
+</view>

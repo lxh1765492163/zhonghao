@@ -1,0 +1,101 @@
+/* pages/integralmall/goods/list/list.wxss */
+@import "../../tabbar/tabbar.wxss";
+
+.integral_goods_list {
+  font-size: 36rpx;
+  padding-bottom: 110rpx;
+}
+
+.integral_goods_list .category {
+  text-align: center;
+  border-bottom: solid 1rpx #ddd;
+  width: 100%;
+  font-size: 35rpx;
+  position: relative;
+}
+
+.integral_goods_list .category .categoryname {
+  width: 36%;
+  padding: 10rpx 10rpx;
+  margin-left: 30%;
+}
+
+.integral_goods_list .category .more {
+  width: 36%;
+  position: absolute;
+  left: 30%;
+  margin-top: 16rpx;
+  background: white;
+  z-index: 10;
+  padding: 10rpx 10rpx;
+  border: solid 1rpx #ddd;
+  border-radius: 12rpx;
+}
+
+.integral_goods_list .category .more .morecategory {
+  border-bottom: solid 1rpx #ddd;
+  padding: 5rpx 5rpx;
+  font-size: 30rpx;
+}
+
+.integral_goods_list .category .more .morecategory:last-child {
+  border: none;
+}
+
+.integral_goods_list .search {
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  margin: 20rpx 50rpx;
+  border: solid 1rpx white;
+  border-radius: 10rpx;
+}
+
+.integral_goods_list .search icon {
+  margin: 0 10rpx;
+}
+
+.integral_goods_list .search input {
+  width: 95%;
+  padding: 10rpx 0;
+}
+
+.integral_goods_list .integral_goods .text {
+  padding: 10rpx 15rpx;
+}
+
+.integral_goods_list .integral_goods .text .lable {
+  margin-right: 10rpx;
+  margin-top: 6rpx;
+  background: #fe5455;
+  color: white;
+  font-size: 20rpx;
+  padding: 0rpx 10rpx;
+  border-radius: 10rpx;
+}
+
+.integral_goods_list .integral_goods .text .title {
+  font-size: 30rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.integral_goods_list .integral_goods .text .subtitle {
+  font-size: 24rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.integral_goods_list .integral_goods .text .exchange {
+  float: right;
+  margin-right: 10rpx;
+  background: #fb4a20;
+  color: white;
+  font-size: 24rpx;
+  padding: 0rpx 10rpx;
+  border-radius: 10rpx;
+}

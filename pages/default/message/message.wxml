@@ -1,0 +1,40 @@
+<!--pages/default/message/message.wxml-->
+<block wx:if="{{messageswipe==0}}">
+  <view style='margin:20rpx auto;text-align:center;font-size:50rpx;height:500rpx;line-height:500rpx;color:#76D4C0;background:white'>尚未开启留言功能</view>
+</block>
+<block wx:else>
+  <view class='message'>
+    <block wx:for="{{list}}" wx:key='' wx:for-item='val'>
+      <view class='msg'>
+        <view class='ask cul'>
+          <view class='pre'>留言:</view>
+          <view class='text'>{{val.data.content}}
+            <view style='position:absolute;top:5rpx;left:-38rpx; width:0rpx;height:0rpx;font-size:0;border:solid 20rpx;border-color:#fff #76d4c0 #fff #fff;'></view>
+             <view class='time'>{{val.data.mestime}}</view>
+          </view>
+        </view>
+         
+        <block wx:if="{{val.reply==''||val.reply==null}}">
+          <view style="text-align:center;margin:0 auto;padding:10rpx 0;">暂无回复</view>
+        </block>
+        <block wx:for="{{val.reply}}" wx:key=''>
+          <view class='answer cul'>
+            <view class='text'>{{item.reply}}
+              <view style='position:absolute;top:5rpx;right:-38rpx; width:0rpx;height:0rpx;font-size:0;border:solid 20rpx;border-color:#fff #fff #fff #76d4c0;'></view>
+               <view class='time'>{{item.retime}}</view>
+            </view>
+            <view class='pre'>:回复{{index}}</view>
+          </view>
+          
+        </block>
+      </view>
+    </block>
+    <block wx:if="{{!list}}">
+      <view style='margin:0 auto;text-align:center;height:200rpx;line-height:200rpx;color:#76D4C0;'>您还没有留言~~~~</view>
+    </block>
+    <view style='margin-top:50rpx'>
+      <import src="../../component/message/message.wxml" />
+      <template is="message" data="{{message,inputvalue}}" />
+    </view>
+  </view>
+</block>

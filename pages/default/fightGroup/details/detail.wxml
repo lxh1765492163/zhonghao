@@ -1,0 +1,62 @@
+<!--pages/default/fightGroup/details/detail.wxml-->
+<!--头部轮播  -->
+<import src="../../../../vendor/wxParse/wxParse.wxml" />
+<swiper indicator-dots="true" style="height:320px;width:100%;">
+    <block wx:for="{{images}}" wx:for-item="item" wx:key="" >
+        <swiper-item style="height:320px;width:100%;">
+            <image style="width:100%" style="height:320px;width:100%;" class="img" src="{{item}}" />
+        </swiper-item>
+    </block>
+</swiper>
+
+<!--   -->
+<view class="content">
+    <block>
+        <view class="title">
+            <text>{{items.groupnum}}人成团</text>
+            <text class="desc">{{items.title}} </text>
+        </view>
+        <view class="goods">
+            <view class="goodsLeft">
+                <text>¥ </text>
+                <text class="nowPrice">{{items.groupsprice}}</text>
+                <text class="piece">/1件 </text>
+                <text class="cost"> ¥{{items.price}}</text>
+            </view>
+            <view class="goodsRight">
+                <text>已有</text>
+                <text class="font">{{items.fightnum}}</text>
+                <text>人参团 ,销量</text>
+                <text class="font">{{items.sales}}</text>
+            </view>
+        </view>
+    </block>
+</view>
+
+
+<!-- 图文详情  -->
+<view class="detail">
+    <view class="text">
+        <text>图文详情</text>
+    </view>
+    <view class="wxParse">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+</view>
+<view class="last">
+    <navigator url="../index">
+        <view class="last_left">
+            <image src="/assets/images/tabBar/icon-home.png"></image>
+        </view>
+    </navigator>
+    <view class="last_right active"  data-id="{{items.goodsid}}">
+        <text wx:if="{{items.singleprice!=0}}">¥{{items.singleprice}}</text>
+        <text wx:if="{{items.singleprice == 0}}" 
+         style="display:inline-block;height:120rpx;line-height:120rpx;">单独购买</text>
+        <text wx:else  bindtap="toPayOrder"  data-id="{{items.goodsid}}">单独购买</text>
+    </view>
+    <view class="last_right mod" bindtap="groupOrder" data-id="{{items.goodsid}}">
+        <text>¥{{items.groupsprice}}</text>
+        <text>{{items.groupnum}}人成团</text>
+    </view>
+</view>

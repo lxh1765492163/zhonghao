@@ -1,0 +1,224 @@
+<!--pages/integralmall/goods/detail/detail.wxml-->
+<import src="../../../../../vendor/wxParse/wxParse.wxml" />
+<view class='integeal_goods_detail' bindtap='{{showModalStatus==true?"hidemodal": ""}}' style='opacity:{{showModalStatus==true?"0.5":""}}' wx:if="{{data.goods}}">
+  <view class='goodsimg' style='width: 100%'>
+    <image src='{{data.goods.thumb}}' mode='widthFix' style='width: 100%; display:block;'></image>
+    <view class='time' wx:if="{{data.goods.istime==1&&counttime>=0}}">
+      <text class='icon icon-history' style='font-size:31rpx;'> 剩余: </text>
+      <text wx:if="{{day>0}}">{{day}}天</text>
+      <text wx:if="{{hour>0||day>0}}">{{hour<10?'0':''}}{{hour}}时</text>
+      <text wx:if="{{hour>0||day>0||minute>0}}">{{minute<10?'0':''}}{{minute}}分</text>
+      <text wx:if="{{hour>0||day>0||minute>0||second>=0}}">{{second<10?'0':''}}{{second}}秒</text>
+    </view>
+  </view>
+  <view class='goods_info'>
+    <view class='goods_title'>
+      <text class='lable'>{{data.goods.goodstype==0?'商品':data.goods.goodstype==1?'优惠券':data.goods.goodstype==2?'余额':'红包'}}</text>
+      <text class='title'>{{data.goods.title}}</text>
+    </view>
+  </view>
+  <view class='goods_sale'>
+    <view wx:if="{{data.goods.chance!=0}}" style='width:50%; display:inline-block'> 每人仅限{{data.goods.chance}}份</view>
+    <view wx:if="{{data.goods.totalday!=0}}" style='width:50%;display:inline-block'> 每天仅兑换{{data.goods.totalday}}次</view>
+    <view style='display: flex;'>
+      <view style='flex: 1;'>邮费: {{data.goods.dispatch!=0?data.goods.dispatch:'包邮'}}</view>
+      <view style='width: 33.3%'>仅限: {{data.goods.total}} 份</view>
+      <view style='width: 33.3%'>已参与: {{data.goods.joins}} 次</view>
+    </view>
+  </view>
+  <view class='credit'>
+    <text style='color:#fb4a20'>{{data.goods.credit}}积分 </text>
+    <text style='font-size: 24rpx;' wx:if="{{data.goods.money!=0}}">+ </text>
+    <text wx:if="{{data.goods.money!=0}}" style='color:#fb4a20'>¥{{data.goods.money}} </text>
+    <text wx:if="{{data.goods.price!=0}}" style='font-size: 25rpx;     text-decoration: line-through; color: #999;'>原价:{{data.goods.price}}</text>
+  </view>
+  <view class='spec' wx:if="{{data.options!=''}}" bindtap='{{data.goods.istime==1&&counttime<0||data.goods.credit>credit||data.goods.exchange!=2?"":"showmodal"}}' style='color:#999; padding:15rpx 15rpx; display:flex; align-items:center; justify-content:space-between; border-bottom: solid 1rpx #ddd;border-top: solid 1rpx #ddd; margin: 10rpx 0;'>
+    <text>请选择规格</text>
+    <text style='flex:1; '></text>
+    <text class='icon icon-right' style='color: #aaa; font-size:30rpx;'></text>
+  </view>
+  <view class='content'>
+    <view class='titletab'>
+      <text class="{{cid==0?'selected':''}}" data-cid='0' bindtap='selected' style="display: inline-block; color:{{cid==0?'#fd5555':''}};width:50%; border-bottom:solid {{cid==0?'5rpx':'1rpx'}} {{cid==0?'#fd5555':'#ddd'}}"> 商品详情</text>
+      <text class="{{cid==1?'selected':''}}" data-cid='1' bindtap='selected' style="display: inline-block; color:{{cid==1?'#fd5555':''}}; width:50%;border-bottom:solid  {{cid==1?'5rpx':'1rpx'}} {{cid==1?'#fd5555':'#ddd'}}">参与记录</text>
+    </view>
+    <view class='detail' wx:if='{{cid==0}}'>
+      <block wx:if="{{data.goods.goodsdetail!=''}}">
+        <template is='wxParse' data="{{wxParseData:goodsdetail.nodes}}" />
+      </block>
+      <block wx:else>
+        <view style='padding:20rpx 15rpx;color:#999;'>暂无商品详情</view>
+      </block>
+    </view>
+    <view class='record' wx:if='{{cid==1}}'>
+      <block wx:if="{{data.log!=''}}">
+        <view wx:for='{{data.log}}' wx:key=''>
+          <view style='display:flex; align-items:center; margin:0 20rpx; padding: 20rpx 0; border-bottom:solid 1rpx #ddd;'>
+            <image src='{{item.avatar}}' style='width: 50rpx;height: 50rpx; border-radius:50%'></image>
+            <view style='margin-left:20rpx;'>{{item.nickname}}</view>
+            <view style='flex: 1'></view>
+            <view>{{item.createtime_str}}</view>
+          </view>
+        </view>
+        <view style='width:100%; text-align:center'>查看更多({{data.logtotal}})</view>
+      </block>
+      <block wx:else>
+        <view style='padding:20rpx 15rpx;color:#999;'>暂无参与记录</view>
+      </block>
+    </view>
+  </view>
+  <view class='recommend' wx:if="{{data.goodsrec!=''}}">
+    <view class='titletab'>为您推荐</view>
+    <view class='goods_group'>
+      <block wx:for="{{data.goodsrec}}" wx:key=''>
+        <navigator class='goods' url='../detail/detail?id={{item.id}}' style='width: 33.3%; display: inline-block; text-align:center;'>
+          <image src='{{item.thumb}}' style='width:180rpx; height:180rpx; display:block; margin: 0 auto;'></image>
+          <view class='text'>{{item.title}}</view>
+          <view class='text'>
+            <text style='color:#fb4a20'>{{item.credit}}积分</text>
+            <text style='font-size: 24rpx;' wx:if="{{item.money!=0}}"> + </text>
+            <text wx:if="{{item.money!=0}}" style='color:#fb4a20'>¥{{item.money}}</text>
+          </view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+</view>
+<block wx:if="{{data.goods.istime==1&&counttime<0}}">
+  <view class='exchange'>活动结束</view>
+</block>
+<block wx:else>
+  <block wx:if="{{data.goods.credit>credit}}">
+    <view class='exchange'>积分不足{{data.goods.credit}}</view>
+  </block>
+  <block wx:else>
+    <block wx:if="{{data.goods.exchange==0}}">
+      <view class='exchange'>今日兑换次数已耗尽</view>
+    </block>
+    <block wx:elif="{{data.goods.exchange==1}}">
+      <view class='exchange'>兑换次数已耗尽</view>
+    </block>
+    <block wx:else>
+      <view class='exchange' bindtap='showmodal' style='background: #fd5555;'>立即兑换</view>
+    </block>
+  </block>
+</block>
+<view class='modal' animation="{{animationData}}">
+  <view class='content'>
+    <block wx:if="{{data.options==null}}">
+      <image src='{{data.goods.thumb}}'></image>
+      <view class='info'>
+        <view class='base'>
+          <view class='price'>
+            <text>{{data.goods.credit}}积分</text>
+            <text wx:if="{{data.goods.money!=0}}"> + ¥{{data.goods.money}}</text>
+          </view>
+          <view>库存: {{data.goods.total}}</view>
+        </view>
+        <view class='num'>
+          <!-- <text class='icon icon-back' bindtap='reducenum'></text> -->
+          <text type='number' value='{{num}}'></text>
+          <!-- <text class='icon icon-right' bindtap='addnum'></text> -->
+        </view>
+      </view>
+      <view class='spec'></view>
+      <view class='nav'>
+        <view class='child' bindtap='exchange'>立即兑换</view>
+      </view>
+    </block>
+
+    <block wx:else>
+      <image src='{{src?src:data.goods.thumb}}'></image>
+      <view class='info'>
+        <block wx:if="{{specsid}}">
+          <view class='base' wx:for="{{data.options}}" wx:key='' wx:if="{{specsid==item.id}}">
+            <view class='price'>
+              <text>{{item.credit}}积分</text>
+              <text wx:if="{{item.money!=0}}"> + ¥{{item.money}}</text>
+            </view>
+            <view>库存 {{item.total}}</view>
+            <view>已选{{item.title}}</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class='base'>
+            <view class='price'>
+              <text>{{data.goods.credit}}积分</text>
+              <text wx:if="{{data.goods.money!=0}}"> + ¥{{data.goods.money}}</text>
+            </view>
+            <view>库存 {{data.goods.total}}</view>
+            <view>请选择规格</view>
+          </view>
+        </block>
+        <view class='num'>
+          <!-- <text class='icon icon-back' bindtap='reducenum'></text> -->
+          <text type='number' value='{{num}}'></text>
+          <!-- <text class='icon icon-right' bindtap='addnum'></text> -->
+        </view>
+      </view>
+      <view class='spec'>
+        <scroll-view scroll-y style='height:100%'>
+          <view class='choicespec' style=''>
+            <block wx:for="{{data.specs}}" wx:key='' wx:for-item="spec" wx:for-index='idx'>
+              <view style='border-top:solid 1rpx #ddd; font-size: 30rpx; margin:0rpx 10rpx; padding-bottom:10rpx;'>
+                <view style='padding:10rpx 0;'>{{spec.title}}</view>
+                <block wx:for="{{spec.items}}" wx:key='' wx:for-item="term">
+                  <text class='name' data-tid='{{term.id}}' data-index='{{idx}}' data-src='{{term.thumb}}' bindtap='choicespec' style="color: {{spec.selected&&spec.selected==term.id?'white':''}}; background: {{spec.selected&&spec.selected==term.id?'#fe5455':'#ddd'}}; padding: 5rpx 10rpx; margin-left: 10rpx; border-radius: 10rpx;font-size:30rpx;word-wrap: break-word; word-break:keep-all">{{term.title}}</text>
+                </block>
+              </view>
+            </block>
+          </view>
+        </scroll-view>
+      </view>
+      <view class='nav' bindtap='exchange'>确定</view>
+    </block>
+  </view>
+  <!-- <view class='info'>
+            <image src='{{src?src:data.goods.thumb}}' style='width: 160rpx; height: 160rpx; margin:-60rpx 20rpx 0 20rpx; border:solid 8rpx white; border-radius:5rpx;float:left'></image>
+            <view style='padding:10rpx; font-size:25rpx; display: flex; align-items: start;'>
+                  <block wx:if='{{specsid}}'>
+                        <view wx:for="{{data.options}}" wx:key='' wx:if="{{specsid==item.id}}" style='flex: 1'>
+                              <view>
+                                    <text>{{item.credit}}积分</text>
+                                    <text wx:if="{{item.money!=0}}"> + ¥{{item.money}}</text>
+                              </view>
+                              <view>库存 {{item.total}}</view>
+                              <view>已选{{item.title}}</view>
+                        </view>
+                        <view class='num'>
+                              <text class='icon icon-back' bindtap='reducenum'></text>
+                              <text style='border-right: solid 1rpx #999; border-left: solid 1rpx #999; padding: 0 12rpx'>{{num}}</text>
+                              <text class='icon icon-right' bindtap='addnum'></text>
+                        </view>
+                  </block>
+                  <block wx:else>
+                        <view style='flex:1;'>
+                              <view>
+                                    <text>{{data.goods.credit}}积分</text>
+                                    <text wx:if="{{data.goods.money!=0}}"> + ¥{{data.goods.money}}</text>
+                              </view>
+                              <view>库存 {{data.goods.total}}</view>
+                              <view>请选择规格</view>
+                        </view>
+                        <view class='num'>
+                              <text class='icon icon-back' bindtap='reducenum'></text>
+                              <text style='border-right: solid 1rpx #999; border-left: solid 1rpx #999; padding: 0 12rpx'>{{num}}</text>
+                              <text class='icon icon-right' bindtap='addnum'></text>
+                        </view>
+                  </block>
+            </view>
+      </view>
+      <scroll-view scroll-y style='height:85px'>
+            <view class='choicespec' style=''>
+                  <block wx:for="{{data.specs}}" wx:key='' wx:for-item="spec" wx:for-index='idx'>
+                        <view class='spec' style='border-top:solid 1rpx #ddd; font-size: 30rpx; margin:0rpx 10rpx; padding-bottom:10rpx;'>
+                              <view style='padding:10rpx 0;'>{{spec.title}}</view>
+                              <block wx:for="{{spec.items}}" wx:key='' wx:for-item="term">
+                                    <text class='name' data-tid='{{term.id}}' data-index='{{idx}}' data-src='{{term.thumb}}' bindtap='choicespec' style="color: {{spec.selected&&spec.selected==term.id?'white':''}}; background: {{spec.selected&&spec.selected==term.id?'#fe5455':'#ddd'}}; padding: 5rpx 10rpx; margin-left: 10rpx; border-radius: 10rpx;font-size:30rpx;word-wrap: break-word; word-break:keep-all">{{term.title}}</text>
+                              </block>
+                        </view>
+                  </block>
+            </view>
+      </scroll-view>
+      <view bindtap="{{total>0?'exchange':''}}" style='text-align:center; font-size:35rpx; color: white; padding: 10rpx 0; background: {{total>0?"#fd5555":"#999"}}; flex:1; margin: auto 0;'>{{total>0?'确定':'该规格已售罄,请选择其他规格'}}</view> -->
+</view>

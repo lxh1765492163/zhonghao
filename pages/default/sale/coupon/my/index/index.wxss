@@ -1,0 +1,126 @@
+/* index.wxss */
+page{
+   background: #fafafa;
+}
+
+.box{
+    width: 100%;
+    font-size: 32rpx;
+}
+
+.box .nav{
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 34rpx;
+    text-align: center;
+    background: #fff;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.box .nav text{
+    display: inline-block;
+    width: 33.3%;
+    height: 98rpx;
+}
+
+.box .nav text.active{
+    color: #e8a1af;
+    border-bottom: 2px solid #c77c81;
+}
+
+.box .ad{
+    width: 94%;
+    height: 80rpx;
+    line-height: 80rpx;
+    border: 1px solid #373737;
+    border-radius: 10rpx;
+    margin: 20rpx auto;
+    text-align: center;
+}
+
+.box .ad image{
+    width: 30rpx;
+    height: 30rpx;
+    display: inline-block;
+}
+
+.box .ad text{
+    display: inline-block;
+    margin-left: 10rpx;
+}
+
+.box .coupon{
+
+}
+.box .coupon .coupon-item{
+    width: 100%;
+    height: 160rpx;
+    background: #fff;
+    overflow: hidden;
+}
+
+.box .coupon .coupon-item .coupon-item-img{
+    float: left;
+    width: 160rpx;
+    height: 160rpx;
+}
+
+.box .coupon .coupon-item .coupon-item-img image{
+    width: 100%;
+    height: 100%;
+}
+
+.box .coupon .coupon-item .coupon-item-detail{
+    float: left;
+    margin-top: 10rpx;
+    margin-left: 15rpx;
+}
+
+.box .coupon .coupon-item .coupon-item-detail text{
+    display: block;
+    line-height: 48rpx;
+}
+
+.box .coupon .coupon-item .coupon-item-detail text:nth-child(2){
+    font-size: 28rpx;
+    line-height: 32rpx;
+}
+
+.box .coupon .coupon-item .coupon-item-detail text:nth-child(3){
+    font-size: 24rpx;
+    line-height: 24rpx;
+    margin-top: 30rpx;
+    color: #9c9c9c;
+}
+
+.box .coupon .coupon-item .coupon-item-type{
+    float: right;
+    overflow: hidden;
+    position: relative;
+    text-align: right;
+}
+
+.box .coupon .coupon-item .coupon-item-type text.use_now{
+    display: block;
+    text-align: center;
+    padding: 0 20rpx;
+    font-size: 28rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    margin-top: 100rpx;
+    margin-right: 40rpx;
+    border: 1px solid #d2a8bc;
+    color: #d2a8bc;
+    border-radius: 25rpx;
+}
+
+.copyright{
+    color: #bebebe;
+    background: #fff;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
+    text-align: center;
+    margin-top: 50rpx;
+}

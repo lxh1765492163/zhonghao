@@ -1,0 +1,47 @@
+@import '/assets/css/coupon.wxss';
+.order-create-page .total {
+	padding-right: 0;
+  font-size: .9rem;
+  color: #333;
+
+}
+.section{
+  font-size:36rpx; 
+  height:90rpx;
+  line-height:90rpx;
+  background:#fff;border-bottom:1px solid #ccc;
+}
+.active{
+    display: inline-block;
+	font-style: normal;
+	font-size: 0.75rem;
+	height: 1.4rem;
+	line-height: 1.4rem;
+	border: 0.1rem solid #cccaca;
+	background: #fff;
+	-webkit-border-radius: 1rem;
+	border-radius: 1rem;
+	color:red;
+	padding: 0 0.2rem;
+}
+.section label{
+  float:left;
+  margin-left:10rpx;
+  color:#808080;
+}
+.section image{
+  width:200rpx;
+  height:200rpx;
+  margin-left:50rpx;
+  margin-top:30rpx;
+}
+
+.package_goods{
+  text-align: right;
+  padding: 20rpx;
+  font-size: 35rpx;
+
+}
+.package_goods text {
+  color: #ef4f4f;
+}

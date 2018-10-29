@@ -1,0 +1,42 @@
+<view class="daodian font">
+  <view class="yuding_banner2">
+    <view class="yuding_content">7天武汉光谷广场工程大学店</view>
+    <view class="yuding_text">2017-9-5 入住 | 2017-9-6 离店</view>
+    <view class="yuding_text">自主大床房 | 共1晚</view>
+  </view>
+
+  <view class="daodian1">请选择支付方式</view>
+
+  <view class="daodian2" bindtap="click1">
+    <view class="daodian2_1">
+      <icon type="success" size="25"/>
+      <text class="daodian3">微信支付</text>
+    </view>
+    <view class="daodian4">
+      <view class="daodian5" hidden="{{hidden}}"></view>
+    </view>
+  </view>
+
+  <view class="daodian2 daodian6" bindtap="click2">
+    <view class="daodian2_1">
+      <icon type="success" size="25"/>
+      <text class="daodian3">前台支付</text>
+    </view>
+    <view class="daodian4">
+      <view class="daodian5" hidden="{{fouhidden}}"></view>
+    </view>
+  </view>
+
+  <view class="daodian7">
+    <view class="daodian7_1">
+      <text class="daodian7_5">需支付：</text>
+      <text class="daodian7_3">¥</text>
+      <text class="daodian7_4">199.</text><text class="daodian7_3">00</text>
+      </view>
+    <view class="daodian7_2">
+      立即支付
+    </view>
+  </view> 
+</view>
+
+

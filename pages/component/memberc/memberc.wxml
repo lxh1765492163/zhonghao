@@ -1,0 +1,65 @@
+<template name="memberc">
+    <block wx:if="{{item.params.style == '' || item.params.style == 'default1'}}">
+
+        <view class="header" style="background-color:{{item.style.background}};">
+            <view class="avator">
+                <image src="{{items.member.avatar}}"></image>
+            </view>
+            <view class="nickname">
+                <view class="title" style="color:{{item.style.textcolor}};">{{items.member.nickname != '' ? items.member.nickname : userInfo.nickName}}</view>
+                <view class="text" style="color:{{item.style.textcolor}};">{{items.thisset.texts.up}}: {{!items.up ? '总店' : items.up.nickname}}</view>
+                <view class="subtitle" style="color:{{item.style.textlight}};">[{{!items.level ? (!items.thisset.levelname ? '普通等级' : items.thisset.levelname) : items.level.levelname}}]
+                    <text wx:if="{{items.thisset.levelurl != ''}}" class="icon icon-question" style="font-size:.8rem;"></text>
+                </view>
+            </view>
+            <navigator wx:if="{{item.params.setbtn && item.params.setbtn == 1}}" url="" class="setbtn">
+                <text class="icon icon-settings"></text>
+            </navigator>
+        </view>
+        <view class="referee">
+            <text>我的邀请码: {{items.member.id}}</text>
+        </view>
+        <view class="userblock" >
+            <view class="comprice">
+                <view class="num" >{{items.member.commission_pay}}</view>
+                <view class="title" >{{items.thisset.texts.commission_pay}}({{items.thisset.texts.yuan}})</view>
+            </view>
+            <view class="line">
+                <view class="text">
+                    <view class="num" >{{items.member.commission_ok}}</view>
+                    <view class="title" >{{items.thisset.texts.commission_ok}}({{items.thisset.texts.yuan}})</view>
+
+                </view>
+                <navigator url="/pages/default/commission/withdraw/withdraw" class="btn">{{items.thisset.texts.commission}}{{items.thisset.texts.withdraw}}</navigator>
+            </view>
+        </view>
+    </block>
+    <block wx:elif="{{item.params.style == 'default2'}}">
+        <view class="headinfo-m" style="background:{{item.style.background}};{{item.style.background != '' ? 'border:none;' : ''}}">
+            <block wx:if="{{item.params.seticon != '' && item.params.setlink != ''}}">
+                <navigator url="" class="setbtn">
+                    <text class="icon {{item.params.seticon}}"></text>
+                </navigator>
+            </block>
+            <view class="child">
+                <view class="title" style="color:{{item.style.textcolor}};">{{items.thisset.texts.commission_pay}}</view>
+                <view class="num" style="color:{{item.style.textlight}};">{{items.member.commission_pay}}</view>
+                <button wx:if="{{item.params.leftnav != ''}}" class="btn" style="color:{{item.style.textcolor}};border-color:{{item.style.textcolor}};">{{item.params.leftnav}}</button>
+            </view>
+
+            <view class="child userinfo" style="color:{{item.style.textcolor}};">
+                <view class="face {{item.style.headstyle}}">
+                    <image src="{{userInfo.avatarUrl}}" mode="widthFix" style="width:56px;height:56px;"></image>
+                </view>
+                <view class="name">{{userInfo.nickName}}</view>
+                <view class="level">[{{!items.level ? (!items.thisset.levelname ? '普通等级' : items.thisset.levelname) : items.level.levelname}}]</view>
+                <view class="level" style="color:{{item.style.textcolor}};">{{items.thisset.texts.up}}: {{!items.up ? '总店' : items.up.nickname}}</view>
+            </view>
+            <view class="child">
+                <view class="title" style="color:{{item.style.textcolor}};">{{items.thisset.texts.commission_ok}}</view>
+                <view class="num" style="color:{{item.style.textlight}};">{{items.member.commission_ok}}</view>
+                <button wx:if="{{item.params.rightnav}}" class="btn" style="color:{{item.style.textcolor}};border-color:{{item.style.textcolor}};">{{item.params.rightnav}}</button>
+            </view>
+        </view>
+    </block>
+</template>

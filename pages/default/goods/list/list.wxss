@@ -1,0 +1,314 @@
+@import '../../../component/float/menu.wxss';
+
+.header{
+	width: 100%;
+	padding: 20rpx 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	background: #f5f5f5;
+}
+
+
+.header .title{
+	width: 87%;
+	height: 70rpx;
+	line-height: 70rpx;
+	padding-left: 40rpx;
+	margin-left: 3%;
+	overflow: hidden;
+	box-sizing: border-box;
+	background: #fff;
+	position: relative;
+}
+
+.header .title .icon{
+	display: block;
+	width: 40rpx;
+	font-size: 40rpx;
+	position: absolute;
+	top: 0;
+}
+
+.header .title input{
+	display: block;
+	width: 80%;
+	height: 100%;
+	line-height: 70rpx;
+	border: none;
+	outline: none;
+	margin: 0;
+	padding: 0
+}
+
+.header .icons{
+	width: 10%;
+	height: 100%;
+	text-align: right;
+	padding-right: 20rpx;
+	box-sizing: border-box;
+}
+
+
+.sort{
+	width: 90%;
+	height: 60rpx;
+	padding: 20rpx 5%;
+	background: #fafafa;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #777;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #333;
+}
+
+.sort .item{
+	flex: 1;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+    font-weight:normal;
+}
+
+.sort .item.on .text {
+  color: #fd5454;
+}
+
+.sort .item .sorting{
+	height: 56rpx;
+	margin-top: -10rpx;
+	margin-left: 10rpx;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.sort .item .sorting .icon{
+	display: block;
+	font-size: 20rpx;
+	height: 20rpx;
+}
+
+
+.jui-goods-list{
+	width: 100%;
+	overflow: hidden;
+	background: #f5f5f5;
+}
+
+.jui-goods-list .jui-goods-item{
+	width: 100%;
+	padding: 10rpx 0;
+}
+
+.jui-goods-list .jui-goods-item navigator.navigator{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+
+}
+
+.jui-goods-list .jui-goods-item navigator.navigator .logo{
+	width: 30%;
+	height: 220rpx;
+	margin-left: 1%;
+}
+
+.jui-goods-list .jui-goods-item navigator.navigator .logo image{
+	width: 100%;
+	height: 100%;
+}
+
+.jui-goods-list .jui-goods-item navigator.navigator .detail{
+	width: 67%;
+	margin-left: 2%;
+}
+
+.jui-goods-list .jui-goods-item navigator.navigator .detail .name{
+	width: 98%;
+	padding-right: 2%;
+	padding-top: 20rpx;
+	font-size: 32rpx;
+	font-weight: bold;
+}
+
+.jui-goods-list .jui-goods-item navigator.navigator .detail .price{
+	width: 100%;
+	margin-top: 40rpx;
+	overflow: hidden;
+}
+
+.jui-goods-list .jui-goods-item navigator.navigator .detail .price .text{
+	display: block;
+	float: left;
+	font-size: 38rpx;
+	color: #fd5454;
+	font-weight: bold;
+}
+
+.jui-goods-list .jui-goods-item navigator.navigator .detail .price .buy{
+	float: right;
+	margin-right: 30rpx;
+	color: #fd5454;
+}
+
+.jui-goods-list .jui-goods-block{
+	width: 49%;
+	box-sizing: border-box;
+	margin: 0 0.5%;
+	float: left;
+	background: #fff;
+	margin-bottom: 12rpx;
+}
+
+.jui-goods-list .jui-goods-block navigator.navigator{
+	width: 100%;
+}
+
+.jui-goods-list .jui-goods-block navigator.navigator .logo{
+	width: 100%;
+}
+
+.jui-goods-list .jui-goods-block navigator.navigator .logo image{
+	width: 100%;
+	height: 360rpx;
+    border-radius: 10rpx;
+}
+
+.jui-goods-list .jui-goods-block navigator.navigator .detail{
+	width: 96%;
+	padding: 0 2% 20rpx;
+	margin-top: 10rpx;
+}
+
+.jui-goods-list .jui-goods-block navigator.navigator .detail .name{
+	font-size: 32rpx;
+	font-weight: normal;
+	white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+
+.jui-goods-list .jui-goods-block navigator.navigator .detail .price{
+	color: #fd5454;
+	overflow: hidden;
+	margin-top: 20rpx;
+}
+
+.jui-goods-list .jui-goods-block navigator.navigator .detail .price .text{
+	float: left;
+	font-size: 36rpx;
+	color: #fd5454;
+	font-weight: bold;
+	display: block;
+}
+
+.jui-goods-list .jui-goods-block navigator.navigator .detail .price .buy{
+	float: right;
+	display: block;
+	margin-right: 20rpx;
+}
+
+.modal{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.modal .mask{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 210rpx;
+	left: 0;
+	background: #000;
+	opacity: 0.6;
+}
+
+.modal .screen{
+	width: 100%;
+	height: auto;
+	background: #fff;
+	position: absolute;
+	top: 210rpx;
+	left: 0;
+}
+
+.modal .screen .attribute{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	flex-wrap: wrap;
+	background: #fff;
+	border-bottom: 1px solid #f5f5f5;
+}
+
+.modal .screen .attribute .item{
+	width: 30%;
+	height: 60rpx;
+	line-height: 60rpx;
+	text-align: center;
+	margin-bottom: 30rpx;
+
+}
+
+.modal .screen .attribute .item .btn{
+	width: 100%;
+	height: 100%;
+	line-height: 60rpx;
+	color: #777;
+	font-size: 30rpx;
+}
+
+.modal .screen .btns{
+	width: 96%;
+	padding: 0 2%;
+	height: 70rpx;
+	line-height: 70rpx;
+	overflow: hidden;
+}
+
+.modal .screen .btns .cancel{
+	float: left;
+}
+
+.modal .screen .btns .confirm{
+	float: right;
+	color: #fd5454;
+}
+
+
+.btns {
+  font-size: .8rem;
+}
+.fui-content{
+    position:absolute;
+}
+.searchbar {
+  height: 1.4rem;
+  font-size: .7rem;
+}
+
+.search-input wx-text {
+  font-size: .7rem;
+  left: .8rem;
+}
+
+.search-input input {
+    text-align: left;
+}

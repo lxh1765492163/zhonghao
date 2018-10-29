@@ -1,0 +1,13 @@
+.btn-submit {
+  height: 2.5rem;
+  line-height: 2.5rem;
+  font-size: 1rem;
+}
+
+.fui-cell-label {
+  font-size: 1rem;
+}
+
+.icon-roundclose {
+  font-size: 1.2rem;
+}

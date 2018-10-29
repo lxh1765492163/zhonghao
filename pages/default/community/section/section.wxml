@@ -1,0 +1,43 @@
+<!--pages/community/section/section.wxml-->
+<view class='tabbar'>
+    <import src='../tabbar/tabbar.wxml' />
+    <template is='tabbar' data='{{tabbar,id}}' />
+</view>
+<view class='body' style='height: {{windowHeight}}'>
+    <view class='content' style='height: 99%;'>
+        <view class='selected'>
+            <scroll-view scroll-y style='height: 100%;'>
+                <text class="all {{cid == '' ? 'sign':''}}" data-cid='' bindtap='allmodel'>全部</text>
+                <view class="category {{cid==item.id ? 'sign':''}}" wx:for='{{category}}' wx:for-item="item" wx:key="" data-cid='{{item.id}}' bindtap='allmodel'>
+
+
+                    <text>{{item.name}}</text>
+                </view>
+            </scroll-view>
+        </view>
+        <view class='show' style='height: 100%;'>
+            <view class='search' style='height: 5%; margin: 2% 2% 3%'>
+                <icon type='search' size='20'></icon>
+                <input type="text" name="keywords" catchblur="putSearch" placeholder="输入关键字..." bindfocus="searchFocus" bindblur="unSearchFocus" bindconfirm="putSearch"></input>
+            </view>
+            <view class="{{imformation == 0 ? '':'hide'}}" style='font-size: 40rpx; text-align: center; witdh: 100%; padding: 20rpx 20rpx; border-top: solid 1rpx #ddd; '>暂时没有任何版块</view>
+            <scroll-view class='sectionGruop' scroll-y style='height: 90%;'>
+                <navigator class='section' wx:for='{{imformation}}' wx:for-item="av" wx:key="" url="/pages/default/community/details/details?id={{av.id}}">
+                
+                        <image src='{{av.logo}}'></image>
+                        <view class='newsletter'>
+                            <text class='title'>{{av.title}}</text>
+                            <view class='topic'>
+                                <text decode='{{true}}'>话题数:&nbsp;</text>
+                                <text decode='{{true}}' class='sign'>{{av.postcount}}&nbsp;&nbsp;</text>
+
+                            </view>
+                        </view>
+                        <view class='space'></view>
+                        <image class='more' src='{{icon}}'></image>
+                  
+                </navigator>
+            </scroll-view>
+        </view>
+    </view>
+</view>

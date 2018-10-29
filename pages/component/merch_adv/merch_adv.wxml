@@ -1,0 +1,16 @@
+<template name="merch_adv">
+  <view wx:if="{{advs.length > 0}}" class="fui-swipe">
+    <swiper indicator-dots="true" autoplay="true" indicator-color="#f7f7f7">
+      <block wx:for="{{advs}}" wx:for-item="val" wx:key="">
+        <swiper-item>
+          <block wx:if="{{val.link != ''}}">
+          <navigator url="{{val.link}}">
+            <image src="{{val.thumb}}" mode="widthFix" style="display:block;width:100%;"></image>
+          </navigator>
+          </block>
+          <block wx:else><image src="{{val.thumb}}" mode="widthFix" style="display:block;width:100%;"></image></block>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</template>

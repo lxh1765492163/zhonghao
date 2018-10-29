@@ -1,0 +1,102 @@
+<!--pages/default/bargain/detail/detail.wxml-->
+<import src="../../../../vendor/wxParse/wxParse.wxml" />
+<view class='content'>
+  <view class='banner'>
+    <block wx:if="{{data.list.images!=''}}">
+
+      <swiper autoplay='true' circular='true' style='height:{{windowWidth}}px;width:100%'>
+        <block wx:for='{{data.list.images}}' wx:key=''>
+          <swiper-item>
+            <image src='http://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{item}}' style='width:100%;height:100%'></image>
+          </swiper-item>
+        </block>
+        <swiper-item>
+          <image src='{{data.list.thumb}}' style='width:100%;height:100%'></image>
+        </swiper-item>
+      </swiper>
+    </block>
+
+    <block wx:else>
+      <image mode='widthFix' src='width:100%' src='{{data.list.thumb}}'></image>
+    </block>
+    <view class='downtime'>
+      <text wx:if="{{downtime}}">剩余:{{downtime}}</text>
+    </view>
+
+  </view>
+
+  <view class='sale'>
+    <view class='price'>
+      <text style='font-size:30rpx'>原价:</text> ￥{{data.list.start_price}}</view>
+    <view class='times'>{{data.list.act_times}}人参与</view>
+  </view>
+
+  <view class='info'>
+    <view class='title'>
+      <view class='maintitle oneline'>{{data.list.title}}</view>
+      <view class='vicetitle oneline'>{{data.list.title2}}</view>
+    </view>
+    <navigator class='bargainrule' url='/pages/default/bargain/rule/rule?data.list.id'>
+      <view class='icon icon-menu'></view>
+      <view>规则</view>
+    </navigator>
+  </view>
+
+  <view class='process'>
+    <view class='titlebar'>
+      <text style='color:#fd5454;font-weight:bold'>|</text> 砍价流程</view>
+    <view class='processimg'>
+      <view class='child'>
+        <view class='step' style='background:#fd5454;'>1</view>
+        <view class='text' style='border-color:#fd5454;color:#fd5454'>选择心仪商品</view>
+      </view>
+      <view class='icon icon-right'></view>
+      <view class='child'>
+        <view class='step'>2</view>
+        <view class='text'>邀请好友砍价</view>
+      </view>
+      <view class='icon icon-right'></view>
+      <view class='child'>
+        <view class='step'>3</view>
+        <view class='text'>砍到最低价支付</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='detail'>
+    <view class='titlebar'>图文详情</view>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+
+</view>
+<view class='tabbar'>
+  <navigator open-type='reLaunch' class='child' url='/pages/default/bargain/list/list'>
+    <view class='icon icon-home'></view>
+    <view>首页</view>
+  </navigator>
+
+  <navigator class='buy' url="/pages/default/order/create/create?id={{data.list.goods_id}}&total=1&optionid=''&type=1">
+    <view>原价购买</view>
+  </navigator>
+
+  <block wx:if="{{data.list.start_time>nowtime}}">
+    <view class='bargain'>
+      <view>尚未开始</view>
+    </view>
+  </block>
+  <block wx:elif="{{nowtime>data.list.end_time}}">
+    <view class='bargain'>
+      <view>砍价结束</view>
+    </view>
+  </block>
+  <block else>
+    <view class='bargain' bindtap='bargain'>
+      <view>立即砍价</view>
+    </view>
+  </block>
+
+  <navigator class='child' url='/pages/default/bargain/my/my'>
+    <view class='icon icon-person2'></view>
+    <view>我的</view>
+  </navigator>
+</view>

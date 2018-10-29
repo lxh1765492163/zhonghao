@@ -1,0 +1,218 @@
+@import './component/footer.wxss';
+@import '../../component/float/menu.wxss';
+
+.header {
+  width: 100%;
+  height: 80rpx;
+  /* background:red; */
+  position: relative;
+}
+
+.header text {
+  display: inline-block;
+  font-size: 36rpx;
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -40rpx;
+}
+
+.column {
+
+  background:#fff;
+  display:flex;
+ 
+  flex-flow: row;
+ flex-wrap: wrap; 
+}
+
+.column .one {
+ width:25%;
+}
+
+.column image {
+    width:100rpx;
+    height:100rpx;
+    border-radius: 100rpx;
+    margin-left:40rpx;
+}
+
+.column .name {
+    font-size:30rpx;
+    overflow: hidden;
+    display:inline-block;
+    width:100%;
+    text-align: center;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  margin-top:20rpx;
+
+}
+.content{
+  height:270rpx;
+}
+.blank{
+  width:100%;
+  height:80rpx;
+}
+.hot {
+  width: 100%;
+  height: 120rpx;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+  margin-top: 20rpx;
+}
+
+.hot .center {
+  width: 100%;
+  height: 100%;
+}
+
+.center .left {
+  float: left;
+  margin-left: 200rpx;
+  margin-top: 30rpx;
+}
+
+.center .right {
+  float: left;
+  margin-top: 30rpx;
+}
+
+.center .nowhot {
+  font-weight: 600;
+  float: left;
+  width: 31%;
+  height: 100rpx;
+  margin-left: 30rpx;
+  text-align: center;
+}
+
+.center .nowhot text {
+  display: inline-block;
+}
+
+.center .nowhot .mai {
+  height: 40rpx;
+  font-size: 40rpx;
+}
+
+.center .nowhot .yig {
+  font-size: 34rpx;
+  color: #ccc;
+  margin-left: 40rpx;
+  margin-bottom: 50rpx;
+  float: left;
+}
+
+.container .imgLeft {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  margin-left: 30rpx;
+  float: left;
+}
+
+.container .imgLeft image {
+  margin-top: 25rpx;
+  width: 100%;
+  height: 100%;
+}
+
+.detail {
+  width: 65%;
+  height: 100%;
+  /* background:red; */
+  float: left;
+}
+
+.detail .title {
+  font-size: 38rpx;
+  font-weight: 700;
+  margin-left: 10rpx;
+  height: 100rpx;
+  overflow: hidden;
+}
+
+.detail .price {
+  font-size: 30rpx;
+  color: #ff8080;
+  text-decoration: line-through;
+  margin-left: 10rpx;
+  margin-top: 50rpx;
+}
+
+.detail .pin {
+  width: 100%;
+  height: 60rpx;
+  background: #ff8080;
+  border-radius: 30rpx;
+  margin-left: 10rpx;
+  font-family: 微软雅黑;
+}
+
+.pin text {
+  display: inline-block;
+  font-size: 30rpx;
+  color: #fff;
+  height: 60rpx;
+  line-height: 60rpx;
+  float: left;
+  margin-top: 5rpx;
+}
+
+.pin .people {
+  margin-left: 60rpx;
+}
+
+.pin .pinPrice {
+  font-size: 26rpx;
+  font-weight: 600;
+  margin-left: 10rpx;
+}
+
+.pin .goGroup {
+  width: 118rpx;
+  height: 57rpx;
+  background: red;
+  float: right;
+  border-top-right-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
+  margin-top: 0rpx;
+}
+.bottom {
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+}
+.bottom view{
+  width:25%;
+  height:100%;
+   /* background:pink;  */
+  float:left;
+}
+.home image{
+  width:50rpx;
+  height:50rpx;
+ margin-left:38%;
+ margin-top:10rpx;
+ display:block;
+}
+.home text{
+  font-size:30rpx;
+  display:block;
+  width:100%;
+  text-align: center;
+  color:#999999;
+}
+ .active{
+  color:#f00;
+}

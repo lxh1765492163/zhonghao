@@ -1,0 +1,101 @@
+/* pages/default/fightGroup/offered/groupsdetail/index.wxss */
+.header{
+  width:100%;
+  height:220rpx;
+  /* background:red; */
+  border-bottom:1px solid #ccc;
+}
+.header image{
+  width:170rpx;
+  height:170rpx;
+  margin-top:20rpx;
+  margin-left:10rpx;
+  float:left;
+}
+.header .headerLeft{
+  width:73%;
+  height:100%;
+  /* background:blueviolet; */
+  float:left;
+  margin-left:10rpx;
+}
+.header .headerLeft .headerTitle{
+  font-size:36rpx;
+  font-weight: 600;
+  font-family: 宋体;
+  width:100%;
+  overflow: hidden;
+  height:40rpx;
+}
+.detail{
+  font-size:30rpx;
+  margin-top:100rpx;
+  color:#333;
+}
+.detail .price{
+  color:#f00;
+}
+.detail .ple{
+  float:right;
+  color:#ccc;
+}
+.content{
+  width:100%;
+  height:200rpx;
+  background:#fff;
+  margin-top:20rpx;
+
+}
+.content .friend{
+  font-size:32rpx;
+}
+.content .no{
+  width:100%;
+  text-align: center;
+  font-size:32rpx;
+}
+.gogroup{
+  width:100%;
+  height:140rpx;
+  background:#FFEDF1;
+  position:relative;
+}
+.gogroup .center{
+  width:95%;
+  height:80rpx;
+  background:#fff;
+  border-radius: 60rpx;
+  position:absolute;
+  top:30rpx;
+  left:20rpx;
+}
+.gogroup .center image{
+  width:80rpx;
+  height:80rpx;
+  border-radius: 80rpx;
+  /* background:red; */
+  float:left;
+}
+.name{
+  font-size:30rpx;
+  float:left;
+  margin-left:20rpx;
+}
+.name text{
+  display:block;
+}
+.name .time{
+  color:#ccc;
+}
+.right{
+  width:170rpx;
+  height:80rpx;
+  border-top-right-radius: 80rpx;
+  border-bottom-right-radius: 80rpx;
+  background:#FF473F;
+  float:right;
+  font-size:34rpx;
+  color:#fff;
+  text-align: center;
+  line-height:80rpx;
+}

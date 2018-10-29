@@ -1,0 +1,37 @@
+<!--pages/component/detail_seckill/detail_seckill.wxml-->
+<template name="detail_seckill">
+  <view wx:if="{{seckillinfo!=false&&seckillinfo.endtime>nowTime}}" style='height:100rpx;width:100%;display:flex;font-size:30rpx;background:white;'>
+    <block wx:if="{{nowTime<seckillinfo.starttime}}">
+      <view style='height:100%;width:66%;padding:0 2%;background:{{item.style.bgleftwait}}'>
+        <text style='font-size:50rpx;line-height:100rpx;color:{{item.style.pricecolorwait}}'>￥{{seckillinfo.price}}</text>
+        <text style='color:{{item.style.marketpricecolorwait}};text-decoration-line: line-through'>￥{{goods.marketprice}}</text>
+      </view>
+      <view style='height:100%;width:30%;text-align:center;line-height:50rpx;background:{{item.style.bgrightwait}}'>
+        <view style='color:{{item.style.statuscolorwait}}'>距开始还有 </view>
+        <view style='color:{{item.style.timecolorwait}}'>
+             <text wx:if="{{seckilltime.hr&&seckilltime.hr!='00'}}"><text style='padding:2rpx 5rpx;background:{{item.style.timebgcolorwait}}'>{{seckilltime.hr}}</text> : </text>
+          <text wx:if="{{seckilltime.min&&seckilltime.min!='00'}}"><text style='padding:2rpx 5rpx;background:{{item.style.timebgcolorwait}}'>{{seckilltime.hr}}</text> : </text>
+          <text wx:if="{{seckilltime.sec&&seckilltime.sec!='00'}}" style='padding:2rpx 5rpx;background:{{item.style.timebgcolorwait}}'>{{seckilltime.sec}}</text>
+        </view>
+      </view>
+    </block>
+    <block wx:elif="{{nowTime<seckillinfo.endtime}}">
+      <view style='height:100%;width:66%;padding:0 2%;background:{{item.style.bgleft}}'>
+        <text style='font-size:50rpx;line-height:100rpx;color:{{item.style.pricecolor}}'>￥{{seckillinfo.price}}</text>
+        <text style='color:{{item.style.marketpricecolor}};text-decoration-line: line-through'>￥{{goods.marketprice}}</text>
+        <view style='float:right;'>
+          <view style='padding:10rpx 0;color:{{item.style.processtextcolor}}'>已销售{{seckillinfo.count}}%</view>
+          <progress activeColor='{{item.style.processcolor}}' percent='{{seckillinfo.count}}' backgroundColor='white' style='border-radius:2rpx'></progress>
+        </view>
+      </view>
+      <view style='height:100%;width:30%;text-align:center;line-height:50rpx;background:{{item.style.bgright}}'>
+        <view style='color:{{item.style.statuscolor}}'>距结束时间</view>
+        <view style='color:{{item.style.timecolor}}'>
+          <text wx:if="{{seckilltime.hr&&seckilltime.hr!='00'}}"><text style='padding:2rpx 5rpx;background:{{item.style.timebgcolor}}'>{{seckilltime.hr}}</text> : </text>
+          <text wx:if="{{seckilltime.min&&seckilltime.min!='00'}}"><text style='padding:2rpx 5rpx;background:{{item.style.timebgcolor}}'>{{seckilltime.hr}}</text> : </text>
+          <text wx:if="{{seckilltime.sec&&seckilltime.sec!='00'}}" style='padding:2rpx 5rpx;background:{{item.style.timebgcolor}}'>{{seckilltime.sec}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</template>

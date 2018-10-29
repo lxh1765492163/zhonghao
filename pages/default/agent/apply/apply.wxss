@@ -1,0 +1,98 @@
+/* pages/default/agent/apply/apply.wxss */
+
+radio {
+  transform: scale(0.7);
+}
+
+radio-group {
+  margin-top: 12rpx;
+}
+
+button {
+  background: #ff785a;
+  width: 90%;
+  font-size: 36rpx;
+  border-radius: 15rpx;
+  color: white;
+}
+
+button::after {
+  border: none;
+}
+
+input {
+  display: inline-block;
+  margin: auto 10rpx;
+  height: 100%;
+}
+
+.sign {
+  color: #dd2704;
+}
+
+.apply-agent {
+  background: #fafafa;
+}
+
+.apply-agent .form {
+  border-top: solid 1rpx #e8e8e8;
+  background: white;
+}
+
+.form .title {
+  text-align: center;
+  padding: 20rpx 0;
+}
+
+.form .info {
+  display: flex;
+  padding: 10rpx 30rpx;
+}
+
+.info .name {
+  width: 25%;
+}
+
+.info .val {
+  width: 75%;
+}
+
+.info .name view {
+  height: 2rem;
+  line-height: 2rem;
+  padding: 10rpx 0;
+  border-top: solid 1rpx #e8e8e8;
+}
+
+.info .val view {
+  height: 2rem;
+  padding: 10rpx 0;
+  border-top: solid 1rpx #e8e8e8;
+}
+
+.form .apply {
+  background: #fafafa;
+  padding: 50rpx 0 15rpx;
+  border-top: solid 1rpx #e8e8e8;
+}
+
+.apply-agent .explain {
+  background: white;
+  border-top: solid 1rpx #e8e8e8;
+  border-bottom: solid 1rpx #e8e8e8;
+  padding: 0 30rpx;
+  margin-bottom: 40rpx;
+}
+.explain .op {
+  padding: 20rpx;
+  font-weight: bold;
+}
+
+.explain .op:nth-child(1) {
+  border-bottom: solid 1rpx #e8e8e8;
+}
+
+.explain .op view {
+  font-size: 30rpx;
+  font-weight: normal;
+}

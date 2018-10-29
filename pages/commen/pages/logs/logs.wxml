@@ -1,0 +1,130 @@
+<!--logs.wxml-->
+<view class="container font">
+    <view class="top">
+        <image mode="aspectFill" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/backgroud.png"></image>
+        <view class='users'>
+            <view class='rel'>
+                <image class="ab udlr" src="{{avatarUrl}}"></image>
+            </view>
+            <view>{{nickName}}</view>
+        </view>
+        <view class="realy_top rel">
+            <view class='layer ab lr'>
+                <view class='classification ab udlr'>
+                    <navigator bindtap='Member'>
+                        <view class='child'>
+                            <view class='rel'>
+                                <view class='ab udlr classification1'>
+                                    <image mode='widthFix' class='img' src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/one.png'></image>
+                                </view>
+                            </view>
+                            <view wx:if="{{type==1||type==0}}">绑定会员卡</view>
+                            <view wx:if="{{type==2}}">
+                                <view wx:if="{{level_name==null}}">初始会员</view>
+                                <view wx:else>{{level_name}}</view>
+                            </view>
+                            <view>等级</view>
+                        </view>
+                    </navigator>
+                    <navigator url='member/mine_integral'>
+                        <view class='child'>
+                            <view class='rel'>
+                                <view class='ab udlr classification1'>
+                                    <image mode='widthFix' class='img' src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/three.png'></image>
+                                </view>
+                            </view>
+                            <view wx:if="{{score==null}}">0</view>
+                            <view wx:if="{{score!=null}}">{{score}}</view>
+                            <view>积分</view>
+
+                        </view>
+                    </navigator>
+                    <navigator url='../coupon/coupon'>
+                        <view class='child'>
+                            <view class='rel'>
+                                <view class='ab udlr classification1'>
+                                    <image mode='widthFix' class='img' src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/two.png'></image>
+                                </view>
+                            </view>
+                            <view>{{coupon_len}}</view>
+                            <view>优惠券</view>
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+
+        </view>
+    </view>
+    <view class='mine'>
+        <view class='order rel' catchtap="my_list">
+            <image mode='widthFix' class='img3 ab ud' src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/order.png'></image>
+            <text>我的订单</text>
+            <image mode='widthFix' class=' ab ud img2' src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/Path1@2x.png'></image>
+        </view>
+        <view class='business rel' bindtap='business'>
+            <image mode='widthFix' class='img3 ab ud' src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/bussiness.png'></image>
+            <text>商家入驻</text>
+            <image mode='widthFix' class=' ab ud img2' src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/Path1@2x.png'></image>
+        </view>
+        <view class='contant rel' bindtap='content'>
+            <image mode='widthFix' class='img3 ab ud' src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/contance.png'></image>
+            <text>我的客服</text>
+            <image mode='widthFix' class=' ab ud img2' src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/Path1@2x.png'></image>
+        </view>
+    </view>
+    <!--技术支持  -->
+    <view class='support' bindtap='jump'>
+        <image mode='widthFix' src='{{url}}{{platform.copy_logo}}'></image>
+        {{platform.wz}}
+    </view>
+</view>
+<view class='validate udlr {{proving==1?"show":"hidden"}}'>
+    <view class='back' bindtap='back'></view>
+    <form bindsubmit="formSubmit" report-submit="true" bindreset="formReset">
+        <view class='body udlr'>
+            <view>绑定会员卡</view>
+            <view class='rel'>
+                <view class='ab ud'>
+                    <image class='img' mode='widthFix' src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/xm.jpg'></image>
+                </view>
+                <view class='ab ud'>
+                    <input name="name" bindblur="user_name" placeholder='请输入您的真实姓名' placeholder-style='color:#999'></input>
+                </view>
+            </view>
+            <view class='rel'>
+                <view class='ab ud'>
+                    <image class='img' mode='widthFix' src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/ph.jpg'></image>
+                </view>
+                <view class='ab ud'>
+                    <input name="phone" type='text' bindblur="user_tel" placeholder='请输入您的手机号' placeholder-style='color:#999'></input>
+                </view>
+            </view>
+            <view class='rel'>
+                <view class='ab ud'>
+                    <image class='img' mode='widthFix' src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/yz.jpg'></image>
+                </view>
+                <view class='ab ud'>
+                    <input name="code" placeholder='请输入获取到的验证码' placeholder-style='color:#999'></input>
+                </view>
+                <view class='ab code' wx:if="{{getmsg=='获取验证码'}}" bindtap='sendmessg'>
+                    {{getmsg}}
+                </view>
+                <view class='ab code' wx:if="{{getmsg!='获取验证码'}}" bindtap=''>
+                    {{getmsg}}
+                </view>
+            </view>
+            <button class="lgbut lr" formType="submit">免费申请</button>
+        </view>
+    </form>
+
+</view>
+<view class="footer">
+    <navigator url="/pages/commen/pages/shouye/shouye" class="footer1">
+        <image class="image" src="/assets/images/tabBar/icon-home.png"></image>
+        <text>首页</text>
+    </navigator>
+    <navigator url="/pages/commen/pages/logs/logs" class="footer1">
+        <image class="image" src="/assets/images/tabBar/icon-person2.png"></image>
+        <text>我的</text>
+    </navigator>
+</view>

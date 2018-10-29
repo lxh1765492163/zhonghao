@@ -1,0 +1,102 @@
+/* pages/community/person/person.wxss */
+@import "../tabbar/tabbar.wxss";
+
+.body {
+  background: #fffafa;
+  font-size: 35rpx;
+  padding-bottom: 250rpx;
+}
+
+.body .user .avatar {
+  height: 150rpx;
+  width: 150rpx;
+  border-radius: 50%;
+  border: solid 10rpx white;
+  position: relative;
+  left: 50%;
+  margin-left: -80rpx;
+  bottom: 100rpx;
+}
+
+.introduce {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+  margin-top: -85rpx;
+}
+
+.introduce .topic {
+  margin: 30rpx 0;
+}
+
+.topic text {
+  font-size: 30rpx;
+  color: #00bfff;
+  display: block;
+  text-align: center;
+}
+
+.introduce .autograph {
+  display: flex;
+  align-items: center;
+  color: #666;
+  font-size: 30rpx;
+}
+
+.autograph image {
+  margin-left: 10rpx;
+  height: 35rpx;
+  width: 35rpx;
+}
+
+.myTheme {
+  margin-top: 70rpx;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-top: solid 1rpx #bbb;
+}
+
+.myTheme .titleBar {
+  width: 180rpx;
+  background: #fffafa;
+  position: relative;
+  top: -25rpx;
+  left: 50%;
+  margin: 0 0 10rpx -90rpx;
+}
+
+.myTheme .theme {
+  display: flex;
+  align-items: center;
+  padding: 25rpx 20rpx;
+  border-bottom: solid 1rpx #ddd;
+  background: white;
+}
+
+.theme:last-child {
+  border: none;
+}
+
+.theme .space {
+  flex: 1;
+}
+
+.theme image {
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 20rpx;
+}
+
+.theme .newsletter text {
+  display: block;
+  text-align: start;
+  margin: 5rpx 20rpx;
+}
+
+.theme .right {
+  margin-top: -30rpx;
+  height: 40rpx;
+  width: 40rpx;
+}

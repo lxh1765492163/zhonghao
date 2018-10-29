@@ -1,0 +1,36 @@
+<!--引入组件-->
+<import src="../../../component/menu/menu.wxml" />
+<import src="../../../component/notice/notice.wxml" />
+<import src="../../../component/goods/goods.wxml" />
+<import src="../../../component/fixedsearch/fixedsearch.wxml" />
+<import src="../../../component/search/search.wxml" />
+<import src="../../../component/title/title.wxml" />
+<import src="../../../component/line/line.wxml" />
+<import src="../../../component/blank/blank.wxml" />
+<import src="../../../component/picture/picture.wxml" />
+<import src="../../../component/banner/banner.wxml" />
+<import src="../../../component/picturew/picturew.wxml" />
+<import src="../../../component/pictures/pictures.wxml" />
+<import src="../../../component/icongroup/icongroup.wxml" />
+<import src="../../../component/listmenu/listmenu.wxml" />
+<import src="../../../component/video/video.wxml" />
+<import src="../../../component/copy/copy.wxml" />
+<import src="../../../component/detail_swipe/detail_swipe.wxml" />
+<import src="../../../component/detail_info/detail_info.wxml" />
+<import src="../../../component/detail_navbar/detail_navbar.wxml" />
+<import src="../../../component/detail_sale/detail_sale.wxml" />
+<import src="../../../component/detail_content/detail_content.wxml" />
+<import src="../../../component/member/member.wxml" />
+<import src="../../diymenu/diymenu.wxml" />
+<template is="diymenu" data="{{datas,style,data,tabid}}" />
+<view class="fui-page fui-page-current">
+<!-- <view class='backgroundimage' style='width: 100%; height: 120px;'>
+  <image animation="{{animationData}}" src='{{userInfo.avatarUrl}}' style='width: 100%; overflow: hidden;' mode='widthFixs'></image>
+</view> -->
+  <view class="fui-content">
+    <!--加载组件-->
+    <block wx:for="{{modules}}" wx:key="">
+      <template is="{{item.id}}" data="{{item, items, userInfo,animationData}}" />
+    </block>
+  </view>
+</view>

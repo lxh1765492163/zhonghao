@@ -1,0 +1,22 @@
+<view class="fui-page fui-page-current store-map-page">
+  <view class="fui-content">
+    <view wx:if="{{items != null}}" class="map-container">
+      <map id="map" scale="14" longitude="{{longitude}}"   latitude="{{latitude}}" markers="{{markers}}" covers="{{covers}}" bindtap="getlocation" style="width: 100%; height: {{windowHeight}}px"></map>
+    </view>
+    <view class="fui-footer">
+      <view class="fui-list">
+        <view  class="fui-list-media">
+          <image src="https://xcx.xcwll.cn/attachment/{{items.store.logo}}"></image>
+        </view>
+        <view class="fui-list-inner">
+          <view class="title">{{items.store.merchname}}</view>
+          <view wx:if="{{items.store.mobile != ''}}" class="text">联系电话: {{items.store.mobile}}</view>
+           <view style="font-size:30rpx;overflow:hidden"markers="{{markers}}"  >{{items.store.address}}</view>     
+        </view>
+        <view class="fui-list-angle">
+          <button class="external" data-tel="{{items.store.mobile}}" catchtap="telPhone"><text class="icon icon-phone2" style="color:green;"></text></button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

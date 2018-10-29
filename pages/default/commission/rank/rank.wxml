@@ -1,0 +1,12 @@
+<view class="fui-page fui-page-current page-rank orange">
+    <view class="fui-content navbar">
+        <view class="rankhead">
+            <view class="head">
+                <view class="child"></view>
+                <view class="child gold">
+                    <text>item</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

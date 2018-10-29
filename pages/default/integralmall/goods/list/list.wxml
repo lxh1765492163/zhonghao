@@ -1,0 +1,46 @@
+<!--pages/integralmall/goods/list/list.wxml-->
+<import src="../../tabbar/tabbar" />
+<!-- <import src="../../../component/float/menu.wxml"/>
+<template is="floatmenu" data="{{height}}" /> -->
+<template is='tabbar' data='{{tabbar,id}}' />
+<view class='integral_goods_list'>
+      <view class='category'>
+            <view class='categoryname' bindtap='show'>
+                  <text>{{name==''?'全部商品':name}} </text>
+                  <text class='icon icon-unfold' style='margin-left:10rpx;font-size:26rpx;'></text>
+            </view>
+            <view class='more' wx:if='{{show}}'>
+                  <view class='morecategory' data-cate='' data-name='' bindtap='selected'>全部商品</view>
+                  <view class='morecategory' wx:for='{{data.category}}' wx:key='' bindtap='selected' data-name='{{item.name}}' data-cate='{{item.id}}'>{{item.name}}</view>
+            </view>
+      </view>
+      <view class='search' style='font-size:30rpx;'>
+            <icon type='search' size='15'></icon>
+            <input placeholder='输入关键词...' confirm-type='search' bindconfirm='search' ></input>
+      </view>
+      <block wx:if="{{data.list!=''}}">
+            <view style='background:#eee;'>
+                  <navigator class='integral_goods' wx:for='{{data.list}}' wx:key='' style='width: 50%; display: inline-block' url='/pages/default/integralmall/goods/detail/detail?id={{item.id}}'>
+                        <view style='padding:10rpx 10rpx'>
+                              <image src='{{item.thumb}}' style='width: 350rpx; height:350rpx; margin:0 auto; display: block'></image>
+                              <view class='text'>
+                                    <text class='lable' style='float: left'>{{item.goodstype==0?'商品':item.goodstype==1?'优惠券':item.goodstype==2?'余额':'红包'}}</text>
+                                    <view class='title'> {{item.title}}</view>
+                                    <view class='subtitle'>{{item.subtitle}}</view>
+                                    <text style='color:#fb4a20'>{{item.credit}}</text>
+                                    <text style='font-size:25rpx'>积分</text>
+                                    <text style='font-size: 25rpx;' wx:if="{{item.money!=0}}"> + </text>
+                                    <text wx:if="{{item.money!=0}}" style='color:#fb4a20'>¥{{item.money}}</text>
+                                    <text class='exchange'>兑换</text>
+                              </view>
+                        </view>
+                  </navigator>
+            </view>
+      </block>
+      <block wx:else>
+            <view style='width:100%; text-align:center; border-top:solid 1rpx #ddd;'>
+                  <view class='icon icon-warn' style='font-size:65px;'></view>
+                  <text>未找到任何商品~</text>
+            </view>
+      </block>
+</view>

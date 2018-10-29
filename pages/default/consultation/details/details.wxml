@@ -1,0 +1,16 @@
+<import src="../../../../vendor/wxParse/wxParse.wxml" />
+
+<view class="container" wx:for="{{items}}" wx:for-item="item" wx:key="">
+    <view class="title">
+        {{item.article_title}}
+    </view>
+    <view class="author">
+        <text class="time">{{item.article_date_v}}</text>
+        <text class="aut">{{item.article_mp}}</text>
+
+    </view>
+    <view class="">
+        <rich-text nodes="{{content}}"></rich-text>
+    </view>
+
+</view>

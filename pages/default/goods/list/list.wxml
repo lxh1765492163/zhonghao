@@ -1,0 +1,165 @@
+<import src="../../../component/float/menu.wxml" />
+<template is="floatmenu" data="{{height,open}}" />
+<view class="jui-page">
+  <view class="header">
+    <view class="title">
+      <text class="icon icon-search"></text>
+      <input type="text" name="keywords" catchblur="putSearch" placeholder="输入关键字..." bindfocus="searchFocus" bindblur="unSearchFocus" bindconfirm="putSearch" value='{{keywords}}' style="padding-left:1.8rem;" />
+    </view>
+    <view class="icons">
+      <navigator bindtap="onSort">
+        <text wx:if="{{!sort}}" class="icon icon-app"></text>
+        <text wx:else class="icon icon-sort"></text>
+      </navigator>
+    </view>
+  </view>
+
+
+  <view class="sort">
+    <view wx:if="{{order == 'all' || order == ''}}" class="item on" data-order="all" bindtap="onOrder">
+      <text class="text">综合</text>
+    </view>
+    <view wx:else class="item" data-order="all" bindtap="onOrder">
+      <text class="text">综合</text>
+    </view>
+
+    <view wx:if="{{order == 'sales'}}" class="item on" data-order="sales" bindtap="onOrder">
+      <text class="text">销量</text>
+    </view>
+    <view wx:else class="item" data-order="sales" bindtap="onOrder">
+      <text class="text">销量</text>
+    </view>
+
+    <view wx:if="{{order == 'minprice'}}" class="item on item-price" data-order="minprice" bindtap="onOrder">
+      <text class="text">价格</text>
+      <text class="sorting">
+                <text class="icon icon-sanjiao2"></text>
+      <text class="icon icon-sanjiao1"></text>
+      </text>
+    </view>
+    <view wx:else class="item item-price" data-order="minprice" bindtap="onOrder">
+      <text class="text">价格</text>
+      <text class="sorting">
+                <text class="icon icon-sanjiao2"></text>
+      <text class="icon icon-sanjiao1"></text>
+      </text>
+    </view>
+
+    <view class="item" bindtap="onFilter">
+      <text class="text">筛选 </text>
+      <text class="icon icon-filter"></text>
+    </view>
+  </view>
+
+
+  <scroll-view scroll-y="true" upper-threshold="0" lower-threshold="0" bindscrolltolower="getMore" class="fui-content navbar scroll-wrap" style="bottom:0;top:210rpx;padding-bottom:0;width: 100%;">
+
+    <view wx:if="{{list.length == 0}}" class="content-empty">
+      <view>
+        <text class="icon icon-searchlist"></text>
+      </view> 暂时没有任何商品
+    </view>
+
+    <view class="jui-goods-list">
+
+      <view wx:for-items="{{list}}" wx:key="list" class="{{sort ? 'jui-goods-item' : 'jui-goods-block'}}">
+        <navigator class="navigator" url="/pages/default/goods/detail/detail?id={{item.id}}">
+          <view class="logo">
+            <image src="{{item.thumb}}" />
+            <!-- <view wx:if="{{item.total<=0}}" class="salez" style="background-image:url({{item.thumb}})"></view> -->
+          </view>
+
+          <view class="detail">
+            <view class="name">{{item.title}}</view>
+            <view class="price">
+              <text class="text" wx:if="{{item.isdiscuss==1}}">面议</text>
+              <text class="text" wx:else>￥{{item.minprice}}</text>
+              <text class="buy" catchtap="addCart" data-id="{{item.id}}">
+                                  <block wx:if="{{item.bargain>0}}">砍价活动</block>
+                                  <block wx:else><text class="icon icon-cart"></text>
+              </block>
+              </text>
+            </view>
+          </view>
+        </navigator>
+      </view>
+
+    </view>
+    <view wx:if="{{loading}}" class="infinite-loading">
+      <text class="fui-preloader"></text>
+      <text class="text"> 正在加载...</text>
+    </view>
+
+  </scroll-view>
+
+
+  <view class="modal" wx:if="{{onfilter}}">
+    <view class="mask"></view>
+    <view class="screen">
+      <view class="attribute">
+        <view class="item">
+          <view class="btn {{isrecommandclass}} block" bindtap="setFilter" data-type="isrecommand">
+            <text wx:if="{{isrecommand == 1}}" catchtap="setFilter" data-type="isrecommand" class="icon icon-check"></text> 推荐商品
+          </view>
+        </view>
+        <view class="item">
+          <view class="btn {{isnewclass}} block" bindtap="setFilter" data-type="isnew">
+            <text wx:if="{{isnew == 1}}" catchtap="setFilter" data-type="isnew" class="icon icon-check"></text> 新品上市
+          </view>
+        </view>
+        <view class="item">
+          <view class="btn {{ishotclass}} block" bindtap="setFilter" data-type="ishot">
+            <text wx:if="{{ishot == 1}}" catchtap="setFilter" data-type="ishot" class="icon icon-check"></text> 热卖商品
+          </view>
+        </view>
+        <view class="item">
+          <view class="btn {{isdiscountclass}} block" bindtap="setFilter" data-type="isdiscount">
+            <text wx:if="{{isdiscount == 1}}" catchtap="setFilter" data-type="isdiscount" class="icon icon-check"></text> 促销商品
+          </view>
+        </view>
+        <view class="item">
+          <view class="btn {{issendfreeclass}} block" bindtap="setFilter" data-type="issendfree">
+            <text wx:if="{{issendfree == 1}}" catchtap="setFilter" data-type="issendfree" class="icon icon-check"></text> 卖家包邮
+          </view>
+        </view>
+        <view class="item">
+          <view class="btn {{istimeclass}} block" catchtap="setFilter" data-type="istime" bindtap="setFilter" data-type="istime">
+            <text wx:if="{{istime == 1}}" class="icon icon-check"></text> 限时抢购
+          </view>
+        </view>
+      </view>
+
+      <block wx:if="{{catlevel != -1 && opencategory}}">
+        <view class="title">选择分类</view>
+        <view class="cate">
+          <view class="item" data-level="1">
+
+            <text wx:for-items="{{allcategory.parent}}" wx:key="allcategory.parent" data-id="{{item.id}}" bindtap="selectNav">{{item.name}}</text>
+
+          </view>
+
+          <block wx:for="{{allcategory.children}}" wx:for-item="child" wx:key="">
+            <view wx:if="{{index == currentCategory}}" class="item" data-level="2">
+              <block wx:for="{{child}}" wx:key="">
+                <text wx:if="{{item.id == cate}}" class="on" data-id="{{item.id}}" bindtap="onGetListByCate">{{item.name}}</text>
+                <text wx:else data-id="{{item.id}}" bindtap="onGetListByCate">{{item.name}}</text>
+              </block>
+            </view>
+          </block>
+          <view wx:if="{{currentCategory == 0}}" class="item"></view>
+
+          <view class="item" data-level="3" style="display:none;"></view>
+
+        </view>
+      </block>
+
+      <view class="btns">
+        <view class="cancel" bindtap="cannelFilter">取消筛选</view>
+        <view class="confirm" bindtap="getList">确认</view>
+      </view>
+    </view>
+  </view>
+
+
+
+</view>

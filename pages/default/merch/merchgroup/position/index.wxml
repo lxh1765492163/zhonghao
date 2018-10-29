@@ -1,0 +1,10 @@
+<template name="position">
+	<view class="position">
+		<image src="/assets/images/position.png" />
+		<picker class="address" mode="region" bindchange="bindRegionChange" value="{{location}}" custom-item="{{customItem}}">
+              <text>{{location}}</text>
+              <image src="/assets/images/dropdown.png" />
+        </picker>
+		
+	</view>
+</template>

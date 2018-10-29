@@ -1,0 +1,130 @@
+<!--引入组件-->
+<import src="../../../component/menu/menu.wxml" />
+<import src="../../../component/notice/notice.wxml" />
+<import src="../../../component/goods/goods.wxml" />
+<import src="../../../component/fixedsearch/fixedsearch.wxml" />
+<import src="../../../component/search/search.wxml" />
+<import src="../../../component/title/title.wxml" />
+<import src="../../../component/line/line.wxml" />
+<import src="../../../component/blank/blank.wxml" />
+<import src="../../../component/picture/picture.wxml" />
+<import src="../../../component/banner/banner.wxml" />
+<import src="../../../component/picturew/picturew.wxml" />
+<import src="../../../component/pictures/pictures.wxml" />
+<import src="../../../component/icongroup/icongroup.wxml" />
+<import src="../../../component/listmenu/listmenu.wxml" />
+<import src="../../../component/video/video.wxml" />
+<import src="../../../component/detail_swipe/detail_swipe.wxml" />
+<import src="../../../component/detail_info/detail_info.wxml" />
+<import src="../../../component/detail_navbar/detail_navbar.wxml" />
+<import src="../../../component/detail_sale/detail_sale.wxml" />
+<import src="../../../component/detail_package/detail_package.wxml" />
+<import src="../../../component/detail_content/detail_content.wxml" />
+<import src="../../../component/detail_shop/detail_shop.wxml" />
+<import src="../../../component/detail_seckill/detail_seckill.wxml" />
+<view class="fui-page page-goods-detail fui-page-current">
+  <view class="fui-content">
+    <!--加载组件-->
+    <block wx:for="{{diypage!=false?diypage.items:modules}}" wx:for-item="item" wx:key="">
+      <template is="{{item.id}}" data="{{packages,diypage,gifts,item, ...goods,store,cartCount,nowTime, isFavorite,countDownDay,countDownHour,gifttitle,animationData,countDownMinute,countDownSecond,stock,seckillinfo,seckilltime}}" />
+    </block>
+    <!--底部按钮  -->
+    <block wx:if="{{diypage.navbar!=''&&diypage.navbar!=null&&status!='2'}}">
+      <template wx:if="{{diypage!=false}}" is='detail_navbar' data='{{...goods,diypage,nowTime,isFavorite,cartCount,gifts,seckillinfo}}' />
+    </block>
+    <!--详情/参数/评价-->
+    <template is="detail_content" data="{{...goods,curNav,tabArr, article, picker,params,list,count,videos,content_text}}" />
+    <view wx:if="{{picker}}" class="alert-mask" bindtap="closePicker"></view>
+    <view wx:if="{{gift}}" class="alert-mask" bindtap="hidemodle"></view>
+    <!--规格弹出-->
+    <block wx:if="{{picker}}">
+      <view class="option-picker">
+        <view class="option-picker-inner">
+          <view class="option-picker-cell goodinfo">
+            <view class="closebtn">
+              <text class="icon icon-roundclose"></text>
+            </view>
+            <view class="img">
+              <image class="thumb" src="{{src}}"></image>
+            </view>
+            <view class="info info-price text-danger">
+              <view>￥
+                <text class="price">
+                          <block wx:if="{{price == 0}}">
+                            <block wx:if="{{goods.goods.ispresell > 0 && (goods.goods.preselltimeend == 0 || goods.goods.preselltimeend > goods.goods.thistime)}}">{{goods.goods.presellprice}}</block>
+                            <block wx:else>
+                                <block wx:if="{{goods.goods.maxprice == goods.goods.minprice}}">{{goods.goods.minprice}}</block>
+                                <block wx:else>{{goods.goods.minprice}}~{{goods.goods.maxprice}}</block>
+                            </block>
+                          </block>
+                          <block wx:else>{{price}}</block>
+                        </text>
+              </view>
+            </view>
+            <view class="info info-total">
+              <block wx:if="{{goods.goods_other.seckillinfo == false || (goods.goods_other.seckillinfo && goods.goods_other.seckillinfo.status == 1)}}">
+                <block wx:if="{{goods.goods.showtotal != 0}}">库存
+                  <text class="total text-danger">{{stock}}</text> 件</block>
+              </block>
+            </view>
+            <view class="info info-titles">{{specs.length > 0 ? '请选择规格' : ''}}</view>
+          </view>
+          <view class="option-picker-options" style="overflow-y:scroll;height:500rpx;">
+            <view wx:for="{{specs}}" wx:for-item="val" wx:key="" class="option-picker-cell option spec">
+              <view class="title">{{val.title}}</view>
+              <view class="select">
+                <block wx:for="{{val.items}}" wx:for-item="sp" wx:for-index="idx" wx:key="">
+                  <button class="btn btn-default btn-sm nav spec-item {{val.selected && val.selected == sp.id ? 'hover' : ''}}" data-index="{{index}}" data-id="{{sp.id}}" data-src="{{sp.thumb}}" catchtap="setPicker">{{sp.title}}</button>
+                </block>
+              </view>
+            </view>
+            <!-- <block wx:if="{{goods.goods_other.seckillinfo == false || (goods.goods_other.seckillinfo && goods.goods_other.seckillinfo.status == 1)}}"> -->
+              <view class="fui-cell-group">
+                <view class="fui-cell">
+                  <view class="fui-cell-label">数量</view>
+                  <view class="fui-cell-info"></view>
+                  <view class="fui-cell-mask noremark">
+                    <view class="fui-number">
+                      <view catchtap="changeCartNum" data-action="minus" class="minus">-</view>
+                      <input type="number" class="num" value="{{cartNum}}" bindblur="bindKeyInput" />
+                      <view catchtap="changeCartNum" data-action="plus" class="plus">+</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            <!-- </block>
+            <block wx:else>
+              <input type="number" class="num" value="1" />
+            </block> -->
+          </view>
+          <view class="fui-navbar">
+            <button class="nav-item btn confirmbtn" disabled="{{confirmbtn}}" style="height:3rem;" bindtap="updateCart">确定</button>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!--赠品弹出  -->
+    <view class='model' animation="{{animationData}}" style="height:300px;width:100%;z-index:9999;position: fixed;bottom:-300px;left:0;background:white;font-size:35rpx">
+      <view style='height:50px;color:#888;margin:0 30rpx;line-height:40px;'>请选择赠品：</view>
+      <scroll-view scroll-y style='height:210px'>
+        <block wx:for="{{gifts}}" wx:for-item="val" wx:key="">
+          <view style='display:flex;align-items:center;padding:10rpx 20rpx;'>
+            <radio-group class="radio-group" bindchange="changegifts">
+              <radio value="{{val.id}}" checked="{{val.ischoice}}" />
+            </radio-group>
+            <navigator url="/pages/default/sale/gifts/gifts?giftsid={{val.id}}" style='border-bottom:solid 1rpx #ddd;flex:1;margin-left:20rpx;'>
+              <block wx:for="{{val.gift}}" wx:key="">
+                <view style='display:flex;margin-bottom:20rpx'>
+                  <image src="https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{item.thumb}}" style='height:100rpx;width:100rpx;display:inline-block'></image>
+                  <view style='overflow:hidden;white-space:nowrap; text-overflow: ellipsis;line-height:100rpx;width:400rpx;margin-left:20rpx'>{{item.title}}</view>
+                  <view style='flex:1;text-align:right;line-height:100rpx; text-decoration-line: line-through'>{{item.marketprice}}</view>
+                </view>
+              </block>
+            </navigator>
+          </view>
+        </block>
+      </scroll-view>
+      <view style='height:40px;line-height:40px;text-align:center;background:#ef4f4f;color:white;' bindtap='hidemodle'>确定</view>
+    </view>
+  </view>
+</view>

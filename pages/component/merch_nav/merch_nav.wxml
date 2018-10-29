@@ -1,0 +1,10 @@
+<template name="merch_nav">
+  <view wx:if="{{navs.length > 0}}" class="fui-icon-group noborder">
+    <block wx:for="{{navs}}" wx:for-item="item" wx:key="">
+      <navigator url="{{item.url}}" class="fui-icon-col">
+        <view class="icon"><image src="{{item.icon}}" mode="widthFix"></image></view>
+        <view class="text">{{item.navname}}</view>
+      </navigator>
+    </block>
+  </view>
+</template>

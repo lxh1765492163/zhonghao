@@ -1,0 +1,38 @@
+<!--pages/default/bespoke/choice/choice.wxml-->
+<view class="header">
+  <text>已选项目</text>
+</view>
+<block wx:for="{{goods}}" wx:for-item="item" wx:key="">
+
+  <view class="content">
+    <image src="http://xcx.xcwll.cn/attachment/{{item.goods.photo}}"></image>
+    <view class="content_title">
+      <view class="title">{{item.goods_name}}</view>
+      <view class="stor">
+        <text>{{item.goods.shijian*item.buy_num}}分钟 </text>
+        <text wx:if="{{item.daojia == 1}}"> 上门服务</text>
+        <text wx:else> 到店服务</text>
+      </view>
+      <view class="price">￥{{item.goods.price*item.buy_num}}</view>
+      <view class="num">
+        <text class="pro" bindtap="changeCartNum"  data-id="{{item.goods_id}}" data-action="minus" data-index="{{index}}">—</text>
+        <text class="number">{{item.buy_num}}</text>
+        <text class="add" bindtap="changeCartNum" data-id="{{item.goods_id}}"  data-action="plus" data-index="{{index}}">+</text>
+      </view>
+    </view>
+  </view>
+
+</block>
+<view class="footer">
+  <view class="item">
+    <view>{{sum_num}}个项目</view>
+    <view>{{sum_time}}分钟</view>
+  </view>
+  <view class="item">
+    <text>合计:</text>
+    <text class="price">￥{{sum_money}}</text>
+  </view>
+  <view class="item bespoke" bindtap="createOrder">
+    预约
+  </view>
+</view>

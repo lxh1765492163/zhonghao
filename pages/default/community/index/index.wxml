@@ -1,0 +1,55 @@
+<!--pages/community/community.wxml-->
+<import src="../../../component/float/menu.wxml" />
+<template is="floatmenu" data="{{height,open}}" />
+<view class='tabbar'>
+    <import src='../tabbar/tabbar.wxml' />
+    <template is='tabbar' data='{{tabbar,id}}' />
+</view>
+<view class='community'>
+    <view class='banner'>
+        <swiper indicator-dots='true' autoplay='true' interval='5000' duration='500' circular='true'>
+            <block wx:for='{{banner}}' wx:for-item="banner" wx:key="">
+                <swiper-item style="position:relative">
+                    <navigator url="{{banner.link}}">
+                        <image src='{{banner.thumb}}' style='width:100%'></image>
+                        <view style="position:absolute;bottom:0;width:100%;height:60rpx;font-size:18px;overflow:hidden; background:rgba(0,0,0,0.5);color:#fff;">{{banner.advname}}</view>
+                    </navigator>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class='navGroup'>
+        <block wx:for='{{nav}}' wx:for-item='item' wx:key="">
+            <navigator class='nav' url='/pages/default/community/section/section?id={{item.id}}&type={{item.id}}'>
+                <image src='{{item.thumb}}'></image>
+                <text>{{item.name}}</text>
+            </navigator>
+        </block>
+    </view>
+    <view class='recommend'>
+        <view class='titleBar'>
+            <text>推荐模板</text>
+            <navigator class='all' hover-class='none' url="/pages/default/community/section/section">
+                <text>全部</text>
+
+            </navigator>
+        </view>
+        <block wx:for='{{recommend}}' wx:for-item="recommend" wx:key="">
+            <navigator class='section' url='/pages/default/community/details/details?id={{recommend.id}}'>
+                <image src='{{recommend.logo}}'></image>
+                <view class='newsletter'>
+                    <text class='title'>{{recommend.title}}</text>
+                    <view class='topic'>
+                        <text decode='{{true}}'>话题数:&nbsp;</text>
+                        <text decode='{{true}}' class='sign'>{{recommend.postcount}}&nbsp;&nbsp;</text>
+
+                    </view>
+                    <text wx:if="{{recommend.desc}}">{{recommend.desc}}</text>
+                </view>
+
+                <image class='more' src='{{icon}}'></image>
+            </navigator>
+        </block>
+    </view>
+    <view style="width:100%;height:150rpx;"></view>
+</view>

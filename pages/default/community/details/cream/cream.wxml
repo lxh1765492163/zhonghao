@@ -1,0 +1,40 @@
+<!--pages/default/community/details/cream/cream.wxml-->
+<view class='ThemeGroup'>
+    <block wx:if="{{ list != '' }}">
+        <view class='theme' wx:for='{{list}}' wx:for-item="item" wx:key="">
+
+            <navigator url='../theme/theme'>
+                <view class='themeAuthor'>
+                    <image src='{{item.avatar}}'></image>
+                    <text>{{item.nickname}}</text>
+                    <text>{{item.createtime}}</text>
+                </view>
+                <view class='themeTitle'>
+                    <text class="{{item.isbest ==1 ? '':'hide'}}" style='padding: 5rpx 10rpx; font-size: 28rpx; background: #ff8c00;color:#fff;'>精</text>
+                    <text>{{item.title}}</text>
+                </view>
+                <view class='themeContent'>
+                    <text>{{item.content}}</text>
+                    <block wx:for="{{item.images}}" wx:for-item="img" wx:key="">
+
+                        <image src='{{img}}' style='width: 100%'></image>
+                    </block>
+                </view>
+            </navigator>
+            <view class='interaction'>
+                <navigator url='/pages/default/community/topicdetail/index?pid={{id}}&id={{item.id}}'>
+                    <image style="float:left;margin-top:6rpx" class='icon' src='{{icon}}'></image>
+                    <text style="padding-left:10rpx;">({{item.postcount}})</text>
+                </navigator>
+                <view bindtap='praise'>
+                    <image class='icon' style="width:60rpx;height:60rpx;float:left;margin-top:-4rpx;" src='{{icon2}}'></image>
+                    <text data-cid='{{item.cid}}'>({{item.goodcount}})</text>
+                </view>
+                <navigator hover-class='none' url='/pages/default/community/topicdetail/index?pid={{id}}&id={{item.id}}'>投诉</navigator>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view >暂无精华</view>
+    </block>
+</view>

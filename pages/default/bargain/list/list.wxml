@@ -1,0 +1,36 @@
+<!--pages/default/bargain/list/list.wxml-->
+<view class='bargain'>
+  <view class='search'>
+    <icon type='search' size='15' bindtap='search'></icon>
+    <input placeholder='输入搜索关键词' confirm-type='search' bindconfir='search' bindinput='searchinput'></input>
+  </view>
+  <view class='list'>
+    <block wx:for="{{data.result.list}}" wx:key=''>
+      <navigator url='../detail/detail?id={{item.id}}'>
+        <view class='goods'>
+          <image src='{{item.images}}'></image>
+          <view class='oneline title'>{{item.title}}</view>
+          <view class='oneline price'>原价￥{{item.start_price}}</view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>
+<view class='tabbar'>
+  <navigator open-type='reLaunch' class='child' url='/pages/default/index/index'>
+    <view class='icon icon-home'></view>
+    <view>商城首页</view>
+  </navigator>
+  <navigator open-type='reLaunch' class='child' url='/pages/default/bargain/list/list' style='color:red'>
+    <view class='icon icon-all'></view>
+    <view>全部砍价</view>
+  </navigator>
+  <navigator open-type='reLaunch' class='child' url='/pages/default/bargain/my/my'>
+    <view class='icon icon-all1'></view>
+    <view>砍价中</view>
+  </navigator>
+  <navigator open-type='reLaunch' class='child' url='/pages/default/bargain/complete/complete'>
+    <view class='icon icon-money'></view>
+    <view>已购买</view>
+  </navigator>
+</view>

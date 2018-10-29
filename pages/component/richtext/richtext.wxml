@@ -1,0 +1,14 @@
+
+<template name="richtext">
+    <view class="fui-article-content">
+         
+          <rich-text nodes="{{item.params.content}}" style="font-size:16px"></rich-text>
+        <block wx:if="{{item.params.images}}" wx:for="{{item.params.images}}" wx:for-item="gg" wx:key="">
+            <image src="{{gg}}" style="width:100%;" mode="widthFix"></image>
+         </block>
+        <block wx:for="{{item.params.videos}}" wx:for-item="jj" wx:key="">
+            <video src="{{jj}}"></video>
+        </block>
+    </view>
+    
+</template>

@@ -1,0 +1,32 @@
+/* pages/qstbank/error/error.wxss */
+
+.error_record {
+  font-size: 30rpx;
+}
+
+.error_record .option {
+  display: flex;
+  align-items: center;
+  padding: 40rpx 30rpx;
+  border-bottom: solid 1rpx #ddd;
+}
+
+.option .title {
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+.title .tag {
+  color: white;
+  font-size: 25rpx;
+  padding: 5rpx;
+  margin-right: 15rpx;
+}
+
+.option .icon {
+  width: 15rpx;
+  height: 15rpx;
+  border-right: solid 5rpx #ddd;
+  border-top: solid 5rpx #ddd;
+  transform: rotate(45deg);
+}

@@ -1,0 +1,15 @@
+<template name="merch_notice">
+  <view wx:if="{{notices.length > 0}}" class="fui-notice">
+    <view class="image">
+      <image src="https://shsyxx.cn/addons/ewei_shopv2/static/images/hotdot.jpg"></image>
+    </view>
+    <view class="icon"><text class="icon icon-notification1" style="font-size:.7rem;"></text></view>
+    <view class="notice-wrap">
+      <view class="text">
+        <view wx:for="{{notices}}" wx:key="" wx:for-item="val">
+          <navigator url="{{val.link == '' ? '/pages/default/shop/notice/notice?id='+val.id : val.link}}">{{val.title}}</navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,93 @@
+<view class="container" style="height:{{screenHeight}};width:100%;">
+
+  <scroll-view scroll-y style="height:100%;" class="nav_left">
+    <view class="nav_left_items {{curIndex == 0 ? 'active' : ''}}" bindtap="switchRightTab" data-index="0" data-id="0">推荐分类</view>
+    <block wx:for="{{leftCategory}}" wx:key="">
+      <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index + 1}}" data-id="{{item.id}}">{{item.name}}</view>
+    </block>
+  </scroll-view>
+
+
+  <scroll-view scroll-y style="height:100%" class="nav_right">
+    <block wx:for="{{leftCategory}}" wx:key="">
+      <view class="banner" wx:if="{{curNav == item.id}}">
+        <image wx:if="{{item.advimg != ''}}" src="https://xcx.xcwll.cn/attachment/{{item.advimg}}" style="padding:0;"></image>
+      </view>
+    </block>
+    <view wx:if="{{rightCategory[curIndex]}}">
+      <block wx:for="{{rightCategory[curIndex]}}" wx:key="">
+
+        <view wx:if="{{item.ccate||item.pcate && item.status == '1'}}" class="nav_right_goods">
+          <navigator url="/pages/default/goods/detail/detail?id={{item.id}}">
+            <view>
+              <block wx:if="{{item.advimg}}">
+                <image src="https://xcx.xcwll.cn/attachment/{{item.advimg}}"></image>
+              </block>
+              <block wx:elif="{{item.thumb}}">
+                <image src="https://xcx.xcwll.cn/attachment/{{item.thumb}}"></image>
+              </block>
+              <block wx:else>
+                <image src="{{nopic}}" mode="widthFix"></image>
+              </block>
+            </view>
+            <view class="detail" wx:if="{{item.title}}">
+              {{item.title}}
+            </view>
+            <view class="detail" style="font-weight:normal;" wx:else>
+              {{item.title}}
+            </view>
+            
+            <view class="price" wx:if="{{item.isdiscuss==1}}">
+              <text>面议</text>
+            </view>
+            <view wx:else class="price">
+              <text>¥</text>{{item.minprice}}
+            </view>
+          </navigator>
+
+        </view>
+
+        <view class="nav_right_items" wx:else>
+
+          <navigator url="/pages/default/goods/list/list?r=goods.index.get_list&cate={{item.id}}&typeid={{rightCategory[curIndex].id}}">
+            <view>
+              <block wx:if="{{item.advimg}}">
+                <image src="https://xcx.xcwll.cn/attachment/{{item.advimg}}" style="width:110rpx;height:110rpx;margin-left:25rpx; border-radius:20rpx;"></image>
+              </block>
+              <block wx:elif="{{item.thumb}}">
+                <image src="https://xcx.xcwll.cn/attachment/{{item.thumb}}" style="width:110rpx;height:110rpx;margin-left:25rpx; border-radius:20rpx;"></image>
+              </block>
+              <block wx:else>
+                <image src="{{nopic}}" style="width:110rpx;height:110rpx;margin-left:25rpx; border-radius:20rpx;"></image>
+              </block>
+            </view>
+            <view wx:if="{{item.name}}">
+              <text>{{item.name}}</text>
+            </view>
+            <view wx:else>
+              <text>{{item.name}}</text>
+            </view>
+          </navigator>
+        </view>
+
+      </block>
+    </view>
+    <view class="nodata" wx:else>
+      <navigator style="height:160rpx;width:160rpx;float:left;margin:20rpx 10rpx;margin-left:30rpx" url="/pages/default/goods/list/list?r=goods.index.get_list">
+        <image mode='aspectFill' class="" src="/assets/images/tabBar/icon-list.png" style="width:90rpx;height:90rpx;margin-left:30rpx;"></image>
+        <view style="text-align:center;">全部商品</view>
+      </navigator>
+      <!-- <view wx:for="{{recommends}}" wx:key=""> -->
+      <block wx:for="{{recommends}}" wx:key="">
+        <navigator url="/pages/default/goods/list/list?r=goods.index.get_list&cate={{item.id}}&typeid={{rightCategory[curIndex].id}}" style="height:160rpx;width:160rpx;float:left;margin:20rpx 0rpx;margin-left:25rpx">
+          <image mode='aspectFill' class="" src="https://xcx.xcwll.cn/attachment/{{item.thumb}}" style="width:110rpx;height:110rpx;margin-left:35rpx; border-radius:20rpx;"></image>
+          <view style="text-align:center;">{{item.name}}</view>
+        </navigator>
+        <!-- </view> -->
+      </block>
+    </view>
+  </scroll-view>
+
+</view>
+<import src="../diymenu/diymenu.wxml" />
+<template is="diymenu" data="{{datas,style,data,tabid}}" />

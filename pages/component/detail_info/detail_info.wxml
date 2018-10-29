@@ -1,0 +1,88 @@
+<template name="detail_info">
+  <view class='goods_detail_info' style='background: {{item.style.background}};margin-bottom: {{item.style.marginbottom}}px; margin-top: {{item.style.margintop}}px; '>
+    <view class='info_title'>
+      <text class='title' style='color:{{item.style.titlecolor}}'>{{goods.title}}</text>
+      <block wx:if='{{item.params.hideshare!=1}}'>
+        <button class='share' open-type='share' size='mini' wx:if="{{item.params.share_link==''||diypage===false}}" hover-class='hover' style='background: {{item.style.background}}'>
+          <view class="icon {{item.params.share_icon?item.params.share_icon: 'icon-share'}}"></view>
+          <view style='margin-top:-30rpx;'>{{item.params.share?item.params.share:'分享'}}</view>
+        </button>
+        <button wx:else class='share' bindtap='diyAction' data-linkurl='{{item.params.share_link}}' hover-class='hover' style='background: {{item.style.background}}'>
+          <view class="icon {{item.params.share_icon}}"></view>
+          <view style='margin-top:-30rpx;'>{{item.params.share}}</view>
+        </button>
+      </block>
+    </view>
+
+    <view class='subtitle' wx:if="{{goods.subtitle != ''}}" style="color:{{item.style.subtitlecolor}}">{{goods.subtitle}} </view>
+
+    <view wx:if='{{seckillinfo==false||seckillinfo.endtime<nowTime}}' class='info_price' style="color:{{item.style.pricecolor}};">
+      <view wx:if="{{goods.type==4}}" style='display:flex;'>
+        <view wx:for="{{goods.intervalprice}}" wx:key='' style='width:33.33%;text-align:center'>
+          <view style='font-weight:bold;font-size:40rpx;'>￥{{item.intervalprice}}</view>
+          <view style='color:#999;font-size:25rpx'>{{item.intervalnum}}件以上</view>
+        </view>
+      </view>
+      <block wx:elif="{{goods.isdiscount != 1||goods.isdiscount_time < nowTime}}">
+        <text class='sellingprice' wx:if="{{goods.minprice == goods.maxprice}}">￥{{goods.marketprice}}</text>
+        <text class='sellingprice' wx:else>￥{{goods.minprice}}~{{goods.maxprice}}</text>
+        <text class='productprice' wx:if='{{goods.productprice!=0}}' style='color:{{item.style.textcolor}}'>￥{{goods.productprice}}</text>
+      </block>
+      <block wx:else>
+        <text class='sellingprice' wx:if="{{goods.minprice == goods.maxprice}}">￥{{goods.minprice}}</text>
+        <text class='sellingprice' wx:else>￥{{goods.minprice}}~{{goods.maxprice}}</text>
+        <text class='productprice' wx:if='{{goods.marketprice!=0}}' style='color:{{item.style.textcolor}}'>￥{{goods.marketprice}}</text>
+      </block>
+    </view>
+
+    <view class='info_activity '>
+      <block wx:if="{{goods.isdiscount == 1&&goods.isdiscount_time > nowTime}}">
+        <view class="row row-time">
+          <view class="fui-labeltext fui-labeltext-danger" style="border: solid 1rpx {{item.style.timetextcolor?item.style.timecolor:'#ef4f4f'}}">
+            <view class="label" style='background:{{item.style.timecolor}}; border-radius: 0 .25em .25em 0 '>{{goods.isdiscount_title == '' ? '促销 ' : goods.isdiscount_title}}</view>
+            <view class="text" style='color:{{item.style.timetextcolor}} '>
+              <text class="day number text-danger"></text>
+              <text class="time">{{countDownDay}}天</text>
+              <text class="hour number text-danger"></text>
+              <text class="time">{{countDownHour}}小时</text>
+              <text class="minute number text-danger"></text>
+              <text class="time">{{countDownMinute}}分</text>
+              <text class="second number text-danger"></text>
+              <text class="time">{{countDownSecond}}秒</text>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{goods.istime ==1}}">
+
+        <view class="row row-time">
+          <view class="fui-labeltext fui-labeltext-danger" style="border: solid 1rpx {{item.style.timetextcolor?item.style.timecolor:'#ef4f4f'}}">
+            <view class="label" style='background:{{item.style.timecolor}}; border-radius: 0 .25em .25em 0; '>限时购</view>
+            <block wx:if="{{goods.timeend >nowTime}}">
+              <view class="text" style='color:{{item.style.timetextcolor}} '>
+                <text class="day number" s></text>
+                <text class="time">{{countDownDay}}天</text>
+                <text class="hour number"></text>
+                <text class="time">{{countDownHour}}小时</text>
+                <text class="minute number"></text>
+                <text class="time">{{countDownMinute}}分</text>
+                <text class="second number"></text>
+                <text class="time">{{countDownSecond}}秒</text>
+              </view>
+            </block>
+            <block wx:else>
+              <view class="text" style='color:{{item.style.timecolor}} '>限时购活动已结束</view>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class='info_sale' style='color:{{item.style.textcolor}}'>
+            <text wx:if="{{goods.dispatchprice.min || goods.dispatchprice.max}}">快递 : {{goods.dispatchprice == 0 ? '包邮 ' : goods.dispatchprice.min ?goods.dispatchprice.min : goods.dispatchprice.max }}</text>
+            <text wx:else>快递 : {{goods.dispatchprice == 0 ? '包邮 ' : goods.dispatchprice}}</text>
+            <text wx:if="{{goods.showtotal == 1}}">库存：{{stock}}</text>
+            <text>销量：{{goods.sales}} {{goods.unit}}</text>
+            <text wx:if="{{goods.province != '请选择省份' && goods.city != '请选择城市'}}">{{goods.province}} {{goods.city}}</text>
+        </view>
+  </view>
+</template>

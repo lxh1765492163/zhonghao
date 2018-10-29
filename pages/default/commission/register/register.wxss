@@ -1,0 +1,2 @@
+/* register.wxss */
+@import '../../../component/float/menu.wxss';

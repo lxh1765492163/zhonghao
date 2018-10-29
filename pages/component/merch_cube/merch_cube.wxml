@@ -1,0 +1,44 @@
+<template name="merch_cube">
+  <view wx:if="{{cubes.length > 0}}" class="fui-cube">
+    <block wx:if="{{cubes.length == 1}}">
+      <navigator wx:if="{{cubes[0].url != ''}}" url="{{cubes[0].url}}"><image src="{{cubes[0].img}}" mode="widthFix"></image></navigator>
+      <image wx:else src="{{cubes[0].img}}" mode="widthFix"></image>
+    </block>
+    <block wx:if="{{cubes.length > 1}}">
+      <view class="fui-cube-left">
+        <navigator wx:if="{{cubes[0].url != ''}}" url="{{cubes[0].url}}"><image src="{{cubes[0].img}}" mode="widthFix"></image></navigator>
+        <image wx:else src="{{cubes[0].img}}" mode="widthFix"></image>
+      </view>
+      <view class="fui-cube-right">
+        <block wx:if="{{cubes.length == 2}}">
+          <navigator wx:if="{{cubes[1].url != ''}}" url="{{cubes[1].url}}"><image src="{{cubes[1].img}}" mode="widthFix"></image></navigator>
+          <image wx:else src="{{cubes[1].img}}" mode="widthFix"></image>
+        </block>
+        <block wx:if="{{cubes.length > 2}}">
+          <view class="fui-cube-right1">
+            <navigator wx:if="{{cubes[1].url != ''}}" url="{{cubes[1].url}}"><image src="{{cubes[1].img}}" mode="widthFix"></image></navigator>
+            <image wx:else src="{{cubes[1].img}}" mode="widthFix"></image>
+          </view>
+          <view class="fui-cube-right2">
+            <block wx:if="{{cubes.length == 3}}">
+              <navigator wx:if="{{cubes[2].url != ''}}" url="{{cubes[2].url}}"><image src="{{cubes[2].img}}" mode="widthFix"></image></navigator>
+              <image wx:else src="{{cubes[2].img}}" mode="widthFix"></image>
+            </block>
+            <block wx:if="{{cubes.length > 3}}">
+              <view class="left">
+                <navigator wx:if="{{cubes[2].url != ''}}" url="{{cubes[2].url}}"><image src="{{cubes[2].img}}" mode="widthFix"></image></navigator>
+                <image wx:else src="{{cubes[2].img}}" mode="widthFix"></image>
+              </view>
+            </block>
+            <block wx:if="{{cubes.length == 4}}">
+              <view class="right">
+                <navigator wx:if="{{cubes[3].url != ''}}" url="{{cubes[3].url}}"><image src="{{cubes[3].img}}" mode="widthFix"></image></navigator>
+                <image wx:else src="{{cubes[3].img}}" mode="widthFix"></image>
+              </view>
+            </block>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+</template>

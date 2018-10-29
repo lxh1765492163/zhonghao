@@ -1,0 +1,53 @@
+/* pages/dailypra/dailypra.wxss */
+
+.dailypra {
+  font-size: 30rpx;
+  background: white;
+}
+
+.dailypra .navbar {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  padding: 30rpx 0;
+}
+
+.navbar text {
+  padding: 20rpx;
+
+}
+.dailypra .testpaper_list {
+  background: white;
+  margin-top: 20rpx;
+}
+
+.testpaper_list .content {
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1rpx #ddd;
+  padding: 20rpx;
+}
+
+.content .testpaper {
+  flex: 1;
+  padding: 0 30rpx;
+}
+
+.testpaper view:nth-child(1) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 400rpx;
+}
+
+.testpaper view:nth-child(2) {
+  padding: 20rpx 0;
+  color: #999;
+}
+
+.content .purchase {
+  padding: 5rpx 20rpx;
+  border: solid 1rpx #409AFF;
+  border-radius: 10rpx;
+}

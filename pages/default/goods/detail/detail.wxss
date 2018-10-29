@@ -1,0 +1,10 @@
+/* pages/default/goods/detail/detail.wxss */
+@import '../../../component/detail_content/detail_content.wxss';
+
+image {
+  display: block;
+}
+
+video{
+	width:100%;
+}

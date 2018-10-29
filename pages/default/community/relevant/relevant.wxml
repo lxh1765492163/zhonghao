@@ -1,0 +1,18 @@
+   <view class='recommend'>
+ <block wx:for='{{recommend}}' wx:for-item="recommend" wx:key="">
+      <navigator class='section' url='/pages/default/community/details/details?id={{recommend.id}}'>
+        <image src='{{recommend.logo}}'></image>
+        <view class='newsletter'>
+          <text class='title'>{{recommend.title}}</text>
+          <view class='topic'>
+            <text decode='{{true}}'>话题数:&nbsp;</text>
+            <text decode='{{true}}' class='sign'>{{recommend.postcount}}&nbsp;&nbsp;</text>
+          
+          </view>
+          <text wx:if="{{recommend.desc}}">{{recommend.desc}}</text>
+        </view>
+        
+        <image class='more' src='{{icon}}'></image>
+      </navigator>
+    </block>
+  </view>

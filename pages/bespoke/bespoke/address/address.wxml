@@ -1,0 +1,136 @@
+<view wx:if="{{types == 0}}" class="fui-page fui-page-curren">
+  <view class="fui-content navbar">
+    <block wx:for="{{address}}" wx:for-item="val" wx:key="">
+      <view class="fui-list-group address-item" style="margin-top:5px;">
+        <view class="fui-list">
+          <view class="fui-list-inner">
+            <view class="title">
+              <text class="realname">{{val.name}}</text>
+              <text class="mobile">{{val.phone}}</text>
+            </view>
+            <view class="text">
+              <text class="address">{{val.province}}{{val.city}}{{val.area}} {{val.address}}</text>
+            </view>
+            <view class="bar">
+              <view class="pull-right">
+                <navigator class="in-block" url="/pages/default/bespoke/address/address?type=1&id={{val.id}}">
+                  <text class="icon icon-edit2"></text> 编辑</navigator>
+                <view class="in-block" catchtap="del" data-id="{{val.id}}" style="margin-left:8px;">
+                  <text class="icon icon-delete"></text> 删除</view>
+              </view>
+              <view class="radio-inline" style="width:50%;">
+                <label catchtap="setDefault" data-id="{{val.id}}">
+                  <icon wx:if="{{val.isdefault == 1}}" type="success" size="16" color="#ef4f4f" />
+                  <icon wx:else type="circle" size="16" color="#ccc" /> 设为默认地址
+                </label>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="fui-navbar">
+    <navigator url="/pages/default/bespoke/address/address?type=1" class="nav-item btn btn-danger external">
+      <text class="icon icon-add"></text> 新增地址</navigator>
+  </view>
+</view>
+
+<view wx:elif="{{types == 1}}" class="fui-page fui-page-current">
+  <view class="fui-content">
+    <form class="form-ajax" bindsubmit="formPost">
+      <view class="fui-cell-group">
+        <view class="fui-cell">
+          <view class="fui-cell-label">收件人</view>
+          <view class="fui-cell-info">
+            <input type="text" name="name" value="{{address.name}}" placeholder="收件人" />
+          </view>
+        </view>
+        <view class="fui-cell">
+          <view class="fui-cell-label">联系电话</view>
+          <view class="fui-cell-info">
+            <input type="number" name="phone" value="{{address.phone}}" placeholder="联系电话" />
+          </view>
+        </view>
+        <view class="fui-cell">
+          <view class="fui-cell-label">所在地区</view>
+          <view class="fui-cell-info" data-mold="city" catchtap="risePicker">
+            {{cityText}}
+          </view>
+        </view>
+        <view class="fui-cell">
+          <view class="fui-cell-label">详细地址</view>
+          <view class="fui-cell-info">
+            <input type="text" name="address" value="{{address.address}}" placeholder="街道，楼牌号等" />
+          </view>
+           
+        </view>
+      
+      </view>
+        <view class='save'>
+                  <text>设为默认</text>
+                  <switch checked="{{checked}}" bindchange='setDefault'></switch>
+
+                <view class="in-block" bindtap="del" data-id="{{address.id}}" style="margin-left:8px;float:right">
+                  <text class="icon icon-delete"></text> 删除</view>
+            </view>
+      <button class="external btn btn-danger block" style="width:98%;" formType="submit">保存地址</button>
+    </form>
+  </view>
+  <view hidden="{{isCity}}" class="selector">
+    <view class="inner_box">
+      <view class="header_box">
+        <view class="item l" data-act="cancel" data-mold="city" bindtap="ideChoice">取消</view>
+        <view class="item c">请选择</view>
+        <view class="item r" data-act="confirm" data-mold="city" bindtap="ideChoice">确定</view>
+      </view>
+
+      <picker-view class="picker_box" indicator-class="selected" value="{{cityValue}}" bindchange="cityChange">
+        <picker-view-column>
+          <view wx:for="{{provinces}}" wx:for-item="item" wx:key="">{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{citys}}" wx:for-item="item" wx:key="">{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{countys}}" wx:for-item="item" wx:key="">{{item}}</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+    <view class="layer"></view>
+  </view>
+</view>
+
+<view wx:elif="{{types == 2}}" class="fui-page fui-page-current address-selector-page">
+  <view class="fui-content">
+    <!--地址列表/S-->
+    <view class="radio-group">
+      <radio-group bindchange="radioChange">
+        <view wx:for="{{address}}" wx:for-item="item" wx:key="" class="fui-list address-item">
+          <view class="fui-list-media">
+            <radio name="aid" type="radio" value="{{item.id}}" />
+          </view>
+          <view class="fui-list-inner" style="border-right:0;">
+            <view class="title">
+              <text class="realname">{{item.name}}</text>
+              <text class="mobile">{{item.phone}}</text>
+            </view>
+            <view class="text">
+              <text class="address">{{item.province}}{{item.city}}{{item.area}} {{item.address}}</text>
+            </view>
+          </view>
+          <navigator url="/pages/default/bespoke/address/address?type=1&id={{item.id}}" class="external">
+            <view class="fui-list-angle">
+              <text class="icon icon-edit"></text>
+            </view>
+          </navigator>
+        </view>
+      </radio-group>
+    </view>
+    <!--地址列表/E-->
+  </view>
+  <view class="fui-navbar">
+    <navigator url="/pages/default/bespoke/address/address?type=1" class="nav-item btn btn-danger external">
+      <text class="icon icon-add"></text> 新增地址</navigator>
+  </view>
+</view>

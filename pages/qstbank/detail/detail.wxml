@@ -1,0 +1,55 @@
+<!--pages/detail/detail.wxml-->
+<view class='example_detail'>
+  <view class='info'>
+    <view></view>
+    <view class='text'>
+      <view class="picker">{{title}}</view>
+      <!-- <picker range='{{title}}' range-key='' value='{{index}}' bindchange="bindChange">
+ 
+        <view class="picker">
+          {{title[index]}}
+          <text class='icon'></text>
+        </view>
+      </picker> -->
+      <view class='count'>
+        <view class='child'>
+          <view>已学</view>
+          <view>{{answerChannelCount.answerCountSubmit}}题</view>
+        </view>
+        <view class='child'>
+          <view>总题数</view>
+          <view>{{answerChannelCount.answerCount}}题</view>
+        </view>
+        <view class='child' bindtap='goindex'>
+          <view class='icon icon-home' style='font-size:28rpx'></view>
+          <view>首页</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='menu_list'>
+    <block wx:for="{{menu}}" wx:key=''>
+      <view class='menu' bindtap='getpaper' data-index="{{index}}">
+        <image src='http://xcx.xcwll.cn/{{item.imgurl}}'></image>
+        <view>{{item.title}}</view>
+      </view>
+    </block>
+  </view>
+  <view class='testpaper_list'>
+    <block wx:for="{{chapter}}" wx:key=''>
+      <view class='content' bindtap='getcontent' data-id="{{item.id}}" data-pay="{{item.pay}}" data-price="{{item.price}}">
+        <view class='icon icon-edit' style='color:#999;align-self:flex-start;font-size:45rpx;'></view>
+        <view class='testpaper'>
+          <view>{{item.name}}</view>
+          <view>{{item.answer_submit}}/{{item.answer_total}}题</view>
+          <progress percent='{{item.answer_submit/item.answer_total*100}}' activeColor='#409AFF'></progress>
+        </view>
+        <view class='purchase' style="background:{{item.pay==1?'':'#409AFF'}};color:{{item.pay==1?'#409AFF':'white'}}">
+          {{item.pay==1?'购买':'每日一练'}}
+        </view>
+        <!-- <view class='purchase' style="background:#409AFF;color:white;">练习</view>  -->
+      </view>
+    </block>
+    <view wx:if="{{chapter==''}}" style='text-align:center;font-size:40rpx;padding:40rpx 0;color:#999;'>抱歉！暂时没有章节</view>
+  </view>
+</view>

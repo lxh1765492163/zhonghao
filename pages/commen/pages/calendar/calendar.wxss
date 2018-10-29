@@ -1,0 +1,100 @@
+/**index.wxss**/
+page{
+  background: #f9f9f9;
+}
+.box {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.pink-color {
+  color: #EB5E18;
+}
+.white-color {
+  color: #fff;
+}
+.fs24 {
+  font-size: 24rpx;
+}
+.fs28 {
+  font-size: 28rpx;
+}
+.fs32 {
+  font-size: 32rpx;
+}
+.fs36 {
+  font-size: 36rpx;
+}
+/* pages/calendar/calendar.wxss ====================================*/
+
+.date-area {
+    width: 100%;
+    padding: 10rpx 0;
+    text-align: center;
+    border-top: 1rpx solid lightgray; 
+    border-bottom: 1rpx solid lightgray;
+    background: #fff;
+}
+.weeks {
+    padding: 10px 0;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+.week {
+    flex: 1;
+    text-align: center;
+}
+.days {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-top: 20rpx;
+    background: #f9f9f9;
+}
+.grid {
+    display: flex;
+    width: 103.1428571429rpx;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    height: 80rpx;
+    margin: 5rpx 0rpx;
+    /* border: 1px solid lightgray; */
+}
+.day {
+    width: 50rpx;
+    height: 50rpx; 
+    color: black;
+    font-size: 26rpx;
+    font-weight: 200;
+    text-align: center;
+    line-height: 50rpx;
+}
+.border-radius {
+    border-radius: 50%;
+    position: relative;
+    left: 0;
+    top: 0;
+    color: white;
+}
+.disable {
+    color: lightgray;
+}
+.pink-bg {
+     background-color: #EB5E18; 
+}
+.pink-bg1 {
+  font-size: 26rpx;
+  color: #EB5E18;
+  display: block; 
+}
+.pink-bg2 {
+     background-color: #EB5E18;
+     display: none; 
+     font-size: 26rpx;
+}
+.purple-bg {
+    background-color: #EB5E18;
+}

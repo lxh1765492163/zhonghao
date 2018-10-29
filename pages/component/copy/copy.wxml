@@ -1,0 +1,6 @@
+<template name="copy">
+  <view class="ei-copy" style="font-size:{{item.style.textsize}}rem;">
+    <text>{{item.params.content}}</text>
+    <text style="font-size:{{item.style.urlsize}}rem;">{{item.params.domain}}</text>
+  </view>
+</template>

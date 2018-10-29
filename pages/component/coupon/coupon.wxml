@@ -1,0 +1,11 @@
+<!--pages/component/coupon/coupon.wxml-->
+<template name="coupon">
+      <view class='coupongroup' style='background:{{item.style.background}};margin:{{tem.style.margintop}}px 0; font-size:35rpx;'>
+            <view wx:for="{{item.data}}" wx:key='' wx:for-item="val" style="width:{{item.params.couponstyle=='2'?'50%':item.params.couponstyle=='3'?'33.3%':''}};display:inline-block">
+                  <navigator url='../sale/coupon/detail/detail?id={{val.couponid}}' class='coupon ' style='margin:{{item.style.margintop}}px {{item.style.marginleft}}px; border:solid 1rpx {{val.bordercolor}}; color: {{val.textcolor}}; background: {{val.background}}; border-radius:10rpx; text-align: center;'>
+                        <view>{{val.price}}</view>
+                        <view>{{val.desc}}</view>
+                  </navigator>
+            </view>
+      </view>
+</template>

@@ -1,0 +1,122 @@
+<!--pages/default/agent/index/index.wxml-->
+<block wx:if="{{status==2}}">
+  <!-- 层级代理 -->
+  <block wx:if="{{type==1}}">
+    <view class='agent-page'>
+      <view class='agent-user'>
+        <image src='{{userInfo.avatarUrl}}'></image>
+        <text>{{userInfo.nickName}}</text>
+      </view>
+      <view class='agent-bonus' style='text-align:center'>
+        <view>{{abonus.data.datetype}}{{abonus.data.text}}</view>
+        <view style='font-size:90rpx'>{{abonus.data.wait}}</view>
+        <view>
+          <text wx:if="{{abonus.levelab<=1}}"> {{abonus.nameab[1]}}：{{abonus.data.wait1}} </text>
+          <text wx:if="{{abonus.levelab<=2}}"> {{abonus.nameab[2]}}：{{abonus.data.wait2}} </text>
+          <text wx:if="{{abonus.levelab<=3}}"> {{abonus.nameab[3]}}：{{abonus.data.wait3}} </text>
+        </view>
+      </view>
+      <view class='bonus-details'>
+        <view class='option'>
+          <navigator class='op' url="../detail/detail">
+            <view class='icon icon-money text-orange'></view>
+            <view>累计分红</view>
+            <view>{{abonus.data.total}}</view>
+          </navigator>
+          <view class='op' wx:if="{{abonus.levelab<=1}}">
+            <view class='icon icon-shengfen'></view>
+            <view>{{abonus.nameab[1]}}</view>
+            <view>{{abonus.data.total1}}</view>
+          </view>
+          <view class='op' wx:if="{{abonus.levelab<=2}}">
+            <view class='icon icon-city'></view>
+            <view>{{abonus.nameab[2]}}</view>
+            <view>{{abonus.data.total2}}</view>
+          </view>
+          <view class='op' wx:if="{{abonus.levelab<=3}}">
+            <view class='icon icon-location-area'></view>
+            <view>{{abonus.nameab[3]}}</view>
+            <view>{{abonus.data.total3}}</view>
+          </view>
+        </view>
+        <view class='option'>
+          <navigator class='op' url='../detail/detail?tid=2'>
+            <view class='icon icon-process text-blue'></view>
+            <view>待结算分红</view>
+            <view>{{abonus.data.lock}}</view>
+          </navigator>
+          <view class='op' wx:if="{{abonus.levelab<=1}}">
+            <view class='icon icon-shengfen'></view>
+            <view>{{abonus.nameab[1]}}</view>
+            <view>{{abonus.data.lock1}}</view>
+          </view>
+          <view class='op' wx:if="{{abonus.levelab<=2}}">
+            <view class='icon icon-city'></view>
+            <view>{{abonus.nameab[2]}}</view>
+            <view>{{abonus.data.lock2}}</view>
+          </view>
+          <view class='op' wx:if="{{abonus.levelab<=3}}">
+            <view class='icon icon-location-area'></view>
+            <view>{{abonus.nameab[3]}}</view>
+            <view>{{abonus.data.lock3}}</view>
+          </view>
+        </view>
+        <view class='option'>
+          <navigator class='op' url='../detail/detail?tid=1'>
+            <view class='icon icon-manageorder text-yellow'></view>
+            <view>已结算分红</view>
+            <view>{{abonus.data.ok}}</view>
+          </navigator>
+          <view class='op' wx:if="{{abonus.levelab<=1}}">
+            <view class='icon icon-shengfen'></view>
+            <view>{{abonus.nameab[1]}}</view>
+            <view>{{abonus.data.ok1}}</view>
+          </view>
+          <view class='op' wx:if="{{abonus.levelab<=2}}">
+            <view class='icon icon-city'></view>
+            <view>{{abonus.nameab[2]}}</view>
+            <view>{{abonus.data.ok2}}</view>
+          </view>
+          <view class='op' wx:if="{{abonus.levelab<=3}}">
+            <view class='icon icon-location-area'></view>
+            <view>{{abonus.nameab[3]}}</view>
+            <view>{{abonus.data.ok3}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- <view class='tabbar'>
+    <navigator class='tab'>
+      <view class='icon icon-home'></view>
+      <view>代理中心</view>
+    </navigator>
+    <navigator class='tab'>
+      <view class='icon icon-home'></view>
+      <view>累计分红</view>
+    </navigator>
+    <navigator class='tab'>
+      <view class='icon icon-home'></view>
+      <view>待结算分红</view>
+    </navigator>
+    <navigator class='tab'>
+      <view class='icon icon-home'></view>
+      <view>已结算分红</view>
+    </navigator>
+    <navigator class='tab'>
+      <view class='icon icon-home'></view>
+      <view>分销中心</view>
+    </navigator>
+  </view> -->
+  </block>
+  <!-- 区域代理 -->
+  <block wx:if="{{type==2}}">
+
+  </block>
+</block>
+<block wx:if="{{status==1}}">
+  <view style='margin-top:50rpx;text-align:center;'>
+    <view style='background: #f90;padding:40rpx;color:white'>正在审核中...</view>
+    <navigator style='border:solid 1rpx #f90;text-align:center;padding:10rpx 40rpx;color:#f90;width:150rpx;margin:20rpx auto;border-radius:10rpx;font-size:35rpx' url='/pages/default/index/index' open-type='reLaunch'>到处逛逛</navigator>
+  </view>
+</block>

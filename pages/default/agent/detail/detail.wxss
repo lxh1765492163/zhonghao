@@ -1,0 +1,40 @@
+/* pages/default/agent/detail/detail.wxss */
+
+.abonus-detail {
+  font-size: 30rpx;
+}
+
+.abonus-detail .list-title {
+  padding: 20rpx 30rpx;
+  border-bottom: solid 1rpx #efefef;
+}
+
+.abonus-detail .list-menu {
+  display: flex;
+  text-align: center;
+}
+
+.list-menu view {
+  flex: 1;
+  padding: 20rpx 0;
+}
+
+.abonus-detail .list-group {
+  padding: 0 20rpx;
+  border-top: solid 20rpx #fafafa;
+  border-bottom: solid 1rpx #d0d0d0;
+}
+
+.list-group .option {
+  padding: 30rpx 0;
+  border-top: solid 1rpx #efefef;
+  background: white;
+}
+
+.option view:nth-child(1) {
+  margin-bottom: 10rpx;
+}
+
+.list-group .option:nth-child(1) {
+  border-top: none;
+}

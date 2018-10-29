@@ -1,0 +1,2 @@
+@import '../../../../assets/css/article.min.wxss';
+@import '../../../component/float/menu.wxss';

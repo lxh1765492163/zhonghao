@@ -1,0 +1,19 @@
+<template name="userinfo_com">
+    <navigator url="/pages/default/community/person/person?id={{memberid.id}}" class='userinfo_com'>
+        <view class="userImg">
+            <image src='{{info.avatar}}'></image>
+        </view>
+        <view class="userInfo">
+            <view class="nick">
+                <text class="name">{{info.nickname}}</text>
+                <text class="mark" style="background:{{level.bg}};color:{{level.color}}">{{level.levelname}}</text>
+                <text wx:if="{{isManager}}" style="background:red;color:#fff;">版主</text>
+            </view>
+            <view class="signature">
+                {{info.sns_sign}}
+            </view>
+        </view>
+
+        <image class="arrow" src='/assets/images/arrow_down.png'></image>
+    </navigator>
+</template>

@@ -1,0 +1,49 @@
+<view class="fui-page fui-page-current">
+    <view class="fui-content">
+        <form bindsubmit="formSubmit">
+            <view class="fui-cell-group">
+                <view class="fui-cell">
+                    <view class="fui-cell-label">名称</view>
+                    <view class="fui-cell-info">
+                        <input type="text" name="name" class="fui-input" value="{{items.shop.name}}" placeholder="填写默认为您的昵称" />
+                    </view>
+                </view>
+                <view class="fui-cell">
+                    <view class="fui-cell-label">图标</view>
+                    <view class="fui-cell-info">
+                        <view class="fui-images fui-images-sm">
+                            <view wx:if="{{params.logo != '' && url.logo != '' }}" class="image image-sm" style="background-image:url(http://xcx.xcwll.cn/attachment/{{url.logo}});">
+                                <view class="image-remove" data-name="logo" data-file="{{params.logo}}" bindtap="removeFile">
+                                    <text class="icon icon-roundclose"></text>
+                                </view>
+                            </view>
+                           
+                        </view>
+                        <view wx:if="{{!params.logo}}" class="fui-uploader fui-uploader-sm" data-name="logo" catchtap="fileUpload"></view>
+                    </view>
+                </view>
+                <view class="fui-cell">
+                    <view class="fui-cell-label">店招</view>
+                    <view class="fui-cell-info">
+                        <view class="fui-images">
+                            <block wx:if="{{params.img != '' && url.img != ''}}">
+                                <view class="image long" style="background-image:url(http://xcx.xcwll.cn/attachment/{{url.img}});">
+                                    <view class="image-remove" data-name="img" data-file="{{params.img}}" bindtap="removeFile">
+                                        <text class="icon icon-roundclose"></text>
+                                    </view>
+                                </view>
+                            </block>
+                        </view>
+                        <view wx:if="{{!params.img}}" class="fui-uploader img-container-uploader long" data-name="img" catchtap="fileUpload"></view>
+                    </view>
+                </view>
+                <view class="fui-cell">
+                    <view class="fui-cell-info">
+                        <textarea name="desc" placeholder="小店简介,分享你的小店" value="{{items.shop.desc}}" />
+                    </view>
+                </view>
+            </view>
+            <button style="width:98%;" formType="submit" class="btn btn-danger block btn-submit">保存设置</button>
+        </form>
+    </view>
+</view>

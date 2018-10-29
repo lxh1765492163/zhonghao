@@ -1,0 +1,170 @@
+/* pages/community/details/details.wxss */
+
+.body {
+  font-size: 35rpx;
+}
+
+.body .banner {
+  color: white;
+  font-size: 30rpx;
+  width: 100%;
+  height: 500rpx;
+  position: relative;
+}
+
+.banner .background {
+  width: 100%;
+  height: 100%;
+}
+
+.banner .imformation {
+  position: absolute;
+  bottom: 15rpx;
+  padding: 0 20rpx;
+  width: 92%;
+  display: flex;
+  align-items: center;
+}
+
+.imformation image {
+  height: 70rpx;
+  width: 95rpx;
+  margin-right: 20rpx;
+
+}
+
+.imformation .newsletter text {
+  display: block;
+}
+
+.imformation .space {
+  flex: 1;
+}
+
+.hide {
+  display: none;
+}
+
+.imformation .notAlready {
+  background: orange;
+  padding: 10rpx 20rpx;
+  border-radius: 13rpx;
+}
+
+.imformation .already {
+  background: white;
+  color: black;
+  padding: 10rpx 20rpx;
+  border-radius: 13rpx;
+}
+
+.body .content {
+  margin-top: 20rpx;
+}
+
+.content .navGroup {
+  padding-bottom: 15rpx;
+}
+
+.navGroup .nav {
+  display: inline-block;
+  text-align: center;
+  width: 33%;
+  padding-bottom: 15rpx;
+}
+
+.nav:first-child {
+  color: #ff8c00;
+  border-bottom: solid 2rpx #ff8c00;
+}
+
+.nav image {
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: 5rpx;
+}
+
+.content .topThemeGroup {
+  font-size: 30rpx;
+  border-bottom: solid 1rpx #ddd;
+}
+
+.topThemeGroup .topTheme {
+  margin: 0rpx 20rpx;
+  padding: 20rpx 0;
+  border-bottom: solid 1rpx #ddd;
+  display: flex;
+  align-items: center;
+}
+
+.topTheme text {
+  margin-left: 15rpx;
+}
+
+.topTheme .space {
+  flex: 1;
+}
+
+.topTheme:last-child {
+  border: none;
+}
+
+.content .ThemeGroup {
+  background: #eee;
+  padding-top: 15rpx;
+}
+
+.ThemeGroup .theme {
+  background: white;
+  margin-bottom: 15rpx;
+}
+
+.theme .themeAuthor {
+  padding: 20rpx 20rpx;
+}
+
+.themeAuthor image {
+  float: left;
+  height: 80rpx;
+  width: 80rpx;
+  margin: 10rpx 20rpx 0 0;
+  border-radius: 50%;
+}
+
+.themeAuthor text {
+  display: block;
+  margin: 0rpx 20rpx 10rpx;
+}
+
+.theme .themeTitle text {
+  margin: 10rpx 10rpx 10rpx 20rpx;
+}
+
+.theme .themeContent {
+  padding: 10rpx 20rpx 0;
+  border-bottom: solid 1rpx #eee;
+}
+
+.theme .interaction {
+  padding: 20rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.interaction .icon {
+  height: 40rpx;
+  width: 40rpx;
+  display:inline-block;
+}
+
+.body .newBuild {
+  height: 50rpx;
+  width: 50rpx;
+  padding: 25rpx 25rpx;
+  background: #009acd;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 50rpx;
+  right: 50rpx;
+}

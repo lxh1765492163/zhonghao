@@ -1,0 +1,262 @@
+.merchgroup{
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+    /* position: absolute; */
+}
+
+.merchgroup .merchtype_1{
+    width: 100%;
+}
+
+.merchgroup .merchtype_1 .total{
+    width: 96%;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 4%;
+    position: relative;
+    border-bottom: 1px solid #dbdbdb;
+    background:#fff;
+}
+
+.merchgroup .merchtype_1 .total image{
+    width: 34rpx;
+    height: 34rpx;
+    position: absolute;
+    top: 50%;
+    right: 30rpx;
+    margin-top: -17rpx;
+}
+
+.merchgroup .merchtype_1 .merchant{
+	width: 96%;
+    display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	padding: 20rpx 2% 10rpx;
+	border-bottom: 1px solid #dbdbdb;
+}
+
+.merchgroup .merchtype_1 .merchant .item-logo{
+	width: 28%;
+	height: 180rpx;
+    overflow: hidden;
+}
+
+.merchgroup .merchtype_1 .merchant .item-logo image{
+	width: 95%;
+	height: 100%;
+}
+
+.merchgroup .merchtype_1 .merchant .item-list{
+	width: 72%;
+    padding-bottom: 10rpx;
+}
+
+.merchgroup .merchtype_1 .merchant .item-list .item-list-title{
+	width: 98%;
+    height: 50rpx;
+	margin-left: 2%;
+	font-size: 32rpx;
+	font-weight: bold;
+	padding-top: 10rpx;	
+    overflow: hidden;
+}
+
+.merchgroup .merchtype_1 .merchant .item-list .item-list-title text.title{
+    display: block;
+	width: 58%;
+    height: 100%;
+    line-height: 50rpx;
+    float: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+    text-align: left;
+    font-size: 32rpx;
+    font-weight: bold;
+    background: #ffffff;
+}
+
+.merchgroup .merchtype_1 .merchant .item-list .item-list-title text.mark{
+    width: auto;
+    display: block;
+    height: 36rpx;
+    line-height: 36rpx;
+    padding: 0 10rpx;
+    font-size: 24rpx;
+    color: #ffffff;
+    background: #EE0000;
+    float: right;
+    border-top-left-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+    z-index: 999;
+}
+
+.merchgroup .merchtype_1 .merchant .item-list .item-list-title text.distance{
+    width: auto;
+    display: block;
+    height: 36rpx;
+    line-height: 36rpx;
+    float: right;
+    font-size: 26rpx;
+    color: #666;
+    margin-left: 10rpx;
+}
+
+.merchgroup .merchtype_1 .merchant .item-list .item-list-title image{
+    width: 36rpx;
+    height: 36rpx;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -18rpx;
+} 
+
+.merchgroup .merchtype_1 .merchant .item-list .item-list-group{
+	display: block;
+	width: 98%;
+	margin-left: 2%;
+	display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    font-size: 28rpx;
+
+}
+
+.merchgroup .merchtype_1 .merchant .item-list .desc{
+    max-height: 70rpx;
+    line-height: 35rpx;
+    color: #333;
+}
+
+.merchgroup .merchtype_1 .merchant .item-list .info{
+    margin-top: 10rpx;
+    
+}
+
+.merchgroup .merchtype_1 .merchant .item-list .info .item-info{
+    width: 100%;
+    height: 48rpx;
+    line-height: 48rpx;
+    overflow: hidden;
+    font-size: 28rpx;
+    position: relative;
+}
+
+.merchgroup .merchtype_1 .merchant .item-list .info .item-info image{
+    display: block;
+    float: left;
+    width: 32rpx;
+    height: 32rpx;
+    margin-top: 8rpx;
+    margin-right: 15rpx;
+}
+
+.merchgroup .merchtype_1 .merchant .item-list .info .item-info text{
+    width: 68%;
+    display: block;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.merchgroup .merchtype_1 .merchant .item-list .info .item-info text.openmap{
+    position: absolute;
+    display: inline-block;
+    width: auto;
+    height: 36rpx;
+    line-height: 36rpx;
+    padding: 0 5rpx;
+    font-size: 24rpx;
+    border: 1px solid #bbb;
+    border-radius: 3rpx;
+    top: 50%;
+    right: 0;
+    margin-top: -18rpx;
+}
+
+
+.merchgroup .merchtype_2{
+    width: 100%;
+    background: #ffffff;
+    padding-bottom: 20rpx;
+}
+
+.merchgroup .merchtype_2 .title{
+    width: 96%;
+    padding: 0 2%;
+    font-size: 14px;
+    font-weight: bold;
+    background: #ffffff;
+}
+
+.merchgroup .merchtype_2 .title text{
+    display: block;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-bottom: 2px solid #fc475d;
+}
+
+.merchgroup .merchtype_2 .wrap{
+    box-sizing:border-box;
+    width: 96%;
+    margin: 0 2%;
+    padding: 1%;
+    margin-top: 15rpx;
+    border: 1px solid #dbdbdb;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    background: #f9f9f9;
+}
+
+.merchgroup .merchtype_2 .wrap .item{
+    box-sizing:border-box;
+    width: 33.3%;
+    padding-bottom: 10rpx;
+    text-align: center;
+    overflow: hidden;
+    border: 3px solid #f9f9f9;
+    background: #ffffff;
+}
+
+.merchgroup .merchtype_2 .wrap .hover-item{
+    border: 3px solid #ffffff;
+}
+
+.merchgroup .merchtype_2 .wrap .item .item-title{
+    width: 100%;
+    line-height: 90rpx;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.merchgroup .merchtype_2 .wrap .item .item-logo{
+    width: 96%;
+    margin: 0 auto;
+    height: 160rpx;
+    overflow: hidden;
+}
+
+.merchgroup .merchtype_2 .wrap .item .item-logo image{
+    width: 100%;
+    height: 100%;
+}
+
+.merchgroup .merchtype_2 .wrap .item .item-desc{
+    width: 90%;
+    padding: 0 5%;
+    margin-top: 25rpx;
+    font-size: 10px;
+    color: #333;
+}
+
+
+
+

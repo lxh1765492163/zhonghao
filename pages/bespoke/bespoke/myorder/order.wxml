@@ -1,0 +1,36 @@
+<!--pages/default/bespoke/order/order.wxml-->
+<view class="order_tab">
+  <view class="make" data-index="1" bindtap="tabFun">
+    <text class="{{tabArr == 1 ? 'active' : ''}}">进行中</text>
+  </view>
+  <view class="make" data-index="2" bindtap="tabFun">
+    <text class="{{tabArr == 2 ? 'active' : ''}}">已完成</text>
+  </view>
+  <view class="make" data-index="5" bindtap="tabFun">
+    <text class="{{tabArr == 5 ? 'active' : ''}}">已取消</text>
+  </view>
+</view>
+<block wx:for="{{datas}}" wx:for-item="item" wx:key="">
+
+  <navigator class="order_content" url="/pages/default/bespoke/order/orderdetail/orderdetail?id={{item.id}}">
+    <view class="order_item">
+      <view class="order_title">
+        <text>订单:{{item.order_sn}}</text>
+        <text class="createtime">{{item.create_time}}</text>
+      </view>
+      <view class="order_price">
+        <text>总价:{{item.buy_price}}</text>
+        <text class="state">订单状态:{{item.order_status_ch}}</text>
+      </view>
+    </view>
+    <view class="arrow">></view>
+  </navigator>
+
+</block>
+<navigator url="/pages/default/bespoke/index/index" wx:if="{{datas==''}}" class="no_order">
+  <view>还没有订单</view>  
+  <view class="at">立即预约</view>  
+</navigator>
+<view class="blank"></view>
+<import  src="../tabbar/footer.wxml" />
+<template  is="footer" data="{{fid}}" />

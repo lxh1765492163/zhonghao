@@ -1,0 +1,105 @@
+<!--pages/integralmall/index/index.wxml-->
+<import src="../tabbar/tabbar" />
+<import src="../../../component/float/menu.wxml" />
+<template is="floatmenu" data="{{height}}" />
+<template is='tabbar' data='{{tabbar,id}}' />
+<view class='integralmall'>
+      <view class="jui-banner" wx:if="{{data.advs!=''}}">
+            <swiper indicator-dots="true" autoplay="true" indicator-color="#f7f7f7" indicator-active-color="#000" circular="true">
+                  <block wx:for="{{data.advs}}" wx:key="">
+                        <swiper-item>
+                              <navigator url="{{item.linkurl}}">
+                                    <image src="{{item.thumb}}" style='width:100%' mode='widthFix'></image>
+                              </navigator>
+                        </swiper-item>
+                  </block>
+            </swiper>
+      </view>
+      <view class='integralrecord'>
+            <navigator class='child'>
+                  <text class='icon icon-jifen' style='font-size:30rpx'> 积分{{data.credit}}</text>
+            </navigator>
+            <navigator class='child' url='/pages/default/integralmall/logs/logs?credit={{data.credit}}'>
+                  <text class='icon icon-navlist' style='font-size:30rpx'> 参与记录</text>
+            </navigator>
+      </view>
+      <view class='fui_nav_group' wx:if="{{data.category!=''}}">
+            <navigator class='fui_nav' wx:for='{{data.category}}' wx:key='' url='/pages/default/integralmall/goods/list/list?id={{item.id}}&name={{item.name}}'>
+                  <image wx:if="{{item.imgurl != ''}}" src='{{item.thumb}}' style='border-raduis:50%'></image>
+                  <text style=''>{{item.name}}</text>
+            </navigator>
+      </view>
+      <view class='integral_goods_group'>
+            <block wx:if="{{data.exchanges!=''&&data.exchanges}}">
+                  <view class='titlebar icon icon-gifts'> 积分实物兑换</view>
+                  <navigator class='integral_goods' wx:for='{{data.exchanges}}' wx:key='' url='/pages/default/integralmall/goods/detail/detail?id={{item.id}}?title={{item.title}}'>
+                        <view style='padding:10rpx 10rpx'>
+                              <image src='{{item.thumb}}'></image>
+                              <view class='text'>
+                                    <view class='title'>{{item.title}}</view>
+                                    <view class='subtitle'>{{item.subtitle}}</view>
+                                    <text style='color:#fb4a20'>{{item.credit}}</text>
+                                    <text style='font-size:24rpx'>积分</text>
+                                    <text style='font-size: 24rpx;' wx:if="{{item.money!=0}}"> + </text>
+                                    <text wx:if="{{item.money!=0}}" style='color:#fb4a20'>¥{{item.money}}</text>
+                                    <text class='exchange'>兑换</text>
+                              </view>
+                        </view>
+                  </navigator>
+            </block>
+            <block wx:if="{{data.redbags!=''&&data.redbags}}">
+                  <view class='titlebar icon icon-gifts'> 红包兑换区</view>
+                  <navigator class='integral_goods' wx:for='{{data.redbags}}' wx:key='' url='/pages/default/integralmall/goods/detail/detail?id={{item.id}}?title={{item.title}}'>
+                        <view style='padding:10rpx 10rpx'>
+                              <image src='{{item.thumb}}'></image>
+                              <view class='text'>
+                                    <view class='title'>{{item.title}}</view>
+                                    <view class='subtitle'>{{item.subtitle}}</view>
+                                    <text style='color:#fb4a20'>{{item.credit}}</text>
+                                    <text style='font-size:24rpx'>积分</text>
+                                    <text style='font-size: 24rpx;' wx:if="{{item.money!=0}}"> + </text>
+                                    <text wx:if="{{item.money!=0}}" style='color:#fb4a20'>¥{{item.money}}</text>
+                                    <text class='exchange'>兑换</text>
+                              </view>
+                        </view>
+                  </navigator>
+            </block>
+            <block wx:if="{{data.balances!=''&&data.balances}}">
+                  <view class='titlebar icon icon-gifts'> 余额兑换区</view>
+                  <navigator class='integral_goods' wx:for='{{data.balances}}' wx:key='' url='/pages/default/integralmall/goods/detail/detail?id={{item.id}}?title={{item.title}}'>
+                        <view style='padding:10rpx 10rpx'>
+                              <image src='{{item.thumb}}'></image>
+                              <view class='text'>
+                                    <view class='title'>{{item.title}}</view>
+                                    <view class='subtitle'>{{item.subtitle}}</view>
+                                    <text style='color:#fb4a20'>{{item.credit}}</text>
+                                    <text style='font-size:24rpx'>积分</text>
+                                    <text style='font-size: 24rpx;' wx:if="{{item.money!=0}}"> + </text>
+                                    <text wx:if="{{item.money!=0}}" style='color:#fb4a20'>¥{{item.money}}</text>
+                                    <text class='exchange'>兑换</text>
+                              </view>
+                        </view>
+                  </navigator>
+            </block>
+            <block wx:if="{{data.coupons!=''&&data.coupons}}">
+                  <view class='titlebar icon icon-gifts'> 积分兑换券</view>
+                  <navigator class='integral_goods' wx:for='{{data.coupons}}' wx:key='' url='/pages/default/integralmall/goods/detail/detail?id={{item.id}}?title={{item.title}}'>
+                        <view style='padding:10rpx 10rpx'>
+                              <image src='{{item.thumb}}'></image>
+                              <view class='text'>
+                                    <view class='title'>{{item.title}}</view>
+                                    <view class='subtitle'>{{item.subtitle}}</view>
+                                    <text style='color:#fb4a20'>{{item.credit}}</text>
+                                    <text style='font-size:24rpx'>积分</text>
+                                    <text style='font-size: 24rpx;' wx:if="{{item.money!=0}}"> + </text>
+                                    <text wx:if="{{item.money!=0}}" style='color:#fb4a20'>¥{{item.money}}</text>
+                                    <text class='exchange'>兑换</text>
+                              </view>
+                        </view>
+                  </navigator>
+            </block>
+            <block wx:if="{{data.balances==''&&data.coupons==''&&data.redbags==''&&data.exchanges==''}}">
+                  <view style='width: 100%; text-align: center; margin-top:30rpx; padding: 30rpx 0; border-top:solid 1rpx #ddd; font-size:40rpx;'>* * * 暂无商品 * * *</view>
+            </block>
+      </view>
+</view>

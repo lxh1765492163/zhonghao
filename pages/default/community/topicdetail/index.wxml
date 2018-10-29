@@ -1,0 +1,14 @@
+<import src="userinfo_com/index.wxml" />
+<import src="topic/index.wxml" />
+<import src="reviewlist/index.wxml" />
+<import src="../../../../vendor/wxParse/wxParse.wxml" />
+
+
+<template is="userinfo_com" data="{{info,level,isManager,memberid}}" />
+<template is="topic" data="{{post,img,time,board,isManager,istop}}" />
+<view style="height:20rpx;width:100%;background:#f5f5f5;"></view>
+<view class="com-title">
+    <image src="/assets/images/pl.png"></image>
+    <text>全部评论</text>
+</view>
+<template is="reviewlist" data="{{list,datas,id,pid}}" />

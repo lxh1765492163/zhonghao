@@ -1,0 +1,72 @@
+/* introduce.wxss */
+
+.introduce_title{
+  background-color: #F0EFF5;
+  font-size: 34rpx;
+  line-height: 73rpx;
+  color: #333333;
+  height: 73rpx;
+  padding: 0rpx 30rpx;
+}
+.introduce_phone{
+  font-size: 26rpx;
+  padding: 20rpx 30rpx;
+  line-height: 50rpx;
+}
+.introduce_phone1{
+  color: #EB5E18;
+}
+.introduce_fuwu{
+  width: 90%;
+  padding-left:5%;
+  padding-right:5%;
+  padding-top: 30rpx;
+  padding-bottom: 10rpx;
+  display: flex; 
+  flex-wrap: wrap;
+}
+.introduce_fuwu1{
+  margin: 10rpx 42rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+}
+.introduce_fuwu11{
+  margin: 10rpx 0rpx 10rpx 36rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+}
+.introduce_fuwu2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.introduce_fuwu2 image{
+  width: 45rpx;
+  height: 40rpx;
+  margin: 0rpx 18rpx;
+}
+.introduce_fuwu3{
+  font-size: 20rpx;
+  color: #333333;
+  text-align: center;
+}
+.introduce_jian{
+  font-size: 24rpx;
+  margin: 0rpx 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 10rpx;
+  border-bottom: 1px solid #eeeeee;
+}
+.introduce_jian1{
+  color: #999999;
+}
+.introduce_jian3{
+  font-size: 24rpx;
+  color: #666666;
+  padding: 20rpx 35rpx;
+}
+
+

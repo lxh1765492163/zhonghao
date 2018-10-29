@@ -1,0 +1,59 @@
+<!--zh_jd/pages/merchant/merchant.wxml-->
+<view class='container rel fon'>
+  <view class='sort ab udlr'>
+    <view bindtap='recommend' class="{{position==1?'selected':'a'}}">推荐排序</view>
+    <view bindtap='price' class="{{position==2?'selected':'a'}}">价格</view>
+    <view bindtap='score' class="{{position==3?'selected':'a'}}">评分</view>
+    <view bindtap='distance' class="{{position==4?'selected':'a'}}">距离</view>
+  </view>
+</view>
+<view class='select' wx:if="{{scort==true}}">
+  <view bindtap='score_high' class="{{sore==1?'sore':'no_sore'}}">由高到低</view>
+  <view bindtap='score_low' class="{{sore==2?'sore':'no_sore'}}">由低到高</view>
+</view>
+<view class='many_hotel'>
+  <view class='hotel fon' wx:for="{{hotel}}" wx:for-item="hotel" wx:key="{{hotel.value}}" id="{{hotel.id}}" data-name="{{hotel.name}}" bindtap='hotel_info'>
+    <view class='hotel_icon fl rel'>
+      <image wx:if="{{url}}{{hotel.img}}!=''" class='ab ud' src="http://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{hotel.ewm_logo}}"></image>
+    </view>
+    <view class='hotel_info fl rel'>
+      <view class='info_name'>{{hotel.name}}</view>
+      <view class='info_address rel'>
+        <view class='ab ud'>
+          <image  class=' ab udlr' style='width:100%;height:100%;' mode='widthFix' src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/ditu.png'></image>
+        </view>
+        <text class='fl'>距您:</text>
+        <text class='fl' wx:if="{{hotel.distance!=NaN}}">{{hotel.distance}}千米</text>
+        <text class='fl' wx:if="{{hotel.distance==NaN}}">0千米</text>
+        <text class='fl'>{{hotel.address}} </text>
+      </view>
+      <view class='info_score'>
+        <text>{{hotel.score}}</text>
+        <text>分</text>
+        <text></text>
+        <text>{{hotel.total}}</text>
+        <text>条评论</text>
+      </view>
+      <view class='info_privilege'>
+          <view>星级:</view>
+          <view wx:for="{{star1}}" wx:if="{{hotel.num==1}}">
+              <image class='img' mode='widthFix' src='{{item.num}}'></image>
+          </view>
+          <view wx:for="{{star3}}" wx:if="{{hotel.num==3}}">
+              <image class='img' mode='widthFix' src='{{item.num}}'></image>
+          </view>
+          <view wx:for="{{star4}}" wx:if="{{hotel.num==4}}">
+              <image class='img' mode='widthFix' src='{{item.num}}'></image>
+          </view>
+          <view wx:for="{{star5}}" wx:if="{{hotel.num==5}}">
+              <image class='img' mode='widthFix' src='{{item.num}}'></image>
+          </view>
+      </view>
+      <view class='price ab'>
+        <text>￥</text>
+        <text>{{hotel.price}}</text>
+        <text>起</text>
+      </view>
+    </view>
+  </view>
+</view>

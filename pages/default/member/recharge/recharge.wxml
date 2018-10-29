@@ -1,0 +1,34 @@
+<view class='box'>
+      <view class='title'>
+            <text>账户充值</text>
+      </view>
+      <form class="form-ajax" bindsubmit="formPost">
+            <view class='recharge'>
+                  <view class='recharge_item'>
+                        <text>当前余额</text>
+                        <text class='balance'>￥{{items.credit}}</text>
+                  </view>
+                  <view class='recharge_item'>
+                        <text>充值金额</text>
+                        <input type='number' id='money' name='money'></input>
+                  </view>
+            </view>
+            <view class='activity'>
+                  <block wx:if="{{items.acts}}">
+                        <view class='acts '> 充值活动
+                              <view class='integral' wx:for='{{items.acts}}' wx:key=''>
+                                    满{{item.enough}}元立即送{{item.give}}
+                              </view>
+                        </view>
+                  </block>
+                  <block wx:if="{{items.integ}}">
+                        <view class='acts'> 送积分活动
+                              <view class='integral' wx:for='{{items.integ}}' wx:key=''>
+                                    充值{{item.enough2_1}}元至{{item.enough2_2}}元每元赠送{{item.give2}}积分
+                              </view>
+                        </view>
+                  </block>
+            </view>
+            <button class="sub" type="primary" form-type="submit">下一步</button>
+      </form>
+</view>

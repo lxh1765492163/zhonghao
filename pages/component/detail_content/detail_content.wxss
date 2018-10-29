@@ -1,0 +1,59 @@
+.all {
+    width: 100%;
+    height: 130rpx;
+    font-size: 34rpx;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
+
+.all .all-one {
+    flex-grow: 1;
+    height: 100%;
+    text-align: center;
+
+}
+.all .all-one text:first-child{
+    display: block;
+    height:30rpx;
+    padding-top:20rpx;
+    padding-bottom:20rpx;
+    border-right:1px solid #ccc;
+}
+.all .all-one text:last-child{
+    border-right:transparent;
+}
+.all_content{
+    width:100%;
+    padding:20rpx 0 20rpx 20rpx;
+    border-top:1px solid #ccc;
+
+}
+.all_content image{
+    width:100rpx;
+    height:100rpx;
+    border-radius: 100rpx;
+    float:left;
+}
+.all_content .name{
+    float:left;
+    margin-left:20rpx;
+    font-size:30rpx;
+    margin-top:30rpx;
+}
+.all_content .assess_title{
+    clear:both;
+    font-size:36rpx;
+    margin-top:40rpx;
+    overflow:hidden;
+    width:98%;
+    margin:0 auto;
+}
+.all_content .assess_time{
+    font-size:30rpx;
+    color:#ddd;
+}
+.all .active{
+    color:red;
+}

@@ -1,0 +1,2 @@
+/* pages/default/fightGroup/order/puy/puy.wxss */
+@import '../../../../component/float/menu.wxss';

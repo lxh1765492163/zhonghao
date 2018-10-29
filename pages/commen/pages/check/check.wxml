@@ -1,0 +1,144 @@
+<!--zh_jd/pages/check/check.wxml-->
+<form bindsubmit="formSubmit" report-submit="true" bindreset="formReset">
+  <view class='container'>
+    <!-- <view>免责声明</view> -->
+    <view class='header'>
+      <!-- <view class='apply rel'>
+        <view class='ab udlr'>
+          <text></text>
+          <text>免责声明:入驻申请完成之后，</text>
+        </view>
+      </view> -->
+
+    </view>
+    <view class='detailed'>
+      <view>
+        <view class='hotel_name border1'>
+          <view class='total fl'>酒店名称</view>
+          <view class='input fl'>
+            <input name='hotel_name' placeholder='请输入酒店名称'></input>
+          </view>
+        </view>
+        <view class='hotel_name'>
+          <view class='total fl'>酒店星级</view>
+          <picker bindchange="bindPickerChanges" value="{{index}}" range="{{arrays}}">
+            <view class='input fl'>
+              {{arrays[index]}}
+            </view>
+          </picker>
+        </view>
+        <view class='hotel_name border2'>
+          <view class='total fl'>酒店地区</view>
+          <picker bindchange="bindRegionChange" value="{{city}}" range="{{city}}">
+            <view class='input fl'>
+              {{city[inde]}}
+            </view>
+          </picker>
+        </view>
+        <view class='hotel_name border1' style='margin-top:30rpx;'>
+          <view class='total fl'>具体地址</view>
+          <view class='input fl'>
+            <input name='hotel_address' placeholder='请输入具体地址'></input>
+          </view>
+        </view>
+        <view class='hotel_name'>
+          <view class='total fl'>联系姓名</view>
+          <view class='input fl'>
+            <input name="hotel_contacts" placeholder='联系人姓名'></input>
+          </view>
+        </view>
+        <view class='hotel_name'>
+          <view class='total fl'>酒店电话</view>
+          <view class='input fl'>
+            <input name="hotel_tel"  type='digit' class='hotel_tel' placeholder='酒店电话'></input>
+          </view>
+        </view>
+        <view class='hotel_name'>
+          <view class='total fl'>酒店邮箱</view>
+          <view class='input fl'>
+            <input name="hotel_mail"  type='text' class='hotel_tel' placeholder='酒店邮箱'></input>
+          </view>
+        </view>
+        <view class='hotel_name border2'>
+          <view class='total fl'>成立日期</view>
+          <picker class="choice" mode="date" value="{{dates}}" bindchange="startDateChange">
+            <view class='input fl'>
+              <text wx:if="{{dates==null}}">请选择成立时间</text>
+              <text wx:if="{{dates!=null}}">{{dates}}</text>
+            </view>
+          </picker>
+        </view>
+        <view class='upload'>
+          <view class='upload_head'>上传营业执照与负责人身份证正反面图片
+          </view>
+          <view class='upload_img'>
+            <view class='rel'>
+              <view class='ab udlr' bindtap='choose'>
+                <image class='im ab udlr' wx:if="{{logo==null}}" src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/sz.png'></image>
+                <image class='img'  wx:if="{{logo!=null}}" src='{{logo}}'></image>
+              </view>
+            </view>
+            <view class='rel'>
+              <view class='ab udlr' bindtap='choose1'>
+                <image class='im ab udlr' wx:if="{{logo1==null}}" src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/sz.png'></image>
+                <image class='img' wx:if="{{logo1!=null}}" src='{{logo1}}'></image>
+              </view>
+            </view>
+            <view class='rel'>
+              <view class='ab udlr' bindtap='choose2'>
+                <image class='im ab udlr' wx:if="{{logo2==null}}" src='https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/sz.png'></image>
+                <image class='img' wx:if="{{logo2!=null}}" src='{{logo2}}'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='hotel_name' style='border-radius:20rpx;height:auto;min-height:40px;max-height:230rpx'>
+          <view class='total fl' style='line-height:80rpx;'>酒店设施</view>
+          <view class='input iinlin_block'>
+            <text wx:if="{{facilities==null||facilities==''}}" bindtap='choice'>选择酒店设施</text>
+            <text wx:if="{{facilities!=null}}" bindtap='choice'>
+                      <text wx:for="{{facilities}}">{{item}}</text>
+            </text>
+          </view>
+
+          <!-- <text class='fr' bindtap='complete' style='border-bottom-left-radius:20rpx;border-bottom-right-radius:20rpx;margin-right:20rpx;font-size:24rpx;color:green;line-height:80rpx;margin-bottom:20rpx;'>完成</text> -->
+          <view class='checkbox rel iinlin_block' wx:if="{{choice==true}}">
+            <checkbox-group bindchange="checkboxChange">
+              <label class="checkboxs" wx:for="{{items}}">
+                <checkbox style='transform:scale(.8)' value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+              </label>
+            </checkbox-group>
+          </view>
+        </view>
+
+        <view class='verification border1'>验证真实性</view>
+        <view class='hotel_name' style='margin-top:-2rpx;'>
+          <view class='total fl'>手机号</view>
+          <view class='input fl'>
+            <input name='yz_tel'  type='digit' bindblur="user_name" placeholder='请输入你现在的手机号'></input>
+          </view>
+        </view>
+        <view class='hotel_name rel border2'>
+          <view class='total fl'>验证码</view>
+          <view class='input fl'>
+            <input name='yz_code' placeholder='请输入验证码'></input>
+          </view>
+          <view class='ab code' wx:if="{{getmsg=='获取验证码'}}" bindtap='sendmessg'>
+            {{getmsg}}
+          </view>
+          <view class='ab code' wx:if="{{getmsg!='获取验证码'}}" bindtap='sendmessg'>
+            {{getmsg}}
+          </view>
+        </view>
+        <view class='verification border1'>其他补充</view>
+        <view class='supplement border2'>
+          <textarea name="textarea" placeholder='如您有其他补充,请在这里输入'></textarea>
+        </view>
+        <view class='footer'>
+          <button form-type="submit">提交入驻审核</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</form>

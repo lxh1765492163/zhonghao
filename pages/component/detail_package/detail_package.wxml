@@ -1,0 +1,17 @@
+<!--pages/component/detail_package/detail_package.wxml-->
+<template name="detail_package">
+  <view class='detail_package' wx:if="{{packages!=''&&packages!=null}}" style="margin-top:{{item.style.margintop}};margin-bottom:{{item.style.marginbottom}};background:{{item.style.background}};font-size: 35rpx;padding:0rpx 20rpx 20rpx;border-top:solid 1rpx #ddd;">
+    <view class='titlebar' style="color:{{item.style.textcolor}};padding:0rpx 0rpx 15rpx;margin:20rpx 0rpx 30rpx; border-bottom:solid 1rpx #ddd;">
+      <text>相关套餐</text>
+      <navigator class='gomore' url='/pages/default/package/list/list?goodsid={{goods.id}}' style="float: right;padding-left: 50rpx;">更多套餐
+        <text class='icon icon-right' style='font-size:35rpx;margin-left:10rpx'></text>
+      </navigator>
+    </view>
+    <scroll-view scroll-x class='content' style='white-space:nowrap'>
+      <navigator class='packagegoods' style='width:33.3%;display:inline-block;height:200rpx;text-align:center;color:#7c7c7c' wx:for="{{packages}}" wx:key="">
+        <image src="{{item.thumb}}" style='height:100%;width:95%;margin:0 auto;display:block;'></image>
+        <view class='goodstitle' style='white-space:nowrap;overflow:hidden;text-overflow:ellipsis'>{{item.title}}</view>
+      </navigator>
+    </scroll-view>
+  </view>
+</template>

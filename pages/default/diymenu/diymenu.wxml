@@ -1,0 +1,68 @@
+<!--pages/default/diymenu/diymenu.wxml-->
+
+<template name="diymenu">
+    <block wx:if="{{data.params.navstyle == 0}}">
+        <view class="footer" style='background:{{style.bgcolor}};'>
+            <block wx:for="{{datas}}" wx:for-item="item" wx:key="">
+                <!-- <block wx:if="{{item.linkurl!=''&&item.linkurl!=null}}"> -->
+                <view class='menuchild'>
+                    <navigator open-type='reLaunch' hover-class="none" url="{{item.linkurl}}" class="index" style='background:{{style.bgcolor}};'>
+                        <view class="icon" style="font-size:20px;">
+                            <text class="{{item.iconclass}}" ></text>
+                        </view>
+                        <view class="font" style="color:{{style.textcolor}};">{{item.text}}</view>
+                    </navigator>
+                </view>
+                <!-- </block> -->
+
+            </block>
+        </view>
+    </block>
+
+    <block wx:elif="{{data.params.navstyle == 1}}">
+        <view class="footer" style='background:{{style.bgcolor}};'>
+            <block wx:for="{{datas}}" wx:for-item="item" wx:key="">
+                <block wx:if="{{item.linkurl!=''&&item.linkurl!=null}}">
+                    <view class='menuchild'>
+                        <navigator open-type='reLaunch' hover-class="none" url="{{item.linkurl}}" class="index" style='background:{{style.bgcolor}};'>
+                            <image style="width:80rpx;height:80rpx" src="{{item.imgurl}}"></image>
+
+                        </navigator>
+                    </view>
+                </block>
+            </block>
+        </view>
+    </block>
+    <view wx:else class="footer">
+        <view class='menuchild'>
+            <navigator data-id="{{data.index.id}}" bindtap="changetab" open-type='reLaunch' hover-class="none" url="{{data.index.url}}" class="index">
+                <image class="active" src="{{data.index.id == tabid ? data.index.imgnew : data.index.img}}"></image>
+                <view class=" {{data.index.id == tabid ? 'fontcolor' : 'font'}}">{{data.index.name}}</view>
+            </navigator>
+        </view>
+        <view class='menuchild'>
+            <navigator open-type='reLaunch' hover-class="none" url="{{data.category.url}}" class="index " data-id="{{data.category.id}}" bindtap="changetab">
+                <image class="active" src="{{data.category.id == tabid ? data.category.imgnew : data.category.img}}"></image>
+                <view class="{{data.category.id == tabid ? 'fontcolor' : 'font'}}">{{data.category.name}}</view>
+            </navigator>
+        </view>
+        <view class='menuchild'>
+            <navigator open-type='reLaunch' hover-class="none" url="{{data.commission.url}}" class="index " data-id="{{data.commission.id}}" bindtap="changetab">
+                <image class="active" src="{{data.commission.id == tabid ? data.commission.imgnew : data.commission.img}}"></image>
+                <view class="{{data.commission.id == tabid ? 'fontcolor' : 'font'}}">{{data.commission.name}}</view>
+            </navigator>
+        </view>
+        <view class='menuchild'>
+            <navigator open-type='reLaunch' hover-class="none" url="{{data.cart.url}}" class="index " data-id="{{data.cart.id}}" bindtap="changetab">
+                <image class="active" src="{{data.cart.id == tabid ? data.cart.imgnew : data.cart.img}}"></image>
+                <view class="{{data.cart.id == tabid ? 'fontcolor' : 'font'}}">{{data.cart.name}}</view>
+            </navigator>
+        </view>
+        <view class='menuchild'>
+            <navigator open-type='reLaunch' hover-class="none" url="{{data.member.url}}" class="index ">
+                <image class="active" src="{{data.member.id == tabid ? data.member.imgnew : data.member.img}}"></image>
+                <view class="{{data.member.id == tabid ? 'fontcolor' : 'font'}}">{{data.member.name}}</view>
+            </navigator>
+        </view>
+    </view>
+</template>

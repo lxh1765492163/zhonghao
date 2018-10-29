@@ -1,0 +1,101 @@
+/* zh_jd/pages/myvip/myvip.wxss */
+page {
+  background: #F9F9F9;
+}
+.header{
+  padding: 23px;
+  background-color: white;
+  overflow: hidden;
+}
+.card{
+  width: 93%;
+  height: 390rpx;
+  padding: 30rpx;
+  background-color: #E6C184;
+  border-radius: 15rpx;
+  box-shadow: 0px 0px 15px #E6C184;
+  -webkit-box-shadow: 0px 5px 35px #E6C184;
+  color: white;
+}
+.card_text{
+  font-size: 50rpx;
+  font-weight: bold;
+}
+.card_text2{
+  font-size: 28rpx;
+}
+.card_text3{
+  margin-right: 30rpx;
+}
+.card_text4{
+  margin-top: 110rpx;
+  font-size: 28rpx;
+  position: relative;
+}
+.card_text6{
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+.card_text6 text{
+  text-indent: 55rpx;
+  display: inline-block;
+}
+.card_text5{
+  position: absolute;
+  top: -104rpx;
+  right: -40rpx;
+}
+.card_text5 image{
+  width: 270rpx;
+  height: 175rpx;
+}
+.banner{
+  display: flex;
+  align-items: center;
+  padding: 15rpx 30rpx;
+  margin-top: 15rpx;
+  background-color: white;
+  font-size: 28rpx;
+  color: #666;
+}
+.banner_border{
+  width: 5rpx;
+  height: 30rpx;
+  background-color: #C98522;
+  margin-right: 20rpx;
+}
+.content{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30rpx 0rpx 0rpx 30rpx;
+  margin-top: 2rpx;
+  background-color: white;
+}
+.content_list{
+  width: 220rpx;
+  height: 220rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20rpx;
+}
+.content_list>image{
+  width: 130rpx;
+  height: 130rpx;
+}
+.content_text{
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 15rpx;
+}
+
+
+
+
+
+
+
+
+
+
+

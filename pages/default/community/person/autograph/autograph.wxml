@@ -1,0 +1,12 @@
+<!--pages/community/person/autograph/autograph.wxml-->
+<view class='body'>
+    <form bindsubmit='formqm'>
+ 
+  <view class='topTitle'>
+    <text style=' font-weight: 700; font-size: 38rpx; color: #666'>设置签名</text>
+  
+  <button  style=""  formType="submit">提交</button>
+  </view>
+  <textarea placeholder='内容15个字以内' maxlength='15' name="val" ></textarea>
+ </form>
+</view>

@@ -1,0 +1,10 @@
+<template name="picture">
+  <view class="fui-picture" style="padding-bottom:{{item.style.paddingtop}}px;background:{{item.style.background}};">
+    <block wx:for="{{item.data}}" wx:for-item="val" wx:key="">
+      <navigator wx:if="{{val.linkurl}}" url="{{val.linkurl}}" style="display:block;padding:{{item.style.paddingtop}}px {{item.style.paddingleft}}px;">
+        <image src="http://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{val.imgurl}}" mode="widthFix"></image>
+      </navigator>
+      <image style="padding-bottom:{{item.style.paddingtop}}px;background:{{item.style.background}};" wx:else src="http://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{val.imgurl}}" mode="widthFix"></image>
+    </block>
+  </view>
+</template>

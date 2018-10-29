@@ -1,0 +1,292 @@
+/* pages/default/buy/index.wxss */
+@import '../../component/float/menu.wxss';
+
+.header {
+    width: 100%;
+    height: 80rpx;
+}
+
+.header image {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.carts-icon-num {
+    display: inline-block;
+    position: absolute;
+    top: -70rpx;
+    left: 70rpx;
+    width: 50rpx;
+    height: 50rpx;
+    background: pink;
+    font-size: 30rpx;
+    border-radius: 50rpx;
+    text-align: center;
+    line-height: 50rpx;
+    color: #fff;
+}
+
+.header-title {
+    font-size: 34rpx;
+    display: inline-block;
+    height: 100%;
+    width: 200rpx;
+    text-align: center;
+    line-height: 88rpx;
+    position: absolute;
+    left: 50%;
+    margin-left: -100rpx;
+}
+
+.cart {
+    width: 100%;
+    height: 200rpx;
+    background: #f5f5f5;
+    position: fixed;
+    bottom: 88rpx;
+    font-size: 34rpx;
+    color: #333;
+}
+
+.listItem {
+    width: 100%;
+    background: red;
+}
+
+.listItem .left {
+    width: 60%;
+    float: left;
+}
+
+.listItem .left .title {
+    display: inline-block;
+    width: 50%;
+    height: 40rpx;
+    overflow: hidden;
+}
+
+.listItem .left .price {
+    display: inline-block;
+    font-size: 30rpx;
+    color: #333;
+    margin-left: 30rpx;
+}
+
+.listItem .right {
+    width: 38%;
+    float: left;
+}
+
+.listItem .right text {
+    display: inline-block;
+    width: 60rpx;
+}
+
+.tab {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.tab>.tab-left {
+    width: 20%;
+}
+
+.tab-left view {
+    text-align: center;
+    font-size: 32rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tab-left .active {
+    color: #f00;
+    border-left: 1px solid #f00;
+}
+
+.right-item {
+}
+
+.tab-right {
+    width: 80%;
+}
+
+.tab-right>.active {
+    display: block;
+}
+
+.banner {
+    width: 100%;
+}
+
+.imgBan {
+    width: 100%;
+}
+
+.banner>image {
+    width: 100%;
+}
+
+.footer {
+    width: 100%;
+    height: 88rpx;
+    background: rgb(31, 31, 31);
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-left {
+    width: 120rpx;
+    height: 120rpx;
+    background: rgb(58, 58, 58);
+    border-radius: 100rpx;
+    position: absolute;
+    top: -30rpx;
+    left: 10rpx;
+}
+
+.footerCar {
+    z-index: 99999;
+    width: 100rpx;
+    height: 100rpx;
+    background: rgb(31, 31, 31);
+    border-radius: 100rpx;
+    margin-top: 11rpx;
+    margin-left: 11rpx;
+    position: relative;
+}
+
+.footerRed {
+    width: 100rpx;
+    height: 100rpx;
+    background: pink;
+    border-radius: 100rpx;
+    margin-top: 11rpx;
+    margin-left: 11rpx;
+    color: #f00;
+}
+
+.imgCar {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 70rpx;
+    margin-left: 11rpx;
+    margin-top: 11rpx;
+    z-index: 999999;
+}
+
+.footer-right {
+    width: 200rpx;
+    height: 100%;
+    background: rgb(58, 58, 58);
+    float: right;
+    color: #fff;
+    text-align: center;
+    line-height: 88rpx;
+}
+
+.Settlement {
+    font-size: 36rpx;
+}
+
+.total {
+    margin-left: 200rpx;
+    float: left;
+    font-size: 36rpx;
+    color: #fff;
+}
+
+.goodsList {
+    width: 100%;
+    height: 200rpx;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #ccc;
+    margin-top: 30rpx;
+}
+
+.goodsImg {
+    width: 160rpx;
+    height: 150rpx;
+    background: #fff;
+    display: block;
+}
+
+.goodsDetails {
+    width: 80%;
+    margin-left: 20rpx;
+    font-family: 微软雅黑;
+    position: relative;
+}
+
+.goodsDetails>.detail {
+    display: block;
+    font-size: 28rpx;
+}
+
+.volume {
+    font-size: 28rpx;
+    color: #ccc;
+    display: block;
+}
+
+.stock {
+    font-size: 28rpx;
+    margin-left: 10rpx;
+    color: #ccc;
+}
+
+.price {
+    display: block;
+    color: red;
+    font-size: 40rpx;
+    font-family: 微软雅黑;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.car {
+    width: 220rpx;
+    height: 50rpx;
+    float: right;
+    margin-top: -47rpx;
+    margin-right: 30rpx;
+}
+
+.car>text {
+    display: inline-block;
+    width: 60rpx;
+    height: 60rpx;
+    font-size: 60rpx;
+    text-align: center;
+    border-radius: 60rpx;
+    line-height: 60rpx;
+}
+
+.reduce {
+    border: 1px solid #f00;
+    color: #f00;
+}
+
+.plus {
+    border: 1px solid #f00;
+    background: red;
+    color: #fff;
+    margin-left: 20rpx;
+}
+
+.num {
+    font-size: 24rpx;
+    margin-left: 10rpx;
+}
+
+.title-box {
+    font-size: 40rpx;
+    color: #ccc;
+    text-align: center;
+    margin-top: 200rpx;
+}

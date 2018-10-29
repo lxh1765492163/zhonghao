@@ -1,0 +1,834 @@
+page {
+    background: #f9f9f9;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.rel {
+    position: relative;
+}
+
+.weui-cells {
+    position: relative;
+    margin-top: 1.17647059em;
+    background-color: #fff;
+    line-height: 1.41176471;
+    font-size: 17px;
+}
+
+.weui-cell_access {
+    color: inherit;
+}
+.weui-cell__bd {
+-webkit-box-flex:1;
+-webkit-flex:1;
+flex:1;
+
+}
+
+.weui-cell {
+    padding: 10px 15px;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.ab {
+    position: absolute;
+}
+
+.ud {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.lr {
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.udlr {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.fon {
+    font-family: 微软雅黑;
+}
+
+.center {
+    text-align: center;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.margin_auto {
+    margin: 0 auto;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+}
+
+.gobyndmulit {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+/*头部  */
+
+.header {
+    height: 360rpx;
+}
+
+.header_img {
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+.header_name {
+    width: 100%;
+    height: 60rpx;
+    bottom: 0;
+    z-index: 13;
+    text-indent: 30rpx;
+    font-size: 34rpx;
+    color: #fff;
+}
+
+.swiper-container {
+    position: relative;
+}
+
+.swiper-container .swiper {
+    height: 360rpx;
+}
+
+.swiper-container .swiper .img {
+    width: 100%;
+    height: 100%;
+}
+
+.dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20rpx;
+    display: flex;
+    background: #000;
+    width: 120rpx;
+    margin: auto;
+    border-radius: 10rpx;
+    height: 20rpx;
+    justify-content: center;
+}
+
+.dot {
+    margin: 4rpx 8rpx;
+    width: 10rpx;
+    height: 10rpx;
+    background: #fff;
+    border-radius: 8rpx;
+    transition: all 0.6s;
+}
+
+.active {
+    width: 34rpx;
+    /* background: #f80; */
+}
+
+/*酒店地址  */
+
+/*———————————————————弹框部分样式开始———————————————————  */
+
+.eject {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0rpx;
+    bottom: 0rpx;
+    left: 0rpx;
+    right: 0rpx;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.eject_box {
+    width: 85%;
+    height: 70%;
+    background-color: white;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+
+.eject_swiper {
+    height: 300rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+
+.eject_room {
+    padding: 20rpx 30rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.eject_type {
+    font-size: 30rpx;
+    color: #333;
+    margin-bottom: 5rpx;
+}
+
+.eject_have {
+    color: #999;
+    font-size: 24rpx;
+    display: flex;
+}
+
+.eject_big {
+    border-right: 1rpx solid #e5e5e5;
+    height: 30rpx;
+    line-height: 30rpx;
+    padding-right: 20rpx;
+    margin-right: 20rpx;
+}
+
+.eject_window {
+    line-height: 30rpx;
+}
+
+.eject_floor {
+    font-size: 24rpx;
+    color: #333;
+}
+
+.eject_can {
+    display: flex;
+}
+
+.eject_font {
+    font-size: 24rpx;
+}
+
+.eject_none {
+    display: none;
+}
+
+/*———————————————————弹框部分样式结束———————————————————  */
+
+.address {
+    height: 120rpx;
+    background: #fff;
+    padding-top: 1rpx;
+}
+
+.address text {
+    display: block;
+    text-indent: 30rpx;
+    font-size: 26rpx;
+}
+
+.lianxi3 {
+    margin-top: 20rpx;
+    color: #666;
+}
+
+.address_icon {
+    right: 30rpx;
+    width: 40rpx;
+    height: 45rpx;
+}
+
+/*住客评价以及酒店详情  */
+
+.xiangqing {
+    padding: 15rpx 32rpx;
+    overflow: hidden;
+}
+
+.xiangqing1 {
+    font-size: 28rpx;
+    text-indent: 50rpx;
+}
+
+.xiangqing1-1 {
+    font-size: 24rpx;
+    color: #999;
+    text-align: center;
+    margin-top: 10rpx;
+}
+
+.xiangqing2 {
+    display: flex;
+    width: 100%;
+}
+
+.xingqing3 {
+    width: 320rpx;
+    height: 100rpx;
+    margin: 20rpx 0rpx 10rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.xiangqing4 {
+    margin: 0px 50rpx;
+    width: 40rpx;
+    height: 50rpx;
+}
+
+.xiangqing5 {
+    background-color: #fff;
+    float: left;
+    border-top: 1rpx solid #e5e5e5;
+    width: 100%;
+    /* display: flex; */
+    height: 80rpx;
+    padding-top: 20rpx;
+    justify-content: flex-end;
+}
+
+.xiangqing6 {
+    background-color: #fff;
+    float: left;
+    margin-top: 10rpx;
+    width: 100%;
+    line-height: 40rpx;
+    height: 40rpx;
+    text-align: right;
+}
+
+.xiangqing5_text {
+    /* color: #EB5E18; */
+    font-size: 24rpx;
+    /* display: inline-block; */
+    float: right;
+    text-indent: 50rpx;
+}
+
+.details1 {
+    width: 80rpx;
+    height: 80rpx;
+    /* background: red; */
+}
+
+.details2 {
+    width: 450rpx;
+    background: #fff;
+    overflow: hidden;
+    height: 80rpx;
+}
+
+.details2 view {
+    width: 100%;
+    height: 50%;
+    line-height: 40rpx;
+}
+
+.details2 view:nth-child(1) {
+    color: #999;
+    font-size: 28rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.details2 view:nth-child(2) {
+    color: #999;
+    font-size: 20rpx;
+}
+
+.details3 {
+    width: 150rpx;
+    height: 100%;
+    right: 0;
+    border-left: 1rpx solid #ccc;
+}
+
+.details3 view {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.details3 view image {
+    width: 100%;
+}
+
+.xiangqing5_icon {
+    width: 20rpx;
+    height: 30rpx;
+    float: right;
+    margin-left: 10rpx;
+    position: relative;
+    margin-top: 5rpx;
+}
+
+.xiangqing5_icon image {
+    width: 20rpx;
+    height: 30rpx;
+    position: absolute;
+}
+
+.zhuke {
+    padding: 30rpx 30rpx 0rpx 45rpx;
+    background: #fff;
+    height: 220rpx;
+}
+
+.zhuke_fen {
+    float: left;
+}
+
+.zhuke_fen1 {
+    font-size: 36rpx;
+    color: #ff7473;
+    line-height: 36rpx;
+}
+
+.zhuke_fen2 {
+    font-size: 24rpx;
+    color: #ff7473;
+    line-height: 36rpx;
+}
+
+.zhuke_fen4 {
+    height: 52rpx;
+    width: 130rpx;
+}
+
+.zhuke_fen3 {
+    width: 100rpx;
+    height: 32rpx;
+    border-radius: 30rpx;
+    color: white;
+    line-height: 32rpx;
+    font-size: 24rpx;
+    margin-top: 20rpx;
+    text-align: center;
+    background-color: #ff7473;
+}
+
+.zhuke_fen5 {
+    width: 250rpx;
+    float: left;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+}
+
+.score {
+    width: 290rpx;
+    height: 130rpx;
+    float: right;
+}
+
+.score>view:nth-child(1) {
+    width: 100%;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    color: #333;
+    text-align: center;
+}
+
+.score>view:nth-child(2) {
+    width: 80%;
+    margin: 0 auto 0;
+    height: 60rpx;
+    display: flex;
+}
+
+.score_img image {
+    width: 40rpx;
+}
+
+/* .score>view view{
+  width: 40rpx;
+  height: 40rpx;
+} */
+
+.zhuke_fen6 {
+    font-size: 28rpx;
+    color: #333;
+}
+
+.zhuke_fen7 {
+    font-size: 24rpx;
+    color: #666;
+    margin-top: 5rpx;
+}
+
+.zhuke_fen8 {
+    font-size: 24rpx;
+    color: #666;
+    margin-top: 5rpx;
+    /* line-height: 60rpx; */
+}
+
+.total {
+    /* height: 340rpx; */
+    background: #fff;
+    margin-top: 10rpx;
+}
+
+.toatal_head {
+    height: 89rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+    position: relative;
+}
+
+.toatal_head>view {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    line-height: 86rpx;
+    font-size: 30rpx;
+}
+
+.toatal_text1 {
+    width: 150rpx;
+    height: 8rpx;
+    margin: 0rpx 15%;
+    border-bottom: #eb5e18 solid 8rpx;
+    position: absolute;
+    bottom: -2rpx;
+}
+
+.toatal_head>view text {
+    /* border-bottom: 6rpx solid #fff; */
+    display: block;
+    height: 100%;
+    width: auto;
+    box-sizing: border-box;
+}
+
+.default {
+    color: #666;
+}
+
+.selsect {
+    color: #eb5e18;
+}
+
+.select_text {
+    border-bottom: 6rpx solid #3ac569;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+/*酒店q详情  */
+
+.details {
+    height: auto;
+    margin-top: 10rpx;
+}
+
+.home {
+    height: 140rpx;
+    background: #fff;
+}
+
+.home>view {
+    width: 690rpx;
+    height: 100rpx;
+}
+
+.home_info {
+    width: 100%;
+    height: 100rpx;
+    background: #e5e5e5;
+    border-bottom: 1rpx solid #fff;
+}
+
+.home_img {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.home_img image {
+    width: 100%;
+    height: 100%;
+}
+
+.info {
+    width: 400rpx;
+    height: 100%;
+}
+
+.info>view {
+    text-indent: 15rpx;
+}
+
+.info>view:nth-child(1) {
+    width: 100%;
+    height: 50rpx;
+    font-size: 30rpx;
+    color: #333;
+    line-height: 60rpx;
+}
+
+.info>view:nth-child(2) {
+    width: 100%;
+    height: 50rpx;
+    font-size: 24rpx;
+    color: #333;
+    line-height: 40rpx;
+}
+
+.price {
+    width: 190rpx;
+    height: 100rpx;
+    font-size: 30rpx;
+    line-height: 100rpx;
+    text-align: center;
+}
+
+.home_info_name {
+    width: 60%;
+    height: 50rpx;
+    font-size: 30rpx;
+    color: #666;
+    margin-left: 30rpx;
+    line-height: 60rpx;
+}
+
+.home_info_state {
+    width: 60%;
+    height: 50rpx;
+    font-size: 24rpx;
+    color: #666;
+    margin-left: 30rpx;
+    line-height: 40rpx;
+}
+
+.weui-cells {
+    margin-top: 0em;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.weui-cells:after, .weui-cells:before {
+    display: none;
+}
+
+.weui-cells_show {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.weui-cell:before {
+    right: 15rpx;
+}
+
+.kind-list__item {
+    margin: 10rpx 0rpx;
+    background-color: #fff;
+    overflow: hidden;
+    font-size: 30rpx;
+    border-bottom: 1rpx solid #e9e9e9;
+}
+
+.kind-list__img {
+    width: 90%;
+    height: 100rpx;
+    color: #eb5e18;
+}
+
+.kind-list__item-hd {
+    padding: 20rpx;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+.kind-list__item-bd {
+    height: 0;
+    overflow: hidden;
+}
+
+.kind-list__item-bd_show {
+    height: auto;
+}
+
+.kind-list__item-bd_show1 {
+    display: block;
+    border-radius: 10rpx;
+}
+
+.weui-cell {
+    background-color: #f9f9f9;
+}
+
+.page__hd {
+    padding: 40rpx;
+}
+
+.page__ft {
+    padding-bottom: 10rpx;
+    text-align: center;
+}
+
+.page__title {
+    text-align: left;
+    font-size: 20rpx;
+    font-weight: 400;
+}
+
+.page__desc {
+    margin-top: 5rpx;
+    color: #888;
+    text-align: left;
+    font-size: 14rpx;
+}
+
+.liebiao {
+    display: flex;
+    align-items: center;
+    color: #eb5e18;
+}
+
+.liebiao1 {
+    font-size: 24rpx;
+}
+
+.liebiao1_1 {
+    font-size: 30rpx;
+}
+
+.liebiao1_2 {
+    width: 30rpx;
+    height: 20rpx;
+    margin-left: 10rpx;
+}
+
+.libiao2 {
+    width: 100rpx;
+    height: 100rpx;
+    /* background-color: orange; */
+    margin-right: 20rpx;
+}
+
+.libiao2 image {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.weui-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.liebiao2_3 {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.liebiao2_4 {
+    margin-right: 30rpx;
+}
+
+.liebiao3 {
+    display: flex;
+    align-items: center;
+}
+
+.liebiao3_1 {
+    font-size: 28rpx;
+    color: #333;
+}
+
+.lieviao3_4 {
+    width: 110rpx;
+    height: 95rpx;
+}
+
+.libiao3_5 {
+    display: flex;
+    align-items: center;
+    color: #eb5e18;
+}
+
+.libiao3_6 {
+    font-size: 26rpx;
+    margin: 0 20rpx 0 10rpx;
+}
+
+.liebiao3_1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lianxi {
+    display: flex;
+    font-size: 28rpx;
+    color: #666;
+    text-indent: 32rpx;
+    align-items: center;
+}
+
+.lianxi2 {
+    color: #eb5e18;
+    text-indent: 0rpx;
+    line-height: 30rpx;
+}
+
+.footer {
+    color: #999;
+    font-size: 26rpx;
+    margin-bottom: 20rpx;
+    text-align: center;
+}
+
+.liebiao3_7 {
+    font-size: 26rpx;
+}
+
+.liebiao3_8 {
+    border-top: 1rpx solid #e9e9e9;
+}
+
+.navigator-hover {
+    background-color: white;
+    opacity: 1;
+}

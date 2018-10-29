@@ -1,0 +1,33 @@
+<!--pages/default/bargain/complete/complete.wxml-->
+<view class='list'>
+  <block wx:for="{{list.goods}}" wx:key=''>
+    <navigator class='goods' url='../bargain/bargain?id={{item[0].actor_id}}'>
+      <image src='{{item[0].images}}'></image>
+      <view class='text'>
+        <view class='title'>{{item[0].title}}</view>
+        <view>
+          <text style='color:#ed2822'>成交价￥{{item[0].now_price}}</text>
+          <text class='markprice'>已下单</text>
+        </view>
+      </view>
+    </navigator>
+  </block>
+</view>
+<view class='tabbar'>
+  <navigator open-type='reLaunch' class='child' url='/pages/default/index/index'>
+    <view class='icon icon-home'></view>
+    <view>商城首页</view>
+  </navigator>
+  <navigator open-type='reLaunch' class='child' url='/pages/default/bargain/list/list'>
+    <view class='icon icon-all'></view>
+    <view>全部砍价</view>
+  </navigator>
+  <navigator open-type='reLaunch' class='child' url='/pages/default/bargain/my/my'>
+    <view class='icon icon-all1'></view>
+    <view>砍价中</view>
+  </navigator>
+  <navigator open-type='reLaunch' class='child' url='/pages/default/bargain/complete/complete' style='color:red'>
+    <view class='icon icon-money'></view>
+    <view>已购买</view>
+  </navigator>
+</view>

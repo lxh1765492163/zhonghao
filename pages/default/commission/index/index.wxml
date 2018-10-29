@@ -1,0 +1,37 @@
+<!--引入组件-->
+<import src="../../../component/memberc/memberc.wxml" />
+<import src="../../../component/blockgroup/blockgroup.wxml" />
+<import src="../../../component/copy/copy.wxml" />
+<import src="../../diymenu/diymenu.wxml" />
+
+
+<!-- <view class="fui-page fui-page-current page-commission-index">-->
+
+<!--加载组件-->
+<block wx:if="{{items.result.register==1 && items.status == 0}}">
+  <view class="content-info" style='margin:300rpx 0'>
+    <view class="icon icon-time"></view>
+    <view class="text-success" style='font-size:50rpx'>谢谢您的支持，请等待审核！</view>
+    <navigator url="/pages/default/index/index" class="btn btn-danger">去商城逛逛</navigator>
+  </view>
+</block>
+<block wx:elif="{{items.result.register==0 && items.status == 0}}">
+  <view class="content-info" style='margin:300rpx 0'>
+    <view class="icon icon-time"></view>
+    <view class="text-success" style='font-size:50rpx'>对不起，您目前还不是分销商！</view>
+    <navigator url="/pages/default/commission/register/register" class="btn btn-danger">去申请</navigator>
+  </view>
+</block>
+<block wx:else>
+  <view class="content">
+    <block wx:for="{{modules}}" wx:key="">
+      <template is="{{item.id}}" data="{{item, userInfo, items}}" />
+    </block>
+  </view>
+</block>
+
+
+<!-- </view> -->
+
+<view style="height:100rpx;"></view>
+<template is="diymenu" data="{{datas,style,data,tabid}}" />

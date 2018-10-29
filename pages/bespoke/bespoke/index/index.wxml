@@ -1,0 +1,58 @@
+<!--pages/default/bespoke/index/index.wxml-->
+<import src="../../../component/float/menu.wxml"/>
+<template is="floatmenu"  data="{{height,open}}"/>
+<view class="header">
+    <navigator url="../city/city" hover-class="none">{{cityname}} ∨</navigator>
+</view>
+<block wx:if="{{banner != ''}}">
+
+    <swiper indicator-dots="true" autoplay="true" wx:for="{{banner}}" wx:for-item="item" wx:key="">
+        <swiper-item>
+            <image src="http://xcx.xcwll.cn/attachment/{{item.photo}}"></image>
+        </swiper-item>
+    </swiper>
+</block>
+<view class="tab">
+    <scroll-view scroll-x="true" class="scroll-view_H">
+        <view class="all {{tabArr==0?'active' : ''}}" data-index="0" bindtap="tabFun">
+            <text>全部</text>
+            <text class="vertical">|</text>
+        </view>
+        <block wx:for="{{cate}}" wx:for-item="cate" wx:key="">
+            <view class="all {{tabArr==cate.id?'active' : ''}}" data-index="{{cate.id}}" bindtap="tabFun">
+                <text>{{cate.title}}</text>
+                <text class="vertical">|</text>
+            </view>
+        </block>
+    </scroll-view>
+</view>
+<block wx:for="{{goods}}" wx:for-item="ar" wx:key="">
+    <block wx:if="{{ar.status==1}}">
+
+        <view class="content" bindtap="navbar" data-id="{{ar.id}}">
+            <image src="http://xcx.xcwll.cn/attachment/{{ar.photo}}"></image>
+            <view class="detail">
+                <view class="title">{{ar.title}}</view>
+                <view class="name">{{ar.titledesc}}</view>
+                <view class="time">
+                    <text>{{ar.shijian}}分钟</text>
+                    <text wx:if="{{ar.svs_type==1 }}" class="store">到店</text>
+                    <text wx:elif="{{ar.svs_type==2}}" class="door">上门</text>
+                    <block wx:elif="{{ar.svs_type==3}}">
+                        <text class="store">到店</text>
+                        <text class="door">上门</text>
+                    </block>
+                </view>
+                <view class="price" style="width:100%;">
+                    <text>￥</text>
+                    <text class="cost">{{ar.price}}</text>
+                    <text class="gray">原价:{{ar.market_price}}</text>
+                </view>
+            </view>
+        </view>
+
+    </block>
+</block>
+<view class="blank"></view>
+<import  src="../tabbar/footer.wxml" />
+<template  is="footer" data="{{fid}}" />

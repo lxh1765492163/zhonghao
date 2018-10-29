@@ -1,0 +1,3 @@
+/* pages/default/fightGroup/myOrder/index.wxss */
+@import '/assets/css/tabbar.wxss';
+@import '../component/footer.wxss';

@@ -1,0 +1,34 @@
+/* pages/integralmall/tabbar/tabbar.wxss */
+.tabbar {
+  position: fixed;
+  align-items: center;
+  bottom: 0;
+  height: 80rpx;
+  background: white;
+  z-index: 999;
+  width: 100%;
+  padding: 10rpx 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.tabbar .tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.tabbar image {
+  height: 45rpx;
+  width: 45rpx;
+}
+
+.tabbar text {
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+
+.tabbar .show {
+  color: red;
+}

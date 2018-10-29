@@ -1,0 +1,20 @@
+<!--pages/community/complaint/complaint.wxml-->
+<view class='complaint'>
+<form bindsubmit='formcomplaint'>
+    <view>
+        <text>我要投诉的是</text>
+        <text decode='true' style='color: #ee7600'>&nbsp;{{userInfo.nickName}}&nbsp;</text>
+        <text>的{{complaint.id}}</text>
+    </view>
+    <text style='font-size: 30rpx;'>请您选择投诉的类别:</text>
+    <view class="" wx:if="{{!catelist}}">
+        <text wx:for='{{category}}' wx:key="" class="{{item.cid == cid? 'already ':'notAlready'}}" bindtap='selected' data-cid='{{item.cid}}'>{{item.name}}</text>
+    </view>
+    <view class="" wx:else>
+        <text wx:for='{{catelist}}' wx:key="" class="{{item.id == cid? 'already ':'notAlready'}}" bindtap='selected' data-cid='{{item.id}}'>{{item.name}}</text>
+    </view>
+    <textarea placeholder='内容 10-500个字' maxlength='500' placeholder-style='font-size: 30rpx; color:#aaa;' name="content"></textarea>
+    <button style="background:#F7BB40;color:#fff;" formType="submit">提交</button>
+        
+    </form>
+</view>

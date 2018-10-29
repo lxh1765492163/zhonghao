@@ -1,0 +1,5 @@
+<template name="line">
+  <view class="fui-line-diy" style="background:{{item.style.background}};padding:{{item.style.padding}}px 0;">
+    <view class="line" style="border-top:{{item.style.height}}px {{item.style.linestyle}} {{item.style.bordercolor}}"></view>
+  </view>
+</template>

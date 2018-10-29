@@ -1,0 +1,24 @@
+<!--pages/default/package/index.wxml-->
+<view class="list" >
+  <block wx:for="{{list.packgoods}}" wx:key=''>
+    <navigator class='good' url='/pages/default/goods/detail/detail?id={{item.goodsid}}'>
+      <view class="img">
+        <image src="https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{item.thumb}}"></image>
+      </view>
+      <view class="title">{{item.title}}</view>
+      <view class="">
+          <view class='price'>¥{{item.marketprice}}</view>
+          <view class="num">x 1</view>
+      </view>
+    </navigator>
+  </block>
+  <view class='discount'>套餐优惠：<text>{{discount}}</text> </view>
+</view>
+
+<view class="buy">
+    <view class="buy_left">
+        <text>套餐价格:</text>
+        <text style="">¥{{packageprice}}</text>
+    </view>
+    <view class="buy_right" bindtap='buy'>立即购买</view>
+</view>

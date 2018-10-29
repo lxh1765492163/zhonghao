@@ -1,0 +1,33 @@
+<template name="pictures">
+<block wx:if="{{item.params.showtype == 0 || item.data.length <= item.params.rownum}}">
+    <view class="fui-picturew row-{{item.params.rownum}}" style="padding:{{item.style.paddingtop}}px {{item.style.paddingleft}}px;background:{{item.style.background}};">
+        <block wx:for="{{item.data}}" wx:for-item="val" wx:key="">
+            <navigator url="{{val.linkurl}}" class="item" style="padding:{{item.style.paddingtop}}px {{item.style.paddingleft}}px;">
+                <view class="image">
+                    <image src="https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{val.imgurl}}" mode="widthFix"></image>
+                    <view wx:if="{{val.title != ''}}" class="title" style="color:{{item.style.titlecolor}};text-align:{{item.style.titlealign}};">{{val.title}}</view>
+                </view>
+                <view class="text center" style="color:{{item.style.textcolor}};text-align:{{item.style.textalign}};">{{val.text}}</view>
+            </navigator>
+        </block>
+    </view>
+</block>
+<block wx:else>
+<view>暂不支持</view>
+
+
+ <view class="fui-swipe goods-swipe">
+    <swiper indicator-dots="true" autoplay="true" indicator-color="#f7f7f7" indicator-active-color="{{item.style.background}}" style="height:{{item.style.height ? item.style.height : '400'}}px;">
+     <block wx:for="{{item.data}}" wx:for-item="val" wx:key="">
+            <navigator url="{{val.linkurl}}" class="item" style="padding:{{item.style.paddingtop}}px {{item.style.paddingleft}}px;">
+                <view class="image">
+                    <image src="https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{val.imgurl}}" mode="widthFix"></image>
+                    <view wx:if="{{val.title != ''}}" class="title" style="color:{{item.style.titlecolor}};text-align:{{item.style.titlealign}};">{{val.title}}</view>
+                </view>
+                <view class="text center" style="color:{{item.style.textcolor}};text-align:{{item.style.textalign}};">{{val.text}}</view>
+            </navigator>
+        </block>
+    </swiper>
+    </view>
+</block>
+</template>

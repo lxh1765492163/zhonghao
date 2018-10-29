@@ -1,0 +1,48 @@
+<!--pages/default/bespoke/percenter/percenter.wxml-->
+<view class="header">
+  <view class="stro">
+    <image src="{{datas.member.avatar}}"></image>
+    <view class="name">{{datas.member.nickname}}</view>
+  </view>
+</view>
+<view class="menu">
+  <view class="menu_list">
+      <view>{{datas.member.credit1}}</view>
+      <view>我的积分</view>
+  </view>
+   <view class="menu_list">
+      <view>{{datas.member.credit2}}</view>
+      <view>我的余额</view>
+  </view>
+   <view class="menu_list">
+      <view>用户等级</view>
+      <view>{{datas.get_user_level}}</view>
+  </view>
+</view>
+<view class="content_list">
+  <navigator class="line" url="/pages/default/bespoke/myorder/order">
+    <image src="/assets/images/tabBar/rder form.png"></image>
+    <view class="myorder">
+       <text> 我的订单</text>
+       <text>></text>
+    </view>
+  </navigator>
+   <navigator class="line" url="/pages/default/bespoke/select/select">
+    <image src="/assets/images/tabBar/address.png"></image>
+    <view class="myorder">
+       <text> 我的地址</text>
+       <text>></text>
+    </view>
+  </navigator>
+   <navigator class="line" url="/pages/default/bespoke/beautician/beautician">
+    <image src="/assets/images/tabBar/mei.png"></image>
+    <view class="myorder">
+       <text>我的美容师</text>
+       <text>></text>
+    </view>
+  </navigator>
+</view>
+
+<view class="blank"></view>
+<import  src="../tabbar/footer.wxml" />
+<template  is="footer" data="{{fid}}"/>

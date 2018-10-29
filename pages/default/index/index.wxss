@@ -1,0 +1,58 @@
+@import '../diymenu/diymenu.wxss';
+@import '../../component/merchgroup/merchgroup.wxss';
+@import "../../component/authorize/authorize.wxss";
+.ordert {
+    width: 330rpx;
+    height: 130rpx;
+    border-radius: 80rpx;
+    position: fixed;
+    top: 100rpx;
+    right: -340rpx;
+    z-index: 999;
+}
+
+.ordert view {
+    font-size: 34rpx;
+    margin-top: 20rpx;
+}
+
+.ordert view text {
+}
+
+.scroll-view_H {
+    white-space: nowrap;
+    background: #fff;
+    z-index: 99999;
+}
+
+video {
+    width: 100%;
+}
+
+.scroll-view-item {
+    height: 300rpx;
+}
+
+.scroll-view-item_H {
+    display: inline-block;
+    width: 7rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.scroll-view-item_H image {
+    width: 100%;
+    height: 100%;
+}
+
+.scroll-view-item_H.on {
+    color: #f01;
+    border-bottom: 2px solid #f01;
+}
+
+.defaults {
+    color: red;
+}
+@import '../../../vendor/wxParse/wxParse.wxss';

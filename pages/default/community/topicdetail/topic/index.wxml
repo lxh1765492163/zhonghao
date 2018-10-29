@@ -1,0 +1,49 @@
+<template name="topic">
+    <view class="topic">
+        <view class="title">
+            <text wx:if="{{post.isbest == 1 && post.isboardbest == 1}}" style="background:#ff9326;color:#fff;">精</text> {{post.title}}
+        </view>
+        <view class="createdate">
+            <text>{{time}}</text>
+            <text class="btn">{{board.title}}</text>
+        </view>
+        <view class="wxParse">
+            {{post.content}}
+        </view>
+        <view wx:if="{{item != 'http://xcx.xcwll.cn/attachment/'}}" class='pics' wx:for="{{img}}" wx:for-item="item" wx:key="" style="width:100%;">
+            <image src="{{item}}" style="width:100%;height:320px;"></image>
+        </view>
+        <view class="handle" wx:if="{{isManager == true  }}">
+            <view class="left">
+                <view class="item" bindtap="deltopic">
+                    <image src="/assets/images/sh.png"></image>
+                    <text>删除</text>
+                </view>
+                <view wx:if="{{post.checked != 1}}" bindtap="examine" class="item">
+                    <image src=""></image>
+                    <text>需审核</text>
+                </view>
+                <view wx:if="{{post.isboardbest == 1 || isbest == 1}}"  data-type="1"  class="item" bindtap="creamtopic">
+                    <image src="/assets/images/jh.png"></image>
+                    <text>取消精华</text>
+                </view>
+                <view wx:else class="item" bindtap="creamtopic">
+                    <image src="/assets/images/jh.png"></image>
+                    <text>设置精华</text>
+                </view>
+                <view wx:if="{{post.isboardtop == 1  || istop == 1 }}"  data-type="1"  class="item" bindtap="toptopic">
+                    <image src="/assets/images/zd.png"></image>
+                    <text>取消置顶</text>
+                </view>
+                <view wx:else class="item" bindtap="toptopic">
+                    <image src="/assets/images/zd.png"></image>
+                    <text>设置置顶</text>
+                </view>
+            </view>
+            <view class="right">
+                <image src="/assets/images/y.png"></image>
+                <text>{{post.views}}</text>
+            </view>
+        </view>
+    </view>
+</template>

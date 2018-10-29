@@ -1,0 +1,81 @@
+<view class="fui-page fui-page-current">
+    <view class="fui-content navbar">
+        <form bindsubmit="formSubmit">
+            <view class="fui-cell-group">
+                <view class="fui-cell">
+                    <view class="fui-cell-info">我的余额{{items.commission_ok}}</view>
+                </view>
+                <view class="fui-cell">
+                    <view class="fui-cell-label big" style="width:auto;font-size:1.2rem;">￥</view>
+                    <view class="fui-cell-info" style="font-size:1.2rem;">{{items.commission_ok}}</view>
+                </view>
+                <view class="fui-cell">
+                    <view class="fui-cell-label" style="width: 120px;"><text class="re-g">提现方式</text></view>
+                    <view class="fui-cell-info">
+                        <picker bindchange="selectWithdraw" value="{{withdrawType}}" range="{{type_array}}">
+                            <view class="picker">
+                              {{type_array[withdrawType]}}
+                            </view>
+                        </picker>
+                    </view>
+                    <view class="fui-cell-remark"></view>
+                </view>
+                <view wx:if="{{(items.type_array[2] && withdrawType == 2) || (items.type_array[3] && withdrawType == 3)}}" class="fui-cell ab-group">
+                    <view class="fui-cell-label" style="width: 120px;">姓名</view>
+                    <view class="fui-cell-info"><input type="text" name="realname" class="fui-input" value="{{items.last_data.realname}}" maxlength="25"/></view>
+                </view>
+                <block wx:if="{{items.type_array[2] && withdrawType == 2}}">
+                    <view class="fui-cell alipay-group">
+                        <view class="fui-cell-label" style="width: 120px;">支付宝帐号</view>
+                        <view class="fui-cell-info"><input type="text" name="alipay" class="fui-input" value="{{items.last_data.alipay}}" maxlength="25"/></view>
+                    </view>
+                    <view class="fui-cell alipay-group">
+                        <view class="fui-cell-label" style="width: 120px;">确认帐号</view>
+                        <view class="fui-cell-info"><input type="text" name="alipay1" class="fui-input" value="{{items.last_data.alipay}}" max="25"/></view>
+                    </view>
+                </block>
+                <block wx:if="{{items.type_array[3] && withdrawType == 3}}">
+                    <view class="fui-cell bank-group">
+                        <view class="fui-cell-label" style="width: 120px;"><text class="re-g">选择银行</text></view>
+                        <view class="fui-cell-info">
+                            <picker bindchange="selectBank" value="{{selectBank}}" range="{{bankList}}">
+                                <view class="picker">
+                                  {{bankList[selectBank]}}
+                                </view>
+                            </picker>
+                        </view>
+                        <view class="fui-cell-remark"></view>
+                    </view>
+                    <view class="fui-cell bank-group">
+                        <view class="fui-cell-label" style="width: 120px;">银行卡号</view>
+                        <view class="fui-cell-info"><input type="number" name="bankcard" class="fui-input" value="{{items.last_data.bankcard}}" maxlength="25"/></view>
+                    </view>
+                    <view class="fui-cell bank-group">
+                        <view class="fui-cell-label" style="width: 120px;">确认卡号</view>
+                        <view class="fui-cell-info"><input type="number" name="bankcard1" class="fui-input" value="{{items.last_data.bankcard}}" maxlength="25"/></view>
+                    </view>
+                </block>
+            </view>
+            <button style="width:98%;" formType="submit" class="btn btn-success block btn-submit {{!items.cansettle ? 'disabled' : ''}}">下一步</button>
+        </form>
+        <block wx:if="{{items != null && items.set_array.charge != ''}}">
+            <view class="fui-cell-group">
+                <view class="fui-cell">
+                    <view class="fui-cell-info">查看详细信息</view>
+                </view>
+                <view wx:if="{{items.set_array.charge}}" class="fui-cell charge-group">
+                    <view class="fui-cell-info">佣金提现{{items.thisset.texts.commission_charge}} {{items.set_array.charge}}%</view>
+                </view>
+                <view wx:if="{{items.set_array.end}}" class="fui-cell charge-group">
+                    <view class="fui-cell-info">{{items.thisset.texts.commission_charge}}金额在￥{{items.set_array.begin}}到￥{{items.set_array.end}}间免收</view>
+                </view>
+                <view wx:if="{{items.deductionmoney}}" class="fui-cell charge-group">
+                    <view class="fui-cell-info">本次提现将{{items.thisset.texts.commission_charge}}金额 ￥ {{items.deductionmoney}}</view>
+                </view>
+                <view wx:if="{{items.set_array.charge}}" class="fui-cell charge-group">
+                    <view class="fui-cell-info">本次提现实际到账金额 ￥ {{items.realmoney}}</view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

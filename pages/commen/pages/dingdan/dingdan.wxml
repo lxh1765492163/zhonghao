@@ -1,0 +1,76 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="font">
+    <view class="dingdan_title">
+      <view class="dingdan_title1">
+        {{hotel_name}}
+      </view>
+    </view>
+    <view class="dingdan_tehui">
+      <view class="dingdan_tehui1">{{name}}</view>
+      <view class="dingdan_tehui2">
+        {{dd}}至{{to}}
+        <text class="dingdan_tehui3">共{{day}}晚</text>
+      </view>
+      <view class="dingdan_tehui4">
+        <icon type="success" size="13" />
+        <text class="dingdan_tehui5">恭喜，您找到的是该房型最优惠的价格</text>
+      </view>
+      <view class="dingdan_tehui4">
+        <icon type="success" size="13" />
+        <text class="dingdan_tehui5">订单提交后，酒店将第一时间确认您的订单</text>
+      </view>
+    </view>
+    <view class="shuliang">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="shuliang1">
+          <text>房间数</text>
+          <text class="shuliang2-1">{{array[index]}}</text>
+          <view class="shuliang3">
+            <image src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/Path1@2x.png"></image>
+          </view>
+        </view>
+      </picker>
+      <view class="shuliang11">
+        <text>保留至</text>
+        <text class="shuliang2-1" style='color:#aaa' wx:if="{{oid==2}}">{{to}} 13:00</text>
+        <text class="shuliang2-1" style='color:#aaa' wx:if="{{oid==1}}">{{dd}} 10:00</text>
+        <view class="shuliang3">
+          <!-- <image src="../../images/Path1@2x.png"></image> -->
+        </view>
+      </view>
+    </view>
+    <view class="xinxi">
+      <view class="xinxi1">
+        <view class='xinxi_k'>预定人</view>
+        <input type="text" name="user_name" class="xinxi2_1" placeholder="请输入您的姓名" />
+      </view>
+      <view class="xinxi3">
+        <view class="xinxi4" bindtap="clickPerson">
+          +86
+          <image src="../../images/Path-2@2x.png"  class="personal_image"></image>
+        </view>
+        <view class="xinxi5">
+          <input class="input" name="user_tel" type="number" placeholder="请输入您的手机号" />
+        </view>
+      </view>
+    </view>
+    <view class="quxiao">
+      <view class="quxiao1">取消规则</view>
+      <view class="quxiao2">订单一经取消，不可取消或变更；如未能如约入住，您的预付房费将不予退还</view>
+    </view>
+    <view class="heji">
+      <view class="heji1">
+        <text class="heji2">合计：</text>
+        <text class="heji3">¥</text>
+        <text class="heji4" wx:if="{{index==0}}">{{price}}</text>
+        <text class="heji4" wx:if="{{index!=0}}">{{price*nn}}</text>
+      </view>
+      <button class="heji5" formType="submit" bindtap='payment' wx:if="{{oid==1}}">
+        前往预约
+      </button>
+      <button class="heji5" formType="submit" bindtap='payment' wx:if="{{oid==2}}">
+        确定支付
+      </button>
+    </view>
+  </view>
+</form>

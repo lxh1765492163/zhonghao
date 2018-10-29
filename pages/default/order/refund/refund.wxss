@@ -1,0 +1,4 @@
+/* refund.wxss */
+picker{
+  width:400rpx;
+}

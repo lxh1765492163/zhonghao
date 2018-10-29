@@ -1,0 +1,49 @@
+<block wx:if="{{!pagetype}}">
+  <import src="../../../component/merch_adv/merch_adv.wxml" />
+  <import src="../../../component/merch_search/merch_search.wxml" />
+  <import src="../../../component/merch_nav/merch_nav.wxml" />
+  <import src="../../../component/merch_notice/merch_notice.wxml" />
+  <import src="../../../component/merch_cube/merch_cube.wxml" />
+  <import src="../../../component/merch_banner/merch_banner.wxml" />
+  <import src="../../../component/merch_goods/merch_goods.wxml" />
+  <import src="../../../component/merch_recommand/merch_recommand.wxml" />
+
+  <view class="fui-page fui-page-current shop-index-page">
+      <view class="fui-content navbar" style="bottom:0;">
+          <block wx:for="{{items.sorts}}" wx:for-index="idx" wx:for-item="item" wx:key="">
+            <block wx:if="{{item.visible == 1}}">
+              <template is="merch_{{idx}}" data="{{...items, list, page}}" />
+            </block>
+          </block>
+      </view>
+  </view>
+</block>
+<block wx:else>
+  <!--引入组件-->
+  <import src="../../../component/menu/menu.wxml" />
+  <import src="../../../component/notice/notice.wxml" />
+  <import src="../../../component/goods/goods.wxml" />
+  <import src="../../../component/fixedsearch/fixedsearch.wxml" />
+  <import src="../../../component/search/search.wxml" />
+  <import src="../../../component/title/title.wxml" />
+  <import src="../../../component/line/line.wxml" />
+  <import src="../../../component/blank/blank.wxml" />
+  <import src="../../../component/picture/picture.wxml" />
+  <import src="../../../component/banner/banner.wxml" />
+  <import src="../../../component/picturew/picturew.wxml" />
+  <import src="../../../component/pictures/pictures.wxml" />
+  <import src="../../../component/icongroup/icongroup.wxml" />
+  <import src="../../../component/listmenu/listmenu.wxml" />
+  <import src="../../../component/video/video.wxml" />
+  <import src="../../../component/copy/copy.wxml" />
+<import src="../../../component/float/menu.wxml"/>
+<template is="floatmenu"  data="{{height,open}}"/>
+  <view class="fui-page fui-page-current">
+    <view class="fui-content">
+      <!--加载组件-->
+      <block wx:for="{{items}}" wx:for-item="item" wx:key="">
+        <template wx:if="{{item.id}}" is="{{item.id}}" data="{{item}}" />
+      </block>
+    </view>
+  </view>
+</block>

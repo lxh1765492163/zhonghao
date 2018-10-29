@@ -1,0 +1,104 @@
+@import '/assets/css/tabbar.wxss';
+
+.fui-page, .fui-page-group {
+  background: #e5e5e5;
+}
+
+.fui-content {
+  top: 42px !important;
+}
+
+.fui-content .section {
+  height: 100%;
+}
+
+.fui-content .section scroll-view {
+  height: 100%;
+}
+
+.fui-content .fui-list::before {
+  border: 0;
+}
+
+.fui-content .fui-sec {
+  margin-top: 10px;
+  padding: 8px 0;
+  background: #fff;
+}
+
+.btn.btn-default-o {
+  color: #333;
+  border: 1px solid #a0a0a0;
+}
+
+.fui-content .section .fui-list {
+  background: #fff;
+}
+
+.fui-content .section .desc {
+  background: #fff;
+  display: flex;
+  margin-top: 10px;
+}
+
+.fui-content .section .desc .btn {
+  flex: 1;
+  height: 2.2rem;
+  line-height: 2.2rem;
+  font-size: .9rem;
+}
+
+.fui-content .section .desc .btn::after {
+  content: none;
+}
+
+.fui-content .section .desc .icon {
+  color: #959595;
+  font-size: 1rem;
+}
+
+.scroll-view-item_H.on {
+  background: #E71F19;
+  color: #fff;
+}
+
+.fui-list-media wx-image.round {
+  border-radius: 0;
+  width: 66px;
+  height: 26px;
+}
+
+.subtitle {
+  color: #999!important;
+}
+
+.nodata-text {
+  background: #e5e5e5!important;
+}
+
+.nodata-line {
+  background: #cfcfcf!important;
+}
+
+.fui-list-inner .title {
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.full_footer{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  height:100rpx;
+  background:#fff;
+}
+.full_footer navigator{
+  display:block;
+  width:33%;
+  background:pink;
+  font-size:30rpx;
+  height:100rpx;
+  line-height: 100rpx;
+  float:right;
+  color:#fff;
+ text-align: center;
+}

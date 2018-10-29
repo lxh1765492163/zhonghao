@@ -1,0 +1,100 @@
+/* pages/testpaper/testpaper.wxss */
+
+.paper_centre {
+  font-size: 30rpx;
+}
+
+.paper_centre .navbar {
+  height: 80rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  line-height: 80rpx;
+  border-bottom: solid 1rpx #ddd;
+}
+
+.navbar view {
+  flex: 1;
+  height: 100%;
+}
+
+.navbar .down {
+  height: 15rpx;
+  width: 15rpx;
+  background: #ddd;
+  transform: rotate(45deg);
+  display: inline-block;
+  margin: auto 10rpx;
+}
+
+.paper_centre .modle {
+  position: fixed;
+  top: 81rpx;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+.modle .content {
+  height: 20%;
+  background: #eee;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  text-align: center;
+}
+
+.content .item {
+  width: 50%;
+}
+
+.item view {
+  border: solid 1rpx #ddd;
+  border-radius: 10rpx;
+  padding: 10rpx 60rpx;
+  margin:15rpx 20rpx ;
+  background: #f9f9f9;
+}
+
+.modle .mark {
+  height: 80%;
+  background: #000;
+  opacity: 0.2;
+}
+
+.paper_centre .paper_list {
+  /* padding-top: 80rpx; */
+}
+
+.paper_list .paper {
+  display: flex;
+  align-items: center;
+  padding: 40rpx 30rpx;
+  border-bottom: solid 1rpx #ddd;
+}
+
+.paper .tag {
+  margin-right: 20rpx;
+  font-size: 15rpx;
+  padding: 0 5rpx;
+  background: red;
+  color: white;
+}
+
+.paper .title {
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+.paper .icon {
+  width: 15rpx;
+  height: 15rpx;
+  border-right: solid 5rpx #ddd;
+  border-top: solid 5rpx #ddd;
+  transform: rotate(45deg);
+}

@@ -1,0 +1,11 @@
+<template name="detail_swipe">
+      <view class="fui-swipe goods-swipe">
+            <swiper indicator-dots="true" autoplay="true" indicator-color="rgba(255,255,255,{{item.style.opacity}})" indicator-active-color="rgba(0,0,0,{{item.style.opacity}})" style="height:700rpx;background:#fff;">
+                  <block wx:for="{{goods.thumbs}}" wx:for-item="img" wx:key="">
+                        <swiper-item>
+                              <image src="https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{img}}" style="display:block;width:100%;height:700rpx;"></image>
+                        </swiper-item>
+                  </block>
+            </swiper>
+      </view>
+</template>

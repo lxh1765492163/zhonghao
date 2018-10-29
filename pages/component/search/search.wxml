@@ -1,0 +1,22 @@
+<template name="search">
+    <view style="width: 100%;height: auto;">
+      <view class="jui-search" style="background:{{item.style.background}};padding: {{item.style.paddingtop}}rpx {{item.style.paddingleft}}rpx;">
+
+      <!-- <view class="searchbar" style="background:{{item.style.background}};padding:{{item.style.paddingtop}}px {{item.style.paddingleft}}px;">
+        <view style="position:relative;left:0;top:0;">
+          <button class="searchbar-cancel searchbtn" type="text" style="top:0;right:0;">搜索</button>
+          <view class="search-input {{item.style.searchstyle}}" style="background:{{item.style.inputbackground}};">
+            <text class="icon icon-search" style="color:{{item.style.iconcolor}};"></text>
+            <input type="text" class="search" catchblur="searchSubmit" placeholder="{{item.params.placeholder}}" style="text-align:{{item.style.textalign}};color:{{item.style.color}};background:none;" />
+          </view>
+        </view>
+      </view> -->
+          <navigator class="{{item.style.searchstyle}}" style="width: 100%;height: 100%;background: {{item.style.inputbackground}};">
+              <view class="search-icon">
+                 <text class="icon icon-search" style="color:{{item.style.iconcolor}};font-size: 38rpx;"></text>
+              </view>
+            <input type="text" class="search" catchblur="searchSubmit" placeholder="{{item.params.placeholder}}" style="text-align:{{item.style.textalign}};color:{{item.style.color}};background:none;font-size:30rpx;padding-top:16rpx;padding-left:12rpx;" />
+          </navigator>
+      </view>
+    </view>
+</template>

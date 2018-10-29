@@ -1,0 +1,66 @@
+.userinfo_com{
+    width: 96%;
+    padding: 20rpx 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 30rpx;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.userinfo_com .userImg{
+    width: 17%;
+    height: auto;
+    overflow: hidden;
+}
+
+.userinfo_com .userImg image{
+    width: 105rpx;
+    height: 105rpx;
+    display: block;
+    border-radius: 50%;
+}
+
+.userinfo_com .userInfo{
+    width: 83%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    padding-top: 10rpx;
+}
+
+.userinfo_com .userInfo .nick{
+    overflow: hidden;
+}
+
+.userinfo_com .userInfo .nick text{
+    display: inline-block;
+    width: auto;
+    margin-right: 10rpx;
+    text-align: center;
+}
+
+.userinfo_com .userInfo .nick .name{
+    font-size: 32rpx;
+}
+
+.userinfo_com .userInfo .nick .mark{
+    padding: 3rpx 8rpx;
+    background: #eeeeee;
+}
+
+.userinfo_com .userInfo .signature{
+    margin-top: 8rpx;
+    color: #666;
+}
+
+.userinfo_com .arrow{
+    position: absolute;
+    width: 34rpx;
+    height: 34rpx;
+    top: 50%;
+    right: 20rpx;
+    margin-top: -17rpx;
+}

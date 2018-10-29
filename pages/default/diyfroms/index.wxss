@@ -1,0 +1,4 @@
+/* pages/default/diyfroms/index.wxss */
+picker{
+  width:400rpx;
+}

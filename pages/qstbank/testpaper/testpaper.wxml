@@ -1,0 +1,30 @@
+<!--pages/testpaper/testpaper.wxml-->
+<view class='paper_centre'>
+  <!-- <view class='navbar'>
+     <view data-cid='0' style="color:{{cid==0?'#409AFF':''}}" bindtap='getmodle'>分类
+      <text class='down' style="background:{{cid==0?'#409AFF':'#ddd'}}"></text>
+    </view> 
+     <view style="color:{{ismodle?'#409AFF':''}}" bindtap='getmodle'>模式
+      <text class='down' style="background:{{ismodle?'#409AFF':'#ddd'}}"></text>
+    </view> 
+  </view> -->
+  <view class='modle' style="display:{{!ismodle?'none':''}}">
+    <view class='content'>
+      <block wx:for="{{menu}}" wx:key="">
+        <view class='item'>
+          <view style="color:{{sid==index?'#409AFF':''}};border-color:{{sid==index?'#409AFF':'#ddd'}}" data-sid="{{index}}" bindtap='changesid'>{{item.text}}</view>
+        </view>
+      </block>
+    </view>
+    <view class='mark' bindtap='hidemodle'></view>
+  </view>
+  <view class='paper_list'>
+    <block wx:for="{{chapter}}" wx:key="">
+      <view class='paper' bindtap='gettest' data-id="{{item.id}}" data-title="{{item.name}}" data-pay="{{item.pay}}">
+        <view class='tag' wx:if="{{item.isnew==1}}">NEW</view>
+        <view class='title'>{{item.name}}</view>
+        <view class='icon'></view>
+      </view>
+    </block>
+  </view>
+</view>

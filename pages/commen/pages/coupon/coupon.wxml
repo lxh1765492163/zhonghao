@@ -1,0 +1,112 @@
+<!--zh_jd/pages/coupon/coupon.wxml-->
+<view class='container fon'>
+  <view class='header rel'>
+    <view class='background ab' style="background:{{color}}"></view>
+    <view class='option rel'>
+      <view class='option_son ab udlr'>
+        <view class="{{selected_effective?'effective':'default'}}" bindtap='selected_effective'>有效</view>
+        <view class="{{selected_already?'effective':'default'}}" bindtap='selected_already'>已使用</view>
+        <view class="{{selected_overdue?'effective':'default'}}" bindtap='selected_overdue'>已过期</view>
+      </view>
+    </view>
+  </view>
+  <view class='users' wx:if="{{hotel_id!=null}}" bindtap='not_user'>不使用优惠券</view>
+  <view class="body {{selected_effective?'show':'hidden'}}">
+    <view class="coupons">
+      <!--没有领取  -->
+      <view class='coupons_son rel' bindtap='receive' wx:for="{{unreceive}}" id="{{item.id}}" wx:key="{{item.value}}">
+        <view class='son_left rel'>
+          <view class='ab'></view>
+          <view class='ab'></view>
+          <view class='ab'>{{item.preferential}}</view>
+        </view>
+        <view class='son_right rel'>
+          <view class='ab'>{{item.name}}</view>
+          <view class='ab'>{{item.start_time}}到{{item.end_time}}</view>
+        </view>
+        <!-- <view class='butt'></view> -->
+        <view class='ab not_user'>未领取</view>
+      </view>
+      <!--已经领取  -->
+      <block wx:for="{{received}}" >
+<view class='coupons_son rel' wx:if="{{item.state==2}}" bindtap='coupon' data-id="{{item.id}}" id="{{item.seller_id}}" wx:key="{{item.value}}">
+        <view class='son_left rel'>
+          <view class='ab'></view>
+          <view class='ab'></view>
+          <view class='ab'>{{item.preferential}}</view>
+        </view>
+        <view class='son_right rel'>
+          <view class='ab'>{{item.name}}</view>
+          <view class='ab'>{{item.start_time}}到{{item.end_time}}</view>
+        </view>
+        <view class='ab not_user'>
+          <view wx:if="{{hotel_id==null}}">已领取</view>
+          <view wx:else>
+            <view wx:if="{{hotel_id==item.seller_id}}" data-cid='{{hotel_id}}' data-sid='{{item.seller_id}}'>可以使用</view>
+            <view wx:else style='background:#ccc'>无法使用</view>
+          </view>
+
+        </view>
+      </view>
+      </block>
+      
+      <!--暂无优惠券  -->
+      <view class='none_coupon rel' wx:if="{{len==0}}">
+        <view class='ab udlr'>
+          <image mode='widFix' class='ab lr' src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/fotel.png"></image>
+          <view class='ab'>暂无可用的优惠券</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="body {{selected_already?'show':'hidden'}}">
+    <view class="coupons">
+      <view class='coupons_son rel' wx:for="{{arr}}" wx:key="{{item.value}}" wx:if="{{arr!=null||arr!=''}}">
+        <view class='son_left rel'>
+          <view class='ab'></view>
+          <view class='ab'></view>
+          <view class='ab'>{{item.preferential}}</view>
+        </view>
+        <view class='son_right rel'>
+          <view class='ab'>优惠券</view>
+          <view class='ab'>{{item.start_time}}到{{item.end_time}}</view>
+        </view>
+        <view class='ab not_user'>
+          <view style='background:#ccc'>已使用</view>
+        </view>
+      </view>
+
+      <view class='none_coupon rel' wx:if="{{arr==null||arr==''}}">
+        <view class='ab udlr'>
+          <image mode='widFix' class='ab lr' src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/fotel.png"></image>
+          <view class='ab'>暂无已使用的优惠券</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="body {{selected_overdue?'show':'hidden'}}">
+    <view class="coupons">
+      <view class='coupons_son rel' wx:for="{{overdue}}" wx:if="{{overdue!=null||overdue!=''||overdue.length>=1}}">
+        <view class='son_left rel'>
+          <view class='ab'></view>
+          <view class='ab'></view>
+          <view class='ab'>{{item.conditions}}</view>
+        </view>
+        <view class='son_right rel'>
+          <view class='ab'>{{item.name}}</view>
+          <view class='ab'>{{item.start_time}}到{{item.end_time}}</view>
+        </view>
+        <view class='ab not_user'>
+          <view style='background:#ccc'>已过期</view>
+        </view>
+      </view>
+
+      <view class='none_coupon rel' wx:if="{{overdue==null||overdue==''||overdue.length==0}}">
+        <view class='ab udlr'>
+          <image mode='widFix' class='ab lr' src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/fotel.png"></image>
+          <view class='ab'>暂无过期的优惠券</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

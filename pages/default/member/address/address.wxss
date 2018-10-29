@@ -1,0 +1,24 @@
+button::after{
+    content: none;
+}
+
+.address-item .title {
+  font-size: 1rem;
+}
+
+.address-item .address {
+  font-size: .8rem;
+}
+
+.checkbox-inline, .radio-inline {
+  padding-left: 0;
+  font-size: .8rem;
+}
+
+.checkbox-inline, .radio-inline icon {
+  vertical-align: sub;
+}
+
+.fui-navbar .nav-item.btn {
+  font-size: 1rem;
+}

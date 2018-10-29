@@ -1,0 +1,41 @@
+<template name="fixedsearch">
+    <view class="jui-fixedsearch">
+        <view class="fixedsearch" style="background:{{item.style.background}};opacity:{{item.style.opacity}};">
+            <view class="icons-left" wx:if="{{item.params.leftnav > 0}}">
+                <text wx:if="{{item.params.leftnav == '1' && item.params.leftnavicon != ''}}" class="icon {{item.params.leftnavicon}}" style="color:{{item.style.leftnavcolor != '' ? item.style.leftnavcolor : '#fff'}};font-size: 20px;"></text>
+                <image wx:if="{{item.params.leftnav == '2' && item.params.leftnavimg != ''}}" src="http://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{item.params.leftnavimg}}" />
+                <picker class="myaddress" mode="region" bindchange="bindRegionChange" value="{{location}}" custom-item="{{customItem}}">
+                  <text class="myaddress">{{location}}</text>
+                </picker>
+            </view>
+            <view class="searchinput">
+                <navigator url="/pages/default/goods/list/list" style="width: 100%;height: 100%;">
+                    <view class="inputfull {{item.params.searchstyle}}" style="background: {{item.style.searchbackground}};color: {{item.style.searchtextcolor}};opacity:{{item.style.opacityinput}};">{{item.params.placeholder}}</view>
+                </navigator>
+            </view>
+            <view class="icons-right" data-link="{{item.params.rightnavlink}}">
+                <text wx:if="{{item.params.rightnav == 1 && item.params.rightnavicon != ''}}" class="icon {{item.params.rightnavicon}}" style="color:{{item.style.rightnavcolor != '' ? item.style.rightnavcolor : '#fff'}};font-size: 20px;"></text>
+                <image wx:if="{{item.params.rightnav == 2 && item.params.rightnavimg != ''}}" src="http://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{item.params.rightnavimg}}"></image>
+            </view>
+        <!-- <form bindsubmit="formSubmit">
+          <view class="inner">
+           
+            <navigator wx:if="{{item.params.leftnav > 0}}" url="/pages/custom/switchcity/switchcity" class="leftnav">
+              <text wx:if="{{item.params.leftnav == 1 && item.params.leftnavicon != ''}}" class="icon {{item.params.leftnavicon}}" style="color:{{item.style.leftnavcolor != '' ? item.style.leftnavcolor : '#fff'}};"></text>
+              <image wx:if="{{item.params.leftnav == 2 && item.params.leftnavimg != ''}}" src="{{item.params.leftnavimg}}"></image>
+            </navigator>
+            <view wx:if="{{location != ''}}" class="leftnav" catchtap="selectCity" style="color:{{item.style.locationtextcolor}};font-size:.75rem;max-width:50px;overflow:hidden;">{{location.set_city && location.set_city != '' ? location.set_city : location.province}} <text class="icon icon-unfold1" style="font-size:.7rem;"></text></view>
+          
+            <view class="center {{item.params.searchstyle}}">
+              <input name="keywords" type="text" placeholder="{{item.params.placeholder}}" style="color:{{item.style.searchtextcolor}};background:{{item.style.searchbackground}};opacity: {{item.style.opacityinput}}" placeholder-style="color:{{item.style.searchtextcolor}};" />
+            </view>
+            <button class="rightnav" form-type="submit">
+              <text wx:if="{{item.params.rightnav == 1 && item.params.rightnavicon != ''}}" class="icon {{item.params.rightnavicon}}" style="color:{{item.style.rightnavcolor != '' ? item.style.rightnavcolor : '#fff'}};"></text>
+              <image wx:if="{{item.params.rightnav == 2 && item.params.rightnavimg != ''}}" src="{{item.params.rightnavimg}}"></image>
+            </button>
+          </view>
+        </form> -->
+        </view>
+    <view style="width: 100%;height: 109rpx;"></view>
+    </view>
+</template>

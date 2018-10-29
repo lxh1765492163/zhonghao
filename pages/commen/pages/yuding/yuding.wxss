@@ -1,0 +1,87 @@
+/* pages/yuding/yuding.wxss */
+.tab1{
+  height: auto;
+  width: auto;
+  border: 1px solid #333;
+}
+.tab{
+  width: 100rpx;
+  height: 100rpx;
+  border: 1px solid red;
+}
+page{
+  background-color: #F9F9F9;
+}
+.yuding_banner{
+  height: 500rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.yuding_banner1{
+  font-size: 46rpx;
+  margin-top: 50rpx;
+  margin-left: 20rpx;
+  font-weight: bold;
+}
+.yuding_banner2{
+  border: 1rpx solid #E0E0E0;
+  border-radius: 5rpx;
+  margin: 30rpx;
+  position: relative;
+  padding: 30rpx;
+  background-color: white;
+}
+.code{
+  position: absolute;
+  right: 20rpx;
+  top: 10rpx;
+  width: 170rpx;
+  height: 170rpx;
+  overflow: hidden;
+}
+.yuding_content{
+  font-size: 30rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+.yuding_text{
+  font-size: 26rpx;
+  color: #999;
+}
+.yuding_ding{
+  border-top: 1rpx solid #E0E0E0;
+  margin-top:25rpx;
+  font-size: 30rpx;
+  display: flex;
+  padding-top: 25rpx;
+  justify-content: space-between;
+}
+.yuding_ding1{color: #333;}
+.yuding_ding2{color: #EB5E18;}
+.yuding_fanhui{
+  color: #EB5E18;
+  font-size: 30rpx;
+  text-align: center;
+  border: 1rpx solid #E0E0E0;
+  margin: 0rpx 30rpx;
+  border-radius: 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: white;
+}
+.yuding_footer{
+  width: 90%;
+  font-size: 26rpx;
+  color: #999;
+  padding: 35rpx;
+  position: fixed;
+  bottom: 0rpx;
+}
+.yuding_footer1{
+
+  width: 100%;
+  text-align: center;
+}
+

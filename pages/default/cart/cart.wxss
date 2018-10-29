@@ -1,0 +1,2 @@
+/* pages/default/cart/cart.wxss */
+@import '../diymenu/diymenu.wxss';

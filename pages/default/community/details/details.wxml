@@ -1,0 +1,77 @@
+<!--pages/community/details/details.wxml-->
+<import src="../../../../vendor/wxParse/wxParse.wxml" />
+<view class='body'>
+    <view class='banner'>
+        <image class='background' src='{{banner.banner}}'></image>
+        <view class='imformation'>
+            <image src='{{banner.logo}}'></image>
+            <view class='newsletter'>
+                <text>{{banner.title}}</text>
+                <text decode='true' style='font-size: 26rpx;'>话题&nbsp;{{datas.topic}}&nbsp;&nbsp;</text>
+            </view>
+            <view class='space'></view>
+        </view>
+    </view>
+    <view class='content'>
+        <view class='navGroup'>
+            <navigator class='nav' hover-class='none' url=''>
+                <image src='{{item.icon}}'></image>
+                <text>首页</text>
+            </navigator>
+            <navigator class='nav' hover-class='none' url='/pages/default/community/details/cream/cream?id={{id}}'>
+                <image src='{{item.icon}}'></image>
+                <text>精华区</text>
+            </navigator>
+            <navigator class='nav' hover-class='none' url='/pages/default/community/relevant/relevant?id={{id}}'>
+                <image src='{{item.icon}}'></image>
+                <text>相关板块</text>
+            </navigator>
+        </view>
+        <view class='topThemeGroup'>
+            <navigator class='topTheme' wx:for='{{topTheme}}' wx:for-item="tops" wx:key="" url='/pages/default/community/topicdetail/index?pid={{id}}&id={{tops.id}}'>
+                <text wx:if="{{tops.istop == 1 && tops.isboardtop==1}}" style='padding: 0 15rpx 3rpx; background:#ff8c00; color:#fff;'>置顶</text>
+                
+                <text>{{tops.title}}</text>
+                <view class='space'></view>
+                <image src='{{rightUrl}}' style='height: 30rpx; width: 30rpx;'></image>
+            </navigator>
+        </view>
+        <view class='ThemeGroup'>
+            <view class='theme' wx:for='{{theme}}' wx:for-item="item" wx:key="">
+                <!-- <navigator url='/pages/default/community/topicdetail/index?pid={{id}}&id={{item.id}}'> -->
+                    <view class='themeAuthor'>
+                        <image src='{{member.avatar}}'></image>
+                        <text>{{member.nickname}}</text>
+                        <text>{{item.createtime}}</text>
+                    </view>
+                    <navigator url='/pages/default/community/topicdetail/index?pid={{id}}&id={{item.id}}' class='themeTitle'>
+                        <text wx:if="{{item.isboardbest == 1 && item.isbest ==1 }}" style='padding: 5rpx 10rpx; font-size: 28rpx; background: #ff8c00;color:#fff;'>精</text>
+                        <text>{{item.title}}</text>
+                    </navigator>
+                    <view class='themeContent'>
+                        <navigator url='/pages/default/community/topicdetail/index?pid={{id}}&id={{item.id}}'>{{item.content}}</navigator>
+                        <view style="width:100%;" wx:if="{{item.images != 'http://xcx.xcwll.cn/attachment/'}}">
+                            <block wx:for="{{item.images}}" wx:for-item="img" wx:key="">
+
+                                <image bindtap="openimage"  data-src="{{img}}" src='{{img}}' style='width:33%;height:200rpx;float:left;'></image>
+                            </block>
+                        </view>
+                    </view>
+                <!-- </navigator> -->
+                <view class='interaction' style="width:95%">
+                    <navigator url='/pages/default/community/topicdetail/index?pid={{id}}&id={{item.id}}'>
+                        <image style="float:left;margin-top:6rpx" class='icon' src='{{icon}}'></image>
+                        <text style="padding-left:10rpx;">({{item.postcount}})</text>
+                    </navigator>
+                    <view bindtap='praise' data-cid='{{item.id}}'>
+                        <image class='icon' style="width:60rpx;height:60rpx;float:left;margin-top:-4rpx;" src='{{icon2}}'></image>
+                        <text wx:if="{{good}}">({{good}})</text>
+                        <text wx:else>({{item.goodcount}})</text>
+                    </view>
+                    <navigator hover-class='none' url='/pages/default/community/topicdetail/index?pid={{id}}&id={{item.id}}'>投诉</navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+    <image class='newBuild' src='{{icon}}' bindtap='jumptopic'></image>
+</view>

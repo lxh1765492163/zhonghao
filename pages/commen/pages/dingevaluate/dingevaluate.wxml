@@ -1,0 +1,38 @@
+<!--dingevaluate.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="dingevaluate1 font">
+    <view class="dingevaluate">
+      <image src="{{avatarUrl}}" class="dingimg"></image>
+      <view class="dingtext">描述相符</view>
+      <block wx:for="{{stars}}">
+        <image class="star-image" style="left: {{item*50}}rpx" src="{{key > item ?(key-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+          <view class="item" style="left:0rpx" data-key="{{item+1}}" bindtap="selectLeft"></view>
+        </image>
+      </block>
+      <view wx:if="{{count>=0}}" class="dingtext1">{{count}}分</view>
+    </view>
+    <view class="dingyi">
+      <textarea class="dingtext2" name="text" placeholder="请输入您宝贵的意见" />
+      <!-- <view class='getimg'>
+        <view class="dingyi1 image_width" bindtap='choose'>
+          <image src="../../images/xiangji@2x.png" class="dingyi_icon"></image>
+          <view class="dingyi3">添加图片</view>
+        </view>
+        <view class='image image_width'>
+          <image src="{{avatarUrl1}}"></image>
+        </view>
+        <view class='image image_width'>
+          <image src="{{avatarUrl2}}"></image>
+        </view>
+        <view class='image image_width'>
+          <image src="{{avatarUrl3}}"></image>
+        </view>
+        <view class='image image_width'>
+          <image src="{{avatarUrl4}}"></image>
+        </view>
+      </view> -->
+
+    </view>
+    <button class="ding_fabu" formType="submit" bindtap='payment'>发布</button>
+  </view>
+</form>

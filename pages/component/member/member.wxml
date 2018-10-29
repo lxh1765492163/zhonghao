@@ -1,0 +1,62 @@
+<template name="member">
+  <view wx:if="{{item.params.style == '' || item.params.style == 'default1'}}" style='position:relative;height:160px'>
+    <view class='mark' style='width: 100%; height: 100%; background: {{item.style.background?item.style.background:"#fd5555"}}; position: absolute; top:0; left:0;'></view>
+    <view class='backgroundimage' style='width: 100%; height: 100%; overflow: hidden; position: absolute; top:0; left:0; z-index: 2;opacity: 0.8'>
+      <image animation="{{animationData}}" src='{{userInfo.avatarUrl}}' style='width: 100%; margin-top: -10px; ' mode='widthFixs'></image>
+    </view>
+    <navigator wx:if="{{item.params.seticon!=''}}" url="{{item.params.setlink&&item.params.setlink!=''?item.params.setlink:'/pages/default/member/info/info'}}" class="setbtn" style="color:{{item.style.textcolor}}; ">
+      <text class="icon {{item.params.seticon}}"></text>
+    </navigator>
+    <view class="headinfo">
+      <view class="child">
+        <view class="title" style="color:{{item.style.textcolor}};">余额</view>
+        <view class="num" style="color:{{item.style.textlight}};">{{item.info.money!=''?item.info.money:'0.00'}}</view>
+        <navigator wx:if="{{item.params.leftnav}}" class="btn" url="{{item.params.leftnavlink&&item.params.leftnavlink!=''?item.params.leftnavlink:'/pages/default/member/recharge/recharge'}}" style="color:{{item.style.textcolor}};background:rgba(253, 85, 85, 0.7);">
+          {{item.params.leftnav}}
+        </navigator>
+      </view>
+      <view class="child userinfo" style="color:{{item.style.textcolor}};">
+        <view class="face {{item.style.headstyle}}">
+          <image src="{{userInfo.avatarUrl}}" mode="widthFix" style="width:154rpx;height:154rpx;"></image>
+        </view>
+        <view class="name">{{userInfo.nickName}}</view>
+        <navigator class="level" url='{{item.params.levellink}}'>{{item.info.levelname}}
+          <text wx:if="{{item.params.levellink}}" class="icon icon-question1" style="font-size:.6rem;"></text>
+        </navigator>
+      </view>
+      <view class="child">
+        <view class="title" style="color:{{item.style.textcolor}};">积分</view>
+        <view class="num" style="color:{{item.style.textlight}};">{{item.info.credit!=''?item.info.credit:'0.00'}}</view>
+        <navigator wx:if="{{item.params.rightnav}}" url="{{item.params.rightnavlink&&item.params.rightnavlink!=''?item.params.rightnavlink:'/pages/default/integralmall/index/index'}}" class="btn" style="color:{{item.style.textcolor}};border-color:{{item.style.textcolor}};background:rgba(253, 85, 85, 0.7);">
+          {{item.params.rightnav}}
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{item.params.style == 'default2'}}" style='position:relative;height:130px'>
+    <view class='mark' style='width: 100%; height: 100%;  background: {{item.style.background?item.style.background:"#fe5455"}}; position: absolute; top:0; left:0;'></view>
+    <view class='backgroundimage' style='width: 100%; height: 100%; overflow: hidden; position: absolute; top:0; left:0; z-index: 2;opacity: 0.8'>
+      <image animation="{{animationData}}" src='{{userInfo.avatarUrl}}' style='width: 100%; margin-top: -10px; ' mode='widthFixs'></image>
+    </view>
+    <view class="headinfo style-2">
+      <view wx:if="{{item.params.seticon != ''}}" class="setbtn" style="color:{{item.style.textcolor}};">
+        <text class="icon {{item.params.seticon}}"></text>
+      </view>
+      <view class="face {{item.style.headstyle}}">
+        <image src="{{userInfo.avatarUrl}}" mode="widthFix" style="width:70px;height:70px;"></image>
+      </view>
+      <view class="inner" style="color:{{item.style.textcolor}};">
+        <view class="name">{{userInfo.nickName}}</view>
+        <navigator class="level" url='{{item.params.levellink}}'>{{item.info.levelname}}
+          <text wx:if="{{item.params.levellink}}" class="icon icon-question1" style="font-size:.6rem;color:{{item.style.textcolor}};"></text>
+        </navigator>
+        <view class="credit">余额:
+          <text class="color:{{item.style.textlight}};">{{item.info.money}}</text>
+        </view>
+        <view class="credit">积分:
+          <text class="color:{{item.style.textlight}};">{{item.info.credit}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

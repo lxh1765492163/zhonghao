@@ -1,0 +1,3 @@
+<template name="blank">
+  <view class="fui-blank" style="height:{{item.style.height}}px;background:{{item.style.background}};"></view>
+</template>

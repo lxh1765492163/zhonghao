@@ -1,0 +1,58 @@
+/* pages/default/integralmall/order/detail/detail.wxss */
+
+.order_detail {
+      font-size: 35rpx;
+}
+
+.order_detail .state {
+      background: #ff9326;
+      padding: 0 20rpx;
+      color: white;
+      margin-bottom: 20rpx;
+      display: flex;
+      align-items: center;
+}
+
+.order_detail .state .tip {
+      font-size: 40rpx;
+      font-weight: bold;
+}
+
+.order_detail .address {
+      padding: 20rpx 20rpx;
+      margin-bottom: 20rpx;
+      border-top: solid 1rpx #ddd;
+      border-bottom: solid 1rpx #ddd;
+      display: flex;
+      align-items: center;
+}
+
+.order_detail .goods_detail {
+      padding: 20rpx 20rpx;
+      margin-bottom: 20rpx;
+      border-top: solid 1rpx #ddd;
+      border-bottom: solid 1rpx #ddd;
+}
+
+.order_detail .goods_detail .shop {
+      margin-bottom: 20rpx;
+      font-size: 30rpx;
+}
+
+.order_detail .sale {
+      padding: 10rpx 20rpx;
+      border-top: solid 1rpx #ddd;
+      border-bottom: solid 1rpx #ddd;
+      margin-bottom: 20rpx;
+}
+
+.order_detail .sale .right {
+      float: right;
+}
+
+.order_detail .order_info {
+      color: #666;
+      border-top: solid 1rpx #ddd;
+      border-bottom: solid 1rpx #ddd;
+      padding: 30rpx 20rpx;
+}

@@ -1,0 +1,9 @@
+/* index.wxss */
+@import '../../diymenu/diymenu.wxss';
+@import '../../../component/memberc/memberc.wxss';
+@import '../../../component/blockgroup/blockgroup.wxss';
+
+/* index.wxss */
+@import '../../diymenu/diymenu.wxss';
+@import '../../../component/memberc/memberc.wxss';
+@import '../../../component/blockgroup/blockgroup.wxss';

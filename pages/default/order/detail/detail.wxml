@@ -1,0 +1,497 @@
+<view class="fui-page order-detail-page">
+    <view class="fui-content navbar">
+        <view class="fui-list-group result-list" style="margin-top:0;">
+            <view class="fui-list order-status">
+                <view class="fui-list-inner">
+                    <view class="title">
+                        <block wx:if="{{!items.order.status}}">
+                            {{items.order.paytype == 3 ? '货到付款，等待发货' : '等待付款'}}
+                        </block>
+                        <block wx:elif="{{items.order.status == 1}}">
+                            {{items.order.sendtype > 0 ? '部分商品已发货' : '买家已付款'}}
+                            <block wx:if="{{items.order.ccard}}">(充值中)</block>
+                        </block>
+                        <block wx:elif="{{items.order.status == 2}}">
+                            卖家已发货
+                        </block>
+                        <block wx:elif="{{items.order.status == 3}}">
+                            交易完成
+                            <block wx:if="{{items.order.ccard}}">(充值完成)</block>
+                        </block>
+                        <block wx:elif="{{items.order.status == -1}}">
+                            交易关闭
+                            <block wx:if="{{items.order.refundstate > 0}}">
+                                ({{items.order.status == 1 ? '申请退款' : '申请售后'}}中)
+                            </block>
+                        </block>
+                    </view>
+                    <view class="text">订单金额(含运费): ￥ {{items.order.price}}</view>
+                </view>
+                <view class="fui-list-media" style="color:#fff;">
+                    <block wx:if="{{!items.order.status}}">
+                        <view wx:if="{{items.order.paytype == 3}}" class="icon icon-deliver"></view>
+                        <view wx:else class="icon icon-information"></view>
+                    </block>
+                    <block wx:elif="{{items.order.status == 1}}">
+                        <view class="icon icon-money"></view>
+                    </block>
+                    <block wx:elif="{{items.order.status == 2}}">
+                        <view class="icon icon-deliver"></view>
+                    </block>
+                    <block wx:elif="{{items.order.status == 3}}">
+                        <view class="icon icon-check"></view>
+                    </block>
+                    <block wx:elif="{{items.order.status == -1}}">
+                        <view class="icon icon-roundclose"></view>
+                    </block>
+                </view>
+            </view>
+        </view>
+
+        <block wx:if="{{items.address}}">
+            <view class="fui-list-group" style="margin-top:5px;">
+                <block wx:if="{{items.order.status > 1 && items.order.sendtype == 0}}">
+                    <navigator url="/pages/default/order/express/express?id={{items.order.id}}">
+                        <view class="fui-list">
+                            <view class="fui-list-media">
+                                <text class="icon icon-deliver"></text>
+                            </view>
+                            <view class="fui-list-inner">
+                                <block wx:if="{{!items.express}}">
+                                    <view class="text">
+                                        <text>快递公司:{{items.order.expresscom}}</text>
+                                    </view>
+                                    <view class="text">
+                                        <text>快递单号:{{items.order.expresssn}}</text>
+                                    </view>
+                                </block>
+                                <block wx:else>
+                                    <view class="text">
+                                        <text class="{{items.is_get == 1 ? 'text-danger' : ''}}">{{items.express.step}}</text>
+                                    </view>
+                                    <view class="text">
+                                        <text class="{{items.is_get == 1 ? 'text-danger' : ''}}">{{items.express.time}}</text>
+                                    </view>
+                                </block>
+                            </view>
+                            <view class="fui-list-angle">
+                                <text class="angle"></text>
+                            </view>
+                        </view>
+                    </navigator>
+                </block>
+
+                <block wx:if="{{items.order.status > 0 && items.order.sendtype > 0 && items.order_goods}}">
+                    <block wx:for="{{items.order_goods}}" wx:for-index="idx" wx:for-item="val" wx:key="">
+                        <navigator url="/pages/default/order/express/express?id={{val.orderid}}&sendtype={{val.sendtype}}&bundle={{val.chr}}">
+                            <view class="fui-list">
+                                <view class="fui-list-media" style="font-size:.6rem;display:block;text-align:center;">
+                                    <text class="icon icon-deliver" style="font-size:20px;"></text>
+                                    <view>包裹{{val.chr}}</view>
+                                </view>
+                                <view class="fui-list-inner">
+                                    <block wx:if="{{!items.express}}">
+                                        <view class="text">
+                                            <text>快递公司:{{val.expresscom ? val.expresscom : '其他快递'}}</text>
+                                        </view>
+                                        <view class="text">
+                                            <text>快递单号:{{val.expresssn}}</text>
+                                        </view>
+                                    </block>
+                                    <block wx:else>
+                                        <view class="text">
+                                            <text class="{{items.is_get == 1 ? 'text-danger' : ''}}">{{items.express.step}}</text>
+                                        </view>
+                                        <view class="text">
+                                            <text class="{{items.is_get == 1 ? 'text-danger' : ''}}">{{items.express.time}}</text>
+                                        </view>
+                                    </block>
+                                </view>
+                                <view class="fui-list-angle">
+                                    <text class="angle"></text>
+                                </view>
+                            </view>
+                        </navigator>
+                    </block>
+                </block>
+
+                <view class="fui-list">
+                    <view class="fui-list-media">
+                        <text class="icon icon-location"></text>
+                    </view>
+                    <view class="fui-list-inner">
+                        <view class="title">{{items.address.realname}} {{items.address.mobile}}</view>
+                        <view class="text">{{items.address.province}}{{items.address.city}}{{items.address.area}} {{items.address.address}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+
+        <block wx:if="{{items.carrier || items.store}}">
+            <view class="fui-list-group" style="margin-top:5px;">
+                <view class="fui-list">
+                    <view class="fui-list-media">
+                        <text class="icon icon-person2"></text>
+                    </view>
+                    <view class="fui-list-inner">
+                        <view class="title">{{items.carrier.carrier_realname}} {{items.carrier.carrier_mobile}}</view>
+                    </view>
+                </view>
+
+                <block wx:if="{{items.store}}">
+                    <view class="fui-list store-item">
+                        <view class="fui-list-media">
+                            <text class="icon icon-shop"></text>
+                        </view>
+                        <view class="fui-list-inner store-inner">
+                            <view class="title">
+                                <text class="storename">{{items.store.storename}}</text>
+                            </view>
+                            <view class="text">
+                                <text class="realname">{{items.realname}}</text>
+                                <text class="mobile">{{items.store.mobile}}</text>
+                            </view>
+                            <view class="text">
+                                <text class="address">{{items.store.address}}</text>
+                            </view>
+                        </view>
+                        <view class="fui-list-angle">
+                            <button wx:if="{{items.store.tel}}" class="external" data-tel="{{items.store.tel}}" catchtap="telPhone">
+                                <text class="icon icon-phone" style="color:green;"></text>
+                            </button>
+                            <navigator url="/pages/default/store/map/map?id={{items.store.id}}&merchid={{items.store.merchid}}" class="external">
+                                <text class="icon icon-location" style="color:#f90;"></text>
+                            </navigator>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </block>
+
+        <view class="fui-list-group goods-list-group">
+            <view class="fui-list-group-title">
+                <text class="icon icon-shop"></text> {{items.shopname.merchname?items.shopname.merchname:items.shopname}}</view>
+            <block wx:for="{{items.goods}}" wx:for-index="idx" wx:for-item="g" wx:key="">
+                <navigator url="/pages/default/goods/detail/detail?id={{g.goodsid}}">
+                    <view class="fui-list goods-list" style="background:#fff;">
+                        <view class="fui-list-media">
+                            <image src="{{g.thumb}}" class="round" mode="widthFix"></image>
+                        </view>
+                        <view class="fui-list-inner">
+                            <view class="text goodstitle">
+                                <text wx:if="{{g.seckill_task}}" class="fui-label fui-label-danger">{{g.seckill_task.tag}}</text>{{g.title}}
+                            </view>
+                            <text wx:if="{{g.status == 2}}" class="fui-label fui-label-danger">赠品</text>
+                            <view wx:if="{{g.optionid}}" class="subtitle">{{g.optiontitle}}</view>
+                        </view>
+                        <view class="fui-list-angle">
+                            <view>￥
+                                <text class="marketprice">{{g.price}}</text>
+                            </view>
+                            <view>x{{g.total}}</view>
+                        </view>
+                    </view>
+                </navigator>
+                <block wx:if="{{g.diyformdata && g.diyformdata != 'false'}}">
+                    <view class="fui-list" style="display:none;">
+                        <view class="fui-list-inner">
+                            <view class="text text-right">
+                                <view class="btn btn-default btn-sm look-diyinfo">查看提交的资料</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="fui-cell-group price-cell-group diyinfo_{{idx}}" style="display:none;">
+                        <block wx:for="{{g.diyformfields}}" wx:for-item="v" wx:key="">
+                            <view class="fui-cell">
+                                <view class="fui-cell-label">{{v.tp_name}}</view>
+                                <view class="fui-cell-info"></view>
+                                <view class="fui-cell-remark noremark"></view>
+                            </view>
+                        </block>
+                    </view>
+                </block>
+            </block>
+        </view>
+        <block wx:if="{{items.order.virtual && items.order.virtual_str}}">
+            <view class="fui-according-group">
+                <view class="fui-according expanded">
+                    <view class="fui-according-header">
+                        <text class="icon icon-productfeatures"></text>
+                        <text class="text">发货信息</text>
+                        <text class="remark"></text>
+                    </view>
+                    <view class="fui-according-content">
+                        <view class="content-block">{{items.order.virtual_str}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:if="{{items.order.isvirtualsend && items.order.virtualsend_info}}">
+            <view class="fui-according-group">
+                <view class="fui-according expanded">
+                    <view class="fui-according-header">
+                        <text class="icon icon-productfeatures"></text>
+                        <text class="text">发货信息</text>
+                        <text class="remark"></text>
+                    </view>
+                    <view class="fui-according-content">
+                        <view class="content-block">{{items.order.virtualsend_info}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+
+        <block wx:if="{{items.order.showverify}}">
+            <view class="fui-according-group verify-container {{items.verifyinfo.length <= 3 ? 'expanded' : ''}}">
+                <view class="fui-according">
+                    <view class="fui-according-header">
+                        <text class="icon icon-list"></text>
+                        <text class="text">{{items.order.dispatchtype ? '自提码' : '消费码'}}</text>
+                        <view class="remark">
+                            <view class="badge">{{items.verifyinfo.length}}</view>
+                        </view>
+                    </view>
+                    <view class="fui-according-content verifycode-container">
+                        <block wx:if="{{items.order.status > 0 || items.order.paytime > 0}}">
+                            <view class="fui-cell-group">
+                                <block wx:for="{{items.verifyinfo}}" wx:for-item="v" wx:key="">
+                                    <view class="fui-cell verify-cell">
+                                        <view class="fui-cell-label" style="width:auto">
+                                            {{v.verifycode}}
+                                        </view>
+                                        <view class='fui-cell-info'></view>
+                                        <view class="fui-cell-remark noremark">
+                                            <block wx:if="{{v.verified}}">
+                                                <view class="fui-label fui-label-danger">已使用</view>
+                                            </block>
+                                            <block wx:elif="{{items.order.verifyendtime > 0 && items.order.verifyendtime < nowTime}}">
+                                                <view class="fui-label fui-label-warning">已过期</view>
+                                            </block>
+                                            <block wx:else>
+                                                <block wx:if="{{items.order.dispatchtype}}">
+                                                    <view class="fui-label fui-label-default">未取货</view>
+                                                </block>
+                                                <block wx:else>
+                                                    <view wx:if="{{items.order.verifytype == 1}}" class="fui-label fui-label-default">剩余{{items.goods[0].total - items.vs.length}} 次</view>
+                                                    <view wx:else class="fui-label fui-label-default">未使用</view>
+                                                </block>
+                                            </block>
+                                        </view>
+                                    </view>
+                                </block>
+                            </view>
+                        </block>
+                        <block wx:else>
+                            <view class="fui-cell-group">
+                                <view class="fui-cell verify-cell">
+                                    <view class="fui-cell-label" style="width:auto;color:#ff0011;">付款后可见!</view>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </block>
+
+        <block wx:if="{{items.stores}}">
+            <view class="fui-according-group">
+                <view class="fui-according">
+                    <view class="fui-according-header">
+                        <text class="icon icon-shop"></text>
+                        <text class="text">适用门店</text>
+                        <view class="remark">
+                            <view class="badge">{{items.stores.length}}</view>
+                        </view>
+                    </view>
+                    <view class="fui-according-content store-container">
+                        <block wx:for="{{items.stores}}" wx:for-item="val" wx:key="">
+                            <view class="fui-list store-item">
+                                <view class="fui-list-media">
+                                    <text class="icon icon-shop"></text>
+                                </view>
+                                <view class="fui-list-inner store-inner">
+                                    <view class="title">
+                                        <text class="storename">{{val.storename}}</text>
+                                    </view>
+                                    <view class="text">
+                                        地址:
+                                        <text class="realname">{{val.address}}</text>
+                                    </view>
+                                    <view class="text">
+                                        电话:
+                                        <text class="address">{{val.tel}}</text>
+                                    </view>
+                                    <view class="text location" style="color:green;display:none;">正在计算距离...</view>
+                                </view>
+                                <view class="fui-list-angle">
+                                    <button wx:if="{{val.tel}}" data-tel="{{val.tel}}" catchtap="telPhone" class="external">
+                                        <text class="icon icon-phone" style="color:green;"></text>
+                                    </button>
+                                    <navigator url="/pages/default/store/map/map?id={{val.id}}&merchid={{val.merchid}}" class="external">
+                                        <text class="icon icon-location" style="color:#f90;"></text>
+                                    </navigator>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </block>
+
+        <view class="fui-cell-group price-cell-group">
+            <view class="fui-cell">
+                <view class="fui-cell-label">商品小计</view>
+                <view class="fui-cell-info">
+                    <text wx:if="{{items.order.ispackage}}" class="text-danger" style="font-size:.6rem;">(套餐总价)</text>
+                </view>
+                <view class="fui-cell-remark noremark">￥ {{items.order.goodsprice}}</view>
+            </view>
+            <view class="fui-cell">
+                <view class="fui-cell-label">运费</view>
+                <view class="fui-cell-info"></view>
+                <view class="fui-cell-remark noremark">￥ {{items.order.dispatchprice}}</view>
+            </view>
+            <block wx:if="{{!items.order.ispackage}}">
+                <view wx:if="{{items.order.deductenough > 0}}" class="fui-cell">
+                    <view class="fui-cell-label">满额立减</view>
+                    <view class="fui-cell-info"></view>
+                    <view class="fui-cell-remark noremark">-￥ {{items.order.deductenough}}</view>
+                </view>
+
+                <view wx:if="{{items.order.couponprice > 0}}" class="fui-cell">
+                    <view class="fui-cell-label" style='width:auto;'>优惠券优惠</view>
+                    <view class="fui-cell-info"></view>
+                    <view class="fui-cell-remark noremark">-￥ {{items.order.couponprice}}</view>
+                </view>
+
+                <view wx:if="{{items.order.buyagainprice > 0}}" class="fui-cell">
+                    <view class="fui-cell-label">重复购买优惠</view>
+                    <view class="fui-cell-info"></view>
+                    <view class="fui-cell-remark noremark">-￥ {{items.order.buyagainprice}}</view>
+                </view>
+
+                <view wx:if="{{items.order.discountprice > 0}}" class="fui-cell">
+                    <view class="fui-cell-label">会员优惠</view>
+                    <view class="fui-cell-info"></view>
+                    <view class="fui-cell-remark noremark">-￥ {{items.order.discountprice}}</view>
+                </view>
+
+                <view wx:if="{{items.order.isdiscountprice > 0}}" class="fui-cell">
+                    <view class="fui-cell-label">促销优惠</view>
+                    <view class="fui-cell-info"></view>
+                    <view class="fui-cell-remark noremark">-￥ {{items.order.isdiscountprice}}</view>
+                </view>
+
+                <view wx:if="{{items.order.deductprice > 0}}" class="fui-cell">
+                    <view class="fui-cell-label">{{items.shopset.trade.credittext}}抵扣</view>
+                    <view class="fui-cell-info"></view>
+                    <view class="fui-cell-remark noremark">-￥ {{items.order.deductprice}}</view>
+                </view>
+
+                <view wx:if="{{items.order.deductcredit2 > 0}}" class="fui-cell">
+                    <view class="fui-cell-label">{{items.shopset.trade.moneytext}}抵扣</view>
+                    <view class="fui-cell-info"></view>
+                    <view class="fui-cell-remark noremark">-￥ {{items.order.deductcredit2}}</view>
+                </view>
+
+                <view wx:if="{{items.order.seckilldiscountprice > 0}}" class="fui-cell">
+                    <view class="fui-cell-label">秒杀优惠</view>
+                    <view class="fui-cell-info"></view>
+                    <view class="fui-cell-remark noremark">-￥ {{items.order.seckilldiscountprice}}</view>
+                </view>
+            </block>
+            <view class="fui-cell">
+                <view class="fui-cell-label" style='width:auto;'>实付费(含运费)</view>
+                <view class="fui-cell-info"></view>
+                <view class="fui-cell-remark noremark">
+                    <view class="text-danger">￥
+                        <text style="font-size:.8rem;">{{items.order.price}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="fui-cell-group info-cell-group" style="table-layout:fixed;">
+            <block wx:if="{{items.order.ccard}}">
+                <block wx:for="{{items.goods}}" wx:for-item="g" wx:key="">
+                    <block wx:if="{{g.ccardexplain}}">
+                        <view class="fui-cell">
+                            <view class="fui-cell-label">充值说明:</view>
+                            <view class="fui-cell-text">{{g.ccardexplain}}</view>
+                        </view>
+                    </block>
+
+                    <block wx:if="{{g.ccardtimeexplain}}">
+                        <view class="fui-cell">
+                            <view class="fui-cell-label">到账时间说明:</view>
+                            <view class="fui-cell-text">{{g.ccardtimeexplain}}</view>
+                        </view>
+                    </block>
+                </block>
+            </block>
+            <view class="fui-cell">
+                <view class="fui-cell-label">订单编号:</view>
+                <view class="fui-cell-info">{{items.order.ordersn}}</view>
+            </view>
+            <view class="fui-cell">
+                <view class="fui-cell-label">创建时间:</view>
+                <view class="fui-cell-info">{{time}}</view>
+            </view>
+            <view wx:if="{{items.order.status >= 1 && items.order.paytime > 0}}" class="fui-cell">
+                <view class="fui-cell-label">支付时间: </view>
+                <view class="fui-cell-info">{{paytime}}</view>
+            </view>
+            <view wx:if="{{items.order.status >= 2 || (items.order.status >= 1 && items.order.sendtype > 0)}}" class="fui-cell">
+                <view class="fui-cell-label">发货时间: </view>
+                <view class="fui-cell-info">{{sendtime}}</view>
+            </view>
+            <view wx:if="{{items.order.status == 3}}" class="fui-cell">
+                <view class="fui-cell-label">完成时间: </view>
+                <view class="fui-cell-info">{{time}}</view>
+            </view>
+        </view>
+
+        <view wx:if="{{items.order_fields && items.order_data}}" class="fui-list-group goods-list-group">
+            <view class="fui-cell-group price-cell-group">
+                <block wx:for="{{items.order_fields}}" wx:for-item="val" wx:key="">
+                    <view class="fui-cell">
+                        <view class="fui-cell-label">{{val.tp_name}}</view>
+                        <view class="fui-cell-info"></view>
+                        <view class="fui-cell-remark noremark"></view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="fui-footer">
+        <block wx:if="{{items.order.userdeleted == 0}}">
+            <block wx:if="{{items.order.status == 0}}">
+                <view class="btn btn-default btn-default-o order-cancel">
+                    <picker bindchange="bindPickerChange" data-orderid="{{item.id}}" value="{{ct}}" range="{{cancelText}}">
+                        <view class="picker">
+                            取消订单 {{cancelText[ct]}}
+                        </view>
+                    </picker>
+                </view>
+                <navigator wx:if="{{items.order.paytype != 3}}" class="btn btn-danger external ml8" url="/pages/default/order/pay/pay?orderid={{items.order.id}}">支付订单</navigator>
+            </block>
+            <block wx:if="{{items.order.canverify && items.order.status != -1 && items.order.status != 0}}">
+                <view class="btn btn-default btn-default-o order-verify ml8">
+                    <text class="icon icon-qrcode"></text>
+                    <text>{{items.order.dispatchtype == 1 ? '我要取货' : '我要使用'}}</text>
+                </view>
+            </block>
+            <block wx:if="{{items.order.status == 3 || items.order.status == -1}}">
+                <button class="btn btn-default btn-default-o order-delete ml8" data-orderid="{{items.order.id}}" data-type="1" catchtap="delOrder" style="overflow:visible;">删除订单</button>
+            </block>
+            <navigator wx:if="{{items.order.status == 3 && items.order.iscomment == 1}}" class="btn btn-default btn-default-o ml8" url="/pages/default/order/comment/comment?id={{items.order.id}}" style="display:none;">追加评价</navigator>
+            <navigator wx:if="{{items.order.status == 3 && items.order.iscomment == 0}}" class="btn btn-default btn-default-o ml8" url="/pages/default/order/comment/comment?id={{items.order.id}}" style="display:none;">评价</navigator>
+            <button wx:if="{{items.order.status == 2}}" class="btn btn-default btn-default-o order-finish ml8" style="overflow:visible;" data-orderid="{{items.order.id}}" bindtap="finish">确认收货</button>
+            <navigator wx:if="{{items.order.refundstate > 0}}" url="/pages/default/order/refund/refund?id={{items.order.id}}&type=2" class="btn btn-warning ml8" style="">{{items.order.refundstate > 0 ? '查看' : ''}}{{items.order.status == 1 ? '申请退款' : '申请售后'}}{{items.order.refundstate > 0 ? '进度' : ''}}</navigator>
+            <button wx:if="{{items.order.refundstate > 0}}" bindtap="removefefund" class="btn btn-default-o btn-cancel" style="overflow:visible;">取消申请</button>
+        </block>
+        <block wx:else>
+            <button class="btn btn-default btn-default-o order-deleted" data-orderid="{{items.order.id}}" data-type="2" catchtap="delOrder">彻底删除订单</button>
+            <button class="btn btn-default btn-default-o order-recover" data-orderid="{{items.order.id}}" data-type="0" catchtap="delOrder">恢复订单</button>
+        </block>
+    </view>
+</view>

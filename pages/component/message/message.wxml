@@ -1,0 +1,14 @@
+<template name="message">
+  <view style='background:white;border:solid 2rpx #76D4C0;border-radius:10rpx;margin:10rpx 30rpx;font-size:35rpx;color:#76D4C0;'>
+    <form bindsubmit='setmessage'>
+      <view  style='margin:10rpx auto;text-align:center;padding:0 0 10rpx;border-bottom:solid 2rpx #76D4C0;position:relative'>我要留言
+      <navigator class='checkmsg' url='/pages/default/message/message' style='position:absolute;right:0;top:0;font-size:25rpx;padding:0rpx 20rpx 10rpx;color:#999'>查看留言<text class='icon icon-right' style='font-size:25rpx'></text></navigator>
+      </view>
+      <view>
+        <textarea type='text' cursor-spacing='150' name="content" value='{{inputvalue}}' style='padding:20rpx;width:90%;margin:0 auto;color:#999;font-szie:30rpx' maxlength='125'></textarea>
+        <view style='color:#ddd;font-size:30rpx;text-align:right;margin:20rpx 30rpx'>最多输入125个字符</view>
+      </view>
+      <button form-type='submit' style='font-size:30rpx;background:#76D4C0;color:white;border-radius:0'>提交</button>
+    </form>
+  </view>
+</template>

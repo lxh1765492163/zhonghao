@@ -1,0 +1,13 @@
+<!--pages/default/sale/gifts/gifts.wxml-->
+<view class='gifts'>
+  <block wx:for="{{data.giftgoods}}" wx:key="">
+    <navigator class='goods' url="/pages/default/goods/detail/detail?id={{item.id}}">
+      <image src='https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{item.thumb}}'></image>
+      <view class='title'>{{item.title}}</view>
+      <view class='price'>
+        <view style='color:red;'>￥{{item.marketprice}}</view>
+        <view>x1</view>
+      </view>
+    </navigator>
+  </block>
+</view>

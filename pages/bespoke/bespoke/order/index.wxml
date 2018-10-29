@@ -1,0 +1,70 @@
+<!--pages/default/bespoke/order/index.wxml-->
+<view class="header">
+    <view class="add_ren" wx:if="{{address==''}}" bindtap="tabjump">添加联系人</view>
+    <view class="address" wx:else bindtap="selectAddress">
+        <view class="left">
+            <view class="name">
+                <text>{{address.name}}</text>
+                <text>{{address.phone}}</text>
+            </view>
+            <view class="add_detail">
+                <text>地址:{{address.province}}{{address.city}}{{address.district}} {{address.address}}</text>
+                <text></text>
+            </view>
+        </view>
+        <view class="right">></view>
+    </view>
+</view>
+<navigator open-type='redirect' url="/pages/default/bespoke/beautician/beautician?id={{id}}" class="shi">
+    <text>{{datas.staff_name}}</text>
+    <text>点击选择{{datas.staff_name}} </text>
+    <text>></text>
+</navigator>
+<view class="content">
+    <view class="xm">预约项目</view>
+    <block wx:for="{{items}}" wx:for-item="item" wx:key>
+
+        <view class="contents">
+            <image src="http://xcx.xcwll.cn/attachment/{{item.goods.photo}}"></image>
+            <view class="content_title">
+                <view class="title">{{item.goods.title}}</view>
+                <view class="stor">
+                    <text>数量:{{item.buy_num}} </text>
+                    <text> {{item.goods.shijian*item.buy_num}}分钟 </text>
+                    <text wx:if="{{item.daojia == 1}}"> 上门服务</text>
+                    <text wx:else> 到店服务</text>
+                </view>
+                <view class="price">￥{{item.buy_price}}</view>
+
+            </view>
+        </view>
+
+    </block>
+    <view class="form">
+        <view class="all">
+            <text>合计:</text>
+            <text>￥{{money}}</text>
+            <text>{{time}}分钟</text>
+        </view>
+        <view class="all">
+            <text>实付金额:</text>
+            <text>￥{{money}}</text>
+        </view>
+        <view class="all">
+            <text>预约{{datas.staff_name}}:</text>
+            <text>{{datas.staff.staff_name}}</text>
+        </view>
+        <view class="all">
+            <text>预约时间:</text>
+            <text>{{datas.select_yuyue_time}}</text>
+        </view>
+        <view class="all">
+            <view class="fui-cell-info">
+                <input name="remark" type="text" maxlength="50" class="fui-input" placeholder="留言(50字以内)" />
+            </view>
+        </view>
+    </view>
+</view>
+<view class="footer">
+    <button class="butt" bindtap="createOrder" size="" type="warn">立即下单</button>
+</view>

@@ -1,0 +1,27 @@
+<!-- <template name="listmenu">
+    <view class="fui-cell-group fui-cell-click" style="margin-top:{{item.style.margintop}};background-color:{{item.style.background}};">
+        <block wx:for="{{item.data}}" wx:for-item="val" wx:key="">
+            <navigator url="{{val.linkurl}}" class="fui-cell">
+                <view wx:if="{{val.iconclass != ''}}" class="fui-cell-icon" style="color:{{item.style.iconcolor}};">
+                <text class="icon {{val.iconclass}}"></text></view>
+                <view class="fui-cell-text" style="color:{{item.style.textcolor}};">{{val.text}}</view>
+                <view class="fui-cell-remark" style="color:{{item.style.remarkcolor}};">
+                    <block wx:if="{{val.dotnum > 0}}"><text class="badge">{{val.dotnum}}</text></block>
+                    <block wx:else>{{val.remark}}</block>
+                </view>
+            </navigator>
+        </block>   
+    </view>
+</template> -->
+
+<template name="listmenu">
+  <view class='jui-cell-group' style="margin-top:{{item.style.margintop}}px;background-color:{{item.style.background}};">
+    <view class="item" wx:for="{{item.data}}" wx:for-item="val" wx:key="">
+      <navigator class='jui-cell' url='{{val.linkurl}}'>
+        <text class="icon {{val.iconclass}} {{val.iconclass == '' ? 'hide':''}}" style="color:{{item.style.iconcolor?item.style.iconcolor:'#d81e06'}};"></text>
+        <text class="jui-cell-text" style="color:{{item.style.textcolor}};">{{val.text}}</text>
+        <text class="jui-cell-remark" style="color:{{item.style.remarkcolor}}">{{val.remark}}</text>
+      </navigator>
+    </view>
+  </view>
+</template>

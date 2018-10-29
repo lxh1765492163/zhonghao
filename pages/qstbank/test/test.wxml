@@ -1,0 +1,146 @@
+<!--pages/test/test.wxml-->
+<view class='test_centre'>
+  <swiper style='height:{{windowHeigh}}px;width:{{windowWidth}}px' current='{{index}}' bindchange="bindchange">
+    <block wx:for="{{test}}" wx:key="" wx:for-item="val" wx:for-index="idx">
+      <swiper-item>
+        <scroll-view scroll-y style='height:100%;'>
+          <view class='content'>
+            <view class='style'>
+              <block wx:if="{{val.type==1}}">多选题({{idx+1}}/{{test.length}})</block>
+              <block wx:if="{{val.type==2}}">单选题({{idx+1}}/{{test.length}})</block>
+              <block wx:if="{{val.type==3}}">判断题({{idx+1}}/{{test.length}})</block>
+              <block wx:if="{{val.type==4}}">问答题({{idx+1}}/{{test.length}})</block>
+              <block wx:if="{{val.type==5}}">配伍题({{idx+1}}/{{test.length}})</block>
+              <block wx:if="{{val.type>5}}">其他({{idx+1}}/{{test.length}})</block>
+              <!-- <view class='collection'>收藏</view> -->
+            </view>
+            <view class='question' wx:if="{{val.title!=null&&val.title!=''}}">{{val.title}}</view>
+            <image mode='widthFix' wx:if="{{val.parsing.images&&val.parsing.images!=''&&val.parsing.images!=null}}" src='{{val.parsing.images}}' data-src="{{val.parsing.images}}" bindtap='preview'></image>
+
+            <view class='answer' wx:if="{{val.type!='5'}}">
+              <!-- 多选题 -->
+              <block wx:if="{{val.type=='1'}}">
+                <checkbox-group bindchange="checkboxChange">
+                  <label class="option" wx:for="{{val.info.checkbox}}" wx:key="">
+                    <checkbox value="{{index}}" disabled="{{val.disabled}}" />
+                    <view class='text'>{{item[0]}} {{item[1]}}</view>
+                  </label>
+                </checkbox-group>
+                <view style='text-align:right;padding:20rpx;'>
+                  <text style='padding:5rpx 15rpx;background:#409aff;color:white;border-radius:10rpx;' bindtap='submit'>确定</text>
+                </view>
+              </block>
+
+              <!-- 单选题、判断题 -->
+              <block wx:if="{{val.type=='2'||val.type=='3'}}">
+                <radio-group class="radio-group" bindchange="radioChange">
+                  <label class="option" wx:for="{{val.info.checkbox}}" wx:key=''>
+                    <radio value="{{index}}" disabled="{{val.disabled}}" />
+                    <view class='text'>{{item[0]}} {{item[1]}}</view>
+                  </label>
+                </radio-group>
+              </block>
+
+              <!-- 问答题 -->
+
+              <block wx:if="{{val.type=='4'}}">
+                <view class="option">
+                  <input placeholder='填写你的答案！' bindinput='intext' disabled="{{val.disabled}}"></input>
+                </view>
+                <view style='text-align:right;padding:20rpx;'>
+                  <text style='padding:5rpx 15rpx;background:#409aff;color:white;border-radius:10rpx;' bindtap='submit'>确定</text>
+                </view>
+              </block>
+            </view>
+            <!-- 配伍题 start-->
+            <block wx:if="{{val.type=='5'}}">
+              <block wx:for="{{val.info.title}}" wx:key=''>
+                <view class='question' style='border-bottom:none'>{{item}}</view>
+                <image mode='widthFix' wx:if="{{val.parsing[index].images&&val.parsing[index].images!=''&&val.parsing[index].images!=null}}" src='{{val.parsing[index].images}}' data-src="{{val.parsing[index].images}}" bindtap='preview'></image>
+                <view class='answer'>
+                  <block wx:if="{{val.info.answer[index].length<=1}}">
+                    <radio-group class="radio-group" bindchange="change" data-index="{{index}}">
+                      <label class="option" wx:for="{{val.info.checkbox}}" wx:key=''>
+                        <radio value="{{index}}" disabled="{{val.disabled}}" />
+                        <view class='text'>{{item[0]}} {{item[1]}}</view>
+                      </label>
+                    </radio-group>
+                  </block>
+
+                  <block wx:else>
+                    <checkbox-group bindchange="change" data-index="{{index}}">
+                      <label class="option" wx:for="{{val.info.checkbox}}" wx:key="">
+                        <checkbox value="{{index}}" disabled="{{val.disabled}}" />
+                        <view class='text'>{{item[0]}} {{item[1]}}</view>
+                      </label>
+                    </checkbox-group>
+                  </block>
+                </view>
+                <view class='explanation' wx:if="{{val.sel&&mode==0||handover}}">
+                  <view style="color:{{val.info.parsing[index].isright?'green':'red'}}">{{val.info.parsing[index].isright?'回答正确':'回答错误'}}</view>
+                  <view>参考答案：
+                    <block wx:for="{{val.info.answer[index]}}" wx:key="">
+                      <text style='color:green'>{{val.info.checkbox[item-1][0]}} </text>
+                    </block>
+                  </view>
+                  <view>您的答案：
+                    <text style='color:red' wx:if="{{!val.sel[index]}}">未作答</text>
+                    <block wx:for="{{val.sel[index]}}" wx:key="">
+                      <text style='color:#409AFF'>{{val.info.checkbox[item-1][0]}} </text>
+                    </block>
+                  </view>
+                  <view>
+                    <text style='color:#409AFF' wx:if="{{val.parsing.content!=''}}">[题目解析]</text> {{val.parsing[index].content}}</view>
+                </view>
+
+              </block>
+              <view style='text-align:right;padding:20rpx;'>
+                <text style='padding:5rpx 15rpx;background:#409aff;color:white;border-radius:10rpx;' bindtap='submit'>确定</text>
+              </view>
+            </block>
+            <!-- 配伍题 end -->
+
+
+            <block wx:if="{{val.type!='5'}}">
+              <view class='explanation' wx:if="{{val.sel&&mode==0||handover}}">
+                <view style="color:{{val.isright?'green':'red'}}">{{val.isright?'回答正确':'回答错误'}}</view>
+                <view>参考答案：
+                  <block wx:if="{{val.type==4}}">
+                    <text style='color:green'>{{val.answer}} </text>
+                  </block>
+                  <block wx:else>
+                    <block wx:for="{{val.answer}}" wx:key="">
+                      <text style='color:green' wx:if="{{item[2]=='1'}}">{{item[0]}} </text>
+                    </block>
+                  </block>
+                </view>
+                <view>您的答案：
+                  <block wx:if="{{val.type!=4}}">
+                    <text style='color:red' wx:if="{{!val.sel}}">未作答</text>
+                    <block wx:for="{{val.sel}}" wx:key="">
+                      <text style='color:#409AFF' wx:if="{{item[2]=='1'}}">{{item[0]}} </text>
+                    </block>
+                  </block>
+                  <block wx:else>
+                    <text style='color:#409AFF'>{{val.sel}}</text>
+                  </block>
+                </view>
+                <view>
+                  <text style='color:#409AFF' wx:if="{{val.parsing.content!=''}}">[题目解析]</text> {{val.parsing.content}}</view>
+              </view>
+            </block>
+          </view>
+        </scroll-view>
+
+      </swiper-item>
+    </block>
+    <swiper-item wx:if="{{mode==1}}">
+      <view style='text-align:center;margin-top:40%;'>
+        <view style='color:#409AFF;font-size:40rpx;margin-bottom:30rpx;'> 考试完成!</view>
+        <view>
+          <text bindtap='handover' style='background:#409AFF;color:white;border-radius:10rpx;padding:5rpx 20rpx;'>交卷</text>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

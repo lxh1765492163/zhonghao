@@ -1,0 +1,18 @@
+<template name="member_favorite_list">
+<block wx:for="{{list}}" wx:key="">
+    <view class="fui-list goods-item align-start" style="background:#fff;border-bottom:1px solid #d9d9d9;">
+        <view class="fui-list-media editmode">
+            <radio class="fui-radio fui-radio-danger edit-item" color="#f00" checked="{{false}}" />
+        </view>
+        <view class="fui-list-media image-media">
+            <image src="{{item.thumb}}" class="round"></image>
+        </view>
+        <view class="fui-list-inner">
+            <navigator url="/pages/default/goods/detail/detail?id={{item.goodsid}}">
+                <view class="text">{{item.title}}</view>
+            </navigator>
+            <view class="text"><text class="text-danger">￥{{item.marketprice}}</text> <text wx:if="{{item.productprice}}" class="oldprice" style="margin-left:6px;">￥{{item.productprice}}</text></view>
+        </view>
+    </view>
+</block>
+</template>

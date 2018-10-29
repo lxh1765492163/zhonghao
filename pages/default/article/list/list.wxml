@@ -1,0 +1,113 @@
+<view class="fui-page fui-page-current article-list-page">
+    <view class="fui-content">
+        <block wx:if="{{article_sys.article_temp == 2}}">
+            <view class="fui-article-list template-2">
+                <view class="fui-tab-scroll">
+                    <view class="container">
+                        <text class="item {{cateid == 0 ? 'on' : ''}}" data-id="0" catchtap="changeList">全部分类 </text>
+                        <block wx:for="{{categorys}}" wx:for-item="val" wx:key="">
+                        <text class="item {{cateid == val.id ? 'on' : ''}}" data-id="{{val.id}}" catchtap="changeList">{{val.category_name}}</text>
+                        </block>
+                    </view>
+                </view>
+                <view class="fui-list-group">
+                    <view wx:for="{{articles}}" wx:for-item="val" wx:key="" class="list-number">
+                        <navigator url="/pages/default/article/index/index?aid={{val.id}}" class="fui-list">
+                            <view class="fui-list-media">
+                                <image src="{{val.resp_img}}" class="round"></image>
+                            </view>
+                            <view class="fui-list-inner">
+                                <view class="title">{{val.article_title}}</view>
+                                <view class="text">{{val.resp_desc}}</view>
+                            </view>
+                            <view class="fui-list-angle">
+                                <view class="angle"></view>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </block>
+      <block wx:if="{{articles.length > 0}}">
+        <block wx:if="{{article_sys.article_temp != 2}}">
+            <view class="fui-article-list template-{{article_sys.article_temp}}">
+                <!-- 内容/S -->
+                <block wx:if="{{article_sys.article_temp == 0}}">
+                    <view wx:if="{{page == 1 && article_sys.article_image != ''}}" class="topimg"><image src="{{article_sys.article_image}}" mode="widthFix"></image></view>
+                    <view wx:for="{{articles}}" wx:for-item="val" wx:key="" class="list-numbe">
+                        <navigator url="/pages/default/article/index/index?aid={{val.id}}" class="fui-list">
+                            <view wx:if="{{val.resp_img != ''}}" class="fui-list-media">
+                                <image src="{{val.resp_img}}" class="round" mode="widthFix"></image>
+                            </view>
+                            <view class="fui-list-inner">
+                                <view class="title">{{val.article_title}}</view>
+                                <view class="subtitle">{{val.resp_desc}}</view>
+                                <view wx:if="{{val.article_rule_money > 0 || val.article_rule_credit > 0}}" class="subtitle" class="subtitle">
+                                    <text class="fui-label fui-label-danger">
+                                        <block wx:if="{{val.article_rule_money > 0}}">{{val.article_rule_money}}元</block>
+                                        <block wx:if="{{val.article_rule_credit > 0}}">{{val.article_rule_credit}}个</block>
+                                    </text>
+                                </view>
+                            </view>
+                            <view class="fui-list-angle"><view class="angle"></view></view>
+                        </navigator>
+                    </view>
+                </block>
+                <block wx:elif="{{article_sys.article_temp == 1}}">
+                    <block wx:for="{{articles}}" wx:for-item="val" wx:key="">
+                        <view class="list-number">
+                            <block wx:if="{{val.articles.length == 1}}">
+                                <navigator url="/pages/default/article/index/index?aid={{val.articles[0].id}}">
+                                    <view class="fui-card">
+                                        <view class="fui-card-title">
+                                            <text class="title">{{val.articles[0].article_title}}</text>
+                                            <text class="subtitle">{{index}}</text>
+                                        </view>
+                                        <view wx:if="{{val.articles[0].resp_img != ''}}" class="fui-card-image">
+                                            <image src="{{val.articles[0].resp_img}}" mode="widthFix"></image>
+                                        </view>
+                                        <view class="fui-card-content">{{val.articles[0].resp_desc}}</view>
+                                        <view class="fui-card-footer">
+                                            <text class="text">点击查看详情</text>
+                                            <text class="remark"></text>
+                                        </view>
+                                    </view>
+                                </navigator>
+                            </block>
+                            <block wx:else>
+                                <view class="fui-card fui-card-list">
+                                    <block wx:for="{{val.articles}}" wx:for-item="v" wx:for-index="k" wx:key="">
+                                        <navigator wx:if="{{k == 0}}">
+                                            <view class="fui-card-info">
+                                                <view class="image"><image src="{{v.resp_img}}" mode="widthFix"></image></view>
+                                                <view class="text"><text class="subtitle">{{k}}</text></view>
+                                            </view>
+                                            <view class="fui-card-first">
+                                                <view class="image">
+                                                    <image src="{{v.resp_img}}" mode="widthFix"></image>
+                                                    <view class="text">{{v.article_title}}</view>
+                                                </view>
+                                            </view>
+                                        </navigator>
+                                        <navigator wx:else>
+                                            <view class="fui-card-item">
+                                                <image src="{{v.resp_img}}" mode="widthFix"></image>
+                                                <view class="text">{{v.article_title}}</view>
+                                            </view>
+                                        </navigator>
+                                    </block>
+                                </view>
+                            </block>
+                        </view>
+                    </block>
+                </block>
+                <!-- 内容/E -->
+            </view>
+        </block>
+      </block>
+      <block wx:else>
+        <import src="../../../component/nodata/nodata.wxml" />
+        <template is="nodata" />
+      </block>
+    </view>
+</view>

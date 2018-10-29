@@ -1,0 +1,57 @@
+<template name="reviewlist">
+    <view class="reviewlist" wx:for="{{list}}" wx:for-item="item" wx:key="">
+        <view class="userImg">
+            <image src="{{item.avatar}}"></image>
+        </view>
+        <view class="userInfo">
+            <view class="releasetime">{{item.createtime}}</view>
+            <view class="identity">
+                <text class="name">{{item.nickname}}</text>
+                <text class="mark">社区粉丝</text>
+                <text wx:if="{{item.isAuthor == true}}" class="landlord">楼主</text>
+                <text wx:if="{{dats.isManager == true || datas.isSuperManager == true}}" style="background:red;color:#fff;">版主</text>
+            </view>
+            <view class="article">
+                {{item.content}}
+            </view>
+
+            <block wx:for="{{item.images}}" wx:for-item="img" wx:key="">
+
+                <image bindtap="openimage" src='{{img}}' style='width:33%;height:200rpx;float:left;'></image>
+            </block>
+
+            <view class="comment" wx:if="{{item.parent != ''}}">
+                <text class="aite">{{item.parent.nickname}}: </text> {{item.parent.content}}
+                <view class="com-img" style="width:100%;">
+                    
+                </view>
+            </view>
+
+            <view class="handle">
+                <navigator url="/pages/default/community/comment/comment?pid={{pid}}&id={{id}}&rpid={{item.id}}" class="reply">
+                    <image src="/assets/images/pl.png"></image>
+                    <text>回复</text>
+                </navigator>
+
+                <navigator url="/pages/default/community/complaint/complaint?id={{item.id}}" class="reply">
+                    <image src=""></image>
+                    <text>投诉</text>
+                </navigator>
+            </view>
+        </view>
+
+    </view>
+    <view class="" wx:if="{{list == ''}}">暂无评论</view>
+    <view class="" style="height:100rpx;width:100%;"></view>
+    <view class='tabbar'>
+        <navigator url="/pages/default/community/comment/comment?pid={{pid}}&id={{id}}&type=1">
+            <image src='/assets/images/pl.png' style='height: 40rpx; width: 40rpx;float:left;margin-left:100rpx;margin-top:10rpx;'></image>
+            <text style="float:left;margin-top:10rpx;">({{datas.total}})</text>
+        </navigator>
+        <navigator url="/pages/default/community/complaint/complaint?id={{id}}">
+
+            <text style="text-align:center;font-size:36rpx;">投诉</text>
+        </navigator>
+
+    </view>
+</template>

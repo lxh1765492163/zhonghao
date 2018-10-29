@@ -1,0 +1,148 @@
+<view class="fui-page fui-page-current coupon-detail-page">
+  <view class="fui-content">
+    <view class="coupon-detail">
+      <view class="coupon-detail-head {{items.coupon.color}}">
+        <view class="coupon-detail-head-title">
+          <view class="h2">{{items.coupon.couponname}}</view>
+          <view>有效期:
+            <block wx:if="{{items.coupon.timestr == 0}}">
+              永久有效
+            </block>
+            <block wx:else>
+              <block wx:if="{{items.coupon.timestr == 1}}">
+                即{{items.gettypestr}}日内 {{items.coupon.timedays}} 天有效
+              </block>
+              <block wx:else>
+                有效期 {{items.coupon.timestr}}
+              </block>
+            </block>
+            <block wx:if="{{items.coupon.merchname != ''}}">
+              限购[{{items.coupon.mercname}}]店铺商品
+            </block>
+          </view>
+        </view>
+        <view class="coupon-detail-head-info">
+          <text>{{items.coupon.title2}}{{items.coupon.title3}}</text>
+          <view class="a" wx:if="{{!items.coupon.canget}}"><text class="p" style="color:#ccc;">已达到{{items.coupon.gettypestr}}上限</text></view>
+          <view class="a" wx:elif="{{items.pass}}">
+            <text class="p" catchtap="btncoupon">立即{{items.coupon.gettypestr}}</text>
+          </view>
+          <view class="a" wx:else><text class="p">未达到{{items.coupon.gettypestr}}权限</text></view>
+        </view>
+        <view class="coupon-detal-bot">
+          <text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text>
+          <text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text><text class="i"></text>
+        </view>
+      </view>
+      <view class="coupon-detail-content">
+        <view class="coupon-detail-content-info">
+          <view class="coupon-detail-content-info-top">
+            <view class="strong">领取限制</view>
+            <block wx:if="{{items.coupon.islimitlevel == 1}}">
+              <view class="p">用户必须达到以下条件之一:</view>
+              <block wx:if="{{items.coupon.limitmemberlevels || items.coupon.limitmemberlevels === 0}}">
+                <view class="p">
+                  会员: {{items.meblvname}}
+                  <block wx:for="{{items.level1}}" wx:for-item="item" wx:key="">
+                    {{item.levelname}}
+                  </block>
+                </view>
+              </block>
+
+              <block wx:if="{{(items.coupon.limitagentlevels || items.coupono.limitagentlevels == 0) && items.hascommission}}">
+                <view class="p">
+                  {{items.leveltitle2}}:
+                  <block wx:if="{{items.in_limitagentlevels}}">
+                    {{items.commissionname}}
+                  </block>
+                  <block wx:for="{{items.level2}}" wx:for-item="item" wx:key="">
+                    {{item.levelname}}
+                  </block>
+                </view>
+              </block>
+
+              <block wx:if="{{(items.coupon.limitpartnerlevels || items.coupono.limitpartnerlevels == 0) && items.hasglobonus}}">
+                <view class="p">
+                  {{items.leveltitle3}}: {{items.globonuname}}
+                  <block wx:for="{{items.level3}}" wx:for-item="item" wx:key="">
+                    {{item.levelname}}
+                  </block>
+                </view>
+              </block>
+
+              <block wx:if="{{(items.coupon.limitpartnerlevels || items.coupono.limitpartnerlevels == 0) && items.hasabonus}}">
+                <view class="p">
+                  {{items.leveltitle4}}: {{items.abonuname}}
+                  <block wx:for="{{items.level4}}" wx:for-item="item" wx:key="">
+                    {{item.levelname}}
+                  </block>
+                </view>
+              </block>
+            </block>
+            <view wx:if="{{items.coupon.islimitlevel == 0}}" class="p">无</view>
+
+            <view class="strong">有效期限</view>
+            <view class="p" style="font-weight:bold;color:#000;">
+              <block wx:if="{{items.coupon.timestr == 0}}">
+                永久有效
+              </block>
+              <block wx:else>
+                <block wx:if="{{items.coupon.timestr == 1}}">
+                  即{{items.coupon.gettypestr}}日内 {{items.coupon.timedays}} 天有效
+                </block>
+                <block wx:else>
+                  有效期 {{items.coupon.timestr}}
+                </block>
+              </block>
+              <block wx:if="{{items.coupon.merchname != ''}}">
+                限购[{{items.coupon.merchname}}]店铺商品
+              </block>
+            </view>
+          </view>
+          <view class="coupon-detail-content-info-top">
+            <view class="strong">使用说明</view>
+            <block wx:if="{{items.coupon.descnoset == ''}}">
+              <block wx:if="{{items.coupon.coupontype == ''}}">
+                {{items.set.consumedesc}}
+              </block>
+              <block wx:else>
+                {{items.set.rechargedesc}}
+              </block>
+            </block>
+            <block wx:else>
+              <view class="p">{{items.coupon.desc}}</view>
+            </block>
+          </view>
+          <view class="coupon-detail-content-info-bot">
+            <view class="strong">使用限制</view>
+
+            <view wx:if="{{items.coupon.coupontype == 2}}" class="p">本优惠卷只能在收银台中使用</view>
+            <view wx:if="{{items.coupon.limitdiscounttype == 1}}" class="p">不允许与促销优惠同时使用</view>
+            <view wx:if="{{items.coupon.limitdiscounttype == 2}}" class="p">不允许与会员折扣同时使用</view>
+            <view wx:if="{{items.coupon.limitdiscounttype == 3}}" class="p">不允许与促销优惠和会员折扣同时使用</view>
+
+            <block wx:if="{{items.coupon.limitgoodtype == 1}}">
+              <view class="p">允许以下商品使用:</view>
+              <view class="p">
+                <block wx:for="{{items.goods}}" wx:for-item="g" wx:key="">
+                  <view class="p">{{g.title}}</view>
+                </block>
+              </view>
+            </block>
+
+            <block wx:if="{{items.coupon.limitgoodtype == 1}}">
+              <view class="p">允许以下商品分类使用:</view>
+              <view class="p">
+                <block wx:for="{{items.category}}" wx:for-item="c" wx:key="">
+                  <view class="p">{{c.name}}</view>
+                </block>
+              </view>
+            </block>
+
+            <view wx:if="{{items.coupon.limitgoodtype == 0 && items.coupon.limitdiscounttype == 0 && items.coupon.coupontype != 2}}" class="p">无</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

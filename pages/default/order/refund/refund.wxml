@@ -1,0 +1,115 @@
+<!--refund.wxml-->
+<block wx:if="{{typeid == 1}}">
+    <form bindsubmit="formSubmit">
+        <view class="fui-cell-group">
+            <view class="fui-cell must">
+                <view class="fui-cell-label">处理方式</view>
+                <picker bindchange="bindPickerChange" value="{{index}}+1" name="xiala" range="{{conduct}}">
+                    <view class="picker">
+                        : {{conduct[index]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+
+        <view class="fui-cell-group">
+            <view class="fui-cell must">
+                <view class="fui-cell-label">退款原因</view>
+                <picker bindchange="bindrefund" name="xiala" value="{{rindex}}" range="{{refund}}">
+                    <view class="picker">
+                        : {{refund[rindex]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="fui-cell-group">
+            <view class="fui-cell">
+                <view class="fui-cell-label">退款说明:</view>
+                <view class="fui-cell-info">
+                    <input type="text" class="fui-input" name="realname" placeholder="请说明原因" />
+                </view>
+            </view>
+        </view>
+        <view class="fui-cell-group">
+            <view class="fui-cell must">
+                <view class="fui-cell-label">退款金额:</view>
+                <view class="fui-cell-info">
+                    <input type="text" class="fui-input" name="price" placeholder="请输入金额" value="" />
+                </view>
+            </view>
+        </view>
+        <view class="fui-cell-group" bindtap="open">
+            <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+
+                <view class="fui-cell-label">上传凭证</view>
+
+                <button wx:if="{{imgs == ''}}" size="mini">获取图片</button>
+
+                <!-- <block wx:for="{{imgs}}" wx:key=""> -->
+                <image wx:else style="width:100rpx;height:100rpx;margin-left:10rpx;" src="http://xcx.xcwll.cn/attachment/{{imgs}}"></image>
+                <!-- </block> -->
+            </view>
+        </view>
+        <view class="fui-cell-group">
+            <view class="fui-cell">
+                提示:您可退款的最大金额为
+                <text style="color:#f00">￥{{price}}</text>
+            </view>
+        </view>
+        <button formType="submit" style="width:98%" class="btn btn-danger btn-submit block">提交申请</button>
+
+    </form>
+</block>
+<block wx:if="{{typeid == 2}}">
+    <view style="font-size:30rpx;">
+        等待商家处理售后申请
+    </view>
+    <view  style="font-size:30rpx;">
+        <view>退款退货申请流程：</view>
+        <view>1、发起退款退货申请</view>
+        <view>2、退货需将退货商品邮寄至商家指定地址，并在系统内输入快递单号</view>
+        <view>3、商家后货后确认无误</view>
+        <view>4、退款到您的账户</view>
+    </view>
+    <view class="fui-cell-group">
+        <view class="fui-cell">
+            <view class="fui-cell-label">处理方式:</view>
+            <view class="fui-cell-info">
+                {{list.rtype == 3 ? '退款（仅退款不退货）' : list.rtype == 2 ? '换货' : '退货退款' }}
+            </view>
+        </view>
+    </view>
+    <view class="fui-cell-group">
+        <view class="fui-cell must">
+            <view class="fui-cell-label">退货原因:</view>
+            <view class="fui-cell-info">
+                {{list.reason}}
+            </view>
+        </view>
+    </view>
+    <view class="fui-cell-group">
+        <view class="fui-cell">
+            <view class="fui-cell-label">退款说明:</view>
+            <view class="fui-cell-info">
+                {{list.content}}
+            </view>
+        </view>
+    </view>
+    <view class="fui-cell-group">
+        <view class="fui-cell must">
+            <view class="fui-cell-label">退款金额:</view>
+            <view class="fui-cell-info">
+                ￥{{list.applyprice}}
+            </view>
+        </view>
+    </view>
+    <view class="fui-cell-group">
+        <view class="fui-cell must">
+            <view class="fui-cell-label">申请时间:</view>
+            <view class="fui-cell-info">
+                {{time}}
+            </view>
+        </view>
+    </view>
+    <button bindtap="removefefund" class="btn btn-default btn-submit block">取消申请</button>
+</block>

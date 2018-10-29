@@ -1,0 +1,44 @@
+<!--pages/integralmall/person/person.wxml-->
+<import src="../tabbar/tabbar" />
+<!-- <import src="../../../component/float/menu.wxml"/>
+<template is="floatmenu" data="{{height}}" />  -->
+<template is='tabbar' data='{{tabbar,id}}' />
+
+<view class='integralperson'>
+      <view style='width: 100%;'>
+            <text class="category {{cid==0 ? 'selected' : '' }}" data-cid='0' bindtap='selected'>全部记录</text>
+            <text class="category {{cid==2 ? 'selected' : '' }}" data-cid='2' bindtap='selected'>兑换记录</text>
+            <text class="category {{cid==3 ? 'selected' : '' }}" data-cid='3' bindtap='selected'>中奖记录</text>
+      </view>
+      <view class='content' style='font-size:35rpx'> 
+            <block wx:if="{{list}}">
+                  <view class='record' wx:for='{{list}}' wx:key=''>
+                        <view class='order'>
+                              <text style='flex: 1'>订单号: {{item.logno}}</text>
+                              <text style='color: #f60'>{{item.state}}</text>
+                        </view>
+                        <navigator class='info' url='../order/detail/detail?id={{item.id}}'>
+                              <image src='{{item.thumb}}' style='width:130rpx; height:130rpx; background:red; border-radius:20rpx;'></image>
+
+                              <view class='sign' style='background: #fe5455;'>{{item.goodstype==0?'商品':item.goodstype==1?'优惠券':item.goodstype==2?'余额':'红包'}}</view>
+                              <view style='flex: 1;'>
+                                    <view class='title'>{{item.title}}</view>
+                                    <view class='otitle' wx:if="{{item.otitle!=null}}" style='font-size:30rpx; color:#999;'>{{item.otitle}}</view>
+                              </view>
+                              <view class='price' style='text-align:right'>
+                                    <view>{{item.optionid!=0&&item.ocredit!=null?item.ocredit:item.credit}}积分</view>
+                                    <view wx:if="{{item.omoney!=null&&item.omoney!=0||item.money!=0}}">¥{{item.optionid!=0&&item.omoney!=null?item.omoney:item.money}}</view>
+                                    <view>x1</view>
+                              </view>
+                        </navigator>
+                        <view class=''></view>
+                  </view>
+            </block>
+            <block wx:else>
+                  <view style='width:100%; text-align:center; border-top:solid 1rpx #ddd;'>
+                        <view class='icon icon-warn' style='font-size:65px;'></view>
+                        <text>未找到任何记录~</text>
+                  </view>
+            </block>
+      </view>
+</view>

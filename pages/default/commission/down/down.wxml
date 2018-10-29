@@ -1,0 +1,52 @@
+<view class="fui-page fui-page-current page-commission-down">
+    <view class="fui-content navbar">
+        <block wx:if="{thisset.level >= 2}}">
+            <view class="fui-tab fui-tab-warning">
+                <view wx:if="{{thisset.level >= 1}}" class="a {{level == 1 ? 'active' : ''}}" data-tab="1" catchtap="switchTab">{{thisset.texts.c1}}({{levels.level1}})</view>
+                <view wx:if="{{thisset.level >= 2}}" class="a {{level == 2 ? 'active' : ''}}" data-tab="2" catchtap="switchTab">{{thisset.texts.c2}}({{levels.level2}})</view>
+                <view wx:if="{{thisset.level >= 3}}" class="a {{level == 3 ? 'active' : ''}}" data-tab="3" catchtap="switchTab">{{thisset.texts.c3}}({{levels.level3}})</view>
+            </view>
+        </block>
+        <view class="fui-title">成员信息
+            <text class="icon icon-favor text-danger"></text> 为已经成为{{thisset.texts.agent}}的{{thisset.texts.down}}</view>
+        <view class="fui-list-group">
+            <!-- list -->
+            <block wx:if="{{items.list.length > 0}}">
+                <block wx:for="{{items.list}}" wx:for-item="val" wx:key="">
+                    <view class="fui-list">
+                        <view class="fui-list-media">
+                            <image wx:if="{{val.avatar}}" class="round" src="{{val.avatar}}" mode="widthFix"></image>
+                            <text wx:else class="icon icon-my2"></text>
+                        </view>
+                        <view class="fui-list-inner">
+                            <view class="row">
+                                <view class="row-text">
+                                    {{val.nickname ? val.nickname : '未获取'}}
+                                    <text wx:if="{{val.isagent == 1 && val.status == 1}}" class="icon icon-favor text-danger"></text>
+                                </view>
+                            </view>
+                            <view class="subtitle">
+                                <block wx:if="{{val.isagent == 1 && val.status == 1}}">
+                                    成为{{thisset.texts.agent}}时间: {{val.agenttime}}
+                                </block>
+                                <block wx:else>
+                                    注册时间: {{val.createtime}}
+                                </block>
+                            </view>
+                        </view>
+                        <view class="row-remark">
+                            <block wx:if="val.isagent == 1 && val.status == 1">
+                                <view>+{{val.commission_total}}</view>
+                                <view>{{val.agentcount}}个成员</view>
+                            </block>
+                            <block wx:else>
+                                <view>消费: {{val.moneycount}}{{thisset.texts.yuan}}</view>
+                                <view>{{val.ordercount}}个订单</view>
+                            </block>
+                        </view>
+                    </view>
+                </block>
+            </block>
+        </view>
+    </view>
+</view>

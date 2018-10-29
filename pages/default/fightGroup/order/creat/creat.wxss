@@ -1,0 +1,8 @@
+/* pages/default/fightGroup/order/creat/creat.wxss */
+@import '/assets/css/coupon.wxss';
+
+.order-create-page .total {
+	padding-right: 0;
+  font-size: .9rem;
+  color: #333;
+}

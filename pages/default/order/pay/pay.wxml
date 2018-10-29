@@ -1,0 +1,79 @@
+<import src="../../../component/float/menu.wxml" />
+<template is="floatmenu" data="{{height,open}}" />
+<view class="fui-page fui-page-current order-pay-page">
+      <!-- <view class="fui-header">
+        <view class="fui-header-left">
+            <navigator open-type="navigateBack" class="back"></navigator>
+        </view>
+        <view class="title" style="margin-right:-2rem;">收银台</view>
+        <view class="fui-header-right">
+            <navigator class="external">订单</navigator>
+        </view>
+    </view> -->
+      <view class="fui-content margin">
+            <view class="fui-cell-group">
+                  <view class="fui-cell">
+                        <view class="fui-cell-label">订单编号</view>
+                        <view class="fui-cell-info"></view>
+                        <view class="fui-cell-remark noremark">{{order.ordersn}}</view>
+                  </view>
+                  <view class="fui-cell">
+                        <view class="fui-cell-label">订单金额</view>
+                        <view class="fui-cell-info"></view>
+                        <view class="fui-cell-remark noremark">
+                              <text class="text-danger">￥{{order.price}}</text>
+                        </view>
+                  </view>
+            </view>
+
+            <view class="fui-list-group" style="margin-top:10px;">
+                  <!-- if wechat.success || is_h5app() && payinfo.wechat -->
+                  <view class="fui-list pay-btn" bindtap="orderPay" data-type="wechat">
+                        <view class="fui-list-media">
+                              <text class="icon icon-wechat wechat"></text>
+                        </view>
+                        <view class="fui-list-inner">
+                              <view class="title">微信支付</view>
+                              <view class="subtitle">微信安全支付</view>
+                        </view>
+                        <view class="fui-list-angle">
+                              <text class="angle"></text>
+                        </view>
+                  </view>
+                  <!-- /if -->
+                  <view class="fui-list pay-btn" bindtap="balancepay" data-type="money">
+                        <view class="fui-list-media">
+                              <text class="icon icon-money money"></text>
+                        </view>
+                        <view class="fui-list-inner">
+                              <view class="title">余额支付</view>
+                              <view class="subtitle">当前余额:
+                                    <text style='color: #ef4f4f'>¥{{money}}</text>
+                              </view>
+                        </view>
+                        <view class="fui-list-angle">
+                              <text class="angle"></text>
+                        </view>
+                  </view>
+
+                  <!-- {if $credit['success']} -->
+                  <view class="fui-list pay-btn" data-type="credit" style="display:none;">
+                        <view class='fui-list-media'>
+                              <text class="icon icon-money credit"></text>
+                        </view>
+                        <view class="fui-list-inner">
+                              <view class="title">
+                                    <!-- {$_W['shopset']['trade']['moneytext']} -->支付</view>
+                              <view class="subtitle">当前
+                                    <!-- {$_W['shopset']['trade']['moneytext']} -->:
+                                    <text class="text-danger">￥<!-- {php echo number_format($member['credit2'],2)} --></text>
+                              </view>
+                        </view>
+                        <view class="fui-list-angle">
+                              <text class="angle"></text>
+                        </view>
+                  </view>
+                  <!-- {/if} -->
+            </view>
+      </view>
+</view>

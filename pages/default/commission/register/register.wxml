@@ -1,0 +1,202 @@
+<import src="../../../component/float/menu.wxml" /> 
+
+<view class='fui-page fui-page-current page-commission-register'>
+    <view class="fui-content">
+        <image src="{{items.set.regbg}}" mode="widthFix" style="width:100%;"></image>
+        <block wx:if="{{items.member.agentblack > 0}}">
+            <view class="content-empty">
+                <view class="icon icon-info text-danger"></view>
+                <view class="text-danger">禁止访问，请联系客服！</view>
+                <navigator url="/pages/default/index/index" class="btn btn-danger">去商城逛逛</navigator>
+            </view>
+        </block>
+        <block wx:else>
+            <block wx:if="{{items.set.become == 2 && data.status == 0}}">
+                <view class="fui-list-group">
+                    <view class="fui-list-group-title"><text class="icon icon-lights"></text> 友情提醒</view>
+                    <view class="fui-list">
+                        <view class="fui-list-inner">
+                            <view class="text">本店累计消费满 <text class="text-danger text-bold">{{items.set.become_ordercount}}</text> 次，才可成为 [<text class="text-danger text-bold">{{items.shopset.shop.name}}</text>]购物中心{{items.set.texts.agent}}，您已消费 <text class="text-danger text-bold">{{items.order_count}}</text> 次，请继续努力!</view>
+                        </view>
+                    </view>
+                </view>
+                <navigator url="/pages/default/index/index" class="btn btn-danger block">继续去购物</navigator>
+            </block>
+            <block wx:if="{{items.set.become == 3 && data.status == 0}}">
+                <view class="fui-list-group">
+                    <view class="fui-list-group-title"><text class="icon icon-lights"></text> 友情提醒</view>
+                    <view class="fui-list">
+                        <view class="fui-list-inner">
+                            <view class="text">本店累计消费满 <text class="text-danger text-bold">{{items.set.become_moneycount}}</text> {{items.set.texts.yuan}}，才可成为[<text class="text-danger text-bold">{{items.shopset.shop.name}}</text>]购物中心{{items.set.texts.agent}}，您已消费 <text class="text-danger text-bold">{{items.moneycount}}</text>元，请继续努力！</view>
+                        </view>
+                    </view>
+                </view>
+                <navigator url="/pages/default/index/index" class="btn btn-danger block">继续去购物</navigator>
+            </block>
+            <block wx:if="{{items.set.become == 4 && data.status == 0 && items.member.isagent == 0}}">
+                <view class="fui-list-group">
+                    <view class="fui-list-group-title"><text class="icon icon-lights"></text> 友情提醒</view>
+                    <navigator url="/pages/default/goods/detail/detail?id={{items.buy_goods.id}}">
+                        <view class="fui-list">
+                            <view class="fui-list-media"><image src="{{items.buy_goods.thumb}}" class="round"></image></view>
+                            <view class="fui-list-inner">
+                                <view class="text">{{items.buy_goods.title}}</view>
+                                <view class="text">{{items.buy_goods.marketprice}}</view>
+                            </view>
+                        </view>
+                    </navigator>
+                    <view class="fui-list">
+                        <view class="fui-list-inner">
+                            <view class="text">本店需购买此商品才可成为[<text class="text-danger text-bold">{{items.shopset.shop.name}}</text>]购物中心{{items.set.texts.agent}}，请现在去购买吧！</view>
+                        </view>
+                    </view>
+                </view>
+                <navigator url="/pages/default/goods/detail/detail?id={{items.buy_goods.id}}" class="btn btn-danger block">现在就去购买</navigator>
+            </block>
+            <block wx:if="{{items.member.status == 1 && items.member.isagent == 1}}">
+                <view class="content-info">
+                    <view class="icon icon-roundcheck text-success"></view>
+                    <view class="text-success">您的申请已经审核通过！</view>
+                    <navigator url="/pages/default/index/index" class="btn btn-danger block">继续去购物</navigator>
+                </view>
+            </block>
+            <block wx:if="{{items.member.status == 0 && items.member.isagent == 1 }}">
+                <view class="content-info">
+                    <view class="icon icon-time"></view>
+                    <view class="text-success">谢谢您的支持，请等待审核！</view>
+                    <navigator url="/pages/default/index/index" class="btn btn-danger">去商城逛逛</navigator>
+                </view>
+            </block>
+            <!-- 表单 -->
+            <block wx:if="{{items.member.status == 0 && items.member.isagent == 0 && items.set.become == 1}}">
+                <form bindsubmit="formSubmit">
+                    <view class="fui-cell-group" style="margin-top:0;">
+                        <view class="fui-cell-group">
+                            欢迎加入<text class="text-danger">{{items.shopset.shop.name}}</text>，请填写申请信息
+                        </view>
+                        <view class="fui-cell">
+                            <view class="fui-cell-label">邀请人</view>
+                            <view class="fui-cell-info overflow"><text class="text-danger">{{items.agent != '' ? items.agent.nickname : '总店'}}</text> (请核对)</view>
+                        </view>
+                        <!--自定义表单-->
+                         <view class="fui-cell must">
+                            <view class="fui-cell-label">邀请码</view>
+                            <view class="fui-cell-info"><input type="number" name="yqm" class="fui-input" placeholder="请填写上级邀请码" value="{{items.member.yqm}}" /></view>
+                        </view>
+                        <view class="fui-cell must">
+                            <view class="fui-cell-label">姓名</view>
+                            <view class="fui-cell-info"><input type="text" name="realname" class="fui-input" placeholder="请填写真实姓名，用于结算" value="{{items.member.realname}}" /></view>
+                        </view>
+                        <view class="fui-cell must">
+                            <view class="fui-cell-label">手机号</view>
+                            <view class="fui-cell-info"><input type="number" name="mobile" class="fui-input" placeholder="请填写手机号码方便联系" value="{{items.member.mobile}}" /></view>
+                        </view>
+                        <view class="fui-cell">
+                            <view class="fui-cell-label">微信号</view>
+                            <view class="fui-cell-info"><input type="text" name="weixin" class="fui-input" placeholder="请填写微信号" value="{{items.member.weixin}}" /></view>
+                        </view>
+                        <!--协议-->
+                        <block wx:if="{{items.set.open_protocol == 1}}">
+                            <view class="fui-cell-group">
+                                <view class="fui-cell small">
+                                    <view class="fui-cell-info">
+                                        <label>
+                                            <checkbox value="agree"></checkbox>
+                                            <text>我已经阅读并了解</text>
+                                        </label>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="pop-apply-hidden" style="display:none;">
+                                <view class="verify-pop pop">
+                                    <view class="close"><text class="icon icon-roundclose"></text></view>
+                                    <view class="qrcode">
+                                        <view class="inner">
+                                            <view class="title">{{items.set.applytitle}}</view>
+                                            <view class="text">{{items.set.applycontent}}</view>
+                                        </view>
+                                        <view class="inner-btn" style="padding:.5rem;">
+                                            <view class="btn btn-danger" style="width:100%;margin:0;">我已阅读</view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                    <button style='width:98%;margin-top:30rpx;' class="btn btn-danger block btn-submit" formType="submit">申请成为{{items.set.texts.agent}}</button>
+                </form>
+                <view class="fui-list-group vip-group">
+                    <block wx:if="{{items.set.register_bottom}}">
+                        <view class="fui-list">
+                            <view class="fui-list-media"><text class="icon icon-vip"></text></view>
+                            <view class="fui-list-inner">
+                                <view class="subtitle">{{items.set.texts.agent}}特权</view>
+                            </view>
+                        </view>
+                        <view class="fui-list">
+                            <view class="fui-list-media"><text class="icon icon-qrcode text-default"></text></view>
+                            <view class="fui-list-inner">
+                                <view class="subtitle">独立小店</view>
+                                <view class="text">拥有自己的小店及推广二维码：</view>
+                            </view>
+                        </view>
+                        <view class="fui-list">
+                            <view class="fui-list-media"><text class="icon icon-money text-danger"></text></view>
+                            <view class="fui-list-inner">
+                                <view class="subtitle">销售拿{{items.set.texts.commission}}</view>
+                                <view class="text">成为{{items.set.texts.agent}}后卖出商品，您可以获得{{items.set.texts.commission}}</view>
+                            </view>
+                            <view class="fui-list">
+                                <view class="fui-list-inner">
+                                    <view class="text">{{items.set.texts.agent}}的商品销售统一由厂家直接收款、直接发货，并提供产品的售后服务，{{items.set.texts.commission1}}由厂家统一设置。</view>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:elif="{{items.set.register_bottom == 1}}">
+                        <block wx:if="{{items.set.register_bottom_title1 != '' || items.set.register_bottom_content1 != ''}}">
+                            <view class="fui-list">
+                                <view class="fui-list-media"><text class="icon icon-vip"></text></view>
+                                <view class="fui-list-inner">
+                                    <view class="subtitle">{{items.set.register_bottom_title1}}</view>
+                                    <view class="text">{{items.set.register_bottom_content1}}</view>
+                                </view>
+                            </view>
+                        </block>
+                        <block wx:if="{{items.set.register_botto_title2 != '' || items.set.register_bottom_content2 != ''}}">
+                            <view class="fui-list">
+                                <view class="fui-list-media"><text class="icon icon-qrcode text-default"></text></view>
+                                <view class="fui-list-inner">
+                                    <view class="subtitle">{{items.set.register_bottom_title2}}</view>
+                                    <view class="text">{{items.set.register_bottom_content2}}</view>
+                                </view>
+                            </view>
+                        </block>
+                        <block wx:if="{{items.set.register_bottom_title3 != '' || items.set.register_bottom_content3}}">
+                            <view class="fui-list">
+                                <view class="fui-list-media"><text class="icon icon-money text-danger"></text></view>
+                                <view class="fui-list-inner">
+                                    <view class="subtitle">{{items.set.register_bottom_title3}}</view>
+                                    <view class="text">{{items.set.register_bottom_content3}}</view>
+                                </view>
+                            </view>
+                        </block>
+                        <block wx:if="{{items.set.register_bottom_remark != ''}}">
+                            <view class="fui-list">
+                                <view class="fui-list-inner">
+                                    <view class="text">{{items.set.register_bottom_remark}}</view>
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+                    <block wx:elif="{{items.set.register_bottom == 2}}">
+                        <view class="row">{{items.set.register_bottom_content}}</view>
+                    </block>
+                </view>
+            </block>
+        </block>
+    </view>
+</view>
+
+
+<template is="floatmenu"  data="{{scrolltop}}"/>

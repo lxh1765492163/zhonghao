@@ -1,0 +1,68 @@
+/* pages/screen/screen.wxss */
+
+.screen {
+  padding: 0 20rpx 160rpx;
+  font-size: 26rpx;
+}
+
+.screen .icon-home {
+  color: #409AFF;
+  position: absolute;
+  top: 20rpx;
+  right: 40rpx;
+  font-size: 30rpx;
+}
+
+.screen .title {
+  color: #999;
+  margin: 40rpx 0 20rpx;
+}
+
+.screen .row {
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.row view {
+  margin: 15rpx 10rpx;
+  padding: 20rpx 0;
+  width: 30%;
+  background: #eee;
+  border-radius: 15rpx;
+}
+
+.select {
+  position: fixed;
+  height: 150rpx;
+  display: flex;
+  align-items: flex-start;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 35rpx;
+  font-weight: bold;
+  color: white;
+  padding: 0 10rpx;
+}
+
+.select view {
+  flex: 1;
+  padding: 25rpx 0;
+  margin: 0 15rpx;
+  border-radius: 15rpx;
+}
+
+.select view:nth-child(1) {
+  background: linear-gradient(#409AFF, #44CAFF);
+  box-shadow: 5rpx 5rpx 5rpx #378FFF;
+}
+
+.select view:nth-child(2) {
+  background: linear-gradient(#FEB856, #FFCF3F);
+  box-shadow: 5rpx 5rpx 5rpx #F3BB20;
+}
+.select text {
+  padding:0 10rpx;
+}

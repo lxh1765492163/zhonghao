@@ -1,0 +1,32 @@
+<!--zh_jd/pages/logs/member/mine_integral.wxml-->
+<view class='container'>
+  <view class='body'>
+    <view class='mine_intergal'>
+      <view>
+        <text class='fl'>我的积分：</text>
+        <navigator url='../rurle?id=1'>
+          <text class='fr' style='font-size:24rpx;color:#666'>积分规则说明</text>
+        </navigator>
+      </view>
+      <view wx:if="{{score!=null}}">{{score}}</view>
+      <view wx:else>0</view>
+    </view>
+    <view></view>
+    <view class='intergral' wx:for="{{detailed}}" wx:key = "{{item.value}}">
+      <view class='intergral_img rel'>
+        <view class='ab ud'>
+          <image class='img' mode='widthFix' src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/intergral.png"></image>
+        </view>
+      </view>
+      <view class='intergral_one fl'>
+        <text>{{item.name}}</text>
+        <text>+{{item.score}}</text>
+      </view>
+      <view class='intergral_two fl'>
+        <text>{{item.cerated_time}}</text>
+        <text wx:if="{{item.type==1}}">消费得积分</text>
+        <text wx:if="{{item.type==2}}">评价得积分</text>
+      </view>
+    </view>
+  </view>
+</view>

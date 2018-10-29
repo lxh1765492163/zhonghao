@@ -1,0 +1,71 @@
+/* pages/integralmall/person/person.wxss */
+@import "../tabbar/tabbar.wxss";
+@import '../../../component/float/menu.wxss';
+
+.integralperson {
+      margin-bottom:100rpx;
+}
+
+.integralperson .category {
+      display: inline-block;
+      width: 33.3%;
+      text-align: center;
+      font-size: 35rpx;
+      padding: 10rpx 0rpx;
+      border-bottom: solid 1rpx #ddd;
+}
+
+.integralperson .selected {
+      border-bottom: solid 1rpx red;
+}
+
+.integralperson .content {
+      width: 100%;
+      background: #eee;
+      border-bottom: solid 1rpx #ddd;
+}
+
+.integralperson .content .record {
+      background: white;
+      margin-top: 20rpx;
+      padding-bottom: 30rpx;
+}
+
+.integralperson .content .record .order {
+      display: flex;
+      align-items: center;
+      border-bottom: solid 1rpx #ddd;
+      padding: 10rpx 30rpx;
+      color: #666;
+}
+
+.integralperson .content .record .info {
+      display: flex;
+      align-items: center;
+      border-bottom: solid 1rpx #ddd;
+      padding: 20rpx 0;
+      margin: 0 30rpx;
+}
+
+.integralperson .content .record .info .sign {
+      color: white;
+      font-size: 25rpx;
+      padding: 5rpx 10rpx;
+      margin: 0 10rpx;
+      border-radius: 10rpx;
+}
+
+.integralperson .content .record .info .title {
+      word-break: break-all;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      line-height: 120%;
+      margin-right: 20rpx;
+}
+
+.integralperson .content .record .info .price {
+      color: #f20;
+}

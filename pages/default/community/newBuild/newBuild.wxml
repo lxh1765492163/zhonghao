@@ -1,0 +1,21 @@
+<!--pages/community/newBuild/newBuild.wxml-->
+<view class='newBuild'>
+    <form bindsubmit='fromtopic'>
+        <input class='title' name="val" placeholder='标题 3-20个字' maxlength='20' placeholder-style='font-size: 32rpx'></input>
+        <textarea class='contents' name="rmek" placeholder='内容  10-500个字' maxlength='500' placeholder-style='font-size: 30rpx'></textarea>
+        <view class="">
+            <view class='title'>
+                <image bindtap="openimage" src="/assets/images/add.png" class="img"></image>
+         <text style="font-size:30rpx; color:#ccc;margin-top:20rpx;">（最多支持三张图片,单张图片上传）</text>
+            </view>
+            <view class="openimg">
+                 <block wx:for="{{image}}" wx:for-item="img" wx:key=""> 
+                   
+                    <image  src="http://xcx.xcwll.cn/attachment/{{img}}"></image>
+                    
+                 </block> 
+            </view>
+        </view>
+        <button style="background:#F7BB40;color:#fff;margin-top:40rpx;" formType="submit">发布</button>
+    </form>
+</view>

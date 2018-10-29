@@ -1,0 +1,94 @@
+<!--introduce.wxml-->
+<view class="introduce font">
+  <view class="introduce_title">酒店信息</view>
+  <view class="introduce_phone">
+    <view bindtap='address'>酒店名称：{{seller.name}}</view>
+    <view>酒店地址：{{seller.address}}</view>
+    <view bindtap='tel'>
+      联系电话：
+      <text class="introduce_phone1">{{seller.tel}}</text>
+    </view>
+    <view wx:if="{{seller.handle!=''}}">办理时间：{{seller.handle}}</view>
+  </view>
+
+  <view class="introduce_title">酒店服务</view>
+  <view class="introduce_fuwu">
+    <!--叫醒服务  -->
+    <view class="introduce_fuwu1" wx:if="{{seller.wake==1}}">
+      <view class="introduce_fuwu2">
+        <image src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/naozhong@2x.png"></image>
+      </view>
+      <view class="introduce_fuwu3">叫醒服务</view>
+    </view>
+    <!-- 支持银联服务 -->
+    <view class="introduce_fuwu1" wx:if="{{seller.unionPay==1}}">
+      <view class="introduce_fuwu2">
+        <image class="img" mode="widthFix" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/yinlian@2x.png"></image>
+      </view>
+      <view class="introduce_fuwu3">银联</view>
+    </view>
+    <!--停车服务  -->
+    <view class="introduce_fuwu1" wx:if="{{seller.park==1}}">
+      <view class="introduce_fuwu2">
+        <image class="img" mode="widthFix" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/tingche@2x.png"></image>
+      </view>
+      <view class="introduce_fuwu3">停车</view>
+    </view>
+    <!--wifi服务  -->
+    <view class="introduce_fuwu1" wx:if="{{seller.wifi==1}}">
+      <view class="introduce_fuwu2">
+        <image class="img" mode="widthFix" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/wifi@2x.png"></image>
+      </view>
+      <view class="introduce_fuwu3">wifi</view>
+    </view>
+    <!--早餐服务  -->
+    <view class="introduce_fuwu1" wx:if="{{seller.breakfast==1}}">
+      <view class="introduce_fuwu2">
+        <image class="img" mode="widthFix" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/foor.png"></image>
+      </view>
+      <view class="introduce_fuwu3">早餐</view>
+    </view>
+    <!--健身房服务  -->
+    <view class="introduce_fuwu1" wx:if="{{seller.gym==1}}">
+      <view class="introduce_fuwu2">
+        <image class="img" mode="widthFix" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/jianshengf@2x.png"></image>
+      </view>
+      <view class="introduce_fuwu3">健身房</view>
+    </view>
+    <!--会议室服务  -->
+    <view class="introduce_fuwu1" wx:if="{{seller.boardroom==1}}">
+      <view class="introduce_fuwu2">
+        <image class="img" mode="widthFix" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/huiyishi@2x.png"></image>
+      </view>
+      <view class="introduce_fuwu3">会议室</view>
+    </view>
+    <!--24小时热水服务  -->
+    <view class="introduce_fuwu11" wx:if="{{seller.water==1}}">
+      <view class="introduce_fuwu2">
+        <image class="img" mode="widthFix" src="https://xcx.xcwll.cn/addons/ewei_shopv2/plugin/zh_jd/images/warter.png"></image>
+      </view>
+      <view class="introduce_fuwu3">24小时热水</view>
+    </view>
+  </view>
+  <view class="introduce_title">酒店政策</view>
+  <view class="introduce_phone" wx:if="{{seller.policy!=''}}">
+    <!-- <view>{{seller.policy}}</view> -->
+    <rich-text nodes="{{seller.policy}}"></rich-text>
+  </view>
+  <view class="introduce_phone" wx:if="{{seller.policy==''}}">
+    <view>本酒店暂无政策</view>
+  </view>
+  <view class="introduce_title">酒店简介</view>
+  <view class="introduce_jian">
+    <text class="introduce_jian1">开业时间：</text>
+    <text>{{seller.open_time}}</text>
+  </view>
+  <view wx:if="{{seller.introduction!=''}}">
+    <view class="introduce_jian3">
+      <rich-text nodes="{{seller.introduction}}"></rich-text>
+    </view>
+  </view>
+  <view wx:if="{{seller.introduction==''}}">
+    <view class="introduce_jian3">酒店简介暂时为空</view>
+  </view>
+</view>

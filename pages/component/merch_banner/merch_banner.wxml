@@ -1,0 +1,22 @@
+<template name="merch_banner">
+  <view wx:if="{{banners.length > 0}}" class="fui-swipe">
+    <block wx:if="{{bannerswipe == null}}">
+      <block wx:for="{{banners}}" wx:for-item="val" wx:key="">
+        <navigator wx:if="{{val.link != ''}}" url="{{val.link}}"><image src="{{val.thumb}}" mode="widthFix" style="width:100%;display:block;"></image></navigator>
+        <image wx:else src="{{val.thumb}}" mode="widthFix" style="width:100%;display:block;"></image>
+      </block>
+    </block>
+    <block wx:else>
+      <swiper indicator-dots="true" autoplay="true" indicator-color="#f7f7f7">
+        <block wx:for="{{banners}}" wx:for-item="val" wx:key="">
+          <swiper-item>
+            <navigator wx:if="{{val.link != ''}}" url="{{val.link}}">
+              <image src="{{val.thumb}}" mode="widthFix" style="display:block;width:100%;"></image>
+            </navigator>
+            <image wx:else src="{{val.thumb}}" mode="widthFix" style="display:block;width:100%;"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </block>
+  </view>
+</template>

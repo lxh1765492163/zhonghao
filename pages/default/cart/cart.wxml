@@ -1,0 +1,99 @@
+<view class="fui-page fui-page-current member-cart-page">
+<view >
+  <view class="fui-content navbar cart-list" style="margin-bottom:200rpx;">
+    <view class="cart_container">
+      <view wx:if="{{list.length == 0}}" class="content-empty">
+        <text class="icon icon-cart"></text>
+        <view>购物车里还没任何商品哦~~</view>
+        <navigator url="/pages/default/index/index"  class="btn btn-default-o external">到处逛逛</navigator>
+      </view>
+      <!--例表/S-->
+      <view wx:if="{{list.length > 0}}" class="fui-list-group">
+        <view wx:for-items="{{list}}" wx:key="list" class="fui-list goods-item align-start">
+          <view class="fui-list-media">
+            <radio-group class="radio-group">
+              <radio wx:if="{{!isEdit}}" class="fui-radio fui-radio-danger cartmode check-item" data-id="{{item.id}}" value="{{item.id}}" data-value="{{item.selected}}" color="#f00" checked="{{item.selected == true}}" catchtap="selGoods" />
+              <radio wx:else class="fui-radio fui-radio-danger cartmode check-item" data-id="{{item.id}}" data-index="{{index}}" data-value="{{item.isset}}" checked="{{isEditAll || item.isset == 1}}" color="#f00" catchtap="selEditGoods" />
+            </radio-group>
+          </view>
+          <view class="fui-list-media image-media">
+            <navigator url="/pages/default/goods/detail/detail?id={{item.goodsid}}">
+              <image src="{{item.thumb}}" class="round"></image>
+            </navigator>
+          </view>
+          <!--fui-list-inner/S-->
+          <view class="fui-list-inner">
+            <navigator url="/pages/default/goods/detail/detail?id={{item.goodsid}}">
+              <view class="text">
+                <view wx:if="{{item.seckillprice > 0}}" class="fui fui-label fui-label-danger" style="display:none;">{{item.seckilltag}}</view>
+                {{item.title}}
+              </view>
+              <view wx:if="{{item.optionid > 0}}" class="text cart-option cartmode">
+                <view class="choose-option">{{item.optiontitle}}</view>
+              </view>
+            </navigator>
+            <view wx:if="{{item.optionid > 0}}" class="text cart-option editmode">
+              <view class="choose-option">{{item.optiontitle}}</view>
+            </view>
+          </view>
+          <!--fui-list-inner/E-->
+          <!--fui-list-angle/S-->
+          <view class="fui-list-angle" style="overflow:none;" >
+            <text class="price">￥ <text class="marketprice">{{item.marketprice}}</text>
+            </text>
+            <view class="fui-number small">
+              <view catchtap="changeCartNum" data-action="minus" data-id="{{item.id}}" data-total="{{item.total}}" class="minus"  data-options="{{item.optionid}}"  data-index="{{index}}">-</view>
+              <input class="num shownum" type="number" data-id="{{item.id}}" data-total="{{item.total}}" value="{{item.total}}" bindblur="bindKeyInput" style="height:1rem;line-height:1rem;" />
+              <view catchtap="changeCartNum" data-action="plus" data-id="{{item.id}}" data-total="{{item.total}}" data-options="{{item.optionid}}" class="plus" data-index="{{index}}">+</view>
+            </view>
+          </view>
+          <!--fui-list-angle/E-->
+        </view>
+      </view>
+      <!--例表/E-->
+    </view>
+  </view>
+  <!--footer/S-->
+  <view wx:if="{{!isEdit && list.length > 0}}" style="bottom:110rpx;z-index:9999" class="fui-footer cartmode">
+    <view class="fui-list noclick">
+      <view class="fui-list-media">
+        <label class="checkbox-inline checkall" style="padding-left: 0;" bindtap="selGoods" data-id="" data-value="{{isAll == true ? 1 : 0}}">
+          <radio class="fui-radio fui-radio-danger cartmode check-item" data-id="" data-value="{{isAll == true ? 1 : 0}}" color="#f00" checked="{{isAll}}" catchtap="selGoods" style="position: relative;" />
+          <text catchtap="selGoods" data-id="" data-value="{{isAll == true ? 1 : 0}}" style="font-size:.8rem;">全选</text>
+        </label>
+      </view>
+      <view class="fui-list-inner" style="width:50%;">
+        <view class="subtitle">合计：
+          <text class="text-danger">￥</text>
+          <text class='text-danger totalprice'>{{totalPrice}}</text>
+        </view>
+        <view class="text">不含运费</view>
+      </view>
+      <view class="fui-list-angle" style="z-index:9999;">
+        <text class="btn btn-submit btn-edit" data-value="{{isEdit}}" bindtap="onTapEdit" style="width:40%;margin-right:5%;border:1px solid #333;border-radius:3px;">编辑</text>
+        <text class="btn btn-submit btn-danger" bindtap="toPayOrder" style="width:55%;">结算({{total}})</text>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{list.length > 0 && isEdit}}" class="fui-footer editmode" style="display:block;bottom:110rpx;z-index:999;">
+    <view class="fui-list noclick">
+      <view class="fui-list-media">
+        <label class="checkbox-inline editcheckall" style="padding-left:0;" bindtap="selEditAll" data-value="{{isEditAll == true ? 1 : 0}}">
+          <radio class="fui-radio fui-radio-danger cartmode check-item" color="#f00" data-value="{{isEditAll == true ? 1 : 0}}" checked="{{isEditAll}}" catchtap="selEditAll" style="position: relative;" />
+          <text catchtap="selEditAll" data-id="" data-value="{{isEditAll == true ? 1 : 0}}" style="font-size:.8rem;">全选</text>
+        </label>
+      </view>
+      <view class="fui-list-angle">
+        <view class="btn btn-default-o btn-favorite disabled" style="margin-right:8px;display:none;">移动到关注</view>
+        <view class="btn btn-danger-o btn-delete {{isEditAll || editArray.length > 0 ? '' : 'disabled'}}" bindtap="del">删除</view>
+        <text class="btn btn-submit btn-edit" data-value="{{isEdit}}" bindtap="onTapEdit" style="margin-left:10px;border:1px solid #333;border-radius:3px;">完成</text>
+      </view>
+    </view>
+  </view>
+</view>
+  <!--footer/E-->
+</view>
+<import src="../diymenu/diymenu.wxml" />
+
+  <template is="diymenu" data="{{datas,style,data,tabid}}" />
+

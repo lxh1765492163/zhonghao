@@ -1,0 +1,30 @@
+<view class="fui-page fui-page-current address-selector-page">
+  <view class="fui-content navbar">
+    <!--地址列表/S-->
+    <block wx:for="{{address}}" wx:for-item="item" wx:key="">
+      <view class="fui-list-group address-item" >
+        <view class="fui-list">
+          <view class="fui-list-media">
+            <label catchtap="radioChange" data-id="{{item.id}}"><icon type="circle" size="16" color="#ccc" /></label>
+          </view>
+          <view class="fui-list-inner">
+            <view class="title">
+              <text class="realname">{{item.name}}: </text>
+              <text class="mobile"> {{item.phone}}</text>
+            </view>
+            <view class="text"><text class="address">{{item.province}}{{item.city}}{{item.district}} {{item.address}}</text></view>
+          </view>
+          <view class="pull-right" style="font-size:30rpx;width:140rpx;">
+                <navigator style="margin-left:5rpx;" class="in-block" url="/pages/default/bespoke/address/address?type=1&id={{item.id}}">
+                  <text class="icon icon-edit2"></text> 编辑</navigator>
+               
+              </view>
+        </view>
+      </view>
+    </block>
+    <!--地址列表/E-->
+  </view>
+  <view class="fui-navbar">
+    <navigator url="/pages/default/bespoke/address/address?type=1" class="nav-item btn btn-danger external"><text class="icon icon-add"></text> 新增地址</navigator>
+  </view>
+</view>

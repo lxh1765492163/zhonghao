@@ -1,0 +1,3 @@
+.fui-list-inner .subtitle {
+  white-space: normal;
+}

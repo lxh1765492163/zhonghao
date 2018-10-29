@@ -1,0 +1,122 @@
+<!--pages/default/diyfroms/index.wxml-->
+
+
+<!-- <import src="../../component/diyform/form.wxml" /> -->
+<form bindsubmit="formSubmit">
+    <block wx:for="{{diyform}}" wx:for-item="item" wx:for-index="idx" wx:key="*this">
+
+        <!-- <template is="diyform" data="{{item,imgs,date,casIndex,region,time,tempFilePaths,array}}" /> -->
+
+        <view class="fui-cell-group" wx:if="{{item.data_type==0}}">
+
+            <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+                <view class="fui-cell-label">{{item.tp_name}}:</view>
+                <view class="fui-cell-info">
+
+                    <input type="text" class="fui-input" name="{{idx}}" placeholder="{{item.placeholder}}" value="" />
+
+                </view>
+            </view>
+
+        </view>
+
+        <view class="fui-cell-group" wx:if="{{item.data_type==1}}">
+            <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+
+                <view class="fui-cell-label">{{item.tp_name}}:</view>
+                <input type="text" name="{{idx}}" class="fui-input" placeholder="{{item.placeholder}}" />
+            </view>
+        </view>
+        <view wx:if="{{item.data_type==2}}" class="fui-cell-group">
+            <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+
+                <view class="fui-cell-label">{{item.tp_name}}:</view>
+                <picker bindchange="bindPickerChange" value="{{item.tp_text[casIndex]}}" name="{{idx}}" range="{{item.tp_text}}">
+                    <view class="picker">
+                        ：{{item.tp_text[casIndex]}}
+
+                    </view>
+                </picker>
+
+            </view>
+        </view>
+
+        <view wx:if="{{item.data_type==3}}" class="fui-cell-group">
+            <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+                <view class="fui-cell-label">{{item.tp_name}}: </view>
+                <checkbox-group bindchange="checkboxChange" name="{{idx}}">
+                    <label class="checkbox" wx:for="{{item.tp_text}}" wx:for-item="a">
+                        <checkbox value="{{a}}" checked="" />{{a}}
+                    </label>
+                </checkbox-group>
+            </view>
+        </view>
+        <view wx:if="{{item.data_type==5}}" class="fui-cell-group" bindtap="open">
+            <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+
+                <view class="fui-cell-label">{{item.tp_name}}</view>
+
+                <!-- <button wx:if="{{imgs==''}}" size="mini">获取图片</button> -->
+                <!-- <block wx:for="{{imgs}}" wx:for-item="img" wx:key=""> -->
+
+
+                <input type="hidden" style="width:90rpx;" name="{{idx}}" value="{{imgs}}">
+                </input>
+                <image style="width:110rpx;height:100rpx;position:absolute;left:5rem;z-index:999" src="https://xcx.xcwll.cn/attachment/{{imgs}}"></image>
+                <!-- </block> -->
+            </view>
+        </view>
+        <view wx:if="{{item.data_type==6}}" class="fui-cell-group">
+            <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+
+                <view class="fui-cell-label">{{item.tp_name}}</view>
+
+                <input name="{{idx}}" class="fui-input" maxlength="50" placeholder="{{item.placeholder}}" type="number" />
+            </view>
+        </view>
+
+
+        <view wx:if="{{item.data_type==7}}" class="fui-cell-group">
+            <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+                <view class="fui-cell-label">{{item.tp_name}}</view>
+
+                <picker style="padding-left:50rpx" mode="date" value="{{date}}" name="{{idx}}" start="" end="" bindchange="bindDateChange">
+                    <view class="picker">
+                        :{{date}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view wx:if="{{item.data_type==9}}" class="fui-cell-group">
+            <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+                <view class="fui-cell-label">{{item.tp_name}}</view>
+                <picker mode="region" bindchange="bindRegionChange" value="{{region}}" name="{{idx}}" custom-item="{{customItem}}">
+                    <view style="padding-left:50rpx" class="picker">
+                        {{region[0]}}，{{region[1]}}，{{region[2]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+
+        <view wx:if="{{item.data_type==11}}" class="fui-cell-group" style="">
+            <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+
+                <view class="fui-cell-label">{{item.tp_name}}</view>
+
+                <picker mode="time" value="{{time}}" name="{{idx}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+                    :{{time}}
+                </picker>
+            </view>
+        </view>
+
+        <view wx:if="{{item.data_type==13}}" class="fui-cell-group">
+            <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+
+                <view class="fui-cell-label">{{item.tp_name}}</view>
+
+                <input disabled type="text" name="{{idx}}" value="({{item.tp_text}})" />
+            </view>
+        </view>
+    </block>
+    <button formType="submit" style="width:98%" class="btn btn-danger btn-submit block">立即提交</button>
+</form>

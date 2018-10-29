@@ -1,0 +1,34 @@
+<!--pages/default/fightGroup/list/list.wxml-->
+
+  <view class="search">
+    <view class="search_cen">
+        <image src="/assets/images/tabBar/search.png"></image>
+       <input class="int" catchblur="searchSubmit" type="text" placeholder="请输入关键字"></input>
+    </view>
+  </view>
+
+
+<view class="container">
+  <block wx:for="{{items}}" wx:for-item="item" wx:key="">
+    <view class="imgLeft">
+      <image src="{{item.thumb}}"></image> 
+    </view>
+    <view class="detail">
+      <view class="title">{{item.title}}</view>
+      <text class="price">原价:¥{{item.price}}</text>
+      <view class="pin">
+        <text class="people">{{item.groupnum}}人团 ¥</text>
+        <text class="pinPrice">{{item.groupsprice}}</text>
+        <text class="piece">/{{item.goodsnum}}件</text>
+        <text bindtap="navTo" data-id="{{item.id}}" class="goGroup">去拼团 ></text>
+      </view>
+    </view>
+  </block>
+</view>
+
+
+<!-- 底部  -->
+<block>
+  <import src="../component/footer.wxml" />
+  <template is="footer"  />
+</block>

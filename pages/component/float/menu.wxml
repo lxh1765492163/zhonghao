@@ -1,0 +1,10 @@
+<!--pages/community/menu/menu.wxml-->
+<template name='floatmenu'>
+<view  class='menu'>
+  
+      <navigator open-type='reLaunch' url="/pages/default/index/index">
+             《 去首页
+      </navigator>
+
+  </view>
+</template>

@@ -1,0 +1,2 @@
+/* pages/default/order/pay/pay.wxss */
+@import '../../../component/float/menu.wxss';

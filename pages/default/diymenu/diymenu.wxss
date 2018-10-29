@@ -1,0 +1,82 @@
+/* pages/default/diymenu/diymenu.wxss */
+
+.footer {
+  width: 100%;
+  height: 49px;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  z-index: 9999;
+  background: white;
+}
+
+.footer .menuchild {
+  flex: 1;
+  height: 96%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.footer .menuchild .index {
+  width: 100%;
+  height: 100%;
+  /* padding: 3% 0;  */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  margin: auto;
+}
+
+.footer .menuchild .index .font {
+  font-size: 26rpx;
+  width: 100%;
+  text-align: center;
+  color: #999;
+  flex: 1;
+  /* margin-top: 3rpx; */
+}
+
+.footer .menuchild .index .fontcolor {
+  color: #d81e06;
+  font-size: 26rpx;
+  width: 100%;
+  text-align: center;
+  flex: 1;
+  /* margin-top: 3rpx; */
+}
+.footer .menuchild button {
+  border-radius: 0;
+  font-size: 26rpx;
+  line-height: normal;
+}
+
+button::after {
+  border: none;
+}
+
+.footer .menuchild .index .active {
+    width:48rpx;
+    height:48rpx;
+}
+.footer .menuchild .index view{
+    padding-top:5rpx;
+}
+.footer .menuchild navigator {
+  margin-left: auto;
+  margin-right: auto;
+  /* padding-left: 14px;
+  padding-right: 14px;
+  box-sizing: border-box;  */
+  font-size: 26rpx;
+  text-align: center;
+  text-decoration: none;
+  overflow: hidden;
+  color: #000;
+  background-color: white;
+}

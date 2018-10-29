@@ -1,0 +1,104 @@
+/**index.wxss**/
+
+.example {
+  font-size: 28rpx;
+  background: #eee;
+  padding-top: 20rpx;
+}
+
+.example .search {
+  padding: 8rpx 20rpx;
+  margin: 0rpx 20rpx 20rpx;
+  border: solid 1rpx #ddd;
+  border-radius: 10rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+}
+
+.example .search icon {
+  margin-right: 20rpx;
+}
+
+.example .category_list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background: white;
+}
+
+.category_list .category {
+  text-align: center;
+  width: 33%;
+  padding: 80rpx 0 30rpx;
+  border-bottom: solid 1rpx #eee;
+  border-right: solid 1px #eee;
+}
+
+.category image {
+  width: 70rpx;
+  height: 70rpx;
+  margin: 20rpx;
+  /* border-radius: 10rpx; */
+}
+
+.child_category {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 111;
+  background: white;
+  width: 0;
+  font-size: 30rpx;
+}
+
+.child_category .header {
+  background: #eee;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1rpx #ddd;
+}
+
+.header .search {
+  border: solid 1rpx #ddd;
+  background: white;
+  border-radius: 10rpx;
+  flex: 1;
+  padding: 8rpx 20rpx;
+  margin-left: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.header .search icon {
+  margin-right: 20rpx;
+}
+
+.child_category .category {
+  padding: 20rpx 40rpx;
+  background: #eee;
+  color: #999;
+}
+
+.child_category .list_menu {
+}
+
+.list_menu .menu {
+  padding: 25rpx 40rpx 25rpx 0vh;
+  margin-left: 40rpx;
+  border-bottom: solid 1rpx #ddd;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu .icon {
+  width: 20rpx;
+  height: 20rpx;
+  border-right: solid 5rpx #ddd;
+  border-top: solid 5rpx #ddd;
+  transform: rotate(45deg);
+}

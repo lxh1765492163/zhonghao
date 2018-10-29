@@ -1,0 +1,115 @@
+<view class="ruzhu font">
+  <view class="ruzhu_header">
+    <view wx:if="{{order.type==1}}">
+      <view class="ruzhu_header1" wx:if="{{order.status==0}}">待付款</view>
+      <view class="ruzhu_header2" wx:if="{{order.status==0}}">等待付款，预付房费可以保留整晚哦</view>
+      <view class="ruzhu_header1" wx:if="{{order.status==1}}">待入住</view>
+      <view class="ruzhu_header2" wx:if="{{order.status==1}}">等待入住</view>
+      <view class="ruzhu_header1" wx:if="{{order.status==4}}">订单已完成</view>
+      <view class="ruzhu_header1" wx:if="{{order.status==8}}">入住成功</view>
+      <view class="ruzhu_header1" wx:if="{{order.status==3}}">订单已完成</view>
+      <view class="ruzhu_header2" wx:if="{{order.status==3}}">入住成功</view>
+      <view class="ruzhu_header1" wx:if="{{order.status==2}}">订单已取消</view>
+    </view>
+    <view wx:if="{{order.type==2}}">
+      <view class="ruzhu_header1" wx:if="{{order.status==0}}">待付款</view>
+      <view class="ruzhu_header2" wx:if="{{order.status==0}}">等待付款，预付房费可以保留整晚哦</view>
+      <view class="ruzhu_header1" wx:if="{{order.status==4||order.status==3}}">订单已完成</view>
+      <view class="ruzhu_header2" wx:if="{{order.status==4||order.status==3}}">入住成功</view>
+      <view class="ruzhu_header1" wx:if="{{order.status==1}}">待入住</view>
+      <view class="ruzhu_header2" wx:if="{{order.status==1}}">等待入住</view>
+       <view class="ruzhu_header1" wx:if="{{order.status==2}}">订单已取消</view>
+    </view>
+
+  </view>
+  <view class="ruzhu_content">
+    <view class="ruzhu_content1">
+      <view class="ruzhu_content2">{{order.seller_name}}</view>
+      <view class="ruzhu_content3">{{seller.address}}</view>
+    </view>
+    <view class="ruzhu_content4">
+      <view class="ruzhu_content5">{{order.room_type}}
+        <text class="ruzhu_content6">{{order.room_num}}间</text>
+        <text class="ruzhu_content6">共{{order.days}}晚</text>
+      </view>
+      <view class="ruzhu_content7">
+        <text class="ruzhu_content8">入住时间：</text> {{order.arrival_time}} 至 {{order.departure_time}}
+
+      </view>
+      <view class="ruzhu_content7">
+        <text class="ruzhu_content8">保留时间：</text>
+        <text>{{order.arrival_time}} 10:00</text>
+      </view>
+      <view class="ruzhu_content7">
+        <text class="ruzhu_content8"> 入 住 人 ：</text>
+        <text>{{order.name}}</text>
+      </view>
+      <view class="ruzhu_content7">
+        <text class="ruzhu_content8">联系电话：</text>
+        <text>{{order.tel}}</text>
+      </view>
+    </view>
+    <view class="ruzhu_content9">
+      <view class="ruzhu_dian" style="border:none;" catchtap="call_phone">
+        <view class="ruzhu_dian1">
+          <image src="../../images/dianhua.png"></image>
+        </view>
+        <view class="ruzhu_dian2">联系电话</view>
+      </view>
+      <view class="ruzhu_dian">
+        <view class="ruzhu_dian1">
+          <image src="../../images/kefu.png"></image>
+        </view>
+        <view class="ruzhu_dian2">联系客服</view>
+        <button class="ruzhu_btn" open-type="contact"></button>
+      </view>
+      <view class="ruzhu_dian" bindtap="dizhi">
+        <view class="ruzhu_dian1">
+          <image src="../../images/ditu.png"></image>
+        </view>
+        <view class="ruzhu_dian2">查看地图</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="ruzhu_zhi">
+    <view class="ruzhu_zhi1 ruzhu_zhi1_1">
+      <view class="ruzhu_content8">支付方式</view>
+      <view class="ruzhu_zhi3" wx:if="{{order.type==1}}">到付</view>
+      <view class="ruzhu_zhi3" wx:if="{{order.type==2}}">在线付</view>
+    </view>
+    <view class="ruzhu_zhi2">
+      <view class="ruzhu_zhi2_1">
+        <view class="ruzhu_content8">订单总价：</view>
+        <view class="ruzhu_zhi4">¥ {{order.dis_cost}}</view>
+      </view>
+      <!-- <view class="ruzhu_zhi2_1">
+        <view class="ruzhu_content8">支付方式</view>
+        <view class="ruzhu_zhi4">- ¥ 0</view>
+      </view> -->
+    </view>
+    <view class="shifu">
+      <view class="shifu1">
+        <view class="shifu_kuan">
+          <text>下单时间：{{order.cerated_time}}</text>
+        </view>
+      </view>
+      <view class="shifu2 ruzhu_content8">
+        <text>订单号：{{order.order_no}}</text>
+
+      </view>
+    </view>
+  </view>
+
+  <view class="tishi">
+    温馨提示：{{seller.prompt}}
+  </view>
+  <view class="queren">
+    <view class="queren2" wx:if="{{order.status==0}}" bindtap='pay'>立即支付</view>
+    <!-- <view class="queren2" wx:if="{{order.status==4}}">订单已完成</view> -->
+    <view class="queren1" wx:if="{{order.status==1||order.status==0}}" bindtap='click2' data-oid="{{order.id}}">取消订单</view>
+
+    <!-- <navigator url="../daodianzhifu/daodianzhifu" class="queren2">立即支付</navigator>   -->
+  </view>
+
+</view>

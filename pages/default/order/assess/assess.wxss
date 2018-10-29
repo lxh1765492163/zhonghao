@@ -1,0 +1,203 @@
+/* pages/default/order/assess/assess.wxss *//* pages/form/assess/index.wxss */
+page{
+    font-size: 30rpx;
+    background: #f5f5f5;
+}
+.box .menu{
+    width:100%;
+    height:60rpx;
+    background:#fff;
+}
+.box .menu button{
+    float:right;
+    color:#fff;
+    background:#FF9A00;
+ 
+    height:60rpx;
+    margin-right:30rpx;
+    font-size:36rpx;
+    border-color:#FF9A00;
+}
+.box{
+    width: 100%;
+    overflow: hidden;
+}
+
+.box .header{
+    width: 100%;
+    height: 140rpx;
+    line-height: 140rpx;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.box .header image{
+    display: block;
+    width: 100rpx;
+    height: 100rpx;
+    float: left;
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+}
+
+.box .header text{
+    display: block;
+    float: left;
+    margin-left: 20rpx;
+    font-weight: bold;
+}
+.box .header text:nth-child(3){
+    float:right;
+    margin-right:60rpx;
+    color:#ccc;
+}
+.box .header text:nth-child(4){
+    float:right;
+    margin-right:-46rpx;
+    margin-top:50rpx;
+    color:#ccc;
+}
+.box .wrap{
+    width: 100%;
+    margin-top: 20rpx;
+}
+
+.box .wrap .wrapList{
+    width: 100%;
+    background: #ffffff;
+    margin-bottom: 30rpx;
+    padding-bottom: 30rpx;
+    padding-top:20rpx;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+}
+
+.box .wrap .wrapList .title{
+    margin-left: 35rpx;
+    font-size: 32rpx;
+    font-weight: 700;
+    padding-top: 30rpx;
+    display: flex;
+    flex-direction: row;
+}
+.box .wrap .wrapList .title view{
+ margin-top:20rpx;
+}
+.box .wrap .wrapList .title image{
+    display:block;
+    margin-left:100rpx;
+    width:70rpx;
+    height:60rpx;
+    margin-top:16rpx;
+}
+.box .wrap .wrapList .content{
+    margin-left: 35rpx;
+    margin-right: 25rpx;
+}
+.box .wrap .wrapList .openimg{
+    position:relative;
+    width:100%;
+    margin-bottom:140rpx;
+}
+.openimg .del{
+    width:40rpx;
+    height:40rpx;
+    background:#ddd;
+    text-align: center;
+    border-radius: 40rpx;
+    position:absolute;
+    left:110rpx;
+    top:10rpx;
+}
+.openimg image{
+    width:100rpx;
+    height:100rpx;
+    float:left;
+    margin-left:30rpx;
+    margin-top:40rpx;
+    border:1px dashed #ccc;
+}
+.box .wrap .wrapList .content .goods{
+    margin-top: 20rpx;
+    line-height: 60rpx;
+    overflow: hidden;
+}
+
+.box .wrap .wrapList .content .goods .goods-title{
+    float: left;
+    font-weight: bold;
+}
+
+.box .wrap .wrapList .content .goods .goods-feel{
+    float: right;
+    text-align: right;
+    overflow: hidden;
+    position: relative;
+}
+
+.box .wrap .wrapList .content .goods .goods-feel image{
+    display: block;
+    width: 40rpx;
+    height: 40rpx;
+    margin-top: 10rpx;
+    float: left;
+}
+
+.box .wrap .wrapList .content .feature{
+    overflow: hidden;
+
+}
+
+.box .wrap .wrapList .content .feature text{
+    display: block;
+    float: left;
+    color: #999;
+    font-size: 28rpx;
+    margin-top: 15rpx;
+    margin-right: 20rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    padding: 0 10rpx;
+    border-radius: 5rpx;
+    text-align: center;
+    border: 1px solid #dbdbdb;
+}
+
+.box .wrap .wrapList .content .textarea{
+
+    margin-top: 30rpx;
+    background: #fcfcfc;
+}
+
+.box .wrap .wrapList .content .textarea textarea{
+    width: 96%;
+    min-height: 180rpx;
+    line-height: 56rpx;
+    margin: 0 20rpx;
+}
+
+.box .wrap .submit{
+    width: 100%;
+    height: 120rpx;
+    line-height: 120rpx;
+    margin-top: 30rpx;
+    overflow: hidden;
+    text-align: center;
+    color: #ffffff;
+
+    bottom: 0;
+    z-index: 100;
+}
+
+.box .wrap .submit .point{
+    width: 65%;
+    float: left;
+    background: #444;
+}
+
+.submit button{
+    width:60%;
+    margin:0 auto;
+    background:#428BCA;
+    color:#fff;
+}

@@ -1,0 +1,70 @@
+<import src="../../../../component/merch_cube/merch_cube.wxml" />
+<import src="../../../../component/merch_goods/merch_goods.wxml" />
+<import src="../../../../component/merch_banner/merch_banner.wxml" />
+<import src="../../../../component/merch_search/merch_search.wxml" />
+
+<view wx:if="{{items != null}}" class="fui-page fui-page-current page-commission-myshop">
+    <view class="fui-content navbar">
+        <view class="myshop-header">
+            <view wx:if="{{items.shop.img}}" class="image">
+                <image src="http://xcx.xcwll.cn/attachment/{{items.shop.img}}"></image>
+            </view>
+            <view class="menus" style="margin-top:100rpx;">
+                <view class="shopname">{{items.shop.name}}</view>
+                <view class="shoplogo">
+                    <image src="http://xcx.xcwll.cn/attachment/{{items.shop.logo}}"></image>
+                </view>
+                <view class="nav">
+                    <view class="nav-one">{{items.goodscount}}</view>
+                    <view>全部宝贝</view>
+                </view>
+                <view class="nav btn-favorite">
+                    <view class="nav-one">
+                        <text class="icon icon-favorite"></text>
+                    </view>
+                    <view>收藏本店</view>
+                </view>
+                <!-- <view class="nav btn-qrcode">
+          <view class="nav-one"><text class="icon icon-qrcode"></text></view>
+          <view>二维码</view>
+        </view> -->
+            </view>
+        </view>
+        <template is="merch_search" />
+        <template is="merch_cube" data="{{...items}}" />
+        <template is="merch_goods" data="{{...items}}" />
+        <template is="merch_banner" data="{{...items}}" />
+        <view class="fui-line" style="background:#f4f4f4;">
+            <!-- <view class="text text-danger">
+                <text class="icon icon-hotfill"></text> 小店推荐</view> -->
+        </view>
+        <view class="fui-goods-group block" style="width:100%;padding:0;margin:0;">
+            <block wx:if="{{list.length > 0}}">
+                <block wx:for="{{list}}" wx:for-item="val" wx:key="">
+                    <view class="fui-goods-item">
+                        <navigator url="/pages/default/goods/detail/detail?id={{val.id}}&frommyshop=1">
+                            <view class="image" style="background-image:url({{val.thumb}});">
+                                <view wx:if="{{val.total <= 0}}" class="salez" style="background-image:url('{{items.shopset.shop.saleout}}');"></view>
+                            </view>
+                        </navigator>
+                        <view class="detail">
+                            <navigator url="/pages/default/goods/detail/detail?id={{val.id}}">
+                                <view class="name">{{val.title}}</view>
+                            </navigator>
+                            <view class="price">
+                                <text class="text">￥{{val.minprice}}</text>
+                                <view class="buy">
+                                    <text class="icon icon-cart"></text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </block>
+        </view>
+        <view class="infinite-loading" style="text-align:center;color:#666;display:none;">
+            <view class="fui-preloader"></view>
+            <view class="text">正在加载...</view>
+        </view>
+    </view>
+</view>

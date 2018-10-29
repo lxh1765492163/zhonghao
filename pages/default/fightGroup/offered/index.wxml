@@ -1,0 +1,40 @@
+<!--pages/default/fightGroup/offered/index.wxml-->
+<view class="header">
+  <image src="{{goods.thumb}}"></image>
+  <view class="headerLeft">
+    <view class="headerTitle">{{goods.title}}</view>
+    <view class="detail">
+      <text>{{goods.groupnum}}人团</text>
+      <text>：¥</text>
+      <text class="price">{{goods.groupsprice}}</text>
+      <text >/{{goods.goodsnum}}{{goods.units}}</text>
+      <text wx:if="{{goods.units==''}}">1件</text>
+      <text class="ple">已有{{goods.fightnum}}人参团</text>
+    </view>
+  </view>
+</view> 
+<view class="order">
+  <view class="groups">支付开团并邀请{{goods.groupnum-1}}人参加,人数不足自动退款,详见下方拼团玩法</view>
+  <view bindtap="myoffered" data-id="{{goods.goodsid}}" class="tuan my">我要参团</view>
+  <view bindtap="toPayOrder" data-id="{{goods.goodsid}}" class="tuan two">我要开团</view>
+</view>
+
+<view class="more">
+  更多好团
+</view>
+<view class="groom">
+  <block wx:for="{{teams}}" wx:for-item="item" wx:key="">
+    <navigator url="/pages/default/fightGroup/details/detail?id={{item.goodsid}}">
+      <view class="goods">
+        <image src="{{item.thumb}}"></image>
+        <view class="goodstitle">{{item.title}}</view>
+        <view class="goodsprice">
+          <text class="rmb">¥</text>
+          <text class="price">{{item.groupsprice}}</text>
+          <text class="cost">{{item.price}}</text>
+          <text class="people">{{item.fightnum}}人参团</text>
+        </view>
+      </view>
+    </navigator>
+  </block>
+</view>

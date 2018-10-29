@@ -1,0 +1,70 @@
+<!--pages/default/integralmall/order/detail/detail.wxml-->
+<view class='order_detail' wx:if="{{order}}">
+  <view class='state'>
+    <view style='flex:1'>
+      <view class='tip' wx:if="{{order.goodstype==0}}">{{order.time_finish!=0?'已完成':order.time_send!=0?'商家已发货,等待确认收货':'等待卖家发货'}}</view>
+      <view class='tip' wx:if="{{order.goodstype==1}}">优惠券已发放</view>
+      <view class='tip' wx:if="{{order.goodstype==2}}">余额已发放</view>
+      <view class='tip' wx:if="{{order.goodstype==3}}">已兑换, 等待领取</view>
+      <view>商品总额:
+        <text>{{order.optionid!=0?order.ocredit:order.credit}}积分</text>
+        <text wx:if="{{order.optionid!=0&&order.omoney!=0||order.money!=0}}">+¥{{order.optionid!=0?order.omoney:order.money}}</text>
+        <text>+{{order.dispatch}}邮费</text>
+      </view>
+    </view>
+    <view class='icon icon-creditlevel' style='font-size: 110rpx;margin-right:30rpx'></view>
+  </view>
+  <view wx:if="{{order.goodstype==0&&order.time_send!=0}}" class='express' style='padding:0 20rpx 10rpx;color:#666'>
+    <text style='text-align:left;'> 快递信息：</text>
+    <text style='text-align:right;display:inline-block'>{{order.expresscom==''?'其他快递':order.expresscom}} {{order.expresssn}}</text>
+  </view>
+  <view class='address' wx:if="{{order.goodstype=='0'}}">
+    <view class='icon icon-location' style='padding-right:20rpx '></view>
+    <view>
+      <view style='font-weight: 80'>{{order.realname}} {{order.mobile}}</view>
+      <view style='color: #666; font-size:30rpx'>{{order.province}}{{order.city}}{{order.area}}{{order.address}}
+      </view>
+    </view>
+  </view>
+  <view class='goods_detail'>
+    <view class='shop'>
+      <text class='icon icon-shop' style='font-size:30rpx'></text>
+      <text> {{order.storename}}</text>
+    </view>
+    <view class='goods' style='display: flex'>
+      <image src='{{order.thumb}}' style='height:130rpx; width:130rpx;border-radius: 10rpx;'></image>
+      <view style='flex: 1; margin:0 20rpx; '>
+        <view class='title'>{{order.title}}</view>
+        <view wx:if="{{order.optionid!=0}}" style='color: #666; font-size:30rpx'>{{order.otitle}}</view>
+      </view>
+      <view style='text-align: right'>
+        <view>{{order.optionid!=0?order.ocredit:order.credit}}积分</view>
+        <view wx:if="{{order.optionid!=0&&order.omoney!=0||order.money!=0}}">¥{{order.optionid!=0?order.omoney:order.money}}</view>
+        <view>x 1</view>
+      </view>
+    </view>
+  </view>
+  <view class='sale'>
+    <view>
+      <text>商品小计</text>
+      <text class='right'>{{order.credit}} {{order.money&&order.money!=0?'+ ¥'+order.money:''}}</text>
+    </view>
+    <view>
+      <text>运费</text>
+      <text class='right'>{{order.dispatch}}</text>
+    </view>
+    <view>
+      <text>实付费(含邮费)</text>
+      <text class='right'>{{paid}}</text>
+    </view>
+  </view>
+  <view class='order_info'>
+    <view class=''>订单编号: {{order.logno}}</view>
+    <view class=''>创建时间: {{createtime}}</view>
+    <view class=''>支付时间: {{createtime}}</view>
+    <view wx:if="{{order.time_send!=0}}">发货时间: {{timesend}}</view>
+    <view wx:if="{{order.time_finish!=0&&order.goodstype==0||order.goodstype!=0}}">完成时间: {{order.goodstype==0?timefinish:createtime}}</view>
+  </view>
+  <!-- <text class='' wx:if="{{order.goodstype==3}}" style='padding:10rpx 10rpx;border-radius:10rpx; border:solid 1rpx #000; margin-top:20rpx;display:inline-block;float:right; margin-right:20rpx;'>领取红包</text> -->
+  <text class='' wx:if="{{order.status==3&&order.time_send>0&&order.time_finish==0}}" style='padding:10rpx 10rpx;border-radius:10rpx; border:solid 1rpx #000; margin-top:20rpx;display:inline-block;float:right; margin-right:20rpx;' bindtap='collect'>确认收货</text>
+</view>

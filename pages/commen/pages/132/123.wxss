@@ -1,0 +1,87 @@
+/* pages/dingdan/dingdan.wxss */
+page{background-color: #F5F5F5;}
+.order_room{
+  background-color: white;
+  padding: 30rpx;
+}
+.order_title{
+  color: #333;
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.order_header{
+  font-size: 28rpx;
+  color: #999;
+}
+.order_content{
+  padding: 0rpx 30rpx;
+  border-bottom: 1rpx solid #F0F0F0;
+  border-top: 1rpx solid #F0F0F0;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  background-color: white;
+  line-height: 90rpx;
+  color: #999;
+}
+.content_room{  
+  height: 90rpx;
+  border-bottom: 1rpx solid #F0F0F0;
+  display: flex;
+  align-items: center;
+}
+.content_room view:nth-child(1){
+  width: 114rpx;
+}
+.content_room view:nth-child(2){
+  margin-left: 70rpx;
+}
+.content_room input{
+  margin-left: 70rpx;
+  width: 70%;
+  color: #333;
+}
+.rules{
+  padding: 30rpx;
+  color: #B5B5B5;
+  font-size: 24rpx;
+}
+.rule view:nth-child(2){
+  margin-top: 30rpx;
+}
+.footer{
+  height: 110rpx;
+  width: 100%;
+  display: flex;
+  line-height: 110rpx;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+}
+.footer_money{
+  background-color: #fff;
+  width: 60%;
+  height: 110rpx;
+  color: #EB5E18;
+  text-indent: 1em;
+  border-top: 1rpx solid #F0F0F0;
+}
+.footer_order{
+  background-color: #EB5E18;
+  width: 40%;
+  text-align: center;
+  color: white;
+  line-height: 110rpx;
+  font-size: 36rpx;
+  border-radius: 0rpx;
+  border: none;
+}
+.footer_rmb{
+  font-size: 28rpx;
+}
+.footer_rmb2{
+  font-size: 44rpx;
+}
+
+
+
+

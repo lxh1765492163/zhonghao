@@ -1,0 +1,10 @@
+<!--pages/qstbank/error/error.wxml-->
+<view class='error_record'>
+  <block wx:for="{{list}}" wx:key="">
+    <view class='option' bindtap='gettest' data-info="{{item}}">
+      <view class='title'>{{index+1}}、<text class='tag' style="background:{{item.type==1?'orange':item.type==2?'blue':item.type==3?'green':item.type==4?'purple':item.type==5?'red ':'cyan'}}">{{item.type==1?'多':item.type==2?'单':item.type==3?'判':item.type==4?'答':item.type==5?'配':'其'}}</text>{{item.type==5?item.info.title[0]:item.title}}   
+      </view>
+      <view class='icon'></view>
+    </view>
+  </block>
+</view>

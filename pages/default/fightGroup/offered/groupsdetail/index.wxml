@@ -1,0 +1,40 @@
+<!--pages/default/fightGroup/offered/groupsdetail/index.wxml-->
+<view class="header">
+   <image src="{{goods.thumb}}"></image> 
+  <view class="headerLeft">
+    <view class="headerTitle">{{goods.title}}</view>
+    <view class="detail">
+      <text>{{goods.groupnum}}人团</text>
+      <text>：¥</text>
+      <text class="price">{{goods.groupsprice}}</text>
+      <text >/{{goods.goodsnum}}{{goods.units}}</text>
+      <text wx:if="{{goods.units==''}}">1件</text>
+      <text class="ple">已有{{goods.fightnum}}人参团</text>
+    </view>
+  </view>
+</view> 
+<view class="content">
+  <view class="friend">以下小伙伴正在发起拼团，你可以直接参加</view>
+    <view wx:if="{{teams.length==0}}" class="no">暂无相关团购</view> 
+   
+    <view  class="gogroup" wx:for="{{teams}}" wx:for-item="teams" wx:key="">
+         <block wx:if="{{teams.second>=0 && teams.minite>=0 && teams.hour>=0}}">   
+      <view class="center" > 
+        <image src="{{teams.avatar}}"></image> 
+
+        <view class="name" >
+          <text>{{teams.nickname}}</text>
+
+          <text class="time">剩余{{teams.hour}}：{{teams.minite}}:{{teams.second}}</text> 
+        </view>
+        <view class="right" bindtap="toPayOrder" data-id="{{goods.goodsid}}">
+          去参团
+        </view>
+        <view style="font-size:30rpx; float:right;margin-top:20rpx;" class="cha">
+          还差{{teams.num}}人成团
+        </view>
+      </view>
+       </block>  
+    </view>
+
+</view>

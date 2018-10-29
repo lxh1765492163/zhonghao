@@ -1,0 +1,44 @@
+<!--pages/default/bespoke/beautician/beautician.wxml-->
+<block wx:for="{{data}}" wx:for-item="ar" wx:key="">
+  <view class="content" bindtap="showModal" data-id="{{ar.item.id}}" data-memberid="{{ar.item.member_id}}">
+    <image src="{{ar.photo_url}}"></image>
+    <view class="stro">
+      <view>{{ar.item.staff_name}}{{ar.store_name}}</view>
+      <view>{{ar.item.staff_desc}}</view>
+      <view>门店地址:{{ar.store_address}}</view>
+      <view>工号:{{ar.item.staff_work_no}},电话:{{ar.item.staff_phone}}</view>
+    </view>
+  </view>
+</block>
+ <view class="screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="box" wx:if="{{showModalStatus}}">
+  <!-- <view class="ytime">请选择预约时间</view> -->
+  <!--水平滚动-->
+  <!-- <scroll-view scroll-x="true" style=" white-space: nowrap; height:120rpx;">
+
+    <view style=" width: 150rpx;background:#F7F7F7; height:100%; display: inline-block;font-size:30rpx; ">
+      <view class="timeDay">今天 11/09</view>
+      <text class="kx">可预约</text>
+    </view>
+  </scroll-view>
+<scroll-view scroll-y="true" style="height: 200px">
+    <view style="background: #fff; width:100%; height: auto; margin-bottom:10rpx;" >
+
+    </view>
+</scroll-view> -->
+ <view class="all" style="font-size:40rpx;">
+      <picker mode="date" value="{{dates}}" start="2017-09-01" end="2019-09-01" bindchange="bindDateChange">
+        <view class="picker">
+          预约日期: {{dates}}
+        </view>
+      </picker>
+    </view>
+    <view class="all" style="font-size:40rpx;">
+      <picker mode="time" value="{{times}}" start="00:01" end="23:59" bindchange="bindTimeChange">
+        <view class="picker">
+          预约时间: {{times}}
+        </view>
+      </picker>
+    </view>
+     <button   class="butt" size="" type="warn" bindtap="choice">确定</button>
+ </view> 

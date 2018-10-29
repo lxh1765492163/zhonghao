@@ -1,0 +1,91 @@
+/* pages/default/seckill/hall/hall.wxss */
+
+.seckillhall .seckilltimes {
+  background: white;
+  white-space: nowrap;
+}
+
+.seckillhall .seckilltimes .time {
+  background: white;
+  width: 30%;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.seckillhall .hallimg {
+  margin: 20rpx 0;
+  background: white;
+  padding: 1%;
+  width: 98%;
+}
+
+.seckillhall .hallimg .advs {
+  white-space: nowrap;
+  background: white;
+}
+
+.seckillhall .hallimg .advs image {
+  width: 33.33%;
+  display: inline-block;
+}
+
+.seckillhall .hallrooms {
+  background: white;
+  white-space: nowrap;
+  font-size: 35rpx;
+  padding: 20rpx 0;
+}
+
+.seckillhall .hallrooms .room {
+  background: white;
+  padding: 20rpx 40rpx;
+  border-bottom: solid 1rpx #eee;
+  color: #333333;
+}
+
+.seckillhall .hallgoodslist {
+  background: white;
+  font-size: 35rpx;
+  padding: 10rpx 20rpx;
+  margin-top: 10rpx;
+  color: #666;
+}
+
+.seckillhall .hallgoodslist .countdown {
+  padding: 20rpx 0;
+  text-align: right;
+  border-bottom: solid 1rpx #eee;
+}
+
+.seckillhall .hallgoodslist .goods {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  padding: 20rpx 0;
+}
+
+.seckillhall .hallgoodslist .goods image {
+  height: 150rpx;
+  width: 150rpx;
+  margin-right: 20rpx;
+}
+
+.seckillhall .hallgoodslist .goods .text {
+  flex: 1;
+}
+
+.seckillhall .hallgoodslist .goods .sale {
+  width: 180rpx;
+  text-align: center;
+}
+
+.seckillhall .hallgoodslist .goods .sale navigator {
+  padding: 5rpx 20rpx;
+  color: white;
+  background: #ef4f4f;
+  border-radius: 15rpx;
+  display: inline-block;
+  margin-bottom: 15rpx;
+}

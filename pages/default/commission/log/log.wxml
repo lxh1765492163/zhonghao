@@ -1,0 +1,53 @@
+<view class="fui-page fui-page-current page-commission-log">
+    <view class="fui-content navbar">
+        <view class="fui-cell-group" style="margin-top:0px;">
+            <view class="fui-cell">
+                <view class="fui-cell-label" style="width:auto;">预计{{items.thisset.texts.commission}}</view>
+                <view class="fui-cell-info"></view>
+                <view class="fui-cell-remark noremark">+<text>{{items.commissioncount}}</text>{{items.thisset.texts.yuan}}</view>
+            </view>
+        </view>
+        <view class="fui-tab fui-tab-warning">
+            <view class="a {{status == '' ? 'active' : ''}}" data-tab="" catchtap="switchTab">所有</view>
+            <view class="a {{status == 1 ? 'active' : ''}}" data-tab="1" catchtap="switchTab">待审核</view>
+            <view class="a {{status == 2 ? 'active' : ''}}" data-tab="2" catchtap="switchTab">待打款</view>
+            <view class="a {{status == 3 ? 'active' : ''}}" data-tab="3" catchtap="switchTab">已打款</view>
+            <view class="a {{status == -1 ? 'active' : ''}}" data-tab="-1" catchtap="switchTab">无效</view>
+        </view>
+        <block wx:if="{{items.list.length > 0}}">
+            <view class="fui-list-group">
+                <!-- list -->
+                <block wx:for="{{items.list}}" wx:for-item="val" wx:key="">
+                    <navigator url="/pages/default/commission/log_detail/log_detail?id={{val.id}}" class="fui-list">
+                        <view class="fui-list-inner">
+                            <view class="row">
+                                <view class="row-text">编号: {{val.applyno}}</view>
+                            </view>
+                            <view class="subtitle">
+                                申请{{items.thisset.texts.commission}}: {{val.commission}}
+                                实际金额:{{val.deductionmoney > 0 ? val.realmoney : val.commission}},个人所得税:{{val.deductionmoney}} {{items.thisset.texts.yuan}}
+                                <view>
+                                    <block wx:if="{{val.status == 1}}">申请时间:</block>
+                                    <block wx:if="{{val.status == 2}}">审核时间:</block>
+                                    <block wx:if="{{val.status == 3}}">打款时间:</block>
+                                    <block wx:if="{{val.status == -1}}">无效时间:</block>
+                                    {{val.dealtime}}
+                                </view>
+                            </view>
+                        </view>
+                        <view class="row-remark">
+                            <view>+{{val.commission_pay}}</view>
+                            <view>{{val.statusstr}}</view>
+                        </view>
+                    </navigator>
+                </block>
+            </view>
+        </block>
+        <block wx:else>
+            <import src="../../../component/nodata/nodata.wxml" />
+            <template is="nodata" />
+        </block>
+        <!-- loading -->
+        <view class="infinite-loading" style="display:none;"><text class='fui-preloader'></text><text class='text'> 正在加载...</text></view>
+    </view>
+</view>

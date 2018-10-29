@@ -1,0 +1,119 @@
+<template name="diyform">
+    <!-- 自定义表单  -->
+
+    <!-- <block wx:for="{{diyform}}" wx:for-item="item"  wx:key="">  -->
+
+    <view class="fui-cell-group" wx:if="{{item.data_type==0}}">
+
+        <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+            <view class="fui-cell-label">{{item.tp_name}}:</view>
+            <view class="fui-cell-info">
+
+                <input type="text" class="fui-input" name="realname" placeholder="{{item.placeholder}}" value="" />
+
+            </view>
+        </view>
+
+    </view>
+
+    <view class="fui-cell-group" wx:if="{{item.data_type==1}}">
+        <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+
+            <view class="fui-cell-label">{{item.tp_name}}:</view>
+            <input type="text" name="remark2" class="fui-input" placeholder="{{item.placeholder}}" />
+        </view>
+    </view>
+    <view wx:if="{{item.data_type==2}}" class="fui-cell-group">
+        <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+
+            <view class="fui-cell-label">{{item.tp_name}}:</view>
+            <picker bindchange="bindPickerChange" value="{{casIndex1}}" name="xiala" range="{{item.tp_text}}">
+                <view class="picker">
+                    ：{{item.tp_text[casIndex]}}
+
+                </view>
+            </picker>
+
+        </view>
+    </view>
+
+    <view wx:if="{{item.data_type==3}}" class="fui-cell-group">
+        <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+
+            <view class="fui-cell-label">{{item.tp_name}}: </view>
+
+            <checkbox-group bindchange="checkboxChange">
+                <label class="checkbox" wx:for="{{item.tp_text}}" wx:for-item="a">
+                    <checkbox value="{{a}}" checked="" />{{a}}
+                </label>
+            </checkbox-group>
+        </view>
+    </view>
+    <view wx:if="{{item.data_type==5}}" class="fui-cell-group" bindtap="open">
+        <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+
+            <view class="fui-cell-label">{{item.tp_name}}</view>
+
+            <button wx:if="{{tempFilePaths==''}}" size="mini">获取图片</button>
+            <block wx:for="{{tempFilePaths}}" wx:for-item="img" wx:key="">
+
+                <image style="width:100rpx;height:100rpx;margin-left:10rpx;" src="{{img}}"></image>
+            </block>
+        </view>
+    </view>
+    <view wx:if="{{item.data_type==6}}" class="fui-cell-group">
+        <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+
+            <view class="fui-cell-label">{{item.tp_name}}</view>
+
+            <input name="remark3" class="fui-input" maxlength="50" placeholder="{{item.placeholder}}" type="number" />
+        </view>
+    </view>
+
+
+    <view wx:if="{{item.data_type==7}}" class="fui-cell-group">
+        <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+            <view class="fui-cell-label">{{item.tp_name}}</view>
+
+            <picker style="padding-left:50rpx" mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+                <view class="picker">
+                    :{{date}}
+                </view>
+            </picker>
+        </view>
+    </view>
+    <view wx:if="{{item.data_type==9}}" class="fui-cell-group">
+        <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+            <view class="fui-cell-label">{{item.tp_name}}</view>
+            <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                <view style="padding-left:50rpx" class="picker">
+                    {{region[0]}}，{{region[1]}}，{{region[2]}}
+                </view>
+            </picker>
+        </view>
+    </view>
+
+    <view wx:if="{{item.data_type==11}}" class="fui-cell-group" style="">
+        <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+
+            <view class="fui-cell-label">{{item.tp_name}}</view>
+
+            <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+                :{{time}}
+            </picker>
+        </view>
+    </view>
+
+    <view wx:if="{{item.data_type==13}}" class="fui-cell-group">
+        <view class="fui-cell {{item.tp_must == 1 ? 'must' : ''}}">
+
+            <view class="fui-cell-label">{{item.tp_name}}</view>
+
+            <input disabled type="text" name="remark4" value="({{item.tp_text}})" />
+        </view>
+    </view>
+    <!-- 自定义表单结束 -->
+    <!-- </block> -->
+
+
+</template>

@@ -1,0 +1,109 @@
+<view class="fui-page order-list-page">
+  <view class="section">
+    <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+      <view id="demo1" style="width:33%;" class="scroll-view-item_H {{currentTab == 0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">组团中</view>
+      <view id="demo2"  style="width:33%;"  class="scroll-view-item_H {{currentTab == 1 ? 'on' : ''}}"data-current="1" bindtap="swichNav">组团成功</view>
+      <view id="demo3" style="width:33%;"  class="scroll-view-item_H {{currentTab == '-1' ? 'on' : ''}}"data-current="-1" bindtap="swichNav">组团失败</view>
+    </scroll-view>
+  </view>
+  <view class="tab-list fui-content navbar order-list" style="top:0;">
+    <view class='fui-content-inner'>
+      <view wx:if="{{order.length == 0}}" class="content-empty">
+        <text class='icon icon-lights'></text>
+        <view>暂时没有任何订单</view>
+        <view><navigator url="/pages/default/fightGroup/index/index" open-type="switchTab" class="btn btn-default-o external">到处逛逛</navigator></view>
+      </view>
+      <view wx:else class="container">
+        <!--订单列表/S-->
+        <block wx:for="{{order}}" wx:key="">
+          <view class="fui-list-group order-item">
+          <navigator url="">
+            <view wx:if="{{item.merchname != ''}}" class="fui-list external" style="padding: 0.25rem 0.5rem">
+              <view class="fui-list-inner"><view class="subtitle">订单号：{{item.orderno}}</view></view>
+              <view class="row-remark {{item.statuscss}}" style="width: 4rem; font-size: 0.65rem;text-align: right;">{{item.statusstr}}</view>
+              <view class="angle"></view>
+            </view>
+           
+              <view wx:if="{{goods.shopname}}">
+                <view class="fui-list-group-title lineblock">
+                  <text class="icon icon-shop"></text> {{goods.shopname}}
+                  <text class="status"></text>
+                </view>
+              </view>
+             
+                <view class="fui-list goods-list">
+                  <view class="fui-list-media"><image src="{{item.thumb}}"></image></view>
+                  <view class="fui-list-inner">
+                    <view class="text goodstitle">
+                      <text wx:if="{{g.seckill_task}}" class="fui-label fui-label-danger">{{item.seckill_task.tag}}</text>
+                      {{item.title}}
+                    </view>
+                    <text wx:if="{{g.status==2}}" class="fui-label fui-label-danger">赠品</text>
+                    <view wx:if="{{g.optionid != '0'}}" class="subtitle">{{item.optiontitle}}</view>
+                  </view>
+                  <view class="fui-list-angle">￥<text class="marketprice"></text>{{item.price}} <view>x{{item.goodsnum}}</view></view>
+                </view>
+             
+              <view class="fui-list-group-title lineblock">
+               
+                <view class="status">运费：<text class="text-danger">{{item.freight}}, </text>共 <text class="text-danger">{{item.goodsnum}}</text> 个商品 实付: <text class="text-danger">￥ {{item.totalprice}}</text></view>
+              </view>
+           
+            </navigator>
+            <view class="fui-list-group-title lineblock opblock" style="height:auto;">
+              <view class="status">
+                <block wx:if="{{item.userdeleted == 1}}">
+                  <view wx:if="{{item.status == 3 || item.status == -1}}" class="btn btn-default btn-default-o order-deleted ml8" data-orderid="{{item.id}}" catchtap="delOrder" data-type="2">彻底删除订单</view>
+                  <view wx:if="{{item.status == 3}}" class="btn btn-default btn-default-o order-recover ml8" data-orderid="{{item.id}}" catchtap="delOrder" data-type="0">恢复订单</view>
+                </block>
+
+                <block wx:if="{{item.userdeleted == 0}}">
+                  <block wx:if="{{item.status == 0}}">
+                    <view class="btn btn-default btn-default-o order-cancel">
+                      <picker bindchange="bindPickerChange" data-orderid="{{item.id}}" value="{{ct}}" range="{{cancelText}}">
+                        <view class="picker">
+                          取消订单 {{cancelText[ct]}}
+                        </view>
+                      </picker>
+                    </view>
+                    <navigator wx:if="{{item.paytype != 3}}" class="btn btn-danger external ml8" url="/pages/default/fightGroup/order/puy/puy?orderid={{item.id}}">支付订单</navigator>
+                  </block>
+                </block>
+
+                <block wx:if="{{item.canverify && item.status != -1 && item.status != 0}}">
+                  <view class="btn btn-default btn-default-o order-verify ml8">
+                    <text class="icon icon-qrcode"></text>
+                    <text>{{item.dispatchtype == 1 ? '我要取货' : '我要使用'}}</text>
+                  </view>
+                </block>
+
+                <block wx:if="{{item.status == 3 || item.status == -1}}">
+                  <button class="btn btn-default btn-default-o order-delete ml8" data-orderid="{{item.id}}" catchtap="delOrder" data-type="1" style="overflow:visible;">删除订单</button>
+                </block>
+
+                <block wx:if="{{!items.trade.closecomment}}">
+                  <navigator wx:if="{{item.status == 3 && item.iscomment == 1}}" class="btn btn-default btn-default-o ml8" url="/pages/default/order/comment/comment?id={{item.id}}" style="display:none;">追加评价</navigator>
+
+                  <navigator wx:if="{{item.status == 3 && item.iscomment == 0}}" class="btn btn-default btn-default-o ml8" url="/pages/default/order/comment/comment?id={{item.id}}" style="display:none;">评价</navigator>
+                </block>
+
+                <navigator wx:if="{{item.status > 1 && item.addressid > 0}}" url="/pages/default/fightGroup/order/express/express?teamid={{item.teamid}}&id={{item.id}}" class="btn btn-default ml8">查看物流</navigator>
+
+                <button wx:if="{{item.status == 2}}" class="btn btn-default btn-default-o order-finish ml8" style="overflow:visible;" data-orderid="{{item.id}}" bindtap="finish">确认收货</button>
+
+                <navigator wx:if="{{item.canrefund}}" url="/pages/default/order/refund/refund?id={{item.id}}" class="btn btn-warning ml8">{{item.status == 1 ? '申请退款' : '申请售后'}}{{item.refundstate > 0 ? '中' : ''}}</navigator>
+              </view>
+            </view>
+          </view>
+        </block>
+        <!--订单列表/E-->
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<block>
+  <import src="../component/footer.wxml" />
+  <template is="footer" />
+</block>

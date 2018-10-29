@@ -1,0 +1,45 @@
+<template name="merchant">
+    <block wx:for="{{list}}" wx:for-item="list" wx:key="">
+        <view class="merchant">
+            <view class="merchant">
+                <navigator url="/pages/default/merch/index/index?merchid={{list.id}}" hover-class='none' class="item-logo">
+                    <image src="{{list.logo}}" />
+                </navigator>
+                <view class="item-list">
+                    <view class="item-list-title">
+                        <navigator url="/pages/default/merch/index/index?merchid={{list.id}}" hover-class='none'>
+                        <text class="title">{{list.merchname}}</text>
+                        </navigator>
+                        <text class="mark">推荐</text>
+                        <text class="distance"></text>
+                    </view>
+
+                    <view class="item-list-group desc">
+                        {{list.desc}}
+                    </view>
+
+                    <view class="item-list-group info">
+                        <navigator url="/pages/default/merch/map/map?id={{list.id }}" hover-class='none' class="address">
+                            <view class="item-info">
+                                <text class="tle">地址：</text> {{list.address}}
+                                <image src="/imgs/position.png" />
+                            </view>
+                        </navigator>
+                        <view class="item-info">
+                            <text class="tle">电话：</text>
+                            <text data-tel="{{list.tel}}" bindtap="telPhone" class="address">{{list.tel}}</text>
+
+                            <image src="/imgs/callphone.png" />
+                        </view>
+                        <div class="item-info">
+                            <text class="tle">分类：</text>
+                            <text class="address">{{list.catename}}</text>
+                        </div>
+                    </view>
+                </view>
+            </view>
+            
+        </view>
+    
+    </block>
+</template>

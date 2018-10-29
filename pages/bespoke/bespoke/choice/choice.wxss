@@ -1,0 +1,106 @@
+/* pages/default/bespoke/choice/choice.wxss */
+.header{
+  width:100%;
+  height:60rpx;
+  /* background:red; */
+}
+.header text{
+  font-size:30rpx;
+  margin-left:30rpx;
+}
+.content{
+  width:100%;
+  height:200rpx;
+  background:#fff;
+}
+.content image{
+  width:200rpx;
+  height:150rpx;
+  border-radius: 10rpx;
+  margin-left:20rpx;
+  padding-top:25rpx;
+  float:left;
+}
+.content_title{
+   float:left;
+  width:70%;
+  height:160rpx;
+  /* background:blue; */
+  margin-top:20rpx;
+}
+.content_title .title{
+  font-size:34rpx;
+  padding-left:30rpx;
+  padding-bottom:30rpx;
+}
+.content_title .stor{
+  font-size:30rpx;
+  color:#acacac;
+  padding-left:30rpx;
+}
+.content_title .price{
+  font-size:40rpx;
+  color:#fe6672;
+  width:300rpx;
+  float:left;
+}
+.content_title .num{
+  float:left;
+  width:182rpx;
+  background:#fff;
+  height:50rpx;
+  border-radius: 5rpx;
+  border:1px solid #ccc;
+}
+.content_title .num text{
+  display:block;
+  font-size:34rpx;
+  float:left;
+    text-align: center;
+}
+.content_title .num .pro{
+  width:50rpx;
+  height:100%;
+  border-right:1px solid #acacac;
+
+ 
+}
+.content_title .num .number{
+  width:80rpx;
+}
+.content_title .num .add{
+  color:#fff;
+  width:50rpx;
+  background:#fe6672;
+}
+.footer{
+  width:100%;
+  height:120rpx;
+  background:#333;
+  position:fixed;
+  bottom:0;
+}
+.footer .item{
+  width:33.3%;
+  float:left;
+  text-align: center;
+  color:#fff;
+  font-size:30rpx;
+}
+.footer .item{
+  padding-top:20rpx;
+}
+.footer .item:nth-child(2){
+  padding-top:35rpx;
+}
+.footer .item:nth-child(2) .price{
+  font-size:40rpx;
+  color:#fe6672;
+}
+.footer .bespoke{
+  background:#fe6672;
+  height:100%;
+  font-size:40rpx;
+  line-height: 120rpx;
+  padding-top:0;
+}

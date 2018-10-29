@@ -1,0 +1,28 @@
+<!--pages/dailypra/dailypra.wxml-->
+<view class='dailypra'>
+  <view class='navbar'>
+    <view>
+      <text bindtap='changetab' data-cid='0' style="border-bottom:solid 1rpx {{cid==0?'#409aff':'white'}}">每日一练</text>
+    </view>
+    <view>
+      <text bindtap='changetab' data-cid='1' style="border-bottom:solid 1rpx {{cid==1?'#409aff':'white'}}">章节练习</text>
+    </view>
+  </view>
+  <view class='testpaper_list'>
+    <block wx:for="{{chapter}}" wx:key=''>
+      <view class='content' bindtap='getcontent' data-id="{{item.id}}" data-pay="{{item.pay}}" data-price="{{item.price}}">
+        <view class='icon icon-edit' style='color:#999;align-self:flex-start;font-size:45rpx;'></view>
+        <view class='testpaper'>
+          <view>{{item.name}}</view>
+          <view>{{item.answer_submit}}/{{item.answer_total}}题</view>
+          <progress percent='{{item.percent}}' activeColor='#409AFF'></progress>
+        </view>
+        <view class='purchase' style="background:{{item.pay==1?'':'#409AFF'}};color:{{item.pay==1?'#409AFF':'white'}}">
+          {{item.pay==1?'购买':'练习'}}
+        </view>
+        <!-- <view class='purchase' style="background:#409AFF;color:white;">练习</view>  -->
+      </view>
+    </block>
+    <view wx:if="{{chapter==''}}" style='text-align:center;font-size:40rpx;padding:40rpx 0;color:#999;'>抱歉！暂时没有章节</view>
+  </view>
+</view>

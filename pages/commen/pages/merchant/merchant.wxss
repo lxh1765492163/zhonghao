@@ -1,0 +1,290 @@
+/* zh_jd/pages/merchant/merchant.wxss */
+page{
+  background: #e5e5e5;
+}
+.container{
+  width: 100%;
+  height:80rpx;
+  background: #fff;
+}
+page {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.font {
+  font-family: '微软雅黑';
+}
+
+
+
+/**app.wxss**/
+
+.rel {
+  position: relative;
+}
+
+.ab {
+  position: absolute;
+}
+
+.ud {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.lr {
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.udlr {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.fon {
+  font-family: 微软雅黑;
+}
+
+.center {
+  text-align: center;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.margin_auto {
+  margin: 0 auto;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+}
+
+.gobyndmulit {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/*单行文本超出隐藏*/
+
+.gobyndsingle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.zi {
+  z-index: 99;
+}
+
+.iinlin_block {
+  display: inline-block;
+}
+
+.border1 {
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+.border2 {
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}
+.im{
+  width: 60%;
+  height: 60%;
+}
+.op{
+  opacity: .3;
+}
+.sort{
+    width: 100%;
+    height: 30rpx;
+    display: flex;
+}
+.sort view{
+  flex: 4;
+  height: 30rpx;
+  border-right: 1rpx solid #ccc;
+  text-align: center;
+  line-height: 30rpx;
+  font-size: 26rpx;
+}
+.sort view:last-child{
+  border: none;
+}
+.many_hotel{
+  padding-bottom: 20rpx;
+  width: 100%;
+  height: auto;
+}
+.sore{
+  /* background: orange; */
+  color: #fff;
+}
+.selected{
+  /* color: orange; */
+}
+.select{
+  width: 100%;
+  height:100rpx;
+  display:flex;
+  background: #fff;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+  border-bottom: 1rpx solid #ccc;
+}
+.no_sore{
+
+  background: #e5e5e5;
+}
+.select view{
+  
+  margin:0;
+  padding:10rpx 0;
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  width:30%;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+}
+.hotel{
+  width: 100%;
+  height: 220rpx;
+   background: #fff; 
+   /* border-bottom: 1rpx solid #e5e5e5; */
+}
+.hotel_icon{
+  width: 250rpx;
+  height: 220rpx;
+  background: #fff;
+}
+.hotel_info{
+  width: 500rpx;
+  height: 220rpx;
+  background: #fff;
+  border-bottom: 2rpx solid #f4f4f4;
+}
+.hotel_icon image{
+  width: 180rpx;
+  height: 190rpx;
+  /* background: orange; */
+  left:40rpx;
+  border-radius: 10rpx;
+}
+.info_name{
+  width: 100%;
+  height: 50rpx;
+  font-size: 30rpx;
+  color: #333;
+  margin-top: 10rpx;
+  line-height: 60rpx;
+}
+.info_address{
+  width: 100%;
+  color: #666;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+}
+.info_address view:nth-child(1){
+  left: 0;
+  width: 20rpx;
+  height: 25rpx;
+}
+.info_address text:nth-child(2){
+  margin-left: 40rpx;
+}
+.info_address text:nth-child(3){
+  margin-left:10rpx;
+  margin-right: 20rpx;
+}
+.info_address text:nth-child(4){
+  width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.info_score{
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.info_score text:nth-child(1){
+  font-size: 36rpx;
+  color: #000;
+}
+.info_score text:nth-child(2){
+  font-size: 26rpx;
+  color: #000;
+  margin-right: 20rpx;
+}
+.info_score text:nth-child(3){
+  font-size: 30rpx;
+  color: #000;
+  margin-right: 30rpx;
+}
+.info_score text:nth-child(4){
+  font-size: 26rpx;
+  color: #666;
+}
+.info_score text:nth-child(5){
+  font-size: 26rpx;
+  color: #666;
+}
+.info_privilege{
+  width: 100%;
+  height: 40rpx;
+  display: inline-block;
+  border-radius: 10rpx;
+  font-size:26rpx;
+  color: #666;
+}
+.info_privilege view:first-child{
+ width: auto;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.info_privilege view{
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+}
+.price{
+  width: auto;
+  height: 50rpx;
+  line-height: 50rpx;
+  right:30rpx;
+  bottom: 60rpx;
+}
+.price text:nth-child(1){
+  font-size: 30rpx;
+   color: orange; 
+}
+.price text:nth-child(2){
+  font-size: 45rpx;
+   color: orange; 
+}
+.price text:nth-child(3){
+  font-size: 26rpx;
+   color: orange; 
+}
+

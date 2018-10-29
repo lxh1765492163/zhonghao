@@ -1,0 +1,34 @@
+<view class="fui-page fui-page-current page-commission-log-detail">
+    <view wx:if="{{items != null}}" class="fui-content navbar">
+        <view class="fui-list-group">
+            <block wx:for="{{items.list}}" wx:for-item="val" wx:key="">
+                <view class="fui-list">
+                    <view class="fui-list-inner">
+                        <view>订单编号: {{val.ordersn}}</view>
+                        <view>订单金额: {{val.goodsprice}} {{items.thisset.texts.yuan}}</view>
+                        <view>申请{{items.thisset.texts.commission}}: {{val.ordercommission}} {{items.thisset.texts.yuan}}</view>
+                        <view>审核{{items.thisset.texts.commission}}: {{val.orderpay}} {{items.thisset.texts.yuan}}</view>
+                    </view>
+                </view>
+                <!-- loop -->
+                <block wx:for="{{val.goods}}" wx:for-item="g" wx:key="">
+                    <view class="fui-list">
+                        <view class="fui-list-media">
+                            <image src="{{g.thumb}}" class="round" mode="widthFix"></image>
+                        </view>
+                        <view class="fui-list-inner">
+                            <view class="row">
+                                <view class="row-text">{{g.title}}</view>
+                            </view>
+                            <view class="subtitle">{{items.thisset.texts.commission}}: {{g.commission}} {{items.thisset.texts.yuan}}</view>
+                        </view>
+                        <view class="row-remark">
+                            <view>{{g.level}}级</view>
+                            <view>{{g.statusstr}}</view>
+                        </view>
+                    </view>
+                </block>
+            </block>
+        </view>
+    </view>
+</view>

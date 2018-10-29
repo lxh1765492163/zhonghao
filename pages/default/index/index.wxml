@@ -1,0 +1,94 @@
+<block wx:if="{{!pagetype}}">
+  <import src="../../component/merch_adv/merch_adv.wxml" />
+  <import src="../../component/merch_search/merch_search.wxml" />
+  <import src="../../component/merch_nav/merch_nav.wxml" />
+  <import src="../../component/merch_notice/merch_notice.wxml" />
+  <import src="../../component/merch_cube/merch_cube.wxml" />
+  <import src="../../component/merch_banner/merch_banner.wxml" />
+  <import src="../../component/merch_goods/merch_goods.wxml" />
+  <import src="../../component/merch_recommand/merch_recommand.wxml" />
+
+  <import src="../diymenu/diymenu.wxml" />
+  <view class="fui-page fui-page-current shop-index-page" style="position:none;">
+    <view class="fui-content navbar" style="bottom:0;">
+      <block wx:for="{{items.sorts}}" wx:for-index="idx" wx:for-item="item" wx:key="">
+
+        <template is="merch_{{item.idx}}" data="{{...items, list, page}}" />
+
+      </block>
+    </view>
+    <template is="diymenu" data="{{datas,style,data}}" />
+  </view>
+
+
+</block>
+<block wx:else>
+  <!--引入组件-->
+  <import src="../../component/menu/menu.wxml" />
+  <import src="../../component/notice/notice.wxml" />
+  <import src="../../component/goods/goods.wxml" />
+  <import src="../../component/fixedsearch/fixedsearch.wxml" />
+  <import src="../../component/search/search.wxml" />
+  <import src="../../component/title/title.wxml" />
+  <import src="../../component/line/line.wxml" />
+  <import src="../../component/blank/blank.wxml" />
+  <import src="../../component/picture/picture.wxml" />
+  <import src="../../component/banner/banner.wxml" />
+  <import src="../../component/picturew/picturew.wxml" />
+  <import src="../../component/pictures/pictures.wxml" />
+  <import src="../../component/icongroup/icongroup.wxml" />
+  <import src="../../component/listmenu/listmenu.wxml" />
+  <import src="../../component/video/video.wxml" />
+  <import src="../../component/message/message.wxml" />
+  <import src="../../component/coupon/coupon.wxml" />
+  <import src="../../component/copy/copy.wxml" />
+  <import src="../../component/merchgroup/merchgroup.wxml" />
+  <import src="../../component/richtext/richtext.wxml" />
+  <import src="../diymenu/diymenu.wxml" />
+  <import src="../../component/audio/audio.wxml" />
+  <import src="../../component/authorize/authorize.wxml" />
+  <import src="../../component/adv/adv.wxml" />
+  <view class="fui-page fui-page-current">
+    <template is="authorize" data="{{height, width,animationData,display}}" />
+    <template is="adv"  data="{{height, width,advanimationData,adv,countdown}}" />
+    <view class="fui-content">
+      <!--加载组件-->
+      <block wx:for="{{items}}" wx:for-item="item" wx:key="">
+        <template wx:if="{{item.id}}" is="{{item.id}}" data="{{item, location,content,arrData}}" />
+      </block>
+      <!-- <view wx:if="{{tel}}"> -->
+      <button style="position:fixed;right:10rpx;top:63%;z-index:99999;margin-bottom:90rpx;width:70rpx;height:70rpx;background:#fff;border-radius:70rpx;" bindtap="calling">
+        <image style="width:70rpx;height:70rpx;position:absolute;left:50%;margin-left:-35rpx;top:50%;margin-top:-35rpx;" src="/assets/images/phone.png"></image>
+      </button>
+      <!-- </view> -->
+      <block>
+
+        <button class="nav-item" style="position:fixed;right:10rpx;top:70%;z-index:99999;margin-bottom:90rpx;width:70rpx;height:70rpx;background:#fff;border-radius:70rpx;" open-type="contact">
+          <image style="width:70rpx;height:80rpx;position:absolute;left:0;top:2rpx;" src="/assets/images/xiaoxi1.png"></image>
+        </button>
+
+      </block>
+      <template wx:if="{{messageswipe!=0}}" is="message" data="{{inputvalue}}"/>
+      <view style="height:60px;"></view>
+      <template is="diymenu" data="{{datas,style,data,tabid}}" />
+    </view>
+  </view>
+  <!-- <view wx:if="{{isopen.isopen == 1 }}">   -->
+
+  <view class="ordert" wx:if="{{isopen.isopen != 0 && modules != false}}" style="background:{{color.background}};color:{{color.color}};opacity:{{color.opacity}};" animation="{{animationCloudData}}">
+    <view wx:if="{{order_member != ''}}">
+      <image style="width:80rpx;height:80rpx;float:left;margin-top:0rpx;margin-left:20rpx;border-radius:80rpx" src="{{order_member.avatar}}"></image>
+      <text style="margin-left:20rpx;padding-top:80rpx;">{{order_member.nickname}}</text> 刚刚下单
+    </view>
+    <view wx:else>
+      <image src="https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{alldanmu.imgurl}}" style="width:80rpx;height:80rpx;float:left;margin-top:0rpx;margin-left:20rpx;border-radius:80rpx"></image>
+      <text>{{alldanmu.nickname}}</text>在
+      <text>{{alldanmu.time}}秒前</text>下单成功
+    </view>
+  </view>
+  <!-- </view>   -->
+  <!-- <view class="clouds">
+      <image animation="{{animationCloudData}}"  class="yun1" src="http://wx.qlogo.cn/mmopen/ibmq1dE6soghWegc0dHjbqWpP1zyt6LJYXThK4ESkYOUsBABWhQmkxZcibzCLK77WYIbuJtNQveiae2pWrJCXRohtvOyS7Nqmiac/132"></image>
+    </view> -->
+
+</block>

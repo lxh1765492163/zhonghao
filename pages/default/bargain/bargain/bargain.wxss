@@ -1,0 +1,143 @@
+/* pages/default/bargain/bargain/bargain.wxss */
+
+.bargaincentre {
+  font-size: 35rpx;
+}
+
+.bargaincentre .userinfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: white;
+  padding: 20rpx;
+}
+
+.bargaincentre .userinfo image {
+  border-radius: 50%;
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+}
+
+.bargaincentre .userinfo .text .nickname {
+  /* font-size: 38rpx; */
+}
+
+.bargaincentre .userinfo .text .time {
+  color: #999;
+  font-size: 30rpx;
+}
+
+.bargaincentre .bargaininfo {
+  background: white;
+  padding: 20rpx;
+}
+
+.bargaincentre .bargaininfo .goodsinfo {
+  border-bottom: solid 1rpx #eee;
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+}
+
+.bargaincentre .bargaininfo .goodsinfo image {
+  height: 150rpx;
+  width: 150rpx;
+  margin-right: 20rpx;
+}
+
+.bargaincentre .bargaininfo .goodsinfo .text .title {
+  width: 500rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.bargaincentre .bargaininfo .goodsinfo .text .sale {
+  font-size: 25rpx;
+  color: #999;
+}
+
+.bargaincentre .goodsprice {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 200rpx;
+}
+
+.bargaincentre .goodsprice .child {
+  width: 50%;
+  color: #999;
+  position: relative;
+  margin: 20rpx;
+}
+
+.bargaincentre .goodsprice .child .title {
+  position: absolute;
+  padding: 0 10rpx;
+  background: white;
+  top: 0;
+  left: 25%;
+}
+
+.bargaincentre .goodsprice .child .price {
+  border: solid 3rpx #999;
+  margin-top: 30rpx;
+  border-radius: 15rpx;
+  padding: 20rpx 0;
+}
+
+.bargaincentre .bargainbtn {
+  display: flex;
+  align-items: center;
+}
+
+.bargaincentre .bargainbtn .child {
+  text-align: center;
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 46%;
+  margin: 0 2%;
+  color: white;
+  border-radius: 15rpx;
+}
+
+.bargaincentre .moreinfo {
+  background: white;
+  padding: 20rpx 0;
+}
+
+.bargaincentre .moreinfo .topbar {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bargaincentre .moreinfo .topbar .tab {
+  padding: 20rpx;
+}
+
+.bargaincentre .content {
+  margin-top: 20rpx;
+  background: white;
+}
+
+.bargaincentre .content .logs {
+  padding: 20rpx;
+  border-top: solid 1rpx #ddd;
+  background: #fff8e4;
+  color: #949494;
+  width: 120%;
+}
+
+.bargaincentre .content .logs image {
+  height: 50rpx;
+  width: 50rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  float: left;
+}
+
+.bargaincentre .content .logs .right {
+  float: right;
+  margin-left: 40rpx;
+}

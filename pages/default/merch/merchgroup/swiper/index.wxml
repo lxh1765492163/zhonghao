@@ -1,0 +1,12 @@
+<template name="swiper">
+    <view class="swiper">
+        <swiper>
+            <swiper-item>
+                <view class="wrap" wx:for="{{data}}" wx:for-item="item" wx:key="" bindtap="openjump" data-cateid="{{item.id}}">  
+                    <image src="{{item.thumb}}"/>
+                    <text>{{item.catename}}</text>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>  
+</template>

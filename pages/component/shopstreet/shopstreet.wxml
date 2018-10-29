@@ -1,0 +1,5 @@
+<template name="shopstreet">
+  <view class="fui-shopstreet">
+ 
+  </view>
+</template>

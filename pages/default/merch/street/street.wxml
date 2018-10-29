@@ -1,0 +1,41 @@
+<view class="fui-page order-list-page fui-merch-street">
+  <view class="section">
+    <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+      <view class="scroll-view-item_H {{cateid == 0 ? 'on' : ''}}" data-cateid="0" bindtap="swichNav">全部</view>
+      <block wx:if="{{category.length > 0}}">
+        <block wx:for="{{category}}" wx:for-item="val" wx:key="">
+          <view class="scroll-view-item_H {{cateid == val.id ? 'on' : ''}}" data-cateid="{{val.id}}" bindtap="swichNav">{{val.catename}}</view>
+        </block>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="fui-content">
+    <view wx:if="{{list.length > 0}}" class="section">
+      <scroll-view scroll-y="true" upper-threshold="0" lower-threshold="0" bindscrolltolower="getMore">
+        <view wx:for="{{list}}" wx:for-item="val" wx:key="" class="fui-sec">
+          <view class="fui-list">
+            <view class="fui-list-media">
+              <image src="{{val.logo}}" class="round" mode="aspectFill"></image>
+            </view>
+            <view class="fui-list-inner">
+              <view class="title">店铺: {{val.merchname}}</view>
+              <view class="subtitle">{{val.desc}}</view>
+            </view>
+          </view>
+          <view class="desc">
+            <button wx:if="{{val.tel != ''}}" class="btn btn-default-o" data-tel="{{val.tel}}" catchtap="telPhone"><text class="icon icon-mark1"></text> 联系客服</button>
+            <navigator url="/pages/default/merch/index/index?merchid={{val.id}}" class="btn btn-default-o" data-id="{{val.id}}"><text class="icon icon-shop"></text> 进入店铺</navigator>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <block wx:else>
+      <import src="../../../component/nodata/nodata.wxml" />
+      <template is="nodata" />
+    </block>
+  </view>
+  <view class="blank"></view>
+   <view class="full_footer" >
+      <navigator url="/pages/default/merch/register/register">申请入驻</navigator>
+    </view>
+</view>

@@ -1,0 +1,71 @@
+<!--info.wxml-->
+<view class='fui-content box'>
+
+  <view class='title'>
+    <image src='/assets/images/arrow_left.png'></image>
+    <text>会员资料</text>
+  </view>
+  <view class='header'>
+    <view class='head_img'>
+      <image src='{{items.member.avatar}}'></image>
+      <text>{{items.member.nickname}}</text>
+    </view>
+    <image class='arrow' src='/assets/images/arrow_down.png'></image>
+  </view>
+
+  <form class="form-ajax" bindsubmit="formPost">
+    <view class="fui-cell-group">
+      <view class="fui-cell">
+        <view class="fui-cell-label">姓名</view>
+        <view class="fui-cell-info">
+          <input type="text" name="realname" value="{{items.member.realname}}" placeholder="姓名" />
+        </view>
+      </view>
+
+      <view class="fui-cell">
+        <view class="fui-cell-label">手机号</view>
+        <view class="fui-cell-info">
+          <input type="number" name="mobile" maxlength='11' value="{{items.member.mobile}}" placeholder="手机号" />
+        </view>
+      </view>
+
+      <view class="fui-cell">
+        <view class="fui-cell-label">微信号</view>
+        <view class="fui-cell-info">
+          <input type="text" name="weixin" value="{{items.member.weixin}}" placeholder="微信号" />
+        </view>
+      </view>
+      <view class="fui-cell" data-mold="city" catchtap="risePicker">
+        <view class="fui-cell-label">所在城市</view>
+        <view class="fui-cell-info" >
+          {{cityText}}
+        </view>
+      </view>
+
+    </view>
+    <button class="sub" type="primary" formType="submit">确认修改</button>
+  </form>
+</view>
+
+<view hidden="{{isCity}}" class="selector">
+  <view class="inner_box">
+    <view class="header_box">
+      <view class="item l" data-act="cancel" data-mold="city" bindtap="ideChoice">取消</view>
+      <view class="item c">请选择</view>
+      <view class="item r" data-act="confirm" data-mold="city" bindtap="ideChoice">确定</view>
+    </view>
+
+    <picker-view class="picker_box" indicator-class="selected" value="{{cityValue}}" bindchange="cityChange">
+      <picker-view-column>
+        <view wx:for="{{provinces}}" wx:for-item="item" wx:key="">{{item}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{citys}}" wx:for-item="item" wx:key="">{{item}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{countys}}" wx:for-item="item" wx:key="">{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+  <view class="layer"></view>
+</view>

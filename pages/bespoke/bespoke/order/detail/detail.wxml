@@ -1,0 +1,46 @@
+<!--pages/default/bespoke/order/detail/detail.wxml-->
+<view class="allc">
+    <view class="content">
+        <view class="list">
+            <text>商品名称</text>
+            <text>{{goods.title}}</text>
+        </view>
+        <view class="list">
+            <text>订单编号</text>
+            <text>{{goods.ordersn}}</text>
+        </view>
+        <view class="list">
+            <text>商家名称</text>
+            <text>{{datas.account_name}}</text>
+        </view>
+        <view class="list">
+            <text>商家价格</text>
+            <text style="color:#04be02!important">¥{{goods.fee}}</text>
+        </view>
+    </view>
+    <view class="price">
+        <text style="padding-left:40rpx;">还需支付</text>
+        <text style="color:#04be02!important;float:right;margin-right:25rpx;">¥{{goods.fee}}</text>
+    </view>
+    <view style="font-size:34rpx;color:#8f8f94;padding:25rpx 25rpx 25rpx 25rpx">选择支付方式</view>
+    <view class="pay">
+        <view class="fui-list pay-btn" bindtap="orderPay" data-type="wechat">
+            <view class="fui-list-media">
+                <text class="icon icon-wechat wechat" style="background:#09BB07;color:#fff;width:50rpx;"></text>
+            </view>
+            <view class="fui-list-inner">
+                <view class="title">微信支付</view>
+                <view class="subtitle">微信安全支付</view>
+            </view>
+            <view class="fui-list-angle">
+                <text class="angle"></text>
+            </view>
+        </view>
+    </view>
+    <!-- <view class="balance">
+      <image src="/assets/images/sum-recharge.png"></image>
+      <view class="">货到付款</view>
+      <text>线下当面交易，到店付款，货到付款</text>
+    </view> -->
+
+</view>

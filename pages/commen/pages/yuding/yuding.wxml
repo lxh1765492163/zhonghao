@@ -1,0 +1,23 @@
+<view class="font yuding">
+  <view class="yuding_banner">
+    <icon type="success" size="70"/>
+    <text class="yuding_banner1">预订成功!</text>
+  </view>
+  <view class="yuding_banner2">
+    <view class="yuding_content">{{hotel_name}}</view>
+    <view class="yuding_text">{{start_time}} 入住 | {{end_time}} 离店</view>
+    <view class="yuding_text">{{room_name}} | 共{{day}}晚</view>
+    <view class="yuding_ding">
+      <view class="yuding_ding1">订单总价：¥ {{money}}</view>
+      <!-- <navigator url="../daodianzhifu/daodianzhifu" class="yuding_ding2">去支付</navigator> -->
+    </view>
+    <view class='code' wx:if="{{ewm_logo!=''}}">
+        <image style='width:100%' mode='widthFix' src='{{url}}{{ewm_logo}}'></image>
+    </view>
+  </view>
+  <view bindtap="home" class="yuding_fanhui">返回首页</view>
+
+  <view class="yuding_footer">
+    <view class="yuding_footer1">{{seller.support}}</view>
+  </view>
+</view>

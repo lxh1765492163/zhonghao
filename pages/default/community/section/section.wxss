@@ -1,0 +1,116 @@
+/* pages/community/section/section.wxss */
+@import "../tabbar/tabbar.wxss";
+
+.body {
+  font-size: 32rpx;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.body .content {
+  display: flex;
+  border-top: solid 1rpx #666;
+  overflow: hidden;
+}
+
+.content .selected {
+  background: #fafafa;
+}
+
+.selected .category {
+  padding: 20rpx 30rpx;
+  text-align: center;
+  color: #666;
+}
+.selected  .all{
+display:block;
+  padding:20rpx 0 10rxp 20rpx;
+  text-align: center;
+  color: #666;
+}
+.category:last-child {
+  margin-bottom: 150rpx;
+}
+
+.selected .sign {
+  background: white;
+  color: red;
+}
+
+.content .show {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.show .search {
+  display: flex;
+  align-items: center;
+  padding: 0 10rpx;
+  border: solid 1rpx #aaa;
+  border-radius: 14rpx;
+  flex-shrink: 0;
+}
+
+.search input {
+  flex: 1;
+  margin-left: 12rpx;
+}
+
+.show .sectionGruop {
+  border-top: solid 1rpx #ddd;
+}
+
+.sectionGruop .section {
+  display: flex;
+  margin: 0 20rpx;
+  padding: 20rpx 0;
+  justify-content: flex-start;
+  border-bottom: solid 1rpx #ddd;
+}
+
+.section:last-child {
+  border: none;
+  margin-bottom: 200rpx;
+}
+
+.section image {
+  height: 80rpx;
+  width: 110rpx;
+  border-radius: 16rpx;
+  margin: auto 0;
+}
+
+.section .newsletter {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.newsletter .topic {
+  font-size: 30rpx;
+  color: #666;
+  margin-top: 10rpx;
+}
+
+.newsletter .topic .sign {
+  color: red;
+  font-size: 26rpx;
+}
+
+.section .space {
+  flex: 1;
+}
+
+.section .more {
+  height: 40rpx;
+  width: 40rpx;
+  margin-top: 10rpx;
+}
+
+.show .hide {
+  display: none;
+}

@@ -1,0 +1,108 @@
+.topic{
+    width: 96%;
+    padding: 30rpx 2%;
+    font-size: 30rpx;
+}
+
+.topic .title{
+    font-size: 34rpx;
+    font-weight: bold;
+    padding-bottom: 25rpx;
+}
+
+.topic .createdate{
+    color: #666;
+}
+
+.topic .createdate text{
+    width: auto;
+    display: inline-block;
+}
+
+.topic .createdate text.btn{
+    height: 44rpx;
+    line-height: 44rpx;
+    margin-left: 20rpx;
+    padding: 0 20rpx;
+    border: 1px solid #3e99e7;
+    border-radius: 25rpx;
+    color: #3e99e7;
+}
+
+.topic .article{
+    width: 100%;
+    margin-top: 20rpx;
+    line-height: 48rpx;
+    font-size: 32rpx;
+}
+
+.topic .pics{
+    width: 100%;
+    /* padding-top: 35rpx; */
+}
+
+.topic .pics image{
+    display: block;
+    width: 100%;
+    height: 500rpx;
+    /* margin: 0 auto 15rpx; */
+}
+
+.topic .handle{
+    width: 100%;
+    overflow: hidden;
+    padding-top: 10rpx;
+}
+
+.topic .handle .left{
+    float: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    color: #3e99e7;
+}
+
+.topic .handle .left .item{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 20rpx;
+}
+
+.topic .handle .left .item text{
+    display: block
+}
+
+.topic .handle .left .item image{
+    width: 34rpx;
+    height: 34rpx;
+    margin-right: 10rpx;
+    display: block;
+}
+
+.topic .handle .right{
+    float: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    color: #666;
+}
+
+.topic .handle .right image{
+    width: 28rpx;
+    height: 28rpx;
+    margin-right: 10rpx;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,100 @@
+/* pages/detail/detail.wxss */
+
+.example_detail {
+  font-size: 30rpx;
+  background: #eee;
+}
+
+.example_detail .info {
+  background: white;
+  display: flex;
+  align-items: center;
+  padding: 10rpx 40rpx;
+}
+
+.info image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.info .text {
+  flex: 1;
+}
+
+.text .picker {
+  margin-left: 60rpx;
+  padding: 10rpx 0;
+}
+
+.text .count {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  padding: 10rpx 0;
+}
+
+.count .child {
+  flex: 1;
+  border-right: solid 1rpx #ddd;
+}
+
+.count .child:nth-child(3) {
+  border: none;
+}
+
+.example_detail .menu_list {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 20rpx 0;
+}
+
+.menu_list .menu {
+  flex: 1;
+  text-align: center;
+}
+
+.menu image {
+  height: 100rpx;
+  width: 100rpx;
+  display: block;
+  margin: 20rpx auto;
+  border-radius: 50%;
+}
+
+.example_detail .testpaper_list {
+  background: white;
+  margin-top: 20rpx;
+}
+
+.testpaper_list .content {
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1rpx #ddd;
+  padding: 20rpx;
+}
+
+.content .testpaper {
+  flex: 1;
+  padding: 0 30rpx;
+}
+
+.testpaper view:nth-child(1) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 400rpx;
+}
+
+.testpaper view:nth-child(2) {
+  padding: 20rpx 0;
+  color: #999;
+}
+
+.content .purchase {
+  padding: 5rpx 20rpx;
+  border: solid 1rpx #409AFF;
+  border-radius: 10rpx;
+}

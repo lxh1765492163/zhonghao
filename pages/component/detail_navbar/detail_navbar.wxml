@@ -1,0 +1,50 @@
+<template name="detail_navbar">
+  <view class='goods_detail_navbar' style='background:{{diypage.navbar.style.background}};'>
+    <view wx:if="{{diypage===false}}" class='navbar_group'>
+      <button class="icon" open-type='contact' size='mini'>
+        <view class='icon-service'></view>
+        <view style='margin-top:-20rpx;'>客服</view>
+      </button>
+      <button class="icon" bindtap='goAction' data-action='shop' size='mini'>
+        <view class='icon-shop'></view>
+        <view style='margin-top:-20rpx;'>店铺</view>
+      </button>
+      <button class="icon" bindtap='goAction' data-action='cart' size='mini'>
+        <view class='icon-cart'></view>
+        <view style='margin-top:-20rpx;'>购物车</view>
+        <text class="cart_count" style='background:red'>{{cartCount}}</text>
+      </button>
+      <block wx:if="{{goods.isdiscuss!='1'}}">
+        <view class='addcart' wx:if="{{gifts==''}}" style="background:{{goods.istime == 1 && goods.timeend < nowTime?'#ccc':'#ff6600'}}; color: white" bindtap="{{goods.istime == 1 && goods.timeend < nowTime?'':'addCart'}}">加入购物车</view>
+        <view class='buy' style="background:{{goods.istime == 1 && goods.timeend < nowTime?'#ccc':'#fd5555'}}; color: white" bindtap="{{goods.istime == 1 && goods.timeend < nowTime?'':'addBuy'}}">立即购买</view>
+      </block>
+      <block wx:else>
+        <view class='buy' style="background:{{goods.istime == 1 && goods.timeend < nowTime?'#ccc':'#fd5555'}}; color: white">面议</view>
+      </block>
+    </view>
+    <view wx:else class='navbar_group' style='color: {{diypage.navbar.style.textcolor}};'>
+      <block wx:for='{{diypage.diynavbar}}' wx:key=''>
+        <block wx:if="{{item.linkurl==''||!item.type&&!item.linkurl}}">
+          <button class="icon" open-type='contact' size='mini' style='color: {{diypage.navbar.style.textcolor}}; background: {{diypage.navbar.style.background}};'>
+            <view class='{{item.iconclass}}' style='color:{{diypage.navbar.style.iconcolor}}'></view>
+            <view style='margin-top:-20rpx;'>{{item.icontext}}</view>
+          </button>
+        </block>
+        <block wx:else>
+          <button class="icon" size='mini' bindtap="{{item.type ? 'goAction':'diyAction'}}" data-action='{{item.type}}' data-linkurl='{{item.linkurl}}' style='color: {{diypage.navbar.style.textcolor}}; background: {{diypage.navbar.style.background}};' hover-class='hover'>
+            <view class="{{isFavorite && item.type=='like' ? 'icon-likefill' : item.iconclass}}" style="color:{{ isFavorite && item.type=='like' ? 'red' : diypage.navbar.style.iconcolor}}; background: {{diypage.navbar.style.background}};"></view>
+            <view style='margin-top:-20rpx;'>{{item.icontext}}</view>
+            <text class="cart_count" wx:if="{{item.type=='cart'}}" style="background:{{diypage.navbar.style.dotcolor}};">{{cartCount}}</text>
+          </button>
+        </block>
+      </block>
+      <block wx:if="{{goods.isdiscuss!='1'}}">
+        <view class='addcart' wx:if="{{diypage.navbar.params.hidecartbtn!=1&&gifts==''}}" style="background:{{goods.istime == 1 && goods.timeend < nowTime?'#ccc':diypage.navbar.style.cartcolor}}; color: white" bindtap="{{goods.istime == 1 && goods.timeend < nowTime?'':'addCart'}}">加入购物车</view>
+        <view class='buy' style="background:{{goods.istime == 1 && goods.timeend < nowTime?'#ccc':diypage.navbar.style.buycolor}}; color: white" bindtap="{{goods.istime == 1 && goods.timeend < nowTime?'':'addBuy'}}">{{diypage.navbar.params.textbuy}}</view>
+      </block>
+      <block wx:else>
+        <view class='buy' style="background:{{goods.istime == 1 && goods.timeend < nowTime?'#ccc':diypage.navbar.style.buycolor}}; color: white">面议</view>
+      </block>
+    </view>
+  </view>
+</template>

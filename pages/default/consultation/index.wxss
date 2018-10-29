@@ -1,0 +1,147 @@
+/* pages/default/consultation/index.wxss */
+@import '../../component/float/menu.wxss';
+page{
+
+}
+.sortList {
+    float: left;
+    width: auto;
+    margin-right: 40rpx;
+}
+
+.header {
+    width: 100%;
+    height: 80rpx;
+    position: relative;
+    line-height: 80rpx;
+}
+
+.header image {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.header text {
+    font-size: 40rpx;
+    position: absolute;
+    left: 50%;
+    display: inline-block;
+    width: 200rpx;
+    margin-left: -100rpx;
+    text-align: center;
+}
+
+.menus {
+    width: 100%;
+    height: 90rpx;
+    border-bottom: 1px solid #ccc;
+    line-height: 90rpx;
+    font-size: 36rpx;
+    background: #fff;
+    
+}
+
+scroll-view {
+    white-space: nowrap;
+    display: block;
+    width: 100%;
+    height: 90rpx;
+}
+
+scroll-view .list {
+    display: inline-block;
+    font-size: 36rpx;
+    padding-right: 30rpx;
+}
+
+scroll-view .list:first-child {
+    padding-left: 10rpx;
+}
+
+scroll-view .active {
+    color: #f00;
+}
+
+.detail {
+    width: 100%;
+}
+
+.detail .detailList {
+    width: 100%;
+}
+
+.detail .active {
+    display: block;
+    width: 100%;
+}
+
+.swiper {
+    width: 100%;
+}
+
+.swiper swiper swiper-item {
+    position: relative;
+}
+
+.swiper swiper swiper-item image {
+    width: 100%;
+}
+
+.banner_title {
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    width: 100%;
+    height: 60rpx;
+    background: red;
+    z-index: 99999;
+}
+
+.detailList .oneList {
+    /* position:relative; */
+}
+
+.detailList .oneList .allList {
+    width: 90%;
+    height: auto;
+    padding: 0rpx 0 10rpx 0;
+    border-bottom: 1xp solid #ccc;
+    background: #fff;
+    margin: 0 auto;
+    margin-top: 20rpx;
+}
+
+.detailList .oneList view {
+    font-size: 36rpx;
+    width: 100%;
+    height: 160rpx;
+    margin-top: 10rpx;
+}
+
+.detailList .oneList view .title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    padding-left: 10rpx;
+}
+
+.detailList .oneList .allList .img {
+    width: 150rpx;
+    height: 150rpx;
+    margin-left: 20rpx;
+}
+
+.twoTitle {
+    background: #fff;
+    width: 90%;
+    height: 150rpx;
+    margin-top: 20rpx;
+    padding: 40rpx;
+}
+
+.twoTitle text {
+    font-size: 36rpx;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

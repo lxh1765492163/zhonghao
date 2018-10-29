@@ -1,0 +1,91 @@
+<form bindsubmit="formSubmit" report-submit="true" bindreset="formReset">
+  <view class="font">
+    <view class='order_room'>
+      <view class='order_title'>{{room.name}}</view>
+      <view class='order_header'>{{dd}}\r\n\r\n\r\n入住\r\n\r\n\r\n|\r\n\r\n\r\n{{to}}\r\n\r\n\r\n离店</view>
+      <view class='order_header' style='margin-top:5rpx'>{{name}}\r\n\r\n\r\n|\r\n\r\n\r\n共{{day}}晚</view>
+    </view>
+
+    <!--————————————填写信息部分——————————  -->
+    <view class='order_content'>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class='content_room'>
+          <view>房间数量</view>
+          <view style='color:#333'>{{array[index]}}</view>
+        </view>
+      </picker>
+      <view class='content_room'>
+        <view>入\r\n住\r\n人</view>
+        <input name="user_name" placeholder-style='color:#999;' placeholder='请输入姓名' />
+      </view>
+      <view class='content_room'>
+        <view>联系方式</view>
+        <input bindblur="bindblur" name="user_tel" type="number" maxlength="11" placeholder-style='color:#999;' placeholder='请输入电话号码' />
+      </view>
+      <!-- <view class='content_room' style='border:none;'>
+        <view>保留时间</view>
+        <view style='color:#D0D0D0'  wx:if="{{oid==2}}">{{to}}\r\n\r\n\r\n13:00:00</view>
+        <view style='color:#D0D0D0'  wx:if="{{oid==1}}">{{dd}}\r\n\r\n\r\n10:00:00</view>
+      </view> -->
+    </view>
+
+    <!--——————————————————发票和优惠券部分——————————————————  -->
+    <view class='order_content'>
+      <view class='content_room'>
+        <view>发\r\n\r\n\r\n\r\n\r\n\r\n票</view>
+        <view style='color:#333;'>如有需要请向前台索取</view>
+      </view>
+      <view class='content_room' style='display:none;'>
+        <view>\r\n优\r\n惠\r\n券</view>
+        <view style='color:#333;'>如有需要请向前台索取</view>
+      </view>
+    </view>
+    <view class='order_content'>
+      <view class='content_room' bindtap='coupon'>
+        <view>\r\n优\r\n惠\r\n券</view>
+        <view style='color:#333;' wx:if="{{coupon!=0}}">-{{coupon}}</view>
+        <view style='color:#333;' wx:else>使用优惠券</view>
+      </view>
+    </view>
+      <view class='order_content'>
+      <view class='content_room'>
+        <view>\r会\r员\r折\r扣</view>
+        <view style='color:#333;' wx:if="{{money!=0}}">-{{money}}</view>
+        <view style='color:#333;' wx:else>没有会员折扣</view>
+      </view>
+    </view>
+    <!--———————————————退订规则和温馨提示———————————————  -->
+    <view class='rules'>
+      <view wx:if="{{room.rule!=''}}">退订规则：{{room.rule}}</view>
+      <view wx:if="{{room.rule==''}}">退订规则：可免费取消订单</view>
+      <view wx:if="{{room.prompt!=''}}">温馨提示：{{room.prompt}}</view>
+      <view wx:if="{{room.prompt==''}}">温馨提示：酒店于入住当天13:00办理入住，离店当天13:00办理离店，如您在13:00前到达，可能需要等待方能入住，具体以酒店安排为准</view>
+    </view>
+
+    <!--——————————————底部固定部分——————————————————  -->
+    <view class='footer'>
+      <view class='footer_money'>
+        <text class='footer_rmb'>¥</text>
+        <text class="footer_rmb2" wx:if="{{index==0}}">
+            <text wx:if="{{shoping-coupon<=0}}">0.00</text>
+        <text wx:else>{{shoping-coupon}}</text>
+        </text>
+        <text class="footer_rmb2" wx:if="{{index!=0}}">
+             <text wx:if="{{shoping-coupon<=0}}">0.00</text>
+        <text wx:else>{{shoping-coupon}}</text>
+        </text>
+        <text class='footer_rmb' style='margin-left:30rpx;'>已优惠</text>
+        <text class='footer_rmb'>¥</text>
+        <text class="footer_rmb" wx:if="{{index==0}}">{{money+coupon}}</text>
+        <text class="footer_rmb" wx:if="{{index!=0}}">{{money+coupon}}</text>
+      </view>
+      <!-- <button class='footer_order' formType="submit">提交订单</button> -->
+      <button class="footer_order" formType="submit" bindtap='payment' wx:if="{{oid==1}}">
+        前往预约
+      </button>
+      <button class="footer_order" formType="submit" bindtap='payment' wx:if="{{oid==2}}">
+        确定支付
+      </button>
+    </view>
+  </view>
+</form>

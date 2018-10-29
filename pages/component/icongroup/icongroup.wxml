@@ -1,0 +1,20 @@
+<template name="icongroup">
+    <!-- <view class="fui-icon-group noborder col-{{item.params.rownum}} selecter" style="background-color:{{item.style.background}};{{item.params.bordertop == 1 ? 'border-top:1px solid '+item.style.bordercolor+';' : 'border-top:none;'}}{{item.params.borderbottom == 1 ? 'border-bottom:1px solid '+item.style.bordercolor+';' : 'border-bottom:none;'}}">
+        <block wx:for="{{item.data}}" wx:for-item="val" wx:key="">
+            <navigator url="{{val.linkurl}}" class="fui-icon-col" style="{{item.params.border == 1 && index > 0 ? 'border-left:1px solid '+item.style.bordercolor+';' : 'border-left:none;'}}">
+                <view wx:if="{{val.dotnum > 0}}" class="badge" style="background-color:{{item.style.dotcolor}}">{{val.dotnum}}</view>
+                <view class="icon icon-green radius"><text class="icon {{val.iconclass}}" style="color:{{item.style.iconcolor}};"></text></view>
+                <view class="text" style="color:{{item.style.textcolor}};">{{val.text}}</view>
+            </navigator>
+        </block>
+    </view> -->
+    <view class="jui-icongroup jui-row-{{item.params.rownum}}" style="background-color:{{item.style.background}};{{item.params.bordertop == 1 ? 'border-top:1px solid '+item.style.bordercolor+';' : 'border-top:none;'}}{{item.params.borderbottom == 1 ? 'border-bottom:1px solid '+item.style.bordercolor+';' : 'border-bottom:none;'}}">
+    	  <block wx:for="{{item.data}}" wx:for-item="val" wx:key="">
+             <navigator url="{{val.linkurl}}" class="row-item {{item.params.border == '1' ? 'border-r' : ''}}" style="border-color: {{item.style.bordercolor}}">
+                 <view wx:if="{{val.dotnum > 0}}" class="badge" style="background-color:{{item.style.dotcolor}}">{{val.dotnum}}</view>
+                 <view class="icon icon-green radius"><text class="icon {{val.iconclass}}" style="color:{{item.style.iconcolor}};"></text></view>
+                 <view class="text" style="color:{{item.style.textcolor}};font-size: 28rpx;">{{val.text}}</view>
+             </navigator>
+        </block>
+    </view>
+</template>

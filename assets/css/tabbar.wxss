@@ -1,0 +1,43 @@
+.tab-list {
+  margin-top: 42px;
+}
+
+.page,
+.tab-list,
+.tab-item {
+  height: 100%;
+}
+
+.page-section-spacing{
+  margin-top: 60rpx;
+}
+
+.section .scroll-view_H {
+  height: 42px;
+  position: fixed;
+  top: 0;
+}
+
+.scroll-view_H{
+  white-space: nowrap;
+  background: #fff;
+  border-bottom:1px solid #ccc;
+  z-index: 99999;
+}
+
+.scroll-view-item{
+  height: 300rpx;
+}
+.scroll-view-item_H{
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  line-height: 42px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.scroll-view-item_H.on {
+  color: #ff0011;
+  border-bottom: 2px solid #ff0011;
+}

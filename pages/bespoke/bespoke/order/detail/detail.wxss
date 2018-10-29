@@ -1,0 +1,51 @@
+/* pages/default/bespoke/order/detail/detail.wxss */
+.content{
+  width:100%;
+  height:auto;
+  background:#fff;
+}
+.content .list{
+  width:90%;
+  margin: 0 5%;
+  padding:25rpx 25rpx 25rpx 0rpx;
+  font-size:34rpx;
+  border-bottom:1px solid #ccc;
+}
+.content .list text:nth-child(2){
+  float:right;
+}
+.content .list:last-child{
+  border-bottom:0px;
+}
+.price{
+  margin-top:30rpx;
+  background:#fff;
+  padding:25rpx 25rpx 25rpx 0rpx;
+  font-size:34rpx;
+}
+.pay{
+  width:100%;
+  background:#fff;
+}
+.balance{
+  width:97%;
+  margin-left:3%;
+  border-bottom:1px solid #ccc;
+  padding :20rpx 20rpx 10rpx 8rpx;
+  float:left;
+}
+.balance image{
+  width:100rpx;
+  height:100rpx;
+  float:left;
+}
+.balance view{
+  font-size:30rpx;
+  margin-left:20rpx;
+
+}
+.balance text{
+  font-size:30rpx;
+  color:#979797!important;
+  margin-left:20rpx;
+}

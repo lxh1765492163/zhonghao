@@ -1,0 +1,117 @@
+<!--pages/default/bargain/bargain/bargain.wxml-->
+<import src="../../../../vendor/wxParse/wxParse.wxml" />
+
+<view class='bargaincentre'>
+  <view class='userinfo'>
+    <image src='{{data.res.head_image}}'></image>
+    <view class='text'>
+      <view class='nickname'>{{data.res.nickname}}</view>
+      <view class='time'>开砍时间：{{data.res.created_time}}</view>
+    </view>
+  </view>
+
+  <view class='bargaininfo'>
+    <view class='goodsinfo'>
+      <image src='{{data.res2.images}}'></image>
+      <view class='text'>
+        <view class='title'>{{data.res2.title}}</view>
+        <view class='sale'>
+          <text>库存{{data.res2.stock}} | </text>
+          <text>已售{{data.res2.sold}}</text>
+        </view>
+        <view class='sale'>剩余时间：{{downtime}}</view>
+      </view>
+    </view>
+
+    <view class='goodsprice'>
+      <view class='startprice child'>
+        <view class='title' style='color:#fd5454;'>当前成交价</view>
+        <view class='price'>
+          <view style='color:#fd5454;'>￥{{data.res.now_price}}</view>
+          <view>原价
+            <text style='text-decoration-line:line-through'>￥{{data.res2.start_price}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='endprice child'>
+        <view class='title'>已砍金额</view>
+        <view class='price'>
+          <view>¥{{data.res.bargain_price}}</view>
+          <view>砍价次数{{data.res.bargain_times}}次</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='bargainbtn'>
+      <block wx:if="{{data.trade_swi==0||data.trade_swi==null}}">
+        <view class='child' bindtap='buy' style='background:#f8c137'>立即购买</view>
+      </block>
+      <block wx:if="{{data.trade_swi==1}}">
+        <view class='child' style='background:#ccc'>已经下单</view>
+      </block>
+      <block wx:if="{{data.trade_swi==2}}">
+        <view class='child' style='background:#ccc'>已经结束</view>
+      </block>
+      <block wx:if="{{data.trade_swi==3}}">
+        <view class='child' style='background:#ccc'>没到底价</view>
+      </block>
+      <block wx:if="{{data.trade_swi==4}}">
+        <view class='child' style='background:#ccc'>立即购买</view>
+      </block>
+      <block wx:if="{{data.trade_swi==1}}">
+        <navigator class='child' url='/pages/default/order/detail/detail?id={{data.res.order}}' style='background:#fd5454;'>查看订单</navigator>
+      </block>
+      <block wx:elif="{{data.time_limit<0&&data.myself_swi==0}}">
+        <view class='child' style='background:#fd5454;'>砍价超时</view>
+      </block>
+      <block wx:else>
+        <view class='child' bindtap='bargain' style='background:#fd5454;'>砍一刀</view>
+      </block>
+    </view>
+  </view>
+
+  <view class='moreinfo'>
+    <view class='topbar'>
+      <text data-cid='0' class='tab' style="color:{{cid == 0?'#fd5454':'#949494'}};border-bottom:{{cid == 0?'solid 3rpx #fd5454':'none'}}" bindtap='changetab'>亲友团</text>
+      <text data-cid='1' class='tab' style="color:{{cid == 1?'#fd5454':'#949494'}};border-bottom:{{cid == 1?'solid 3rpx #fd5454':'none'}}" bindtap='changetab'>商品详情</text>
+      <text data-cid='2' class='tab' style="color:{{cid == 2?'#fd5454':'#949494'}};border-bottom:{{cid == 2?'solid 3rpx #fd5454':'none'}}" bindtap='changetab'>活动规则</text>
+      <text data-cid='3' class='tab' style="color:{{cid == 3?'#fd5454':'#949494'}};border-bottom:{{cid == 3?'solid 3rpx #fd5454':'none'}}" bindtap='changetab'>参与榜</text>
+    </view>
+    <view class='content'>
+      <block wx:if="{{cid==1}}">
+        <view style='padding:30rpx'>
+          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>
+      </block>
+      <block wx:elif="{{cid==2}}">
+        <view style='padding:30rpx'>
+          <template is="wxParse" data="{{wxParseData:rule.nodes}}" />
+        </view>
+      </block>
+      <block wx:elif="{{cid==3}}">
+        <scroll-view scroll-x style='width:100%;'>
+          <block wx:for="{{data.res4}}" wx:key=''>
+            <view class='logs'>
+              <image src='{{item.head_image}}'></image>
+              <text class='nickname'>{{item.nickname==''?'神秘人':item.nickname}}</text>
+              <text class='right'>{{item.created_time}}</text>
+              <text class='right' style='color:#fd5454'>{{item.bargain_price}}元</text>
+            </view>
+          </block>
+        </scroll-view>
+      </block>
+      <block wx:else>
+        <scroll-view scroll-x style='width:100%;'>
+          <block wx:for="{{data.res3}}" wx:key=''>
+            <view class='logs'>
+              <image src='{{item.head_image}}'></image>
+              <text class='nickname'>{{item.nickname==''?'神秘人':item.nickname}}</text>
+              <text class='right'>{{item.bargain_time}}</text>
+              <text class='right' style='color:#fd5454'>{{item.bargain_price}}元</text>
+            </view>
+          </block>
+        </scroll-view>
+      </block>
+    </view>
+  </view>
+</view>

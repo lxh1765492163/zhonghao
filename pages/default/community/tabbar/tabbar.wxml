@@ -1,0 +1,7 @@
+<!--pages/tabbar/tabbar.wxml-->
+<template class='tabbar' name='tabbar'>
+  <view  class="tab {{id==item.id ? 'show':''}}" wx:for='{{tabbar}}' wx:fot-item='item' wx:key="" bindtap='tabbar' data-id='{{item.id}}'>
+    <image src='{{item.pagePath}}'></image>
+    <text>{{item.text}}</text>
+  </view>
+</template>

@@ -1,0 +1,36 @@
+<template name="picturew">
+  <block wx:if='{{item.params.row == 1}}'>
+    <view style='background: {{item.style.background}}; padding:{{item.style.paddingtop}}px {{item.style.paddingleft}}px;'>
+      <view class='picture_window'>
+        <navigator class='picture_one' url='{{item.params[1].linkurl}}' wx:if='{{item.params.length >= 1}}'>
+          <image style="width:100%;height:355rpx;" src='https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{item.params[1].imgurl}}'></image>
+        </navigator>
+        <view class='picture_two' wx:if='{{item.params.length >= 2}}' style='margin-left: {{item.style.paddingleft}}px'>
+          <navigator class='two' url='{{item.params[2].linkurl}}'>
+            <image style="width:374rpx;height:180rpx;" src='https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{item.params[2].imgurl}}'></image>
+          </navigator>
+          <view class='picture_three' wx:if='{{item.params.length >= 3}}' style='margin-top:{{item.style.paddingtop}}px'>
+            <navigator class='three' url='{{item.params[3].linkurl}}'>
+              <image src='https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{item.params[3].imgurl}}'></image>
+            </navigator>
+            <navigator class='picture_four' wx:if='{{item.params.length >= 4}}' url='{{item.params[4].linkurl}}' style='margin-left: {{item.style.paddingleft}}px'>
+              <image src='https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{item.params[4].imgurl}}'></image>
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='picture_group' style='background: {{item.style.background}}; padding:{{item.style.paddingtop}}px {{item.style.paddingleft}}px;'>
+      <!-- <block wx:if='{{item.params.showtype!=1 }}'> -->
+        <view class='row_{{item.params.row}}' wx:for='{{item.data}}' wx:for-item="val" wx:key="">
+          <navigator url='{{val.linkurl}}' style='padding:{{item.style.paddingtop}}px {{item.style.paddingleft}}px; height:100%;'>
+            <image src='https://weixinxiaochengxun.oss-cn-beijing.aliyuncs.com/attachment/{{val.imgurl}}' mode='widthFix'></image>
+          </navigator>
+        </view>
+    
+    </view>
+  </block>
+</template>
+

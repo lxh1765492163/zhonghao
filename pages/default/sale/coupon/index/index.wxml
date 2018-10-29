@@ -1,0 +1,81 @@
+<import src="../../../../component/merch_adv/merch_adv.wxml" />
+<view class="fui-page fui-page-current">
+  <view class="fui-content coupon-index-bg">
+    <block wx:if="{{items.advs.length > 0}}">
+      <template is="merch_adv" data="{{...items}}" />
+    </block>
+  </view>
+  <view class="fui-tab-scroll">
+    <view class="container">
+      <text class="item {{cateid == '' ? 'on' : ''}}" catchtap="selector" data-cateid="">全部优惠券</text>
+      <block wx:for="{{items.category}}" wx:for-item="item" wx:key="">
+        <text class="item {{cateid != '' && cateid == item.id ? 'on' : ''}}" catchtap="selector" data-cateid="{{item.id}}">{{item.name}}</text>
+      </block>
+    </view>
+  </view>
+  <block wx:if="{{list.length > 0}}">
+    <view class="coupon-container coupon-index-list">
+      <block wx:for="{{list}}" wx:for-item="item" wx:key="">
+        <block wx:if="{{item.isdisa == 1}}">
+          <view class="coupon-index-list-a disa">
+            <view class="fui-list coupon-list">
+              <text class="coupon-top-i"></text><text class="coupon-bot-i"></text>
+              <text class="coupon-ling"><image src="{{items.icon.endicon}}"></image></text>
+              <view class="fui-list-inner coupon-index-list-left">
+                <view class="b" style="width:92px;text-align:center;">{{item.tagtitle}}</view>
+                <view class="coupon-index-list-info fui-list">
+                  <view class="fui-list-media">
+                    <image src="{{item.thumb == '' ? items.icon.cover : item.thumb}}"></image>
+                  </view>
+                  <view class="fui-list-inner">
+                    <view class="h3">{{item.couponname}}</view>
+                    <view class="coupon-full">￥{{item._backmoney}}{{item.title2}}</view>
+                    <view class='coupon-time'>{{item.title4}}</view>
+                  </view>
+                </view>
+              </view>
+              <view class="fui-list-media coupon-index-list-right">
+                <view class="forth0 circle coupon-list-canvas"></view>
+                <text class="coupon-list-ling">已发完</text>
+              </view>
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <navigator url="/pages/default/sale/coupon/detail/detail?id={{item.id}}" class="coupon-index-list-a {{item.color}}">
+            <view class="fui-list coupon-list coupon-list-allow">
+              <text class="i coupon-top-i"></text><text class="i coupon-bot-i"></text>
+              <view class="fui-list-inner coupon-index-list-left">
+                <view class="b" style="width:92px;text-align:center;{{item.settitlecolor == 1 ? 'background:'+item.titlecolor : ''}}">{{item.tagtitle}}</view>
+                <view class="coupon-index-list-info fui-list">
+                  <view class="fui-list-media">
+                    <image src="{{item.thumb == '' ? items.icon.cover : item.thumb}}"></image>
+                  </view>
+                  <view class="fui-list-inner">
+                    <view class="h3">{{item.couponname}}</view>
+                    <view class="coupon-full"><text>￥{{item._backmoney}}</text> {{item.title2}}</view>
+                    <view class='coupon-time'>{{item.title4}}</view>
+                  </view>
+                </view>
+              </view>
+              <view class="fui-list-media coupon-index-list-right">
+                <view class="forth{{item.id}} circle coupon-list-canvas">
+                  <view class="canvas"></view>
+                  <view style="padding-top:1.1rem;">剩余</view>
+                  <view>{{item.lastratio}}%</view>
+                </view>
+                <text class="coupon-list-ling">立即领取</text>
+              </view>
+            </view>
+          </navigator>
+        </block>
+      </block>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="fui-message fui-message-popup in content-empty" style="margin-top:0;">
+      <view class="icon"><view clsas="icon icon-information"></view></view>
+      <view class="content">还没有发布优惠券~</view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,20 @@
+<!--pages/community/comment/comment.wxml-->
+<view class='newBuild'>
+    <form bindsubmit="subcomment">
+        <textarea class='contents' placeholder='内容  10-500个字' maxlength='500' placeholder-style='font-size: 30rpx' name="val"></textarea>
+        <view class="">
+            <view class='title'>
+                <image bindtap="openimage" src="/assets/images/add.png" class="img"></image>
+                <text style="font-size:30rpx; color:#ccc;margin-top:20rpx;">（最多支持三张图片,单张图片上传）</text>
+            </view>
+            <view class="openimg">
+                <block wx:for="{{image}}"  wx:for-item="img" wx:key="">
+
+                    <image class="img" src="http://xcx.xcwll.cn/attachment/{{img}}"></image>
+
+                </block>
+            </view>
+        </view>
+        <button formType="submit">提交</button>
+    </form>
+</view>

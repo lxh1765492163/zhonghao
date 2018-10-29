@@ -1,0 +1,52 @@
+<!--pages/default/seckill/hall/hall.wxml-->
+<view class='seckillhall'>
+  <scroll-view scroll-x style='width:100%;'>
+    <view class='seckilltimes'>
+      <block wx:for='{{data.times}}' wx:key=''>
+        <view class='time' bindtap='changetime' data-tid='{{item.id}}' data-kid='{{item.taskid}}' style="color:{{timeid==item.id?'red':''}}">
+          <view>{{item.time}}:00</view>
+          <view style='font-size:25rpx;'>{{nowtime<item.starttime?'未开始':nowtime<item.endtime?'已开抢':'已结束'}}</view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+
+  <view class='hallimg'>
+    <scroll-view scroll-x style='width:100%;'>
+      <view class='advs'>
+        <block wx:for='{{data.advs}}' wx:key=''>
+          <image mode='widthFix' src='{{item.thumb}}'></image>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+
+
+  <scroll-view scroll-x style='width:100%;'>
+    <view class='hallrooms'>
+      <block wx:for='{{data.rooms}}' wx:key=''>
+        <text class='room' bindtap='changeroom' data-rid='{{item.id}}' style="border-bottom: {{roomid==item.id?'solid 3rpx red':''}}">{{item.title}}</text>
+      </block>
+    </view>
+  </scroll-view>
+
+
+  <view class='hallgoodslist' wx:if='{{goodslist.goods}}'>
+    <view class='countdown'>{{countdown}}</view>
+    <block wx:for='{{goodslist.goods}}' wx:key=''>
+      <view class='goods'>
+        <image src='{{item.thumb}}'></image>
+        <view class='text'>
+          <view style='margin-bottom:15rpx'>{{item.title}}</view>
+          <view style='color:#f02b2b;font-size:40rpx;'>￥{{item.price}}</view>
+          <view style='text-decoration-line:line-through;font-size:30rpx;color:#999'>￥{{item.marketprice}}</view>
+        </view>
+        <view class='sale'>
+          <navigator url='/pages/default/goods/detail/detail?id={{item.goodsid}}' style="background:{{nowtime<goodslist.time.starttime?'#04be02':nowtime<goodslist.time.endtime?'#ef4f4f':'#999'}}">{{nowtime<goodslist.time.starttime?'等待抢购':nowtime<goodslist.time.endtime?'去抢购':'抢购结束'}}</navigator>
+          <progress percent='{{item.percent}}' activeColor='#ef4f4f' style='font-size:20rpx'> 已售{{item.percent==null?0:item.percent}}%</progress>
+        </view>
+      </view>
+    </block>
+     
+  </view>
+</view>

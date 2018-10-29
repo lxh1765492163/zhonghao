@@ -1,0 +1,61 @@
+<!--index.wxml-->
+<view class="container font">
+
+  <view class="weui-cells weui-cells_after-title onlist onlist1">
+    <view class="weui-cell" style="display: flex; flex-direction: column;">
+        <view class="weui-cell__bd" style="width:100%;">订单编号：2145785412</view>
+        <view class="weui-cell__bd" style="width:100%;">订单状态：<text style="color: #EB5E18;">等待支付</text></view>
+        <view class="weui-cell__bd" style="width:100%; display:flex; justify-content: space-between;">
+          <text>订单金额：￥85.44</text>  
+          <button catchtap="pay" size="mini" style="margin: 0 0 0 10rpx; width:140rpx; color: #EB5E18; border: 1px solid #EB5E18; background-color: white; padding: 0; line-height: 1.8;">去支付</button>
+        </view>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title onlist2">
+    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view catchtap="tomap" class="weui-cell__bd" style="display: flex; flex-direction: column;">
+          <text class="onlist">武汉志汇国际酒店</text>
+          <text style="font-size: 24rpx; color: #A9A9A9">卓暴露武昌理工大学后门</text>
+        </view>
+        <view class="weui-cell__ft" style="display: flex;">
+          <image style="width: 40rpx; height:40rpx;" mode="aspectFit" src="../../images/xiangqingdizhi@2x.png"></image>
+        </view>
+    </navigator>
+    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" catchtap="call_phone">
+        <view class="weui-cell__bd onlist">酒店电话：027-25412587</view>
+        <view class="weui-cell__ft" style="display: flex;">
+          <image style="width: 40rpx; height:40rpx;" mode="aspectFit" src="../../images/xiangqingdianhua@2x.png"></image>
+        </view>
+    </navigator>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title onlist2">
+    <view class="weui-cell">
+        <view class="weui-cell__bd onlist">入离时间：08月9号-08月10号</view>
+        <view class="weui-cell__ft" style="color: #EB5E18;">共一晚</view>
+    </view>
+    <view class="weui-cell" style="display: flex; flex-direction: column;">
+        <view class="weui-cell__bd onlist" style="width:100%;">入住房型：特惠大床房（1间）</view>
+        <view class="weui-cell__bd onlist" style="width:100%;">最晚到店：08月9日 21:00</view>
+        <view class="weui-cell__bd onlist" style="width:100%;">入住客人：喵喵喵</view>
+        <view class="weui-cell__bd onlist" style="width:100%;">联系电话：18654874875</view>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title onlist2">
+    <view class="weui-cell">
+        <view class="weui-cell__bd onlist">预定日期：2017年8月9号</view>
+    </view>
+    <view class="weui-cell">
+        <view class="weui-cell__bd onlist">订单金额：<text style="color: #EB5E18;">¥85.44</text>（预付）</view>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title" style="background-color: #efeff4; color: #A9A9A9; font-size: 24rpx;">
+    <view class="weui-cell" style="display: flex; flex-direction: column;">
+        <view class="weui-cell__bd" style="width:100%;">取消规则</view>
+        <view class="weui-cell__bd" style="width:100%;">订单一经预订，不可取消或变更；如未能如约入住，您的预付房费将不予退还</view>
+    </view>
+  </view>
+</view>

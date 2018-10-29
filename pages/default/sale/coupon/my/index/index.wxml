@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view class='box'>
+    <view class='nav'>
+        <text class="{{currentTab == 1 ? 'active' : ''}}"  data-current="1" bindtap="swichNav">未使用</text>
+        <text class="{{currentTab == 2 ? 'active' : ''}}"  data-current="2" bindtap="swichNav">已使用</text>
+        <text class="{{currentTab == 3 ? 'active' : ''}}"  data-current="3" bindtap="swichNav">已过期</text>
+    </view>
+     <block wx:if="{{t<1}}"> 
+    <view class='ad'>  
+        <image src='/assets/images/gift.png'></image>
+        <text>赶紧去领券中心看看更多优惠券</text>
+    </view>
+       </block>
+     <block wx:if="{{t>0}}">
+    <view class='coupon'>
+    <block wx:for="{{items}}" wx:for-item="item" wx:key="">
+        <view class='coupon-item'>
+            <view class='coupon-item-img'>
+                <image src="{{item.thumb == '' ? '/assets/images/goodsicon-sendfree.png' : item.thumb}}" mode='aspectFit'></image>
+            </view>
+            <view class='coupon-item-detail'>
+                <text>{{item.couponname}}</text>
+                <text>￥{{item._backmoney}}{{item.title2}}</text>
+                <text>{{item.title4}}</text>
+            </view>
+            <view class='coupon-item-type'>
+                <text></text>
+                <block wx:if="{{item.check ==2}}"><text class='use_now'> 已过期 </text>   </block>
+                <block wx:elif="{{item.check ==1}}"> <text class='use_now'> 	已使用 </text></block>
+                 <block wx:else>  
+              
+                   <text class='use_now' catchtap="buy" >    立即使用  </text>  
+                 
+               </block>
+            </view>
+        </view>
+         </block>
+    </view>
+    </block>
+</view>
